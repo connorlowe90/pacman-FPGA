@@ -20,12 +20,12 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW,
 	logic [8:0] y;
 	logic [7:0] r, g, b;
 
-	VGA_Ctrl vga_c (.CLOCK_50, .reset(SW[0]), .x, .y, .r, .g, .b);
+	VGA_Ctrl vga_c (.CLOCK_50(CLOCK_50), .reset(SW[0]), .x(x), .y(y), .r(r), .g(g), .b(b));
 	
 	video_driver #(.WIDTH(640), .HEIGHT(480))
-		v1 (.CLOCK_50, .reset, .x, .y, .r, .g, .b,
-			 .VGA_R, .VGA_G, .VGA_B, .VGA_BLANK_N,
-			 .VGA_CLK, .VGA_HS, .VGA_SYNC_N, .VGA_VS);
+		v1 (.CLOCK_50(CLOCK_50), .reset(reset), .x(x), .y(y), .r(r), .g(g), .b(b),
+			 .VGA_R(VGA_R), .VGA_G(VGA_G), .VGA_B(VGA_B), .VGA_BLANK_N(VGA_BLANK_N),
+			 .VGA_CLK(VGA_CLK), .VGA_HS(VGA_HS), .VGA_SYNC_N(VGA_SYNC_N), .VGA_VS(VGA_VS));
 	
 	// always_ff @(posedge CLOCK_50) begin
 	// 	r <= 8'd255;//SW[7:0];
