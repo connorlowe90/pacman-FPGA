@@ -18,7 +18,6 @@
 *.f
 *.bsf
 *.ppf
-*.qip
 *.sip
 *.spd
 *.sdc
