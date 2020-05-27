@@ -1,0 +1,48 @@
+-- Copyright (C) 2017  Intel Corporation. All rights reserved.
+-- Your use of Intel Corporation's design tools, logic functions 
+-- and other software and tools, and its AMPP partner logic 
+-- functions, and any output files from any of the foregoing 
+-- (including device programming or simulation files), and any 
+-- associated documentation or information are expressly subject 
+-- to the terms and conditions of the Intel Program License 
+-- Subscription Agreement, the Intel Quartus Prime License Agreement,
+-- the Intel MegaCore Function License Agreement, or other 
+-- applicable license agreement, including, without limitation, 
+-- that your use is for the sole purpose of programming logic 
+-- devices manufactured by Intel and sold by Intel or its 
+-- authorized distributors.  Please refer to the applicable 
+-- agreement for further details.
+
+-- Quartus Prime generated Memory Initialization File (.mif)
+
+WIDTH=160;
+DEPTH=30;
+
+ADDRESS_RADIX=UNS;
+DATA_RADIX=HEX;
+
+CONTENT BEGIN
+	0   :   1111111111111111111111111111111111111111;
+	1   :   1000000000000000000110000000000000000001;
+	[2..4]  :   1011111110111111110110111111110111111101;
+	5   :   1000000000000000000000000000000000000001;
+	6   :   1011111110110111111111111110110111111101;
+	7   :   1000000000110111111111111110110000000001;
+	8   :   1111111110110000000110000000110111111111;
+	9   :   1111111110111111110110111111110111111111;
+	10  :   1111111110110000000000000000110111111111;
+	11  :   1111111110110111111001111110110111111111;
+	12  :   1000000000000100000000000010000000000001;
+	13  :   1111111110110100000000000010110111111111;
+	14  :   1111111110110111111111111110110111111111;
+	15  :   1111111110110000000000000000110111111111;
+	16  :   1111111110110111111111111110110111111111;
+	17  :   1000000000000000000110000000000000000001;
+	[18..19]  :   1011111110110111110110111110110111111101;
+	20  :   1000001110000000000000000000000111000001;
+	[21..22]  :   1111101110110111111111111110110111011111;
+	23  :   1000000000110000000110000000110000000001;
+	[24..27]  :   1011111110111111110110111111110111111101;
+	28  :   1000000000000000000000000000000000000001;
+	29  :   1111111111111111111111111111111111111111;
+END;

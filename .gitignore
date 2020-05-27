@@ -9,6 +9,12 @@
 *.qtl
 \db
 \incremental_db
+.*
+*.lib
+*.var
+*.tcl
+*.vo
+*.setup
 *.f
 *.bsf
 *.ppf
