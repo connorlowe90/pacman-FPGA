@@ -44,7 +44,7 @@ module video_driver
 	reg [8:0] yd;
 	
 	// Use the PLL (a clock generator) for normal operation.  To simulate, use the line below that.
-	CLOCK25_PLL c25_gen (.refclk(CLOCK_50), .rst(reset), .outclk_0(CLOCK_25), .locked(locked));	
+	CLOCK25_PLL c25_gen (.refclk(CLOCK_50), .rst(reset), .outclk_0(CLOCK_25), .locked);	
 	//always @(posedge CLOCK_50)
 	//	CLOCK_25 <= ~CLOCK_25;
 	
@@ -122,7 +122,7 @@ module video_driver
 	altera_up_avalon_video_vga_timing video (
 		// inputs
 		.clk(CLOCK_25),
-		.reset(reset),
+		.reset,
 
 		.red_to_vga_display({rout,2'b00}),
 		.green_to_vga_display({gout,2'b00}),
@@ -130,16 +130,16 @@ module video_driver
 		.color_select(4'b1111),
 		
 		// outputs
-		.read_enable(read_enable),
-		.end_of_active_frame(end_of_active_frame),
-		.end_of_frame(end_of_frame),
+		.read_enable,
+		.end_of_active_frame,
+		.end_of_frame,
 
 		// dac pins
-		.vga_blank(vga_blank),					//	VGA BLANK
-		.vga_c_sync(vga_c_sync),				//	VGA COMPOSITE SYNC
-		.vga_h_sync(vga_h_sync),				//	VGA H_SYNC
-		.vga_v_sync(vgs_v_sync),				//	VGA V_SYNC
-		.vga_data_enable(vgs_data_enable),			// VGA DEN
+		.vga_blank,					//	VGA BLANK
+		.vga_c_sync,				//	VGA COMPOSITE SYNC
+		.vga_h_sync,				//	VGA H_SYNC
+		.vga_v_sync,				//	VGA V_SYNC
+		.vga_data_enable,			// VGA DEN
 		.vga_red(VGA_R),			//	VGA Red[9:0]
 		.vga_green(VGA_G),	 	//	VGA Green[9:0]
 		.vga_blue(VGA_B),	   	//	VGA Blue[9:0]

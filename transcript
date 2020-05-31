@@ -1,0 +1,1176 @@
+# Reading F:/intelFPGA_lite/17.0/modelsim_ase/tcl/vsim/pref.tcl
+do runlab.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:39:57 on May 30,2020
+# vlog -reportprogress 300 ./VGA_Ctrl.sv 
+# -- Compiling module VGA_Ctrl
+# -- Compiling module VGA_Ctrl_testbench
+# 
+# Top level modules:
+# 	VGA_Ctrl_testbench
+# End time: 20:39:57 on May 30,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:39:57 on May 30,2020
+# vlog -reportprogress 300 ./wall_ROM.v 
+# -- Compiling module wall_ROM
+# 
+# Top level modules:
+# 	wall_ROM
+# End time: 20:39:57 on May 30,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:39:57 on May 30,2020
+# vlog -reportprogress 300 ./pacman_ROM.v 
+# -- Compiling module pacman_ROM
+# 
+# Top level modules:
+# 	pacman_ROM
+# End time: 20:39:57 on May 30,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:39:57 on May 30,2020
+# vlog -reportprogress 300 ./dot_ROM.v 
+# -- Compiling module dot_ROM
+# 
+# Top level modules:
+# 	dot_ROM
+# End time: 20:39:57 on May 30,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:39:57 on May 30,2020
+# vlog -reportprogress 300 ./pill_ROM.v 
+# -- Compiling module pill_ROM
+# 
+# Top level modules:
+# 	pill_ROM
+# End time: 20:39:57 on May 30,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:39:57 on May 30,2020
+# vlog -reportprogress 300 ./ghost_r_ROM.v 
+# -- Compiling module ghost_R_ROM
+# 
+# Top level modules:
+# 	ghost_R_ROM
+# End time: 20:39:57 on May 30,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:39:57 on May 30,2020
+# vlog -reportprogress 300 ./ghost_g_ROM.v 
+# -- Compiling module ghost_G_ROM
+# 
+# Top level modules:
+# 	ghost_G_ROM
+# End time: 20:39:57 on May 30,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:39:57 on May 30,2020
+# vlog -reportprogress 300 ./ghost_b_ROM.v 
+# -- Compiling module ghost_B_ROM
+# 
+# Top level modules:
+# 	ghost_B_ROM
+# End time: 20:39:58 on May 30,2020, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vsim -voptargs=""+acc"" -t 1ps -lib work VGA_Ctrl_testbench -Lf altera_mf_ver 
+# Start time: 20:39:58 on May 30,2020
+# Loading sv_std.std
+# Loading work.VGA_Ctrl_testbench
+# Loading work.VGA_Ctrl
+# Loading work.wall_ROM
+# Loading altera_mf_ver.altsyncram
+# Loading work.pacman_ROM
+# Loading work.dot_ROM
+# Loading work.pill_ROM
+# Loading work.ghost_R_ROM
+# Loading work.ghost_G_ROM
+# Loading work.ghost_B_ROM
+# Loading altera_mf_ver.altsyncram_body
+# Loading altera_mf_ver.ALTERA_DEVICE_FAMILIES
+# Loading altera_mf_ver.ALTERA_MF_MEMORY_INITIALIZATION
+# ** Warning: (vsim-3015) ./VGA_Ctrl.sv(16): [PCDPC] - Port size (4) does not match connection size (5) for port 'address'. The port definition is at: ./wall_ROM.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /VGA_Ctrl_testbench/dut/wall File: ./wall_ROM.v
+# ** Warning: (vsim-3015) ./VGA_Ctrl.sv(24): [PCDPC] - Port size (4) does not match connection size (5) for port 'address'. The port definition is at: ./pacman_ROM.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /VGA_Ctrl_testbench/dut/pac File: ./pacman_ROM.v
+# ** Warning: (vsim-3015) ./VGA_Ctrl.sv(32): [PCDPC] - Port size (4) does not match connection size (5) for port 'address'. The port definition is at: ./dot_ROM.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /VGA_Ctrl_testbench/dut/dot File: ./dot_ROM.v
+# ** Warning: (vsim-3015) ./VGA_Ctrl.sv(40): [PCDPC] - Port size (4) does not match connection size (5) for port 'address'. The port definition is at: ./pill_ROM.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /VGA_Ctrl_testbench/dut/pill File: ./pill_ROM.v
+# ** Warning: (vsim-3015) ./VGA_Ctrl.sv(48): [PCDPC] - Port size (4) does not match connection size (5) for port 'address'. The port definition is at: ./ghost_r_ROM.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /VGA_Ctrl_testbench/dut/ghost_r File: ./ghost_r_ROM.v
+# ** Warning: (vsim-3015) ./VGA_Ctrl.sv(49): [PCDPC] - Port size (4) does not match connection size (5) for port 'address'. The port definition is at: ./ghost_g_ROM.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /VGA_Ctrl_testbench/dut/ghost_g File: ./ghost_g_ROM.v
+# ** Warning: (vsim-3015) ./VGA_Ctrl.sv(50): [PCDPC] - Port size (4) does not match connection size (5) for port 'address'. The port definition is at: ./ghost_b_ROM.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /VGA_Ctrl_testbench/dut/ghost_b File: ./ghost_b_ROM.v
+# .main_pane.wave.interior.cs.body.pw.wf
+# .main_pane.structure.interior.cs.body.struct
+# .main_pane.objects.interior.cs.body.tree
+# ** Warning: (vsim-3534) [FOFIR] - Failed to open file "../pacman_right.mif" for reading.
+# No such file or directory. (errno = ENOENT)    : /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v(264)
+#    Time: 0 ps  Iteration: 0  Instance: /VGA_Ctrl_testbench/dut/pac/altsyncram_component/m_default/altsyncram_inst
+# ERROR: cannot read ../pacman_right.mif.
+# ** Warning: (vsim-7) Failed to open readmem file "../pacman_right.ver" in read mode.
+# No such file or directory. (errno = ENOENT)    : /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v(48977)
+#    Time: 0 ps  Iteration: 0  Instance: /VGA_Ctrl_testbench/dut/pac/altsyncram_component/m_default/altsyncram_inst
+# ** Note: $stop    : ./VGA_Ctrl.sv(159)
+#    Time: 11350 ps  Iteration: 1  Instance: /VGA_Ctrl_testbench
+# Break in Module VGA_Ctrl_testbench at ./VGA_Ctrl.sv line 159
+add wave -position 2  sim:/VGA_Ctrl_testbench/obj
+write format wave -window .main_pane.wave.interior.cs.body.pw.wf {F:/EE 371/pacman/VGA_Ctrl_wave.do}
+do runlab.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:40:44 on May 30,2020
+# vlog -reportprogress 300 ./VGA_Ctrl.sv 
+# -- Compiling module VGA_Ctrl
+# -- Compiling module VGA_Ctrl_testbench
+# 
+# Top level modules:
+# 	VGA_Ctrl_testbench
+# End time: 20:40:44 on May 30,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:40:44 on May 30,2020
+# vlog -reportprogress 300 ./wall_ROM.v 
+# -- Compiling module wall_ROM
+# 
+# Top level modules:
+# 	wall_ROM
+# End time: 20:40:44 on May 30,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:40:44 on May 30,2020
+# vlog -reportprogress 300 ./pacman_ROM.v 
+# -- Compiling module pacman_ROM
+# 
+# Top level modules:
+# 	pacman_ROM
+# End time: 20:40:45 on May 30,2020, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:40:45 on May 30,2020
+# vlog -reportprogress 300 ./dot_ROM.v 
+# -- Compiling module dot_ROM
+# 
+# Top level modules:
+# 	dot_ROM
+# End time: 20:40:45 on May 30,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:40:45 on May 30,2020
+# vlog -reportprogress 300 ./pill_ROM.v 
+# -- Compiling module pill_ROM
+# 
+# Top level modules:
+# 	pill_ROM
+# End time: 20:40:45 on May 30,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:40:45 on May 30,2020
+# vlog -reportprogress 300 ./ghost_r_ROM.v 
+# -- Compiling module ghost_R_ROM
+# 
+# Top level modules:
+# 	ghost_R_ROM
+# End time: 20:40:45 on May 30,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:40:45 on May 30,2020
+# vlog -reportprogress 300 ./ghost_g_ROM.v 
+# -- Compiling module ghost_G_ROM
+# 
+# Top level modules:
+# 	ghost_G_ROM
+# End time: 20:40:45 on May 30,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:40:45 on May 30,2020
+# vlog -reportprogress 300 ./ghost_b_ROM.v 
+# -- Compiling module ghost_B_ROM
+# 
+# Top level modules:
+# 	ghost_B_ROM
+# End time: 20:40:45 on May 30,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 20:40:46 on May 30,2020, Elapsed time: 0:00:48
+# Errors: 0, Warnings: 9
+# vsim -voptargs=""+acc"" -t 1ps -lib work VGA_Ctrl_testbench -Lf altera_mf_ver 
+# Start time: 20:40:46 on May 30,2020
+# Loading sv_std.std
+# Loading work.VGA_Ctrl_testbench
+# Loading work.VGA_Ctrl
+# Loading work.wall_ROM
+# Loading altera_mf_ver.altsyncram
+# Loading work.pacman_ROM
+# Loading work.dot_ROM
+# Loading work.pill_ROM
+# Loading work.ghost_R_ROM
+# Loading work.ghost_G_ROM
+# Loading work.ghost_B_ROM
+# Loading altera_mf_ver.altsyncram_body
+# Loading altera_mf_ver.ALTERA_DEVICE_FAMILIES
+# Loading altera_mf_ver.ALTERA_MF_MEMORY_INITIALIZATION
+# ** Warning: (vsim-3015) ./VGA_Ctrl.sv(16): [PCDPC] - Port size (4) does not match connection size (5) for port 'address'. The port definition is at: ./wall_ROM.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /VGA_Ctrl_testbench/dut/wall File: ./wall_ROM.v
+# ** Warning: (vsim-3015) ./VGA_Ctrl.sv(24): [PCDPC] - Port size (4) does not match connection size (5) for port 'address'. The port definition is at: ./pacman_ROM.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /VGA_Ctrl_testbench/dut/pac File: ./pacman_ROM.v
+# ** Warning: (vsim-3015) ./VGA_Ctrl.sv(32): [PCDPC] - Port size (4) does not match connection size (5) for port 'address'. The port definition is at: ./dot_ROM.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /VGA_Ctrl_testbench/dut/dot File: ./dot_ROM.v
+# ** Warning: (vsim-3015) ./VGA_Ctrl.sv(40): [PCDPC] - Port size (4) does not match connection size (5) for port 'address'. The port definition is at: ./pill_ROM.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /VGA_Ctrl_testbench/dut/pill File: ./pill_ROM.v
+# ** Warning: (vsim-3015) ./VGA_Ctrl.sv(48): [PCDPC] - Port size (4) does not match connection size (5) for port 'address'. The port definition is at: ./ghost_r_ROM.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /VGA_Ctrl_testbench/dut/ghost_r File: ./ghost_r_ROM.v
+# ** Warning: (vsim-3015) ./VGA_Ctrl.sv(49): [PCDPC] - Port size (4) does not match connection size (5) for port 'address'. The port definition is at: ./ghost_g_ROM.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /VGA_Ctrl_testbench/dut/ghost_g File: ./ghost_g_ROM.v
+# ** Warning: (vsim-3015) ./VGA_Ctrl.sv(50): [PCDPC] - Port size (4) does not match connection size (5) for port 'address'. The port definition is at: ./ghost_b_ROM.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /VGA_Ctrl_testbench/dut/ghost_b File: ./ghost_b_ROM.v
+# .main_pane.wave.interior.cs.body.pw.wf
+# .main_pane.structure.interior.cs.body.struct
+# .main_pane.objects.interior.cs.body.tree
+# ** Warning: (vsim-3534) [FOFIR] - Failed to open file "../pacman_right.mif" for reading.
+# No such file or directory. (errno = ENOENT)    : /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v(264)
+#    Time: 0 ps  Iteration: 0  Instance: /VGA_Ctrl_testbench/dut/pac/altsyncram_component/m_default/altsyncram_inst
+# ERROR: cannot read ../pacman_right.mif.
+# ** Warning: (vsim-7) Failed to open readmem file "../pacman_right.ver" in read mode.
+# No such file or directory. (errno = ENOENT)    : /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v(48977)
+#    Time: 0 ps  Iteration: 0  Instance: /VGA_Ctrl_testbench/dut/pac/altsyncram_component/m_default/altsyncram_inst
+# ** Note: $stop    : ./VGA_Ctrl.sv(159)
+#    Time: 11350 ps  Iteration: 1  Instance: /VGA_Ctrl_testbench
+# Break in Module VGA_Ctrl_testbench at ./VGA_Ctrl.sv line 159
+do runlab.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:42:00 on May 30,2020
+# vlog -reportprogress 300 ./VGA_Ctrl.sv 
+# -- Compiling module VGA_Ctrl
+# -- Compiling module VGA_Ctrl_testbench
+# 
+# Top level modules:
+# 	VGA_Ctrl_testbench
+# End time: 20:42:00 on May 30,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:42:00 on May 30,2020
+# vlog -reportprogress 300 ./wall_ROM.v 
+# -- Compiling module wall_ROM
+# 
+# Top level modules:
+# 	wall_ROM
+# End time: 20:42:00 on May 30,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:42:00 on May 30,2020
+# vlog -reportprogress 300 ./pacman_ROM.v 
+# -- Compiling module pacman_ROM
+# 
+# Top level modules:
+# 	pacman_ROM
+# End time: 20:42:00 on May 30,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:42:00 on May 30,2020
+# vlog -reportprogress 300 ./dot_ROM.v 
+# -- Compiling module dot_ROM
+# 
+# Top level modules:
+# 	dot_ROM
+# End time: 20:42:00 on May 30,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:42:00 on May 30,2020
+# vlog -reportprogress 300 ./pill_ROM.v 
+# -- Compiling module pill_ROM
+# 
+# Top level modules:
+# 	pill_ROM
+# End time: 20:42:00 on May 30,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:42:00 on May 30,2020
+# vlog -reportprogress 300 ./ghost_r_ROM.v 
+# -- Compiling module ghost_R_ROM
+# 
+# Top level modules:
+# 	ghost_R_ROM
+# End time: 20:42:00 on May 30,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:42:00 on May 30,2020
+# vlog -reportprogress 300 ./ghost_g_ROM.v 
+# -- Compiling module ghost_G_ROM
+# 
+# Top level modules:
+# 	ghost_G_ROM
+# End time: 20:42:00 on May 30,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:42:00 on May 30,2020
+# vlog -reportprogress 300 ./ghost_b_ROM.v 
+# -- Compiling module ghost_B_ROM
+# 
+# Top level modules:
+# 	ghost_B_ROM
+# End time: 20:42:00 on May 30,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 20:42:01 on May 30,2020, Elapsed time: 0:01:15
+# Errors: 0, Warnings: 9
+# vsim -voptargs=""+acc"" -t 1ps -lib work VGA_Ctrl_testbench -Lf altera_mf_ver 
+# Start time: 20:42:01 on May 30,2020
+# Loading sv_std.std
+# Loading work.VGA_Ctrl_testbench
+# Loading work.VGA_Ctrl
+# Loading work.wall_ROM
+# Loading altera_mf_ver.altsyncram
+# Loading work.pacman_ROM
+# Loading work.dot_ROM
+# Loading work.pill_ROM
+# Loading work.ghost_R_ROM
+# Loading work.ghost_G_ROM
+# Loading work.ghost_B_ROM
+# Loading altera_mf_ver.altsyncram_body
+# Loading altera_mf_ver.ALTERA_DEVICE_FAMILIES
+# Loading altera_mf_ver.ALTERA_MF_MEMORY_INITIALIZATION
+# ** Warning: (vsim-3015) ./VGA_Ctrl.sv(16): [PCDPC] - Port size (4) does not match connection size (5) for port 'address'. The port definition is at: ./wall_ROM.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /VGA_Ctrl_testbench/dut/wall File: ./wall_ROM.v
+# ** Warning: (vsim-3015) ./VGA_Ctrl.sv(24): [PCDPC] - Port size (4) does not match connection size (5) for port 'address'. The port definition is at: ./pacman_ROM.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /VGA_Ctrl_testbench/dut/pac File: ./pacman_ROM.v
+# ** Warning: (vsim-3015) ./VGA_Ctrl.sv(32): [PCDPC] - Port size (4) does not match connection size (5) for port 'address'. The port definition is at: ./dot_ROM.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /VGA_Ctrl_testbench/dut/dot File: ./dot_ROM.v
+# ** Warning: (vsim-3015) ./VGA_Ctrl.sv(40): [PCDPC] - Port size (4) does not match connection size (5) for port 'address'. The port definition is at: ./pill_ROM.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /VGA_Ctrl_testbench/dut/pill File: ./pill_ROM.v
+# ** Warning: (vsim-3015) ./VGA_Ctrl.sv(48): [PCDPC] - Port size (4) does not match connection size (5) for port 'address'. The port definition is at: ./ghost_r_ROM.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /VGA_Ctrl_testbench/dut/ghost_r File: ./ghost_r_ROM.v
+# ** Warning: (vsim-3015) ./VGA_Ctrl.sv(49): [PCDPC] - Port size (4) does not match connection size (5) for port 'address'. The port definition is at: ./ghost_g_ROM.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /VGA_Ctrl_testbench/dut/ghost_g File: ./ghost_g_ROM.v
+# ** Warning: (vsim-3015) ./VGA_Ctrl.sv(50): [PCDPC] - Port size (4) does not match connection size (5) for port 'address'. The port definition is at: ./ghost_b_ROM.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /VGA_Ctrl_testbench/dut/ghost_b File: ./ghost_b_ROM.v
+# .main_pane.wave.interior.cs.body.pw.wf
+# .main_pane.structure.interior.cs.body.struct
+# .main_pane.objects.interior.cs.body.tree
+# ** Warning: (vsim-3534) [FOFIR] - Failed to open file "../pacman_right.mif" for reading.
+# No such file or directory. (errno = ENOENT)    : /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v(264)
+#    Time: 0 ps  Iteration: 0  Instance: /VGA_Ctrl_testbench/dut/pac/altsyncram_component/m_default/altsyncram_inst
+# ERROR: cannot read ../pacman_right.mif.
+# ** Warning: (vsim-7) Failed to open readmem file "../pacman_right.ver" in read mode.
+# No such file or directory. (errno = ENOENT)    : /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v(48977)
+#    Time: 0 ps  Iteration: 0  Instance: /VGA_Ctrl_testbench/dut/pac/altsyncram_component/m_default/altsyncram_inst
+# Break key hit
+# Simulation stop requested.
+restart -f
+# ** Warning: (vsim-3015) ./VGA_Ctrl.sv(16): [PCDPC] - Port size (4) does not match connection size (5) for port 'address'. The port definition is at: ./wall_ROM.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /VGA_Ctrl_testbench/dut/wall File: ./wall_ROM.v
+# ** Warning: (vsim-3015) ./VGA_Ctrl.sv(24): [PCDPC] - Port size (4) does not match connection size (5) for port 'address'. The port definition is at: ./pacman_ROM.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /VGA_Ctrl_testbench/dut/pac File: ./pacman_ROM.v
+# ** Warning: (vsim-3015) ./VGA_Ctrl.sv(32): [PCDPC] - Port size (4) does not match connection size (5) for port 'address'. The port definition is at: ./dot_ROM.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /VGA_Ctrl_testbench/dut/dot File: ./dot_ROM.v
+# ** Warning: (vsim-3015) ./VGA_Ctrl.sv(40): [PCDPC] - Port size (4) does not match connection size (5) for port 'address'. The port definition is at: ./pill_ROM.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /VGA_Ctrl_testbench/dut/pill File: ./pill_ROM.v
+# ** Warning: (vsim-3015) ./VGA_Ctrl.sv(48): [PCDPC] - Port size (4) does not match connection size (5) for port 'address'. The port definition is at: ./ghost_r_ROM.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /VGA_Ctrl_testbench/dut/ghost_r File: ./ghost_r_ROM.v
+# ** Warning: (vsim-3015) ./VGA_Ctrl.sv(49): [PCDPC] - Port size (4) does not match connection size (5) for port 'address'. The port definition is at: ./ghost_g_ROM.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /VGA_Ctrl_testbench/dut/ghost_g File: ./ghost_g_ROM.v
+# ** Warning: (vsim-3015) ./VGA_Ctrl.sv(50): [PCDPC] - Port size (4) does not match connection size (5) for port 'address'. The port definition is at: ./ghost_b_ROM.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /VGA_Ctrl_testbench/dut/ghost_b File: ./ghost_b_ROM.v
+run -all
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# ** Warning: (vsim-3534) [FOFIR] - Failed to open file "../pacman_right.mif" for reading.
+# No such file or directory. (errno = ENOENT)    : /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v(264)
+#    Time: 0 ps  Iteration: 0  Instance: /VGA_Ctrl_testbench/dut/pac/altsyncram_component/m_default/altsyncram_inst
+# ERROR: cannot read ../pacman_right.mif.
+# ** Warning: (vsim-7) Failed to open readmem file "../pacman_right.ver" in read mode.
+# No such file or directory. (errno = ENOENT)    : /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v(48977)
+#    Time: 0 ps  Iteration: 0  Instance: /VGA_Ctrl_testbench/dut/pac/altsyncram_component/m_default/altsyncram_inst
+# Break key hit
+# Break in Module altsyncram_body at /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v line 50116
+# Error opening F:/build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v
+# Path name 'F:/build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v' doesn't exist.
+do runlab.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:43:36 on May 30,2020
+# vlog -reportprogress 300 ./VGA_Ctrl.sv 
+# -- Compiling module VGA_Ctrl
+# -- Compiling module VGA_Ctrl_testbench
+# 
+# Top level modules:
+# 	VGA_Ctrl_testbench
+# End time: 20:43:36 on May 30,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:43:36 on May 30,2020
+# vlog -reportprogress 300 ./wall_ROM.v 
+# -- Compiling module wall_ROM
+# 
+# Top level modules:
+# 	wall_ROM
+# End time: 20:43:36 on May 30,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:43:36 on May 30,2020
+# vlog -reportprogress 300 ./pacman_ROM.v 
+# -- Compiling module pacman_ROM
+# 
+# Top level modules:
+# 	pacman_ROM
+# End time: 20:43:36 on May 30,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:43:36 on May 30,2020
+# vlog -reportprogress 300 ./dot_ROM.v 
+# -- Compiling module dot_ROM
+# 
+# Top level modules:
+# 	dot_ROM
+# End time: 20:43:37 on May 30,2020, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:43:37 on May 30,2020
+# vlog -reportprogress 300 ./pill_ROM.v 
+# -- Compiling module pill_ROM
+# 
+# Top level modules:
+# 	pill_ROM
+# End time: 20:43:37 on May 30,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:43:37 on May 30,2020
+# vlog -reportprogress 300 ./ghost_r_ROM.v 
+# -- Compiling module ghost_R_ROM
+# 
+# Top level modules:
+# 	ghost_R_ROM
+# End time: 20:43:37 on May 30,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:43:37 on May 30,2020
+# vlog -reportprogress 300 ./ghost_g_ROM.v 
+# -- Compiling module ghost_G_ROM
+# 
+# Top level modules:
+# 	ghost_G_ROM
+# End time: 20:43:37 on May 30,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:43:37 on May 30,2020
+# vlog -reportprogress 300 ./ghost_b_ROM.v 
+# -- Compiling module ghost_B_ROM
+# 
+# Top level modules:
+# 	ghost_B_ROM
+# End time: 20:43:37 on May 30,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 20:43:39 on May 30,2020, Elapsed time: 0:01:38
+# Errors: 1, Warnings: 18
+# vsim -voptargs=""+acc"" -t 1ps -lib work VGA_Ctrl_testbench -Lf altera_mf_ver 
+# Start time: 20:43:39 on May 30,2020
+# Loading sv_std.std
+# Loading work.VGA_Ctrl_testbench
+# Loading work.VGA_Ctrl
+# Loading work.wall_ROM
+# Loading altera_mf_ver.altsyncram
+# Loading work.pacman_ROM
+# Loading work.dot_ROM
+# Loading work.pill_ROM
+# Loading work.ghost_R_ROM
+# Loading work.ghost_G_ROM
+# Loading work.ghost_B_ROM
+# Loading altera_mf_ver.altsyncram_body
+# Loading altera_mf_ver.ALTERA_DEVICE_FAMILIES
+# Loading altera_mf_ver.ALTERA_MF_MEMORY_INITIALIZATION
+# ** Warning: (vsim-3015) ./VGA_Ctrl.sv(16): [PCDPC] - Port size (4) does not match connection size (5) for port 'address'. The port definition is at: ./wall_ROM.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /VGA_Ctrl_testbench/dut/wall File: ./wall_ROM.v
+# ** Warning: (vsim-3015) ./VGA_Ctrl.sv(24): [PCDPC] - Port size (4) does not match connection size (5) for port 'address'. The port definition is at: ./pacman_ROM.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /VGA_Ctrl_testbench/dut/pac File: ./pacman_ROM.v
+# ** Warning: (vsim-3015) ./VGA_Ctrl.sv(32): [PCDPC] - Port size (4) does not match connection size (5) for port 'address'. The port definition is at: ./dot_ROM.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /VGA_Ctrl_testbench/dut/dot File: ./dot_ROM.v
+# ** Warning: (vsim-3015) ./VGA_Ctrl.sv(40): [PCDPC] - Port size (4) does not match connection size (5) for port 'address'. The port definition is at: ./pill_ROM.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /VGA_Ctrl_testbench/dut/pill File: ./pill_ROM.v
+# ** Warning: (vsim-3015) ./VGA_Ctrl.sv(48): [PCDPC] - Port size (4) does not match connection size (5) for port 'address'. The port definition is at: ./ghost_r_ROM.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /VGA_Ctrl_testbench/dut/ghost_r File: ./ghost_r_ROM.v
+# ** Warning: (vsim-3015) ./VGA_Ctrl.sv(49): [PCDPC] - Port size (4) does not match connection size (5) for port 'address'. The port definition is at: ./ghost_g_ROM.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /VGA_Ctrl_testbench/dut/ghost_g File: ./ghost_g_ROM.v
+# ** Warning: (vsim-3015) ./VGA_Ctrl.sv(50): [PCDPC] - Port size (4) does not match connection size (5) for port 'address'. The port definition is at: ./ghost_b_ROM.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /VGA_Ctrl_testbench/dut/ghost_b File: ./ghost_b_ROM.v
+# .main_pane.wave.interior.cs.body.pw.wf
+# .main_pane.structure.interior.cs.body.struct
+# .main_pane.objects.interior.cs.body.tree
+# ** Warning: (vsim-3534) [FOFIR] - Failed to open file "../pacman_right.mif" for reading.
+# No such file or directory. (errno = ENOENT)    : /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v(264)
+#    Time: 0 ps  Iteration: 0  Instance: /VGA_Ctrl_testbench/dut/pac/altsyncram_component/m_default/altsyncram_inst
+# ERROR: cannot read ../pacman_right.mif.
+# ** Warning: (vsim-7) Failed to open readmem file "../pacman_right.ver" in read mode.
+# No such file or directory. (errno = ENOENT)    : /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v(48977)
+#    Time: 0 ps  Iteration: 0  Instance: /VGA_Ctrl_testbench/dut/pac/altsyncram_component/m_default/altsyncram_inst
+# ** Note: $stop    : ./VGA_Ctrl.sv(159)
+#    Time: 179350 ps  Iteration: 1  Instance: /VGA_Ctrl_testbench
+# Break in Module VGA_Ctrl_testbench at ./VGA_Ctrl.sv line 159
+do runlab.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:47:51 on May 30,2020
+# vlog -reportprogress 300 ./VGA_Ctrl.sv 
+# -- Compiling module VGA_Ctrl
+# -- Compiling module VGA_Ctrl_testbench
+# 
+# Top level modules:
+# 	VGA_Ctrl_testbench
+# End time: 20:47:51 on May 30,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:47:51 on May 30,2020
+# vlog -reportprogress 300 ./wall_ROM.v 
+# -- Compiling module wall_ROM
+# 
+# Top level modules:
+# 	wall_ROM
+# End time: 20:47:51 on May 30,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:47:51 on May 30,2020
+# vlog -reportprogress 300 ./pacman_ROM.v 
+# -- Compiling module pacman_ROM
+# 
+# Top level modules:
+# 	pacman_ROM
+# End time: 20:47:51 on May 30,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:47:51 on May 30,2020
+# vlog -reportprogress 300 ./dot_ROM.v 
+# -- Compiling module dot_ROM
+# 
+# Top level modules:
+# 	dot_ROM
+# End time: 20:47:52 on May 30,2020, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:47:52 on May 30,2020
+# vlog -reportprogress 300 ./pill_ROM.v 
+# -- Compiling module pill_ROM
+# 
+# Top level modules:
+# 	pill_ROM
+# End time: 20:47:52 on May 30,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:47:52 on May 30,2020
+# vlog -reportprogress 300 ./ghost_r_ROM.v 
+# -- Compiling module ghost_R_ROM
+# 
+# Top level modules:
+# 	ghost_R_ROM
+# End time: 20:47:52 on May 30,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:47:52 on May 30,2020
+# vlog -reportprogress 300 ./ghost_g_ROM.v 
+# -- Compiling module ghost_G_ROM
+# 
+# Top level modules:
+# 	ghost_G_ROM
+# End time: 20:47:52 on May 30,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:47:52 on May 30,2020
+# vlog -reportprogress 300 ./ghost_b_ROM.v 
+# -- Compiling module ghost_B_ROM
+# 
+# Top level modules:
+# 	ghost_B_ROM
+# End time: 20:47:52 on May 30,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 20:47:53 on May 30,2020, Elapsed time: 0:04:14
+# Errors: 0, Warnings: 9
+# vsim -voptargs=""+acc"" -t 1ps -lib work VGA_Ctrl_testbench -Lf altera_mf_ver 
+# Start time: 20:47:53 on May 30,2020
+# Loading sv_std.std
+# Loading work.VGA_Ctrl_testbench
+# Loading work.VGA_Ctrl
+# Loading work.wall_ROM
+# Loading altera_mf_ver.altsyncram
+# Loading work.pacman_ROM
+# Loading work.dot_ROM
+# Loading work.pill_ROM
+# Loading work.ghost_R_ROM
+# Loading work.ghost_G_ROM
+# Loading work.ghost_B_ROM
+# Loading altera_mf_ver.altsyncram_body
+# Loading altera_mf_ver.ALTERA_DEVICE_FAMILIES
+# Loading altera_mf_ver.ALTERA_MF_MEMORY_INITIALIZATION
+# ** Warning: (vsim-3015) ./VGA_Ctrl.sv(16): [PCDPC] - Port size (4) does not match connection size (5) for port 'address'. The port definition is at: ./wall_ROM.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /VGA_Ctrl_testbench/dut/wall File: ./wall_ROM.v
+# ** Warning: (vsim-3015) ./VGA_Ctrl.sv(24): [PCDPC] - Port size (4) does not match connection size (5) for port 'address'. The port definition is at: ./pacman_ROM.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /VGA_Ctrl_testbench/dut/pac File: ./pacman_ROM.v
+# ** Warning: (vsim-3015) ./VGA_Ctrl.sv(32): [PCDPC] - Port size (4) does not match connection size (5) for port 'address'. The port definition is at: ./dot_ROM.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /VGA_Ctrl_testbench/dut/dot File: ./dot_ROM.v
+# ** Warning: (vsim-3015) ./VGA_Ctrl.sv(40): [PCDPC] - Port size (4) does not match connection size (5) for port 'address'. The port definition is at: ./pill_ROM.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /VGA_Ctrl_testbench/dut/pill File: ./pill_ROM.v
+# ** Warning: (vsim-3015) ./VGA_Ctrl.sv(48): [PCDPC] - Port size (4) does not match connection size (5) for port 'address'. The port definition is at: ./ghost_r_ROM.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /VGA_Ctrl_testbench/dut/ghost_r File: ./ghost_r_ROM.v
+# ** Warning: (vsim-3015) ./VGA_Ctrl.sv(49): [PCDPC] - Port size (4) does not match connection size (5) for port 'address'. The port definition is at: ./ghost_g_ROM.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /VGA_Ctrl_testbench/dut/ghost_g File: ./ghost_g_ROM.v
+# ** Warning: (vsim-3015) ./VGA_Ctrl.sv(50): [PCDPC] - Port size (4) does not match connection size (5) for port 'address'. The port definition is at: ./ghost_b_ROM.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /VGA_Ctrl_testbench/dut/ghost_b File: ./ghost_b_ROM.v
+# .main_pane.wave.interior.cs.body.pw.wf
+# .main_pane.structure.interior.cs.body.struct
+# .main_pane.objects.interior.cs.body.tree
+# ** Warning: (vsim-3534) [FOFIR] - Failed to open file "../pacman_right.mif" for reading.
+# No such file or directory. (errno = ENOENT)    : /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v(264)
+#    Time: 0 ps  Iteration: 0  Instance: /VGA_Ctrl_testbench/dut/pac/altsyncram_component/m_default/altsyncram_inst
+# ERROR: cannot read ../pacman_right.mif.
+# ** Warning: (vsim-7) Failed to open readmem file "../pacman_right.ver" in read mode.
+# No such file or directory. (errno = ENOENT)    : /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v(48977)
+#    Time: 0 ps  Iteration: 0  Instance: /VGA_Ctrl_testbench/dut/pac/altsyncram_component/m_default/altsyncram_inst
+# ** Note: $stop    : ./VGA_Ctrl.sv(159)
+#    Time: 179350 ps  Iteration: 1  Instance: /VGA_Ctrl_testbench
+# Break in Module VGA_Ctrl_testbench at ./VGA_Ctrl.sv line 159
+do runlab.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:49:32 on May 30,2020
+# vlog -reportprogress 300 ./VGA_Ctrl.sv 
+# -- Compiling module VGA_Ctrl
+# -- Compiling module VGA_Ctrl_testbench
+# 
+# Top level modules:
+# 	VGA_Ctrl_testbench
+# End time: 20:49:32 on May 30,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:49:32 on May 30,2020
+# vlog -reportprogress 300 ./wall_ROM.v 
+# -- Compiling module wall_ROM
+# 
+# Top level modules:
+# 	wall_ROM
+# End time: 20:49:32 on May 30,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:49:32 on May 30,2020
+# vlog -reportprogress 300 ./pacman_ROM.v 
+# -- Compiling module pacman_ROM
+# 
+# Top level modules:
+# 	pacman_ROM
+# End time: 20:49:32 on May 30,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:49:32 on May 30,2020
+# vlog -reportprogress 300 ./dot_ROM.v 
+# -- Compiling module dot_ROM
+# 
+# Top level modules:
+# 	dot_ROM
+# End time: 20:49:33 on May 30,2020, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:49:33 on May 30,2020
+# vlog -reportprogress 300 ./pill_ROM.v 
+# -- Compiling module pill_ROM
+# 
+# Top level modules:
+# 	pill_ROM
+# End time: 20:49:33 on May 30,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:49:33 on May 30,2020
+# vlog -reportprogress 300 ./ghost_r_ROM.v 
+# -- Compiling module ghost_R_ROM
+# 
+# Top level modules:
+# 	ghost_R_ROM
+# End time: 20:49:33 on May 30,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:49:33 on May 30,2020
+# vlog -reportprogress 300 ./ghost_g_ROM.v 
+# -- Compiling module ghost_G_ROM
+# 
+# Top level modules:
+# 	ghost_G_ROM
+# End time: 20:49:33 on May 30,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:49:33 on May 30,2020
+# vlog -reportprogress 300 ./ghost_b_ROM.v 
+# -- Compiling module ghost_B_ROM
+# 
+# Top level modules:
+# 	ghost_B_ROM
+# End time: 20:49:33 on May 30,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 20:49:34 on May 30,2020, Elapsed time: 0:01:41
+# Errors: 0, Warnings: 9
+# vsim -voptargs=""+acc"" -t 1ps -lib work VGA_Ctrl_testbench -Lf altera_mf_ver 
+# Start time: 20:49:34 on May 30,2020
+# Loading sv_std.std
+# Loading work.VGA_Ctrl_testbench
+# Loading work.VGA_Ctrl
+# Loading work.wall_ROM
+# Loading altera_mf_ver.altsyncram
+# Loading work.pacman_ROM
+# Loading work.dot_ROM
+# Loading work.pill_ROM
+# Loading work.ghost_R_ROM
+# Loading work.ghost_G_ROM
+# Loading work.ghost_B_ROM
+# Loading altera_mf_ver.altsyncram_body
+# Loading altera_mf_ver.ALTERA_DEVICE_FAMILIES
+# Loading altera_mf_ver.ALTERA_MF_MEMORY_INITIALIZATION
+# ** Warning: (vsim-3015) ./VGA_Ctrl.sv(16): [PCDPC] - Port size (4) does not match connection size (5) for port 'address'. The port definition is at: ./wall_ROM.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /VGA_Ctrl_testbench/dut/wall File: ./wall_ROM.v
+# ** Warning: (vsim-3015) ./VGA_Ctrl.sv(24): [PCDPC] - Port size (4) does not match connection size (5) for port 'address'. The port definition is at: ./pacman_ROM.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /VGA_Ctrl_testbench/dut/pac File: ./pacman_ROM.v
+# ** Warning: (vsim-3015) ./VGA_Ctrl.sv(32): [PCDPC] - Port size (4) does not match connection size (5) for port 'address'. The port definition is at: ./dot_ROM.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /VGA_Ctrl_testbench/dut/dot File: ./dot_ROM.v
+# ** Warning: (vsim-3015) ./VGA_Ctrl.sv(40): [PCDPC] - Port size (4) does not match connection size (5) for port 'address'. The port definition is at: ./pill_ROM.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /VGA_Ctrl_testbench/dut/pill File: ./pill_ROM.v
+# ** Warning: (vsim-3015) ./VGA_Ctrl.sv(48): [PCDPC] - Port size (4) does not match connection size (5) for port 'address'. The port definition is at: ./ghost_r_ROM.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /VGA_Ctrl_testbench/dut/ghost_r File: ./ghost_r_ROM.v
+# ** Warning: (vsim-3015) ./VGA_Ctrl.sv(49): [PCDPC] - Port size (4) does not match connection size (5) for port 'address'. The port definition is at: ./ghost_g_ROM.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /VGA_Ctrl_testbench/dut/ghost_g File: ./ghost_g_ROM.v
+# ** Warning: (vsim-3015) ./VGA_Ctrl.sv(50): [PCDPC] - Port size (4) does not match connection size (5) for port 'address'. The port definition is at: ./ghost_b_ROM.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /VGA_Ctrl_testbench/dut/ghost_b File: ./ghost_b_ROM.v
+# .main_pane.wave.interior.cs.body.pw.wf
+# .main_pane.structure.interior.cs.body.struct
+# .main_pane.objects.interior.cs.body.tree
+# ** Warning: (vsim-3534) [FOFIR] - Failed to open file "../pacman_right.mif" for reading.
+# No such file or directory. (errno = ENOENT)    : /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v(264)
+#    Time: 0 ps  Iteration: 0  Instance: /VGA_Ctrl_testbench/dut/pac/altsyncram_component/m_default/altsyncram_inst
+# ERROR: cannot read ../pacman_right.mif.
+# ** Warning: (vsim-7) Failed to open readmem file "../pacman_right.ver" in read mode.
+# No such file or directory. (errno = ENOENT)    : /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v(48977)
+#    Time: 0 ps  Iteration: 0  Instance: /VGA_Ctrl_testbench/dut/pac/altsyncram_component/m_default/altsyncram_inst
+# ** Note: $stop    : ./VGA_Ctrl.sv(159)
+#    Time: 179350 ps  Iteration: 1  Instance: /VGA_Ctrl_testbench
+# Break in Module VGA_Ctrl_testbench at ./VGA_Ctrl.sv line 159
+do runlab.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:14:42 on May 30,2020
+# vlog -reportprogress 300 ./VGA_Ctrl.sv 
+# -- Compiling module VGA_Ctrl
+# -- Compiling module VGA_Ctrl_testbench
+# 
+# Top level modules:
+# 	VGA_Ctrl_testbench
+# End time: 21:14:42 on May 30,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:14:42 on May 30,2020
+# vlog -reportprogress 300 ./wall_ROM.v 
+# -- Compiling module wall_ROM
+# 
+# Top level modules:
+# 	wall_ROM
+# End time: 21:14:42 on May 30,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:14:42 on May 30,2020
+# vlog -reportprogress 300 ./pacman_ROM.v 
+# -- Compiling module pacman_ROM
+# 
+# Top level modules:
+# 	pacman_ROM
+# End time: 21:14:42 on May 30,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:14:42 on May 30,2020
+# vlog -reportprogress 300 ./dot_ROM.v 
+# -- Compiling module dot_ROM
+# 
+# Top level modules:
+# 	dot_ROM
+# End time: 21:14:42 on May 30,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:14:42 on May 30,2020
+# vlog -reportprogress 300 ./pill_ROM.v 
+# -- Compiling module pill_ROM
+# 
+# Top level modules:
+# 	pill_ROM
+# End time: 21:14:43 on May 30,2020, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:14:43 on May 30,2020
+# vlog -reportprogress 300 ./ghost_r_ROM.v 
+# -- Compiling module ghost_R_ROM
+# 
+# Top level modules:
+# 	ghost_R_ROM
+# End time: 21:14:43 on May 30,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:14:43 on May 30,2020
+# vlog -reportprogress 300 ./ghost_g_ROM.v 
+# -- Compiling module ghost_G_ROM
+# 
+# Top level modules:
+# 	ghost_G_ROM
+# End time: 21:14:43 on May 30,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:14:43 on May 30,2020
+# vlog -reportprogress 300 ./ghost_b_ROM.v 
+# -- Compiling module ghost_B_ROM
+# 
+# Top level modules:
+# 	ghost_B_ROM
+# End time: 21:14:43 on May 30,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 21:14:44 on May 30,2020, Elapsed time: 0:25:10
+# Errors: 0, Warnings: 9
+# vsim -voptargs=""+acc"" -t 1ps -lib work VGA_Ctrl_testbench -Lf altera_mf_ver 
+# Start time: 21:14:44 on May 30,2020
+# Loading sv_std.std
+# Loading work.VGA_Ctrl_testbench
+# Loading work.VGA_Ctrl
+# Loading work.wall_ROM
+# Loading altera_mf_ver.altsyncram
+# Loading work.pacman_ROM
+# Loading work.dot_ROM
+# Loading work.pill_ROM
+# Loading work.ghost_R_ROM
+# Loading work.ghost_G_ROM
+# Loading work.ghost_B_ROM
+# Loading altera_mf_ver.altsyncram_body
+# Loading altera_mf_ver.ALTERA_DEVICE_FAMILIES
+# Loading altera_mf_ver.ALTERA_MF_MEMORY_INITIALIZATION
+# ** Warning: (vsim-3015) ./VGA_Ctrl.sv(16): [PCDPC] - Port size (4) does not match connection size (5) for port 'address'. The port definition is at: ./wall_ROM.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /VGA_Ctrl_testbench/dut/wall File: ./wall_ROM.v
+# ** Warning: (vsim-3015) ./VGA_Ctrl.sv(24): [PCDPC] - Port size (4) does not match connection size (5) for port 'address'. The port definition is at: ./pacman_ROM.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /VGA_Ctrl_testbench/dut/pac File: ./pacman_ROM.v
+# ** Warning: (vsim-3015) ./VGA_Ctrl.sv(32): [PCDPC] - Port size (4) does not match connection size (5) for port 'address'. The port definition is at: ./dot_ROM.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /VGA_Ctrl_testbench/dut/dot File: ./dot_ROM.v
+# ** Warning: (vsim-3015) ./VGA_Ctrl.sv(40): [PCDPC] - Port size (4) does not match connection size (5) for port 'address'. The port definition is at: ./pill_ROM.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /VGA_Ctrl_testbench/dut/pill File: ./pill_ROM.v
+# ** Warning: (vsim-3015) ./VGA_Ctrl.sv(48): [PCDPC] - Port size (4) does not match connection size (5) for port 'address'. The port definition is at: ./ghost_r_ROM.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /VGA_Ctrl_testbench/dut/ghost_r File: ./ghost_r_ROM.v
+# ** Warning: (vsim-3015) ./VGA_Ctrl.sv(49): [PCDPC] - Port size (4) does not match connection size (5) for port 'address'. The port definition is at: ./ghost_g_ROM.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /VGA_Ctrl_testbench/dut/ghost_g File: ./ghost_g_ROM.v
+# ** Warning: (vsim-3015) ./VGA_Ctrl.sv(50): [PCDPC] - Port size (4) does not match connection size (5) for port 'address'. The port definition is at: ./ghost_b_ROM.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /VGA_Ctrl_testbench/dut/ghost_b File: ./ghost_b_ROM.v
+# .main_pane.wave.interior.cs.body.pw.wf
+# .main_pane.structure.interior.cs.body.struct
+# .main_pane.objects.interior.cs.body.tree
+# ** Warning: (vsim-3534) [FOFIR] - Failed to open file "../pacman_right.mif" for reading.
+# No such file or directory. (errno = ENOENT)    : /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v(264)
+#    Time: 0 ps  Iteration: 0  Instance: /VGA_Ctrl_testbench/dut/pac/altsyncram_component/m_default/altsyncram_inst
+# ERROR: cannot read ../pacman_right.mif.
+# ** Warning: (vsim-7) Failed to open readmem file "../pacman_right.ver" in read mode.
+# No such file or directory. (errno = ENOENT)    : /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v(48977)
+#    Time: 0 ps  Iteration: 0  Instance: /VGA_Ctrl_testbench/dut/pac/altsyncram_component/m_default/altsyncram_inst
+# ** Note: $stop    : ./VGA_Ctrl.sv(159)
+#    Time: 179350 ps  Iteration: 1  Instance: /VGA_Ctrl_testbench
+# Break in Module VGA_Ctrl_testbench at ./VGA_Ctrl.sv line 159
+do runlab.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:16:48 on May 30,2020
+# vlog -reportprogress 300 ./VGA_Ctrl.sv 
+# -- Compiling module VGA_Ctrl
+# -- Compiling module VGA_Ctrl_testbench
+# 
+# Top level modules:
+# 	VGA_Ctrl_testbench
+# End time: 21:16:48 on May 30,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:16:48 on May 30,2020
+# vlog -reportprogress 300 ./wall_ROM.v 
+# -- Compiling module wall_ROM
+# 
+# Top level modules:
+# 	wall_ROM
+# End time: 21:16:48 on May 30,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:16:48 on May 30,2020
+# vlog -reportprogress 300 ./pacman_ROM.v 
+# -- Compiling module pacman_ROM
+# 
+# Top level modules:
+# 	pacman_ROM
+# End time: 21:16:48 on May 30,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:16:48 on May 30,2020
+# vlog -reportprogress 300 ./dot_ROM.v 
+# -- Compiling module dot_ROM
+# 
+# Top level modules:
+# 	dot_ROM
+# End time: 21:16:48 on May 30,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:16:48 on May 30,2020
+# vlog -reportprogress 300 ./pill_ROM.v 
+# -- Compiling module pill_ROM
+# 
+# Top level modules:
+# 	pill_ROM
+# End time: 21:16:48 on May 30,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:16:48 on May 30,2020
+# vlog -reportprogress 300 ./ghost_r_ROM.v 
+# -- Compiling module ghost_R_ROM
+# 
+# Top level modules:
+# 	ghost_R_ROM
+# End time: 21:16:48 on May 30,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:16:48 on May 30,2020
+# vlog -reportprogress 300 ./ghost_g_ROM.v 
+# -- Compiling module ghost_G_ROM
+# 
+# Top level modules:
+# 	ghost_G_ROM
+# End time: 21:16:48 on May 30,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:16:48 on May 30,2020
+# vlog -reportprogress 300 ./ghost_b_ROM.v 
+# -- Compiling module ghost_B_ROM
+# 
+# Top level modules:
+# 	ghost_B_ROM
+# End time: 21:16:48 on May 30,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 21:16:49 on May 30,2020, Elapsed time: 0:02:05
+# Errors: 0, Warnings: 9
+# vsim -voptargs=""+acc"" -t 1ps -lib work VGA_Ctrl_testbench -Lf altera_mf_ver 
+# Start time: 21:16:49 on May 30,2020
+# Loading sv_std.std
+# Loading work.VGA_Ctrl_testbench
+# Loading work.VGA_Ctrl
+# Loading work.wall_ROM
+# Loading altera_mf_ver.altsyncram
+# Loading work.pacman_ROM
+# Loading work.dot_ROM
+# Loading work.pill_ROM
+# Loading work.ghost_R_ROM
+# Loading work.ghost_G_ROM
+# Loading work.ghost_B_ROM
+# Loading altera_mf_ver.altsyncram_body
+# Loading altera_mf_ver.ALTERA_DEVICE_FAMILIES
+# Loading altera_mf_ver.ALTERA_MF_MEMORY_INITIALIZATION
+# ** Error: (vsim-8378) ./VGA_Ctrl.sv(112): Port size (4) does not match connection size (5) for implicit .name connection port 'obj_x'. The port definition is at: ./VGA_Ctrl.sv(6).
+#    Time: 0 ps  Iteration: 0  Instance: /VGA_Ctrl_testbench/dut File: ./VGA_Ctrl.sv
+# ** Error: (vsim-8378) ./VGA_Ctrl.sv(112): Port size (4) does not match connection size (5) for implicit .name connection port 'obj_y'. The port definition is at: ./VGA_Ctrl.sv(6).
+#    Time: 0 ps  Iteration: 0  Instance: /VGA_Ctrl_testbench/dut File: ./VGA_Ctrl.sv
+# Error loading design
+# Error: Error loading design
+#        Pausing macro execution
+# MACRO ./runlab.do PAUSED at line 19
+do runlab.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:36:30 on May 30,2020
+# vlog -reportprogress 300 ./VGA_Ctrl.sv 
+# -- Compiling module VGA_Ctrl
+# -- Compiling module VGA_Ctrl_testbench
+# 
+# Top level modules:
+# 	VGA_Ctrl_testbench
+# End time: 21:36:30 on May 30,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:36:30 on May 30,2020
+# vlog -reportprogress 300 ./wall_ROM.v 
+# -- Compiling module wall_ROM
+# 
+# Top level modules:
+# 	wall_ROM
+# End time: 21:36:30 on May 30,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:36:30 on May 30,2020
+# vlog -reportprogress 300 ./pacman_ROM.v 
+# -- Compiling module pacman_ROM
+# 
+# Top level modules:
+# 	pacman_ROM
+# End time: 21:36:30 on May 30,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:36:30 on May 30,2020
+# vlog -reportprogress 300 ./dot_ROM.v 
+# -- Compiling module dot_ROM
+# 
+# Top level modules:
+# 	dot_ROM
+# End time: 21:36:30 on May 30,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:36:30 on May 30,2020
+# vlog -reportprogress 300 ./pill_ROM.v 
+# -- Compiling module pill_ROM
+# 
+# Top level modules:
+# 	pill_ROM
+# End time: 21:36:30 on May 30,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:36:30 on May 30,2020
+# vlog -reportprogress 300 ./ghost_r_ROM.v 
+# -- Compiling module ghost_R_ROM
+# 
+# Top level modules:
+# 	ghost_R_ROM
+# End time: 21:36:30 on May 30,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:36:30 on May 30,2020
+# vlog -reportprogress 300 ./ghost_g_ROM.v 
+# -- Compiling module ghost_G_ROM
+# 
+# Top level modules:
+# 	ghost_G_ROM
+# End time: 21:36:30 on May 30,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:36:30 on May 30,2020
+# vlog -reportprogress 300 ./ghost_b_ROM.v 
+# -- Compiling module ghost_B_ROM
+# 
+# Top level modules:
+# 	ghost_B_ROM
+# End time: 21:36:30 on May 30,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vsim -voptargs=""+acc"" -t 1ps -lib work VGA_Ctrl_testbench -Lf altera_mf_ver 
+# Start time: 21:16:49 on May 30,2020
+# Loading sv_std.std
+# Loading work.VGA_Ctrl_testbench
+# Loading work.VGA_Ctrl
+# Loading work.wall_ROM
+# Loading altera_mf_ver.altsyncram
+# Loading work.pacman_ROM
+# Loading work.dot_ROM
+# Loading work.pill_ROM
+# Loading work.ghost_R_ROM
+# Loading work.ghost_G_ROM
+# Loading work.ghost_B_ROM
+# Loading altera_mf_ver.altsyncram_body
+# Loading altera_mf_ver.ALTERA_DEVICE_FAMILIES
+# Loading altera_mf_ver.ALTERA_MF_MEMORY_INITIALIZATION
+# ** Error: (vsim-8378) ./VGA_Ctrl.sv(112): Port size (4) does not match connection size (5) for implicit .name connection port 'obj_x'. The port definition is at: ./VGA_Ctrl.sv(6).
+#    Time: 0 ps  Iteration: 0  Instance: /VGA_Ctrl_testbench/dut File: ./VGA_Ctrl.sv
+# ** Error: (vsim-8378) ./VGA_Ctrl.sv(112): Port size (4) does not match connection size (5) for implicit .name connection port 'obj_y'. The port definition is at: ./VGA_Ctrl.sv(6).
+#    Time: 0 ps  Iteration: 0  Instance: /VGA_Ctrl_testbench/dut File: ./VGA_Ctrl.sv
+# Error loading design
+# Error: Error loading design
+#        Pausing macro execution
+# MACRO ./runlab.do PAUSED at line 19
+write format wave -window .main_pane.wave.interior.cs.body.pw.wf {F:/EE 371/pacman/VGA_Ctrl_wave.do}
+# could not find wave window
+do runlab.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:37:04 on May 30,2020
+# vlog -reportprogress 300 ./VGA_Ctrl.sv 
+# -- Compiling module VGA_Ctrl
+# -- Compiling module VGA_Ctrl_testbench
+# 
+# Top level modules:
+# 	VGA_Ctrl_testbench
+# End time: 21:37:04 on May 30,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:37:04 on May 30,2020
+# vlog -reportprogress 300 ./wall_ROM.v 
+# -- Compiling module wall_ROM
+# 
+# Top level modules:
+# 	wall_ROM
+# End time: 21:37:05 on May 30,2020, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:37:05 on May 30,2020
+# vlog -reportprogress 300 ./pacman_ROM.v 
+# -- Compiling module pacman_ROM
+# 
+# Top level modules:
+# 	pacman_ROM
+# End time: 21:37:05 on May 30,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:37:05 on May 30,2020
+# vlog -reportprogress 300 ./dot_ROM.v 
+# -- Compiling module dot_ROM
+# 
+# Top level modules:
+# 	dot_ROM
+# End time: 21:37:05 on May 30,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:37:05 on May 30,2020
+# vlog -reportprogress 300 ./pill_ROM.v 
+# -- Compiling module pill_ROM
+# 
+# Top level modules:
+# 	pill_ROM
+# End time: 21:37:05 on May 30,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:37:05 on May 30,2020
+# vlog -reportprogress 300 ./ghost_r_ROM.v 
+# -- Compiling module ghost_R_ROM
+# 
+# Top level modules:
+# 	ghost_R_ROM
+# End time: 21:37:05 on May 30,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:37:05 on May 30,2020
+# vlog -reportprogress 300 ./ghost_g_ROM.v 
+# -- Compiling module ghost_G_ROM
+# 
+# Top level modules:
+# 	ghost_G_ROM
+# End time: 21:37:05 on May 30,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:37:05 on May 30,2020
+# vlog -reportprogress 300 ./ghost_b_ROM.v 
+# -- Compiling module ghost_B_ROM
+# 
+# Top level modules:
+# 	ghost_B_ROM
+# End time: 21:37:05 on May 30,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vsim -voptargs=""+acc"" -t 1ps -lib work VGA_Ctrl_testbench -Lf altera_mf_ver 
+# Start time: 21:16:49 on May 30,2020
+# Loading sv_std.std
+# Loading work.VGA_Ctrl_testbench
+# Loading work.VGA_Ctrl
+# Loading work.wall_ROM
+# Loading altera_mf_ver.altsyncram
+# Loading work.pacman_ROM
+# Loading work.dot_ROM
+# Loading work.pill_ROM
+# Loading work.ghost_R_ROM
+# Loading work.ghost_G_ROM
+# Loading work.ghost_B_ROM
+# Loading altera_mf_ver.altsyncram_body
+# Loading altera_mf_ver.ALTERA_DEVICE_FAMILIES
+# Loading altera_mf_ver.ALTERA_MF_MEMORY_INITIALIZATION
+# .main_pane.wave.interior.cs.body.pw.wf
+# .main_pane.structure.interior.cs.body.struct
+# .main_pane.objects.interior.cs.body.tree
+# ** Warning: (vsim-3534) [FOFIR] - Failed to open file "../pacman_right.mif" for reading.
+# No such file or directory. (errno = ENOENT)    : /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v(264)
+#    Time: 0 ps  Iteration: 0  Instance: /VGA_Ctrl_testbench/dut/pac/altsyncram_component/m_default/altsyncram_inst
+# ERROR: cannot read ../pacman_right.mif.
+# ** Warning: (vsim-7) Failed to open readmem file "../pacman_right.ver" in read mode.
+# No such file or directory. (errno = ENOENT)    : /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v(48977)
+#    Time: 0 ps  Iteration: 0  Instance: /VGA_Ctrl_testbench/dut/pac/altsyncram_component/m_default/altsyncram_inst
+# ** Note: $stop    : ./VGA_Ctrl.sv(159)
+#    Time: 179350 ps  Iteration: 1  Instance: /VGA_Ctrl_testbench
+# Break in Module VGA_Ctrl_testbench at ./VGA_Ctrl.sv line 159
