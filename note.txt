@@ -1,0 +1,13 @@
+map sprite encoding
+0 - empty
+1 - wall
+2 - dots
+3 - pills
+4 - pacman
+5 - ghost
+6 - ghost + dots
+7 - ghost + pills
+
+sprite y-x initial location
+pacman start location: (20, 20)
+ghost start location: (13, 16) (13, 23)

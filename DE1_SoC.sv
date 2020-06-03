@@ -25,21 +25,21 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW,
 	assign LEDR[0] = reset;
 	
 	// addresses for selecting object within map
-	logic [5:0] glob_x;
-	logic [4:0] glob_y; 
+	logic [5:0] glob_x; // (0 ~ 39)
+	logic [4:0] glob_y; // (0 ~ 29)
 	assign glob_x = x / 16;
    assign glob_y = y / 16;
 	
 	// addresses for selecting pixel within object
-	logic [3:0] loc_y, loc_x;
-	assign loc_y = y % 16;
-   assign loc_x = x % 16;
+	logic [3:0] loc_y, loc_x; // (0 ~ 15)
+	assign loc_y = y % 16; 
+    assign loc_x = x % 16;
 	
 	// selecting object encode from map ram
-   logic [159:0] map_word;
-   logic [3:0] map_grid;
+    logic [159:0] map_word;
+    logic [3:0] map_grid;       // length of the block 
 	assign map_grid = map_word[159-(4*glob_x+3)+:3]; // flip the left and right 
-	
+							// highest x  // length of the block - 1
 	// VGA control system
 	map_RAM m (.address_a(glob_y), .address_b(wraddr), .clock(CLOCK_50), .data_a(), .data_b(wrdata), .wren_a(0), .wren_b(wren), .q_a(map_word), .q_b(redata)); 
 
@@ -49,10 +49,9 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW,
 		v1 (.CLOCK_50(CLOCK_50), .reset(0), .x(x), .y(y), .r(r), .g(g), .b(b),
 			 .VGA_R(VGA_R), .VGA_G(VGA_G), .VGA_B(VGA_B), .VGA_BLANK_N(VGA_BLANK_N),
 			 .VGA_CLK(VGA_CLK), .VGA_HS(VGA_HS), .VGA_SYNC_N(VGA_SYNC_N), .VGA_VS(VGA_VS));
-			 
+
 	logic makeBreak;
-	logic [7:0] scan_code;
-		
+	logic [7:0] scan_code;		
 	assign LEDR[1] = makeBreak;
 	assign LEDR[3] = PS2_DAT;
 	// PS2 keyboard control sytem

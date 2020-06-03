@@ -2166,3 +2166,1042 @@ do runlab.do
 # ** Note: $stop    : ./map_RAM_writer.sv(128)
 #    Time: 4050 ps  Iteration: 1  Instance: /map_RAM_writer_testbench
 # Break in Module map_RAM_writer_testbench at ./map_RAM_writer.sv line 128
+do runlab.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:43:38 on Jun 02,2020
+# vlog -reportprogress 300 ./VGA_Ctrl.sv 
+# -- Compiling module VGA_Ctrl
+# -- Compiling module VGA_Ctrl_testbench
+# 
+# Top level modules:
+# 	VGA_Ctrl_testbench
+# End time: 18:43:38 on Jun 02,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:43:38 on Jun 02,2020
+# vlog -reportprogress 300 ./wall_ROM.v 
+# -- Compiling module wall_ROM
+# 
+# Top level modules:
+# 	wall_ROM
+# End time: 18:43:38 on Jun 02,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:43:38 on Jun 02,2020
+# vlog -reportprogress 300 ./pacman_ROM.v 
+# -- Compiling module pacman_ROM
+# 
+# Top level modules:
+# 	pacman_ROM
+# End time: 18:43:38 on Jun 02,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:43:38 on Jun 02,2020
+# vlog -reportprogress 300 ./dot_ROM.v 
+# -- Compiling module dot_ROM
+# 
+# Top level modules:
+# 	dot_ROM
+# End time: 18:43:38 on Jun 02,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:43:38 on Jun 02,2020
+# vlog -reportprogress 300 ./pill_ROM.v 
+# -- Compiling module pill_ROM
+# 
+# Top level modules:
+# 	pill_ROM
+# End time: 18:43:38 on Jun 02,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:43:38 on Jun 02,2020
+# vlog -reportprogress 300 ./ghost_r_ROM.v 
+# -- Compiling module ghost_R_ROM
+# 
+# Top level modules:
+# 	ghost_R_ROM
+# End time: 18:43:38 on Jun 02,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:43:38 on Jun 02,2020
+# vlog -reportprogress 300 ./ghost_g_ROM.v 
+# -- Compiling module ghost_G_ROM
+# 
+# Top level modules:
+# 	ghost_G_ROM
+# End time: 18:43:38 on Jun 02,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:43:38 on Jun 02,2020
+# vlog -reportprogress 300 ./ghost_b_ROM.v 
+# -- Compiling module ghost_B_ROM
+# 
+# Top level modules:
+# 	ghost_B_ROM
+# End time: 18:43:39 on Jun 02,2020, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:43:39 on Jun 02,2020
+# vlog -reportprogress 300 ./pacman_loc_ctrl.sv 
+# -- Compiling module pacman_loc_ctrl
+# -- Compiling module pacman_loc_ctrl_testbench
+# 
+# Top level modules:
+# 	pacman_loc_ctrl_testbench
+# End time: 18:43:39 on Jun 02,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:43:39 on Jun 02,2020
+# vlog -reportprogress 300 ./map_RAM.v 
+# -- Compiling module map_RAM
+# 
+# Top level modules:
+# 	map_RAM
+# End time: 18:43:39 on Jun 02,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:43:39 on Jun 02,2020
+# vlog -reportprogress 300 ./map_RAM_writer.sv 
+# -- Compiling module map_RAM_writer
+# -- Compiling module map_RAM_writer_testbench
+# 
+# Top level modules:
+# 	map_RAM_writer_testbench
+# End time: 18:43:39 on Jun 02,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:43:39 on Jun 02,2020
+# vlog -reportprogress 300 ./map_RAM_testbench.sv 
+# -- Compiling module map_RAM_testbench
+# 
+# Top level modules:
+# 	map_RAM_testbench
+# End time: 18:43:39 on Jun 02,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:43:39 on Jun 02,2020
+# vlog -reportprogress 300 ./counter.sv 
+# ** Error: (vlog-13069) ./counter.sv(2): near "#": syntax error, unexpected '#'.
+# End time: 18:43:39 on Jun 02,2020, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# ** Error: F:/intelFPGA_lite/17.0/modelsim_ase/win32aloem/vlog failed.
+# Error in macro ./runlab.do line 19
+# F:/intelFPGA_lite/17.0/modelsim_ase/win32aloem/vlog failed.
+#     while executing
+# "vlog "./counter.sv""
+do runlab.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:45:20 on Jun 02,2020
+# vlog -reportprogress 300 ./VGA_Ctrl.sv 
+# -- Compiling module VGA_Ctrl
+# -- Compiling module VGA_Ctrl_testbench
+# 
+# Top level modules:
+# 	VGA_Ctrl_testbench
+# End time: 18:45:20 on Jun 02,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:45:20 on Jun 02,2020
+# vlog -reportprogress 300 ./wall_ROM.v 
+# -- Compiling module wall_ROM
+# 
+# Top level modules:
+# 	wall_ROM
+# End time: 18:45:20 on Jun 02,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:45:20 on Jun 02,2020
+# vlog -reportprogress 300 ./pacman_ROM.v 
+# -- Compiling module pacman_ROM
+# 
+# Top level modules:
+# 	pacman_ROM
+# End time: 18:45:20 on Jun 02,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:45:20 on Jun 02,2020
+# vlog -reportprogress 300 ./dot_ROM.v 
+# -- Compiling module dot_ROM
+# 
+# Top level modules:
+# 	dot_ROM
+# End time: 18:45:20 on Jun 02,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:45:20 on Jun 02,2020
+# vlog -reportprogress 300 ./pill_ROM.v 
+# -- Compiling module pill_ROM
+# 
+# Top level modules:
+# 	pill_ROM
+# End time: 18:45:20 on Jun 02,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:45:20 on Jun 02,2020
+# vlog -reportprogress 300 ./ghost_r_ROM.v 
+# -- Compiling module ghost_R_ROM
+# 
+# Top level modules:
+# 	ghost_R_ROM
+# End time: 18:45:20 on Jun 02,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:45:20 on Jun 02,2020
+# vlog -reportprogress 300 ./ghost_g_ROM.v 
+# -- Compiling module ghost_G_ROM
+# 
+# Top level modules:
+# 	ghost_G_ROM
+# End time: 18:45:20 on Jun 02,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:45:20 on Jun 02,2020
+# vlog -reportprogress 300 ./ghost_b_ROM.v 
+# -- Compiling module ghost_B_ROM
+# 
+# Top level modules:
+# 	ghost_B_ROM
+# End time: 18:45:21 on Jun 02,2020, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:45:21 on Jun 02,2020
+# vlog -reportprogress 300 ./pacman_loc_ctrl.sv 
+# -- Compiling module pacman_loc_ctrl
+# -- Compiling module pacman_loc_ctrl_testbench
+# 
+# Top level modules:
+# 	pacman_loc_ctrl_testbench
+# End time: 18:45:21 on Jun 02,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:45:21 on Jun 02,2020
+# vlog -reportprogress 300 ./map_RAM.v 
+# -- Compiling module map_RAM
+# 
+# Top level modules:
+# 	map_RAM
+# End time: 18:45:21 on Jun 02,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:45:21 on Jun 02,2020
+# vlog -reportprogress 300 ./map_RAM_writer.sv 
+# -- Compiling module map_RAM_writer
+# -- Compiling module map_RAM_writer_testbench
+# 
+# Top level modules:
+# 	map_RAM_writer_testbench
+# End time: 18:45:21 on Jun 02,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:45:21 on Jun 02,2020
+# vlog -reportprogress 300 ./map_RAM_testbench.sv 
+# -- Compiling module map_RAM_testbench
+# 
+# Top level modules:
+# 	map_RAM_testbench
+# End time: 18:45:21 on Jun 02,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:45:21 on Jun 02,2020
+# vlog -reportprogress 300 ./counter.sv 
+# ** Error: (vlog-13069) ./counter.sv(2): near "#": syntax error, unexpected '#'.
+# End time: 18:45:21 on Jun 02,2020, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# ** Error: F:/intelFPGA_lite/17.0/modelsim_ase/win32aloem/vlog failed.
+# Error in macro ./runlab.do line 19
+# F:/intelFPGA_lite/17.0/modelsim_ase/win32aloem/vlog failed.
+#     while executing
+# "vlog "./counter.sv""
+do runlab.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:47:12 on Jun 02,2020
+# vlog -reportprogress 300 ./VGA_Ctrl.sv 
+# -- Compiling module VGA_Ctrl
+# -- Compiling module VGA_Ctrl_testbench
+# 
+# Top level modules:
+# 	VGA_Ctrl_testbench
+# End time: 18:47:12 on Jun 02,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:47:12 on Jun 02,2020
+# vlog -reportprogress 300 ./wall_ROM.v 
+# -- Compiling module wall_ROM
+# 
+# Top level modules:
+# 	wall_ROM
+# End time: 18:47:12 on Jun 02,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:47:13 on Jun 02,2020
+# vlog -reportprogress 300 ./pacman_ROM.v 
+# -- Compiling module pacman_ROM
+# 
+# Top level modules:
+# 	pacman_ROM
+# End time: 18:47:13 on Jun 02,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:47:13 on Jun 02,2020
+# vlog -reportprogress 300 ./dot_ROM.v 
+# -- Compiling module dot_ROM
+# 
+# Top level modules:
+# 	dot_ROM
+# End time: 18:47:13 on Jun 02,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:47:13 on Jun 02,2020
+# vlog -reportprogress 300 ./pill_ROM.v 
+# -- Compiling module pill_ROM
+# 
+# Top level modules:
+# 	pill_ROM
+# End time: 18:47:13 on Jun 02,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:47:13 on Jun 02,2020
+# vlog -reportprogress 300 ./ghost_r_ROM.v 
+# -- Compiling module ghost_R_ROM
+# 
+# Top level modules:
+# 	ghost_R_ROM
+# End time: 18:47:13 on Jun 02,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:47:13 on Jun 02,2020
+# vlog -reportprogress 300 ./ghost_g_ROM.v 
+# -- Compiling module ghost_G_ROM
+# 
+# Top level modules:
+# 	ghost_G_ROM
+# End time: 18:47:13 on Jun 02,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:47:13 on Jun 02,2020
+# vlog -reportprogress 300 ./ghost_b_ROM.v 
+# -- Compiling module ghost_B_ROM
+# 
+# Top level modules:
+# 	ghost_B_ROM
+# End time: 18:47:13 on Jun 02,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:47:13 on Jun 02,2020
+# vlog -reportprogress 300 ./pacman_loc_ctrl.sv 
+# -- Compiling module pacman_loc_ctrl
+# -- Compiling module pacman_loc_ctrl_testbench
+# 
+# Top level modules:
+# 	pacman_loc_ctrl_testbench
+# End time: 18:47:13 on Jun 02,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:47:13 on Jun 02,2020
+# vlog -reportprogress 300 ./map_RAM.v 
+# -- Compiling module map_RAM
+# 
+# Top level modules:
+# 	map_RAM
+# End time: 18:47:13 on Jun 02,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:47:13 on Jun 02,2020
+# vlog -reportprogress 300 ./map_RAM_writer.sv 
+# -- Compiling module map_RAM_writer
+# -- Compiling module map_RAM_writer_testbench
+# 
+# Top level modules:
+# 	map_RAM_writer_testbench
+# End time: 18:47:14 on Jun 02,2020, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:47:14 on Jun 02,2020
+# vlog -reportprogress 300 ./map_RAM_testbench.sv 
+# -- Compiling module map_RAM_testbench
+# 
+# Top level modules:
+# 	map_RAM_testbench
+# End time: 18:47:14 on Jun 02,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:47:14 on Jun 02,2020
+# vlog -reportprogress 300 ./counter.sv 
+# -- Compiling module counter
+# ** Error: (vlog-13069) ./counter.sv(14): near "end": syntax error, unexpected end, expecting ';'.
+# ** Error: ./counter.sv(24): Illegal declaration after the statement near line '12'.  Declarations must precede statements.  Look for stray semicolons.
+# ** Error: ./counter.sv(27): Illegal declaration after the statement near line '24'.  Declarations must precede statements.  Look for stray semicolons.
+# ** Error: (vlog-13069) ./counter.sv(32): near "initial": syntax error, unexpected initial.
+# End time: 18:47:14 on Jun 02,2020, Elapsed time: 0:00:00
+# Errors: 4, Warnings: 0
+# ** Error: F:/intelFPGA_lite/17.0/modelsim_ase/win32aloem/vlog failed.
+# Error in macro ./runlab.do line 19
+# F:/intelFPGA_lite/17.0/modelsim_ase/win32aloem/vlog failed.
+#     while executing
+# "vlog "./counter.sv""
+do runlab.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:49:15 on Jun 02,2020
+# vlog -reportprogress 300 ./VGA_Ctrl.sv 
+# -- Compiling module VGA_Ctrl
+# -- Compiling module VGA_Ctrl_testbench
+# 
+# Top level modules:
+# 	VGA_Ctrl_testbench
+# End time: 18:49:16 on Jun 02,2020, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:49:16 on Jun 02,2020
+# vlog -reportprogress 300 ./wall_ROM.v 
+# -- Compiling module wall_ROM
+# 
+# Top level modules:
+# 	wall_ROM
+# End time: 18:49:16 on Jun 02,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:49:16 on Jun 02,2020
+# vlog -reportprogress 300 ./pacman_ROM.v 
+# -- Compiling module pacman_ROM
+# 
+# Top level modules:
+# 	pacman_ROM
+# End time: 18:49:16 on Jun 02,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:49:17 on Jun 02,2020
+# vlog -reportprogress 300 ./dot_ROM.v 
+# -- Compiling module dot_ROM
+# 
+# Top level modules:
+# 	dot_ROM
+# End time: 18:49:17 on Jun 02,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:49:17 on Jun 02,2020
+# vlog -reportprogress 300 ./pill_ROM.v 
+# -- Compiling module pill_ROM
+# 
+# Top level modules:
+# 	pill_ROM
+# End time: 18:49:17 on Jun 02,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:49:17 on Jun 02,2020
+# vlog -reportprogress 300 ./ghost_r_ROM.v 
+# -- Compiling module ghost_R_ROM
+# 
+# Top level modules:
+# 	ghost_R_ROM
+# End time: 18:49:17 on Jun 02,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:49:17 on Jun 02,2020
+# vlog -reportprogress 300 ./ghost_g_ROM.v 
+# -- Compiling module ghost_G_ROM
+# 
+# Top level modules:
+# 	ghost_G_ROM
+# End time: 18:49:18 on Jun 02,2020, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:49:18 on Jun 02,2020
+# vlog -reportprogress 300 ./ghost_b_ROM.v 
+# -- Compiling module ghost_B_ROM
+# 
+# Top level modules:
+# 	ghost_B_ROM
+# End time: 18:49:18 on Jun 02,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:49:18 on Jun 02,2020
+# vlog -reportprogress 300 ./pacman_loc_ctrl.sv 
+# -- Compiling module pacman_loc_ctrl
+# -- Compiling module pacman_loc_ctrl_testbench
+# 
+# Top level modules:
+# 	pacman_loc_ctrl_testbench
+# End time: 18:49:18 on Jun 02,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:49:18 on Jun 02,2020
+# vlog -reportprogress 300 ./map_RAM.v 
+# -- Compiling module map_RAM
+# 
+# Top level modules:
+# 	map_RAM
+# End time: 18:49:18 on Jun 02,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:49:19 on Jun 02,2020
+# vlog -reportprogress 300 ./map_RAM_writer.sv 
+# -- Compiling module map_RAM_writer
+# -- Compiling module map_RAM_writer_testbench
+# 
+# Top level modules:
+# 	map_RAM_writer_testbench
+# End time: 18:49:19 on Jun 02,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:49:19 on Jun 02,2020
+# vlog -reportprogress 300 ./map_RAM_testbench.sv 
+# -- Compiling module map_RAM_testbench
+# 
+# Top level modules:
+# 	map_RAM_testbench
+# End time: 18:49:19 on Jun 02,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:49:19 on Jun 02,2020
+# vlog -reportprogress 300 ./counter.sv 
+# -- Compiling module counter
+# -- Compiling module counter_testbench
+# ** Error: ./counter.sv(21): (vlog-2730) Undefined variable: 'size'.
+# End time: 18:49:19 on Jun 02,2020, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# ** Error: F:/intelFPGA_lite/17.0/modelsim_ase/win32aloem/vlog failed.
+# Error in macro ./runlab.do line 19
+# F:/intelFPGA_lite/17.0/modelsim_ase/win32aloem/vlog failed.
+#     while executing
+# "vlog "./counter.sv""
+do runlab.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:50:34 on Jun 02,2020
+# vlog -reportprogress 300 ./VGA_Ctrl.sv 
+# -- Compiling module VGA_Ctrl
+# -- Compiling module VGA_Ctrl_testbench
+# 
+# Top level modules:
+# 	VGA_Ctrl_testbench
+# End time: 18:50:35 on Jun 02,2020, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:50:35 on Jun 02,2020
+# vlog -reportprogress 300 ./wall_ROM.v 
+# -- Compiling module wall_ROM
+# 
+# Top level modules:
+# 	wall_ROM
+# End time: 18:50:35 on Jun 02,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:50:35 on Jun 02,2020
+# vlog -reportprogress 300 ./pacman_ROM.v 
+# -- Compiling module pacman_ROM
+# 
+# Top level modules:
+# 	pacman_ROM
+# End time: 18:50:35 on Jun 02,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:50:35 on Jun 02,2020
+# vlog -reportprogress 300 ./dot_ROM.v 
+# -- Compiling module dot_ROM
+# 
+# Top level modules:
+# 	dot_ROM
+# End time: 18:50:35 on Jun 02,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:50:36 on Jun 02,2020
+# vlog -reportprogress 300 ./pill_ROM.v 
+# -- Compiling module pill_ROM
+# 
+# Top level modules:
+# 	pill_ROM
+# End time: 18:50:36 on Jun 02,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:50:36 on Jun 02,2020
+# vlog -reportprogress 300 ./ghost_r_ROM.v 
+# -- Compiling module ghost_R_ROM
+# 
+# Top level modules:
+# 	ghost_R_ROM
+# End time: 18:50:36 on Jun 02,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:50:36 on Jun 02,2020
+# vlog -reportprogress 300 ./ghost_g_ROM.v 
+# -- Compiling module ghost_G_ROM
+# 
+# Top level modules:
+# 	ghost_G_ROM
+# End time: 18:50:37 on Jun 02,2020, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:50:37 on Jun 02,2020
+# vlog -reportprogress 300 ./ghost_b_ROM.v 
+# -- Compiling module ghost_B_ROM
+# 
+# Top level modules:
+# 	ghost_B_ROM
+# End time: 18:50:37 on Jun 02,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:50:37 on Jun 02,2020
+# vlog -reportprogress 300 ./pacman_loc_ctrl.sv 
+# -- Compiling module pacman_loc_ctrl
+# -- Compiling module pacman_loc_ctrl_testbench
+# 
+# Top level modules:
+# 	pacman_loc_ctrl_testbench
+# End time: 18:50:38 on Jun 02,2020, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:50:38 on Jun 02,2020
+# vlog -reportprogress 300 ./map_RAM.v 
+# -- Compiling module map_RAM
+# 
+# Top level modules:
+# 	map_RAM
+# End time: 18:50:38 on Jun 02,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:50:39 on Jun 02,2020
+# vlog -reportprogress 300 ./map_RAM_writer.sv 
+# -- Compiling module map_RAM_writer
+# -- Compiling module map_RAM_writer_testbench
+# 
+# Top level modules:
+# 	map_RAM_writer_testbench
+# End time: 18:50:39 on Jun 02,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:50:39 on Jun 02,2020
+# vlog -reportprogress 300 ./map_RAM_testbench.sv 
+# -- Compiling module map_RAM_testbench
+# 
+# Top level modules:
+# 	map_RAM_testbench
+# End time: 18:50:40 on Jun 02,2020, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:50:40 on Jun 02,2020
+# vlog -reportprogress 300 ./counter.sv 
+# -- Compiling module counter
+# -- Compiling module counter_testbench
+# ** Error: ./counter.sv(22): (vlog-2730) Undefined variable: 'size'.
+# ** Error: ./counter.sv(24): 'size' already declared in this scope.
+# End time: 18:50:40 on Jun 02,2020, Elapsed time: 0:00:00
+# Errors: 2, Warnings: 0
+# ** Error: F:/intelFPGA_lite/17.0/modelsim_ase/win32aloem/vlog failed.
+# Error in macro ./runlab.do line 19
+# F:/intelFPGA_lite/17.0/modelsim_ase/win32aloem/vlog failed.
+#     while executing
+# "vlog "./counter.sv""
+do runlab.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:51:36 on Jun 02,2020
+# vlog -reportprogress 300 ./VGA_Ctrl.sv 
+# -- Compiling module VGA_Ctrl
+# -- Compiling module VGA_Ctrl_testbench
+# 
+# Top level modules:
+# 	VGA_Ctrl_testbench
+# End time: 18:51:37 on Jun 02,2020, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:51:37 on Jun 02,2020
+# vlog -reportprogress 300 ./wall_ROM.v 
+# -- Compiling module wall_ROM
+# 
+# Top level modules:
+# 	wall_ROM
+# End time: 18:51:37 on Jun 02,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:51:37 on Jun 02,2020
+# vlog -reportprogress 300 ./pacman_ROM.v 
+# -- Compiling module pacman_ROM
+# 
+# Top level modules:
+# 	pacman_ROM
+# End time: 18:51:37 on Jun 02,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:51:37 on Jun 02,2020
+# vlog -reportprogress 300 ./dot_ROM.v 
+# -- Compiling module dot_ROM
+# 
+# Top level modules:
+# 	dot_ROM
+# End time: 18:51:38 on Jun 02,2020, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:51:38 on Jun 02,2020
+# vlog -reportprogress 300 ./pill_ROM.v 
+# -- Compiling module pill_ROM
+# 
+# Top level modules:
+# 	pill_ROM
+# End time: 18:51:39 on Jun 02,2020, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:51:39 on Jun 02,2020
+# vlog -reportprogress 300 ./ghost_r_ROM.v 
+# -- Compiling module ghost_R_ROM
+# 
+# Top level modules:
+# 	ghost_R_ROM
+# End time: 18:51:39 on Jun 02,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:51:40 on Jun 02,2020
+# vlog -reportprogress 300 ./ghost_g_ROM.v 
+# -- Compiling module ghost_G_ROM
+# 
+# Top level modules:
+# 	ghost_G_ROM
+# End time: 18:51:40 on Jun 02,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:51:40 on Jun 02,2020
+# vlog -reportprogress 300 ./ghost_b_ROM.v 
+# -- Compiling module ghost_B_ROM
+# 
+# Top level modules:
+# 	ghost_B_ROM
+# End time: 18:51:40 on Jun 02,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:51:41 on Jun 02,2020
+# vlog -reportprogress 300 ./pacman_loc_ctrl.sv 
+# -- Compiling module pacman_loc_ctrl
+# -- Compiling module pacman_loc_ctrl_testbench
+# 
+# Top level modules:
+# 	pacman_loc_ctrl_testbench
+# End time: 18:51:41 on Jun 02,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:51:41 on Jun 02,2020
+# vlog -reportprogress 300 ./map_RAM.v 
+# -- Compiling module map_RAM
+# 
+# Top level modules:
+# 	map_RAM
+# End time: 18:51:42 on Jun 02,2020, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:51:42 on Jun 02,2020
+# vlog -reportprogress 300 ./map_RAM_writer.sv 
+# -- Compiling module map_RAM_writer
+# -- Compiling module map_RAM_writer_testbench
+# 
+# Top level modules:
+# 	map_RAM_writer_testbench
+# End time: 18:51:42 on Jun 02,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:51:42 on Jun 02,2020
+# vlog -reportprogress 300 ./map_RAM_testbench.sv 
+# -- Compiling module map_RAM_testbench
+# 
+# Top level modules:
+# 	map_RAM_testbench
+# End time: 18:51:43 on Jun 02,2020, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:51:43 on Jun 02,2020
+# vlog -reportprogress 300 ./counter.sv 
+# -- Compiling module counter
+# -- Compiling module counter_testbench
+# 
+# Top level modules:
+# 	counter_testbench
+# End time: 18:51:43 on Jun 02,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 18:51:44 on Jun 02,2020, Elapsed time: 7:34:14
+# Errors: 24, Warnings: 14
+# vsim -voptargs=""+acc"" -t 1ps -lib work counter_testbench -Lf altera_mf_ver 
+# Start time: 18:51:45 on Jun 02,2020
+# Loading sv_std.std
+# Loading work.counter_testbench
+# Loading work.counter
+# ** Error: Cannot open macro file: counter_wave.do
+# Error in macro ./runlab.do line 29
+# Cannot open macro file: counter_wave.do
+#     while executing
+# "do counter_wave.do"
+do runlab.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:58:25 on Jun 02,2020
+# vlog -reportprogress 300 ./VGA_Ctrl.sv 
+# -- Compiling module VGA_Ctrl
+# -- Compiling module VGA_Ctrl_testbench
+# 
+# Top level modules:
+# 	VGA_Ctrl_testbench
+# End time: 18:58:25 on Jun 02,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:58:25 on Jun 02,2020
+# vlog -reportprogress 300 ./wall_ROM.v 
+# -- Compiling module wall_ROM
+# 
+# Top level modules:
+# 	wall_ROM
+# End time: 18:58:25 on Jun 02,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:58:26 on Jun 02,2020
+# vlog -reportprogress 300 ./pacman_ROM.v 
+# -- Compiling module pacman_ROM
+# 
+# Top level modules:
+# 	pacman_ROM
+# End time: 18:58:26 on Jun 02,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:58:26 on Jun 02,2020
+# vlog -reportprogress 300 ./dot_ROM.v 
+# -- Compiling module dot_ROM
+# 
+# Top level modules:
+# 	dot_ROM
+# End time: 18:58:26 on Jun 02,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:58:26 on Jun 02,2020
+# vlog -reportprogress 300 ./pill_ROM.v 
+# -- Compiling module pill_ROM
+# 
+# Top level modules:
+# 	pill_ROM
+# End time: 18:58:26 on Jun 02,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:58:26 on Jun 02,2020
+# vlog -reportprogress 300 ./ghost_r_ROM.v 
+# -- Compiling module ghost_R_ROM
+# 
+# Top level modules:
+# 	ghost_R_ROM
+# End time: 18:58:26 on Jun 02,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:58:26 on Jun 02,2020
+# vlog -reportprogress 300 ./ghost_g_ROM.v 
+# -- Compiling module ghost_G_ROM
+# 
+# Top level modules:
+# 	ghost_G_ROM
+# End time: 18:58:26 on Jun 02,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:58:26 on Jun 02,2020
+# vlog -reportprogress 300 ./ghost_b_ROM.v 
+# -- Compiling module ghost_B_ROM
+# 
+# Top level modules:
+# 	ghost_B_ROM
+# End time: 18:58:26 on Jun 02,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:58:26 on Jun 02,2020
+# vlog -reportprogress 300 ./pacman_loc_ctrl.sv 
+# -- Compiling module pacman_loc_ctrl
+# -- Compiling module pacman_loc_ctrl_testbench
+# 
+# Top level modules:
+# 	pacman_loc_ctrl_testbench
+# End time: 18:58:26 on Jun 02,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:58:26 on Jun 02,2020
+# vlog -reportprogress 300 ./map_RAM.v 
+# -- Compiling module map_RAM
+# 
+# Top level modules:
+# 	map_RAM
+# End time: 18:58:26 on Jun 02,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:58:26 on Jun 02,2020
+# vlog -reportprogress 300 ./map_RAM_writer.sv 
+# -- Compiling module map_RAM_writer
+# -- Compiling module map_RAM_writer_testbench
+# 
+# Top level modules:
+# 	map_RAM_writer_testbench
+# End time: 18:58:27 on Jun 02,2020, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:58:27 on Jun 02,2020
+# vlog -reportprogress 300 ./map_RAM_testbench.sv 
+# -- Compiling module map_RAM_testbench
+# 
+# Top level modules:
+# 	map_RAM_testbench
+# End time: 18:58:27 on Jun 02,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:58:27 on Jun 02,2020
+# vlog -reportprogress 300 ./counter.sv 
+# -- Compiling module counter
+# -- Compiling module counter_testbench
+# 
+# Top level modules:
+# 	counter_testbench
+# End time: 18:58:27 on Jun 02,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 18:58:28 on Jun 02,2020, Elapsed time: 0:06:43
+# Errors: 3, Warnings: 0
+# vsim -voptargs=""+acc"" -t 1ps -lib work counter_testbench -Lf altera_mf_ver 
+# Start time: 18:58:28 on Jun 02,2020
+# Loading sv_std.std
+# Loading work.counter_testbench
+# Loading work.counter
+# ** Error: Cannot open macro file: counter_wave.do
+# Error in macro ./runlab.do line 29
+# Cannot open macro file: counter_wave.do
+#     while executing
+# "do counter_wave.do"
+add wave -position end  sim:/counter_testbench/CLOCK_50
+add wave -position end  sim:/counter_testbench/reset
+add wave -position end  sim:/counter_testbench/count
+write format wave -window .main_pane.wave.interior.cs.body.pw.wf {F:/EE 371/pacman/counter_wave.do}
+do runlab.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:58:54 on Jun 02,2020
+# vlog -reportprogress 300 ./VGA_Ctrl.sv 
+# -- Compiling module VGA_Ctrl
+# -- Compiling module VGA_Ctrl_testbench
+# 
+# Top level modules:
+# 	VGA_Ctrl_testbench
+# End time: 18:58:54 on Jun 02,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:58:54 on Jun 02,2020
+# vlog -reportprogress 300 ./wall_ROM.v 
+# -- Compiling module wall_ROM
+# 
+# Top level modules:
+# 	wall_ROM
+# End time: 18:58:55 on Jun 02,2020, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:58:55 on Jun 02,2020
+# vlog -reportprogress 300 ./pacman_ROM.v 
+# -- Compiling module pacman_ROM
+# 
+# Top level modules:
+# 	pacman_ROM
+# End time: 18:58:55 on Jun 02,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:58:55 on Jun 02,2020
+# vlog -reportprogress 300 ./dot_ROM.v 
+# -- Compiling module dot_ROM
+# 
+# Top level modules:
+# 	dot_ROM
+# End time: 18:58:55 on Jun 02,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:58:55 on Jun 02,2020
+# vlog -reportprogress 300 ./pill_ROM.v 
+# -- Compiling module pill_ROM
+# 
+# Top level modules:
+# 	pill_ROM
+# End time: 18:58:55 on Jun 02,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:58:55 on Jun 02,2020
+# vlog -reportprogress 300 ./ghost_r_ROM.v 
+# -- Compiling module ghost_R_ROM
+# 
+# Top level modules:
+# 	ghost_R_ROM
+# End time: 18:58:55 on Jun 02,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:58:55 on Jun 02,2020
+# vlog -reportprogress 300 ./ghost_g_ROM.v 
+# -- Compiling module ghost_G_ROM
+# 
+# Top level modules:
+# 	ghost_G_ROM
+# End time: 18:58:56 on Jun 02,2020, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:58:56 on Jun 02,2020
+# vlog -reportprogress 300 ./ghost_b_ROM.v 
+# -- Compiling module ghost_B_ROM
+# 
+# Top level modules:
+# 	ghost_B_ROM
+# End time: 18:58:56 on Jun 02,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:58:56 on Jun 02,2020
+# vlog -reportprogress 300 ./pacman_loc_ctrl.sv 
+# -- Compiling module pacman_loc_ctrl
+# -- Compiling module pacman_loc_ctrl_testbench
+# 
+# Top level modules:
+# 	pacman_loc_ctrl_testbench
+# End time: 18:58:56 on Jun 02,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:58:56 on Jun 02,2020
+# vlog -reportprogress 300 ./map_RAM.v 
+# -- Compiling module map_RAM
+# 
+# Top level modules:
+# 	map_RAM
+# End time: 18:58:56 on Jun 02,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:58:56 on Jun 02,2020
+# vlog -reportprogress 300 ./map_RAM_writer.sv 
+# -- Compiling module map_RAM_writer
+# -- Compiling module map_RAM_writer_testbench
+# 
+# Top level modules:
+# 	map_RAM_writer_testbench
+# End time: 18:58:56 on Jun 02,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:58:56 on Jun 02,2020
+# vlog -reportprogress 300 ./map_RAM_testbench.sv 
+# -- Compiling module map_RAM_testbench
+# 
+# Top level modules:
+# 	map_RAM_testbench
+# End time: 18:58:56 on Jun 02,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:58:56 on Jun 02,2020
+# vlog -reportprogress 300 ./counter.sv 
+# -- Compiling module counter
+# -- Compiling module counter_testbench
+# 
+# Top level modules:
+# 	counter_testbench
+# End time: 18:58:56 on Jun 02,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 18:58:57 on Jun 02,2020, Elapsed time: 0:00:29
+# Errors: 3, Warnings: 0
+# vsim -voptargs=""+acc"" -t 1ps -lib work counter_testbench -Lf altera_mf_ver 
+# Start time: 18:58:58 on Jun 02,2020
+# Loading sv_std.std
+# Loading work.counter_testbench
+# Loading work.counter
+# .main_pane.wave.interior.cs.body.pw.wf
+# .main_pane.structure.interior.cs.body.struct
+# .main_pane.objects.interior.cs.body.tree
+# ** Note: $stop    : ./counter.sv(55)
+#    Time: 1850 ps  Iteration: 1  Instance: /counter_testbench
+# Break in Module counter_testbench at ./counter.sv line 55

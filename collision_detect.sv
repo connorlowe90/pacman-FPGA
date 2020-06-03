@@ -9,5 +9,17 @@ module collision_detect
 	input logic CLOCK_50, reset;
 	input logic [5:0] next_pacman_x, next_ghost1_x, next_ghost2_x;
 	input logic [4:0] next_pacman_y, next_ghost1_y, next_ghost2_y;
+	output logic [3:0] collision_type; // 000: no collision; 001: collision with wall; 
+									   // 010: collision with dots; 
+									   // 011: collision with pill; 
+									   // 100: collision with ghost one; 
+									   // 101: collision with ghost two;
+	output logic [32:0] pill_count;
+
+	
+	
+	
+	
+endmodule
 
 	
