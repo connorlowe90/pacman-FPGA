@@ -19,10 +19,10 @@ module VGA_Ctrl (CLOCK_50, reset, obj_x, obj_y, obj, r, g, b);
     assign wall_b_pixel = wall_word[obj_x] ? 8'd209 : 8'd0;
 	 
 	 // read pacman object image
-	 logic [0:15]pacman_word;
-	 logic [7:0]pacman_r_pixel, pacman_g_pixel, pacman_b_pixel;
-	 pacman_ROM pac (.address(obj_y), .clock(CLOCK_50), .q(pacman_word));
-	 assign pacman_r_pixel = pacman_word[obj_x] ? 8'd245 : 8'd0;
+    logic [0:15]pacman_word;
+    logic [7:0]pacman_r_pixel, pacman_g_pixel, pacman_b_pixel;
+    pacman_ROM pac (.address(obj_y), .clock(CLOCK_50), .q(pacman_word));
+    assign pacman_r_pixel = pacman_word[obj_x] ? 8'd245 : 8'd0;
     assign pacman_g_pixel = pacman_word[obj_x] ? 8'd224 : 8'd0;
     assign pacman_b_pixel = pacman_word[obj_x] ? 8'd66 : 8'd0;
 	 

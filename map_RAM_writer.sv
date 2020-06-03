@@ -29,9 +29,9 @@ module map_RAM_writer(CLOCK_50, reset, curr_pacman_x, curr_pacman_y, next_pacman
                 ns = put_wait;
                 wraddr = curr_pacman_y;
                 wrdata = redata;
-                curr_pacman = wrdata[159-(4*curr_pacman_x+3)+:3];
+                curr_pacman = wrdata[159-(4*curr_pacman_x+3)+:4];
                 assert (curr_pacman == 4'd4);
-                wrdata[159-(4*curr_pacman_x+3)+:3] = 4'd0;
+                wrdata[159-(4*curr_pacman_x+3)+:4] = 4'd0;
             end
             put_wait: begin
                 ns = put;
@@ -41,7 +41,7 @@ module map_RAM_writer(CLOCK_50, reset, curr_pacman_x, curr_pacman_y, next_pacman
                 ns = init;
                 wraddr = next_pacman_y;
                 wrdata = redata;
-                wrdata[159-(4*next_pacman_x+3)+:3] = 4'd4;
+                wrdata[159-(4*next_pacman_x+3)+:4] = 4'd4;
                 done = 1;
             end
 			endcase

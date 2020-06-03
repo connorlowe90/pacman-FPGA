@@ -1,5 +1,4 @@
 *.bak
-*.txt
 *.tdf
 *.tmw_info
 *.cdf
@@ -57,3 +56,4 @@
 _*
 *.svo
 *.vstf
+*.txt
