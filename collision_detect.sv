@@ -47,10 +47,12 @@ module collision_detect
 				if (reset) begin
 						collision_type = 3'b000;
 						next_pill_count = 0;
+						wren = 0;
 				  end 
 				  else begin
 						if (obj == 4'h1) begin // collision with wall
 							 collision_type = 4'b0001;
+							 wren = 0;
 						end
 						else if(obj == 4'h2) begin // collision with dots
 							collision_type = 4'b0010;
