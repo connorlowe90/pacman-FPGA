@@ -21,7 +21,7 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW,
 	logic [9:0] x;
 	logic [8:0] y;
 	logic [7:0] r, g, b;
-	assign reset = SW[0];
+	assign reset = ~KEY[0];
 	assign LEDR[0] = reset;
 	
 	// addresses for selecting object within map
@@ -69,11 +69,19 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW,
 	logic wren;
 	logic [4:0] wraddr;
 	logic [159:0] wrdata;
+	logic [3:0] collision_type;
+	logic [32:0] pill_count;
+	
+	collision_detect collisions (.CLOCK_50(CLOCK_50), .reset(reset), .next_pacman_x(next_pacman_x),
+											.next_pacman_y(next_pacman_y), .next_ghost1_x(),
+											.next_ghost1_y(), .next_ghost2_x(), .next_ghost2_y(),
+											.collision_type(collision_type), .pill_count(pill_count));
 	
 	pacman_loc_ctrl pac_loc (.CLOCK_50(CLOCK_50), .reset(reset), .done(done), 
 							 .up(up), .down(down), .left(left), .right(right),
 							 .curr_pacman_x(curr_pacman_x), .curr_pacman_y(curr_pacman_y), 
-							 .next_pacman_x(next_pacman_x), .next_pacman_y(next_pacman_y));
+							 .next_pacman_x(next_pacman_x), .next_pacman_y(next_pacman_y),
+							 .collision_type(collision_type), .pill_count(pill_count));
 	
 	map_RAM_writer map_ram_wr(.CLOCK_50(CLOCK_50), .reset(reset), 
 							  .curr_pacman_x(curr_pacman_x), .curr_pacman_y(curr_pacman_y), 

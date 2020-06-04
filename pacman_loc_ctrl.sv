@@ -1,8 +1,13 @@
 // pacman location control module 
 // keep track of pacman's current and next location on the game map
-module pacman_loc_ctrl(CLOCK_50, reset, done, up, down, left, right, curr_pacman_x, curr_pacman_y, next_pacman_x, next_pacman_y);
+module pacman_loc_ctrl(CLOCK_50, reset, done, up, down, left, right, 
+							  collision_type, pill_count,
+							  curr_pacman_x, curr_pacman_y, next_pacman_x, 
+							  next_pacman_y);
     input logic CLOCK_50, reset, done; // done: from RAM write module that indicates curr position has been removed and next position has been write
     input logic up, down, left, right;
+	 input logic [3:0] collision_type;
+	 input logic [32:0] pill_count;
     output logic [5:0] curr_pacman_x, next_pacman_x;
     output logic [4:0] curr_pacman_y, next_pacman_y;
     enum {still, move} ps, ns;
@@ -38,16 +43,24 @@ module pacman_loc_ctrl(CLOCK_50, reset, done, up, down, left, right, curr_pacman
                         next_pacman_y = curr_pacman_y;
                     end
                     else begin
-                        next_pacman_x = 6'bx;
-                        next_pacman_y = 6'bx;
+                        next_pacman_x = 6'dx;
+                        next_pacman_y = 5'dx;
                     end
                 end
             end
             move: begin
                if (done) ns = still;
                else ns = move;
-               next_pacman_x = next_pacman_x;
-               next_pacman_y = next_pacman_y;
+					
+					// block determining next pacman location based on if it is a valid move
+					if (collision_type == 4'b0001) begin // collide with wall
+						next_pacman_x = curr_pacman_x;
+						next_pacman_y = curr_pacman_y;
+						end
+					else begin
+						next_pacman_x = next_pacman_x;
+						next_pacman_y = next_pacman_y;
+						end
             end
         endcase
     end
@@ -77,6 +90,8 @@ endmodule
 module pacman_loc_ctrl_testbench();
     logic CLOCK_50, reset, done; // done: from RAM write module that indicates curr position has been removed and next position has been write
     logic up, down, left, right;
+	 logic [3:0] collision_type;
+	 logic [32:0] pill_count;
     logic [5:0] curr_pacman_x, next_pacman_x;
     logic [4:0] curr_pacman_y, next_pacman_y;
     logic [3:0] direction;
