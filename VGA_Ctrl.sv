@@ -59,7 +59,7 @@ module VGA_Ctrl (CLOCK_50, reset, obj_x, obj_y, obj, r, g, b);
             b = 8'd0;
         end 
         else begin
-            if (obj == 1) begin
+            if (obj == 4'h1) begin
                 r = wall_b_pixel;   
                 g = wall_r_pixel;
                 b = wall_g_pixel;
