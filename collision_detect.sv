@@ -5,7 +5,7 @@
 module collision_detect
 			(CLOCK_50, reset, next_pacman_x, next_pacman_y, 
 			 next_ghost1_x, next_ghost1_y, next_ghost2_x, next_ghost2_y,
-			 collision_type);
+			 collision_type, pill_count);
 	input logic CLOCK_50, reset;
 	input logic [5:0] next_pacman_x, next_ghost1_x, next_ghost2_x;
 	input logic [4:0] next_pacman_y, next_ghost1_y, next_ghost2_y;

@@ -19,16 +19,17 @@ vlog "./map_RAM_testbench.sv"
 vlog "./counter.sv"
 vlog "./ghost_map_RAM.v"
 vlog "./ghost_RAM_ctrl.sv"
+vlog "./ghosts_loc_ctrl.sv"
 
 # Call vsim to invoke simulator
 #     Make sure the last item on the line is the name of the
 #     testbench module you want to execute.
-vsim -voptargs="+acc" -t 1ps -lib work ghost_RAM_ctrl_testbench -Lf altera_mf_ver
+vsim -voptargs="+acc" -t 1ps -lib work ghosts_loc_ctrl_testbench -Lf altera_mf_ver
 
 # Source the wave do file
 #     This should be the file that sets up the signal window for
 #     the module you are testing.
-do ghost_RAM_ctrl_wave.do
+do ghosts_loc_ctrl_wave.do
 
 # Set the window types
 view wave

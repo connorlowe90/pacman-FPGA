@@ -44,7 +44,7 @@ module map_RAM_writer(CLOCK_50, reset, curr_pacman_x, curr_pacman_y, next_pacman
                 wrdata[159-(4*next_pacman_x+3)+:4] = 4'd4;
                 done = 1;
             end
-			endcase
+		endcase
     end
     assign wren = ((ps == remove) | (ps == put));
 

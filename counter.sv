@@ -9,8 +9,8 @@ module counter #(parameter MAX = 50000000)(CLOCK_50, reset, count);
             count <= MAX;
         end 
         else begin
-            if (count > 0) count <= count - 1;
-            else count <= count;
+            if (count == 0) count <= MAX;
+            else count <= count - 1;
         end
     end
 endmodule
