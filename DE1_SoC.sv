@@ -52,15 +52,17 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW,
 
 	logic makeBreak;
 	logic [7:0] scan_code;		
-	assign LEDR[1] = makeBreak;
-	assign LEDR[3] = PS2_DAT;
+	// assign LEDR[1] = makeBreak;
+	// assign LEDR[3] = PS2_DAT;
 	// PS2 keyboard control sytem
-	keyboard_press_driver keyboard_driver (.CLOCK_50(CLOCK_50), .valid(), 
-										   .makeBreak(makeBreak), .outCode(scan_code), 
-										   .PS2_DAT(PS2_DAT),  .PS2_CLK(PS2_CLK), .reset(reset));
-	keyboard_process keyboard_ctrl (.CLOCK_50(CLOCK_50), .reset(reset), 
-								    .makeBreak(makeBreak), .scan_code(scan_code), 
-								    .up(up), .down(down), .left(left), .right(right));
+	// keyboard_press_driver keyboard_driver (.CLOCK_50(CLOCK_50), .valid(), 
+	// 									   .makeBreak(makeBreak), .outCode(scan_code), 
+	// 									   .PS2_DAT(PS2_DAT),  .PS2_CLK(PS2_CLK), .reset(reset));
+	// keyboard_process keyboard_ctrl (.CLOCK_50(CLOCK_50), .reset(reset), 
+	// 							    .makeBreak(makeBreak), .scan_code(scan_code), 
+	// 							    .up(up), .down(down), .left(left), .right(right));
+
+
 	
 	logic pac_done, ghost_done, up, down, left, right;
 	logic [5:0] curr_pacman_x, next_pacman_x;
@@ -74,6 +76,10 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW,
 	logic [5:0] next_ghost1_x, next_ghost2_x;
 	logic [4:0] next_ghost1_y, next_ghost2_y;	
 	assign start = SW[1];
+	assign up = KEY[3];
+	assign down = KEY[2];
+	assign left = KEY[1];
+	assign right = KEY[0];
 	collision_detect collisions (.CLOCK_50(CLOCK_50), .reset(reset), .next_pacman_x(next_pacman_x),
 											.next_pacman_y(next_pacman_y), .next_ghost1_x(),
 											.next_ghost1_y(), .next_ghost2_x(), .next_ghost2_y(),

@@ -94,7 +94,7 @@ endmodule
 // testbench for pacman_loc_ctrl module
 module pacman_loc_ctrl_testbench();
     logic CLOCK_50, reset, done; // done: from RAM write module that indicates curr position has been removed and next position has been write
-    logic up, down, left, right;
+    logic up, down, left, right, ready;
 	 logic [3:0] collision_type;
 	 logic [32:0] pill_count;
     logic [5:0] curr_pacman_x, next_pacman_x;
