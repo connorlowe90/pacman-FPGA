@@ -23,18 +23,19 @@ vlog "./ghosts_loc_ctrl.sv"
 vlog "./collision_detect.sv"
 vlog "./map_simp_RAM.v"
 vlog "./testRomIns.sv"
+vlog "./testRom.v"
 
 
 
 # Call vsim to invoke simulator
 #     Make sure the last item on the line is the name of the
 #     testbench module you want to execute.
-vsim -voptargs="+acc" -t 1ps -lib work map_RAM_writer_testbench -Lf altera_mf_ver
+vsim -voptargs="+acc" -t 1ps -lib work testRomIns_testbench -Lf altera_mf_ver
 
 # Source the wave do file
 #     This should be the file that sets up the signal window for
 #     the module you are testing.
-do map_RAM_writer_wave.do
+do testRomIns_wave.do
 
 # Set the window types
 view wave

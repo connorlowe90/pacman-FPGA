@@ -28,7 +28,7 @@ module testRomIns_testbench();
 		address = 5'b0000;  			@(posedge clock); 
 											@(posedge clock); 
 											@(posedge clock); 
-		address = 5'b0010;  			@(posedge clock); 
+		address = 5'b0011;  			@(posedge clock); 
 											@(posedge clock);
 											@(posedge clock);
 		address = 5'b0000;			@(posedge clock);
