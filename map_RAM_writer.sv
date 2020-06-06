@@ -187,16 +187,16 @@ module map_RAM_writer_testbench();
     logic ready;
     assign {up, down, left, right} = direction;
 
-    map_RAM m (.address_a(), .address_b(wraddr), .clock(CLOCK_50), .data_a(), .data_b(wrdata), .wren_a(), .wren_b(wren), .q_a(), .q_b(redata));
-    collision_detect collisions (.CLOCK_50(CLOCK_50), .reset(reset), .next_pacman_x(next_pacman_x),
-											.next_pacman_y(next_pacman_y), .next_ghost1_x(next_ghost1_x),
-											.next_ghost1_y(next_ghost1_y), .next_ghost2_x(next_ghost2_x), .next_ghost2_y(next_ghost2_y),
-											.collision_type(collision_type), .pill_count(pill_count));
-    pacman_loc_ctrl pac_loc (.CLOCK_50, .reset, .done(pac_done), .up, .down, .left, .right, .curr_pacman_x, .curr_pacman_y, .next_pacman_x, .next_pacman_y, .ready);
-    ghosts_loc_ctrl ghost_loc
-		 (.CLOCK_50, .reset, .curr_pacman_x, .curr_pacman_y, .collision_type(), .pill_counter(),
-		  .wrdone(ghost_done), .curr_ghost1_x, .curr_ghost1_y, .curr_ghost2_x, .curr_ghost2_y,
-		  .next_ghost1_x, .next_ghost1_y, .next_ghost2_x, .next_ghost2_y);
+//    map_RAM m (.address_a(), .address_b(wraddr), .clock(CLOCK_50), .data_a(), .data_b(wrdata), .wren_a(), .wren_b(wren), .q_a(), .q_b(redata));
+//    collision_detect collisions (.CLOCK_50(CLOCK_50), .reset(reset), .next_pacman_x(next_pacman_x),
+//											.next_pacman_y(next_pacman_y), .next_ghost1_x(next_ghost1_x),
+//											.next_ghost1_y(next_ghost1_y), .next_ghost2_x(next_ghost2_x), .next_ghost2_y(next_ghost2_y),
+//											.collision_type(collision_type), .pill_count(pill_count));
+//    pacman_loc_ctrl pac_loc (.CLOCK_50, .reset, .done(pac_done), .up, .down, .left, .right, .curr_pacman_x, .curr_pacman_y, .next_pacman_x, .next_pacman_y, .ready);
+//    ghosts_loc_ctrl ghost_loc
+//		 (.CLOCK_50, .reset, .curr_pacman_x, .curr_pacman_y, .collision_type(), .pill_counter(),
+//		  .wrdone(ghost_done), .curr_ghost1_x, .curr_ghost1_y, .curr_ghost2_x, .curr_ghost2_y,
+//		  .next_ghost1_x, .next_ghost1_y, .next_ghost2_x, .next_ghost2_y);
     map_RAM_writer dut (.*);
 
     parameter CLOCK_PERIOD = 100;
