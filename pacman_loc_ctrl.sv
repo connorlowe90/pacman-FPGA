@@ -100,6 +100,7 @@ module pacman_loc_ctrl_testbench();
     logic [5:0] curr_pacman_x, next_pacman_x;
     logic [4:0] curr_pacman_y, next_pacman_y;
     logic [3:0] direction;
+	 logic ready;
 	parameter CLOCK_PERIOD = 100;
 
     assign {up, down, left, right} = direction;
