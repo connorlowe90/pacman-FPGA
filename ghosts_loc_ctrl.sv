@@ -2,7 +2,8 @@
 // pacman's current location and ghost's current location
 module ghosts_loc_ctrl
 		 (CLOCK_50, reset, curr_pacman_x, curr_pacman_y, collision_type, pill_counter,
-		  wrdone, next_ghost1_x, next_ghost1_y, next_ghost2_x, next_ghost2_y);
+		  wrdone, curr_ghost1_x, curr_ghost1_y, curr_ghost2_x, curr_ghost2_y,
+		  next_ghost1_x, next_ghost1_y, next_ghost2_x, next_ghost2_y);
 
 	input logic CLOCK_50, reset;
 	input logic [1:0] collision_type; 
@@ -12,11 +13,11 @@ module ghosts_loc_ctrl
 	input logic [4:0] curr_pacman_y;
 	output logic [5:0] next_ghost1_x, next_ghost2_x;
 	output logic [4:0] next_ghost1_y, next_ghost2_y;
+	output logic [5:0] curr_ghost1_x, curr_ghost2_x;
+	output logic [4:0] curr_ghost1_y, curr_ghost2_y;
 
 	logic [5:0] prev_ghost1_x, prev_ghost2_x;
 	logic [4:0] prev_ghost1_y, prev_ghost2_y;
-	logic [5:0] curr_ghost1_x, curr_ghost2_x;
-	logic [4:0] curr_ghost1_y, curr_ghost2_y;
 
 	// possible next step options
 	logic [5:0] next_ghost1_x1, next_ghost1_x2, next_ghost1_x3, next_ghost1_x4,
@@ -44,11 +45,15 @@ module ghosts_loc_ctrl
 	assign next_ghost2_x4 = curr_ghost2_x + 1;
 	assign next_ghost2_y4 = curr_ghost2_y;
 
+	enum {init, check1_1, check1_2, check1_3, check1_4,
+		  check2_1, check2_2, check2_3, check2_4, done, wait_init} ps, ns;
 	// counter system
-	parameter MAX = 5; // 50M reduce the ghost speed to 1Hz 
+	parameter MAX = 2413;//0000000; // 50M reduce the ghost speed to 1Hz 
 	parameter size = $clog2(MAX);
 	logic [size-1:0] count;
-	counter #(MAX) c (.CLOCK_50, .reset, .count);
+	logic clk_reset;
+	counter #(MAX) c (.CLOCK_50, .reset(clk_reset), .count);
+	assign clk_reset = (ps == init);
 
 	// ghost map ram that keep track of each grid's proximity from pacman
 	logic [5:0] rdaddr_x;
@@ -68,8 +73,6 @@ module ghosts_loc_ctrl
 				next_ghost2_val1, next_ghost2_val2, next_ghost2_val3, next_ghost2_val4;
 	logic [5:0] next_ghost1_min_x, next_ghost2_min_x;
 	logic [4:0] next_ghost1_min_y, next_ghost2_min_y;
-	enum {init, check1_1, check1_2, check1_3, check1_4, wait_2, 
-		  check2_1, check2_2, check2_3, check2_4, done, wait_init} ps, ns;
 	always_latch begin
 		case(ps) 
 			init: begin
@@ -77,50 +80,50 @@ module ghosts_loc_ctrl
 					ns = check1_1;
 				end
 				else ns = init;
+				// rdaddr_x = next_ghost1_x1;
 				rdaddr_x = next_ghost1_x1;
 				rdaddr_y = next_ghost1_y1;
 			end
 			check1_1: begin // check up 
 				ns = check1_2;
 				next_ghost1_val1 = data;
-				rdaddr_x = next_ghost1_x2;
+				rdaddr_x = next_ghost1_x1;
 				rdaddr_y = next_ghost1_y2;
 			end
 			check1_2: begin // check down (change y from previous state)
 				ns = check1_3;
 				next_ghost1_val2 = data;
-				rdaddr_x = next_ghost1_x3;
+				rdaddr_x = next_ghost1_x2;
 				rdaddr_y = next_ghost1_y3;
 			end
 			check1_3: begin // check left (change y from previous state)
 				ns = check1_4;
+				rdaddr_x = next_ghost1_x3;
+				rdaddr_y = next_ghost1_y4;
 				next_ghost1_val3 = data;
 			end
 			check1_4: begin // check right (does not change y from previous state)
-				ns = wait_2; 
+				ns = check2_1; 
 				rdaddr_x = next_ghost1_x4;
-				rdaddr_y = next_ghost1_y4;
-				next_ghost1_val4 = data;
-			end
-			wait_2: begin
-				ns = check2_1;
-				rdaddr_x = next_ghost2_x1;
 				rdaddr_y = next_ghost2_y1;
+				next_ghost1_val4 = data;
 			end
 			check2_1: begin // check up (change y from previous state)
 				ns = check2_2;
 				next_ghost2_val1 = data;
-				rdaddr_x = next_ghost2_x2;
+				rdaddr_x = next_ghost2_x1;
 				rdaddr_y = next_ghost2_y2;
 			end
 			check2_2: begin // check down (change y from previous state)
 				ns = check2_3; 
 				next_ghost2_val2 = data;
-				rdaddr_x = next_ghost2_x3;
+				rdaddr_x = next_ghost2_x2;
 				rdaddr_y = next_ghost2_y3;
 			end
 			check2_3: begin // check left (change y from previous state)
 				ns = check2_4; 
+				rdaddr_x = next_ghost2_x3;
+				rdaddr_y = next_ghost2_y4;
 				next_ghost2_val3 = data;
 			end
 			check2_4: begin // check right (doesn't change y from previous state)
@@ -256,6 +259,8 @@ module ghosts_loc_ctrl_testbench();
 	logic [4:0] curr_pacman_y;
 	logic [5:0] next_ghost1_x, next_ghost2_x;
 	logic [4:0] next_ghost1_y, next_ghost2_y;
+	logic [5:0] curr_ghost1_x, curr_ghost2_x;
+	logic [4:0] curr_ghost1_y, curr_ghost2_y;
 
 	ghosts_loc_ctrl dut (.*);
 	parameter CLOCK_PERIOD = 100;
@@ -270,12 +275,15 @@ module ghosts_loc_ctrl_testbench();
 		for (int i = 0; i < 2400; i ++) begin
 			@(posedge CLOCK_50);
 		end
-		for (int i = 0; i < 10; i ++) begin
+		for (int i = 0; i < 11; i ++) begin
 			@(posedge CLOCK_50);
 		end
 		wrdone <= 1; @(posedge CLOCK_50);
 		wrdone <= 0; @(posedge CLOCK_50);
-		for (int i = 0; i < 10; i ++) begin
+		for (int i = 0; i < 2400; i ++) begin
+			@(posedge CLOCK_50);
+		end
+		for (int i = 0; i < 11; i ++) begin
 			@(posedge CLOCK_50);
 		end
 		wrdone <= 1; @(posedge CLOCK_50);

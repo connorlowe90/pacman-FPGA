@@ -1,52 +1,161 @@
 // This module takes in sprits' new current and new location and then 
 // generate control signals that writes the new location information
 // into the map ram 
-module map_RAM_writer(CLOCK_50, reset, curr_pacman_x, curr_pacman_y, next_pacman_x, next_pacman_y, redata, wren, done, wraddr, wrdata);
-    input logic CLOCK_50, reset;
-    input logic [5:0] curr_pacman_x, next_pacman_x; // Has to keep the same for at least 3 clk cycle
-    input logic [4:0] curr_pacman_y, next_pacman_y; // Has to keep the same for at least 3 clk cycle
+module map_RAM_writer(CLOCK_50, reset, start, ready,
+                      curr_pacman_x, curr_pacman_y, next_pacman_x, next_pacman_y, 
+                      curr_ghost1_x, curr_ghost1_y, next_ghost1_x, next_ghost1_y, 
+                      curr_ghost2_x, curr_ghost2_y, next_ghost2_x, next_ghost2_y,
+                      redata, wren, pac_done, ghost_done, wraddr, wrdata);
+    input logic CLOCK_50, reset, start, ready;
+    input logic [5:0] curr_pacman_x, next_pacman_x, curr_ghost1_x, curr_ghost2_x, 
+							 next_ghost1_x, next_ghost2_x;// Has to keep the same for at least 3 clk cycle
+    input logic [4:0] curr_pacman_y, next_pacman_y, curr_ghost1_y, curr_ghost2_y,
+							 next_ghost1_y, next_ghost2_y; // Has to keep the same for at least 3 clk cycle
     input logic [159:0] redata; // data read from map RAM at the wraddr
-    output logic wren, done; // when done is asserted curr_pacman and next_pacman should be set to equal by exterior module
+    output logic wren, pac_done, ghost_done; // when done is asserted curr_pacman and next_pacman should be set to equal by exterior module
     output logic [4:0] wraddr;
     output logic [159:0] wrdata; // data being written into map RAM at wraddr
 
-    logic [3:0] curr_pacman;
+    logic [3:0] curr_pacman, curr_ghost, next_obj, wrgrid;
 
-    enum {init, remove, put_wait, put} ps, ns;
+    enum {init, remove_pac, wait_pac_put, put_pac, wait_ghost1_remove, remove_ghost1, wait_ghost1_put, put_ghost1, 
+		  wait_ghost2_remove, remove_ghost2, wait_ghost2_put, put_ghost2} ps, ns;
 
     always_comb begin
 		wraddr = 5'bX;
         wrdata = 159'bX;
- 	    done = 0;
+ 	    pac_done = 0;
+        ghost_done = 0;
         curr_pacman = 4'bX;
+		curr_ghost = 4'bX;
+		next_obj = 4'bX;
+        wrgrid = 4'bX;
         case(ps)
             init: begin
-                if ((curr_pacman_x == next_pacman_x) & (curr_pacman_y == next_pacman_y)) ns = init;
-                else ns = remove;
+                if (start) begin
+                    if ((curr_pacman_x == next_pacman_x) & (curr_pacman_y == next_pacman_y)) begin
+                        if ((curr_ghost1_x != next_ghost1_x) | (curr_ghost1_y != next_ghost1_y) |
+                        (curr_ghost2_x != next_ghost2_x) | (curr_ghost2_y != next_ghost2_y)) begin
+                            ns = wait_ghost1_remove;
+                        end
+                        else  ns = init;
+                    end
+                    else begin 
+                        if (ready) ns = remove_pac;
+                        else ns = init;
+                    end
+                end
+                else ns = init;
                 wraddr = curr_pacman_y;
             end
-            remove: begin
-                ns = put_wait;
+            remove_pac: begin
+                ns = wait_pac_put;
                 wraddr = curr_pacman_y;
                 wrdata = redata;
-                curr_pacman = wrdata[159-(4*curr_pacman_x+3)+:4];
+                // testing
+                curr_pacman = redata[159-(4*curr_pacman_x+3)+:4];
                 assert (curr_pacman == 4'd4);
-                wrdata[159-(4*curr_pacman_x+3)+:4] = 4'd0;
+                wrgrid = 4'd0;
+                wrdata[159-(4*curr_pacman_x+3)+:4] = wrgrid;
             end
-            put_wait: begin
-                ns = put;
+            wait_pac_put: begin
+                ns = put_pac;
                 wraddr = next_pacman_y;
             end
-            put: begin
-                ns = init;
+            put_pac: begin
+                if ((curr_ghost1_x != next_ghost1_x) | (curr_ghost1_y != next_ghost1_y) |
+                    (curr_ghost2_x != next_ghost2_x) | (curr_ghost2_y != next_ghost2_y)) begin
+                           ns = wait_ghost1_remove;
+                       end
+                else ns = init;
                 wraddr = next_pacman_y;
+                next_obj = redata[159-(4*next_pacman_y+3)+:4];
                 wrdata = redata;
-                wrdata[159-(4*next_pacman_x+3)+:4] = 4'd4;
-                done = 1;
+                wrgrid = 4'd4;
+                wrdata[159-(4*next_pacman_x+3)+:4] = wrgrid;
+                pac_done = 1;
+            end
+            wait_ghost1_remove: begin
+                ns = remove_ghost1;
+                wraddr = curr_ghost1_y;
+            end
+            remove_ghost1: begin
+                ns = wait_ghost1_put;
+                wraddr = curr_ghost1_y;
+                wrdata = redata;
+                curr_ghost = redata[159-(4*curr_ghost1_x+3)+:4]; 
+                assert (curr_ghost >= 5);
+                if (curr_ghost == 4'd5) begin // if ghost does not overlay with anything
+                    wrgrid = 4'd0; 
+                end
+                else begin // if ghost overlay with dot or pill
+                    wrgrid = curr_ghost - 4;
+                end
+                wrdata[159-(4*curr_ghost1_x+3)+:4]  = wrgrid;
+            end
+            wait_ghost1_put: begin
+                ns = put_ghost1;
+                wraddr = next_ghost1_y;
+            end
+            put_ghost1: begin
+                ns = wait_ghost2_remove;
+                wraddr = next_ghost1_y;
+                wrdata = redata;
+                next_obj = redata[159-(4*next_ghost1_x+3)+:4]; 
+                if (next_obj == 4'd0 | next_obj == 4'd4) begin
+                    wrgrid = 4'd5;
+                end
+                else if (next_obj >=  4'd5) begin
+                    wrgrid = next_obj;
+                end
+                else begin
+                    wrgrid = next_obj + 4;
+                end
+                wrdata[159-(4*next_ghost1_x+3)+:4] = wrgrid;
+            end
+            wait_ghost2_remove: begin
+                ns = remove_ghost2;
+                wraddr = curr_ghost2_y;
+            end
+            remove_ghost2: begin
+                ns = wait_ghost2_put;
+                wraddr = curr_ghost2_y;
+                wrdata = redata;
+                curr_ghost = redata[159-(4*curr_ghost2_x+3)+:4]; 
+                assert (curr_ghost >= 5);
+                if (curr_ghost == 4'd5) begin // if ghost does not overlay with anything
+                    wrgrid = 4'd0;
+                end
+                else begin // if ghost overlay with dot or pill
+                    wrgrid = curr_ghost - 4;
+                end
+                wrdata[159-(4*curr_ghost2_x+3)+:4] = wrgrid;
+            end
+            wait_ghost2_put: begin
+                ns = put_ghost2;
+                wraddr = next_ghost2_y;
+            end
+            put_ghost2: begin
+                ns = init;
+                wraddr = next_ghost2_y;
+                wrdata = redata;
+                next_obj = redata[159-(4*next_ghost2_x+3)+:4]; 
+                if (next_obj == 4'd0 | next_obj == 4'd4) begin
+                    wrgrid = 4'd5;
+                end
+                else if (next_obj >=  4'd5) begin
+                    wrgrid = next_obj;
+                end
+                else begin
+                    wrgrid = next_obj + 4;
+                end
+                wrdata[159-(4*next_ghost2_x+3)+:4] = wrgrid;
+                ghost_done = 1;
             end
 		endcase
     end
-    assign wren = ((ps == remove) | (ps == put));
+    assign wren = ((ps == remove_pac) | (ps == put_pac) | (ps == remove_ghost1) | (ps == put_ghost1) |
+                   (ps == remove_ghost2) | (ps == put_ghost2));
 
 
     always_ff @(posedge CLOCK_50) begin
@@ -62,19 +171,32 @@ endmodule
 // testbench for map_RAM_writer
 `timescale 1 ps / 1 ps
 module map_RAM_writer_testbench();
-    logic CLOCK_50, reset;
-    logic [5:0] curr_pacman_x, next_pacman_x; // Has to keep the same for at least 3 clk cycle
-    logic [4:0] curr_pacman_y, next_pacman_y; // Has to keep the same for at least 3 clk cycle
+    logic CLOCK_50, reset, start;
+    logic [5:0] curr_pacman_x, next_pacman_x, curr_ghost1_x, curr_ghost2_x, 
+					 next_ghost1_x, next_ghost2_x; // Has to keep the same for at least 3 clk cycle
+    logic [4:0] curr_pacman_y, next_pacman_y, curr_ghost1_y, curr_ghost2_y,
+					 next_ghost1_y, next_ghost2_y; // Has to keep the same for at least 3 clk cycle
     logic [159:0] redata; // data read from map RAM at the wraddr
-    logic wren, done;
+    logic wren, pac_done, ghost_done;
     logic [4:0] wraddr;
     logic [159:0] wrdata; // data being written into map RAM at wraddr
     logic up, down, left, right;
     logic [3:0] direction;
+    logic [3:0] collision_type;
+    logic [32:0] pill_count;
+    logic ready;
     assign {up, down, left, right} = direction;
 
     map_RAM m (.address_a(), .address_b(wraddr), .clock(CLOCK_50), .data_a(), .data_b(wrdata), .wren_a(), .wren_b(wren), .q_a(), .q_b(redata));
-    pacman_loc_ctrl pac_loc (.CLOCK_50, .reset, .done, .up, .down, .left, .right, .curr_pacman_x, .curr_pacman_y, .next_pacman_x, .next_pacman_y);
+    collision_detect collisions (.CLOCK_50(CLOCK_50), .reset(reset), .next_pacman_x(next_pacman_x),
+											.next_pacman_y(next_pacman_y), .next_ghost1_x(next_ghost1_x),
+											.next_ghost1_y(next_ghost1_y), .next_ghost2_x(next_ghost2_x), .next_ghost2_y(next_ghost2_y),
+											.collision_type(collision_type), .pill_count(pill_count));
+    pacman_loc_ctrl pac_loc (.CLOCK_50, .reset, .done(pac_done), .up, .down, .left, .right, .curr_pacman_x, .curr_pacman_y, .next_pacman_x, .next_pacman_y, .ready);
+    ghosts_loc_ctrl ghost_loc
+		 (.CLOCK_50, .reset, .curr_pacman_x, .curr_pacman_y, .collision_type(), .pill_counter(),
+		  .wrdone(ghost_done), .curr_ghost1_x, .curr_ghost1_y, .curr_ghost2_x, .curr_ghost2_y,
+		  .next_ghost1_x, .next_ghost1_y, .next_ghost2_x, .next_ghost2_y);
     map_RAM_writer dut (.*);
 
     parameter CLOCK_PERIOD = 100;
@@ -83,48 +205,115 @@ module map_RAM_writer_testbench();
         forever #(CLOCK_PERIOD/2) CLOCK_50 <= ~CLOCK_50;
     end
 
-    initial begin 
-        reset <= 1; @(posedge CLOCK_50);
-        reset <= 0; done <= 0; direction <= 4'b0000; @(posedge CLOCK_50);
+    initial begin
+        
+        start <= 0; reset <= 1; @(posedge CLOCK_50);
+        start <= 1; reset <= 0; direction <= 4'b0000; @(posedge CLOCK_50);
+        /*
+        reset <= 0; @(posedge CLOCK_50);
+		for (int i = 0; i < 2400; i ++) begin
+			@(posedge CLOCK_50);
+		end
+		for (int i = 0; i < 11; i ++) begin
+			@(posedge CLOCK_50);
+		end
+        for (int i = 0; i < 2400; i ++) begin
+			@(posedge CLOCK_50);
+		end
+        for (int i = 0; i < 30; i ++) begin
+			@(posedge CLOCK_50);
+		end
+        for (int i = 0; i < 2400; i ++) begin
+			@(posedge CLOCK_50);
+		end
+        for (int i = 0; i < 30; i ++) begin
+			@(posedge CLOCK_50);
+		end
+        for (int i = 0; i < 2400; i ++) begin
+			@(posedge CLOCK_50);
+		end
+        for (int i = 0; i < 30; i ++) begin
+			@(posedge CLOCK_50);
+		end
+        for (int i = 0; i < 2400; i ++) begin
+			@(posedge CLOCK_50);
+		end
+        for (int i = 0; i < 30; i ++) begin
+			@(posedge CLOCK_50);
+		end
+        for (int i = 0; i < 2400; i ++) begin
+			@(posedge CLOCK_50);
+		end
+        for (int i = 0; i < 30; i ++) begin
+			@(posedge CLOCK_50);
+		end
+        for (int i = 0; i < 2400; i ++) begin
+			@(posedge CLOCK_50);
+		end
+        for (int i = 0; i < 30; i ++) begin
+			@(posedge CLOCK_50);
+		end
+        for (int i = 0; i < 2400; i ++) begin
+			@(posedge CLOCK_50);
+		end
+        for (int i = 0; i < 30; i ++) begin
+			@(posedge CLOCK_50);
+		end
+        for (int i = 0; i < 2400; i ++) begin
+			@(posedge CLOCK_50);
+		end
+        for (int i = 0; i < 30; i ++) begin
+			@(posedge CLOCK_50);
+		end
+        for (int i = 0; i < 2400; i ++) begin
+			@(posedge CLOCK_50);
+		end
+        for (int i = 0; i < 30; i ++) begin
+			@(posedge CLOCK_50);
+		end
+        */
+
         direction <= 4'b1000; @(posedge CLOCK_50);
         direction <= 4'b0000; @(posedge CLOCK_50);
                               @(posedge CLOCK_50);
                               @(posedge CLOCK_50);
-        done <= 1;            @(posedge CLOCK_50);
-        done <= 0; direction <= 4'b0100; @(posedge CLOCK_50);
+                   @(posedge CLOCK_50);
+        direction <= 4'b0100; @(posedge CLOCK_50);
         direction <= 4'b0000; @(posedge CLOCK_50);
                               @(posedge CLOCK_50);
                               @(posedge CLOCK_50);
-        done <= 1;            @(posedge CLOCK_50);
-        done <= 0; direction <= 4'b0100; @(posedge CLOCK_50);
+                   @(posedge CLOCK_50);
+        direction <= 4'b0100; @(posedge CLOCK_50);
         direction <= 4'b0000; @(posedge CLOCK_50);
                               @(posedge CLOCK_50);
                               @(posedge CLOCK_50);
-        done <= 1;            @(posedge CLOCK_50);
-        done <= 0; direction <= 4'b0100; @(posedge CLOCK_50);
+                   @(posedge CLOCK_50);
+        direction <= 4'b0100; @(posedge CLOCK_50);
         direction <= 4'b0000; @(posedge CLOCK_50);
                               @(posedge CLOCK_50);
                               @(posedge CLOCK_50);
-        done <= 1;            @(posedge CLOCK_50);
-        done <= 0; direction <= 4'b0010; @(posedge CLOCK_50);
+                   @(posedge CLOCK_50);
+        direction <= 4'b0010; @(posedge CLOCK_50);
         direction <= 4'b0000; @(posedge CLOCK_50);
                               @(posedge CLOCK_50);
                               @(posedge CLOCK_50);
-        done <= 1;            @(posedge CLOCK_50);
-        done <= 0; direction <= 4'b0001; @(posedge CLOCK_50);
+                   @(posedge CLOCK_50);
+        direction <= 4'b0001; @(posedge CLOCK_50);
         direction <= 4'b0000; @(posedge CLOCK_50);
                               @(posedge CLOCK_50);
                               @(posedge CLOCK_50);
-        done <= 1;            @(posedge CLOCK_50);
+                   @(posedge CLOCK_50);
                               @(posedge CLOCK_50);
                               @(posedge CLOCK_50);
                               @(posedge CLOCK_50);
                               @(posedge CLOCK_50);
-        done <= 0; direction <= 4'b0100; @(posedge CLOCK_50);
+        direction <= 4'b0100; @(posedge CLOCK_50);
         direction <= 4'b0000; @(posedge CLOCK_50);
                               @(posedge CLOCK_50);
                               @(posedge CLOCK_50);
-        done <= 1;            @(posedge CLOCK_50);
+                   @(posedge CLOCK_50);
+		
+		  
         $stop;                @(posedge CLOCK_50);
     end
 endmodule

@@ -10,25 +10,25 @@ module collision_detect
 	input logic [5:0] next_pacman_x, next_ghost1_x, next_ghost2_x;
 	input logic [4:0] next_pacman_y, next_ghost1_y, next_ghost2_y;
 	output logic [3:0] collision_type;  // 0000: no collision; 
-												   // 0001: collision with wall; 
-													// 0010: collision with dots; 
-													// 0011: collision with pill; 
-													// 0100: collision with ghost one without pill; 
-													// 0101: collision with ghost two without pill;
-													// 0110: collision with ghost one with pill; 
-													// 0111: collision with ghost two with pill;
-													// 1000: collision with ghost one with dots; 
-													// 1001: collision with ghost two with dots;
+										// 0001: collision with wall; 
+										// 0010: collision with dots; 
+										// 0011: collision with pill; 
+										// 0100: collision with ghost one without pill; 
+										// 0101: collision with ghost two without pill;
+										// 0110: collision with ghost one with pill; 
+										// 0111: collision with ghost two with pill;
+										// 1000: collision with ghost one with dots; 
+										// 1001: collision with ghost two with dots;
 	output logic [32:0] pill_count;
-	
-	// instantiate Map simulation
-	map_simp_RAM temp (.address_a(next_pacman_y), .address_b(), .clock(CLOCK_50), .data_a(map_word2), 
-					.data_b(), .wren_a(wren), .wren_b(), .q_a(map_word), .q_b()); 
 	
 	logic [3:0] obj;       // width of the block 
 	logic wren;
 	logic [159:0] map_word2, map_word;
 	logic [32:0] next_pill_count;
+	// instantiate Map simulation
+	map_simp_RAM temp (.address_a(next_pacman_y), .address_b(), .clock(CLOCK_50), .data_a(map_word2), 
+					.data_b(), .wren_a(wren), .wren_b(), .q_a(map_word), .q_b()); 
+	
 	
 	enum {hold, compute_collision} ps, ns;
 	
@@ -100,7 +100,7 @@ module collision_detect
 							end
 						end
 						else begin
-							 ;
+							ns = hold;
 						end 
 				  end
 				  ns = hold;

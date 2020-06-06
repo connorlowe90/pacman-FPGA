@@ -3,14 +3,15 @@
 module pacman_loc_ctrl(CLOCK_50, reset, done, up, down, left, right, 
 							  collision_type, pill_count,
 							  curr_pacman_x, curr_pacman_y, next_pacman_x, 
-							  next_pacman_y);
+							  next_pacman_y, ready);
     input logic CLOCK_50, reset, done; // done: from RAM write module that indicates curr position has been removed and next position has been write
     input logic up, down, left, right;
 	 input logic [3:0] collision_type;
 	 input logic [32:0] pill_count;
     output logic [5:0] curr_pacman_x, next_pacman_x;
     output logic [4:0] curr_pacman_y, next_pacman_y;
-    enum {still, move} ps, ns;
+    output logic ready;
+    enum {still, hold, move} ps, ns;
 
     logic [3:0] direction;
     assign direction = {up, down, left, right}; // should only be one hot
@@ -19,13 +20,14 @@ module pacman_loc_ctrl(CLOCK_50, reset, done, up, down, left, right,
     always_latch begin
         case(ps)
             still: begin
+                ready = 0;
                 if (direction == 4'b0000) begin
                     ns = still;
                     next_pacman_x = curr_pacman_x;
                     next_pacman_y = curr_pacman_y;
                 end
                 else begin 
-                    ns = move;
+                    ns = hold;
                     if (up) begin
                         next_pacman_x = curr_pacman_x;
                         next_pacman_y = curr_pacman_y - 1;
@@ -48,19 +50,22 @@ module pacman_loc_ctrl(CLOCK_50, reset, done, up, down, left, right,
                     end
                 end
             end
+            hold: begin
+                ns = move;
+            end
             move: begin
                if (done) ns = still;
                else ns = move;
-					
-					// block determining next pacman location based on if it is a valid move
-					if (collision_type == 4'b0001) begin // collide with wall
-						next_pacman_x = curr_pacman_x;
-						next_pacman_y = curr_pacman_y;
-						end
-					else begin
-						next_pacman_x = next_pacman_x;
-						next_pacman_y = next_pacman_y;
-						end
+                ready = 1;
+                // block determining next pacman location based on if it is a valid move
+                if (collision_type == 4'b0001) begin // collide with wall
+                    next_pacman_x = curr_pacman_x;
+                    next_pacman_y = curr_pacman_y;
+                    end
+                else begin
+                    next_pacman_x = next_pacman_x;
+                    next_pacman_y = next_pacman_y;
+                    end
             end
         endcase
     end

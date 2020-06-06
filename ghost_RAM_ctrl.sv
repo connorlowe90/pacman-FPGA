@@ -78,9 +78,6 @@ module ghost_RAM_ctrl(CLOCK_50, reset,
 					end
 				
 				end 
-				// if (glob_x == 39) begin
-				// 	wren = 1;
-				// end
 				wren = 1;
 			end
 		endcase
@@ -149,7 +146,7 @@ module ghost_RAM_ctrl_testbench();
 		rdaddr_x <= 22; rdaddr_y <= 13; @(posedge CLOCK_50);
 										@(posedge CLOCK_50);
 										@(posedge CLOCK_50);
-										@(posedge CLOCK_50);
+		rdaddr_x <= 21; rdaddr_y <= 14; @(posedge CLOCK_50);
 										@(posedge CLOCK_50);
 										@(posedge CLOCK_50);
 		$stop;
