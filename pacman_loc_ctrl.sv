@@ -18,7 +18,7 @@ module pacman_loc_ctrl(CLOCK_50, reset, done, up, down, left, right,
 
 
     always_latch begin
-        case(ps)
+        case (ps) 
             still: begin
                 ready = 0;
                 if (direction == 4'b0000) begin
