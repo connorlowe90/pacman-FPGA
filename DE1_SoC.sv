@@ -21,7 +21,7 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW,
 	logic [9:0] x;
 	logic [8:0] y;
 	logic [7:0] r, g, b;
-	assign reset = SW[0];
+	assign reset = ~KEY[0];
 	assign LEDR[0] = reset;
 	
 	// addresses for selecting object within map
@@ -73,10 +73,11 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW,
 	logic [32:0] pill_count;
 	logic [5:0] next_ghost1_x, next_ghost2_x;
 	logic [4:0] next_ghost1_y, next_ghost2_y;	
-	assign start = SW[1];
+	assign start = ~KEY[1];
 	collision_detect collisions (.CLOCK_50(CLOCK_50), .reset(reset), .next_pacman_x(next_pacman_x),
-											.next_pacman_y(next_pacman_y), .next_ghost1_x(),
-											.next_ghost1_y(), .next_ghost2_x(), .next_ghost2_y(),
+											.next_pacman_y(next_pacman_y), .next_ghost1_x(next_ghost1_x),
+											.next_ghost1_y(xnext_ghost1_y), .next_ghost2_x(next_ghost2_x), 
+											.next_ghost2_y(next_ghost2_y),
 											.collision_type(collision_type), .pill_count(pill_count));
 	
 	// map that controls pacman
@@ -86,14 +87,14 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW,
 							 .next_pacman_x(next_pacman_x), .next_pacman_y(next_pacman_y),
 							 .collision_type(collision_type), .pill_count(pill_count));
 	
-	// module that controls ghost's location (ghost AI)
-	ghosts_loc_ctrl ghost_loc (.CLOCK_50(CLOCK_50), .reset(reset), 
-						       .curr_pacman_x(curr_pacman_x), .curr_pacman_y(curr_pacman_y), 
-							   .collision_type(collision_type), .pill_counter(pill_counter), .wrdone(done), 
-							   .curr_ghost1_x(curr_ghost1_x), .curr_ghost1_y(curr_ghost1_y), 
-							   .curr_ghost2_x(curr_ghost2_x), .curr_ghost2_y(curr_ghost2_y),
-							   .next_ghost1_x(next_ghost1_x), .next_ghost1_y(next_ghost1_y), 
-							   .next_ghost2_x(next_ghost2_x), .next_ghost2_y(next_ghost2_y));
+//	// module that controls ghost's location (ghost AI)
+//	ghosts_loc_ctrl ghost_loc (.CLOCK_50(CLOCK_50), .reset(reset), 
+//						       .curr_pacman_x(curr_pacman_x), .curr_pacman_y(curr_pacman_y), 
+//							   .collision_type(collision_type), .pill_counter(pill_counter), .wrdone(done), 
+//							   .curr_ghost1_x(curr_ghost1_x), .curr_ghost1_y(curr_ghost1_y), 
+//							   .curr_ghost2_x(curr_ghost2_x), .curr_ghost2_y(curr_ghost2_y),
+//							   .next_ghost1_x(next_ghost1_x), .next_ghost1_y(next_ghost1_y), 
+//							   .next_ghost2_x(next_ghost2_x), .next_ghost2_y(next_ghost2_y));
 	
 	map_RAM_writer map_ram_wr(.CLOCK_50(CLOCK_50), .reset(reset), .start(start),
 							  .curr_pacman_x(curr_pacman_x), .curr_pacman_y(curr_pacman_y), 

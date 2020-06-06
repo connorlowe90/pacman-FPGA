@@ -52,7 +52,7 @@ module ghosts_loc_ctrl
 	parameter size = $clog2(MAX);
 	logic [size-1:0] count;
 	logic clk_reset;
-	counter #(MAX) c (.CLOCK_50, .reset(clk_reset), .count);
+	counter #(MAX) c (.CLOCK_50(CLOCK_50), .reset(clk_reset), .count(count));
 	assign clk_reset = (ps == init);
 
 	// ghost map ram that keep track of each grid's proximity from pacman
@@ -60,13 +60,13 @@ module ghosts_loc_ctrl
 	logic [4:0] rdaddr_y;
 	logic [7:0] data;
 	logic ready;
-	ghost_RAM_ctrl ghost_ram (.CLOCK_50, .reset, 
-					  		  .curr_pacman_x, .curr_pacman_y,
-					  		  .curr_ghost1_x, .curr_ghost1_y,
-					  		  .curr_ghost2_x, .curr_ghost2_y,
-					  		  .prev_ghost1_x, .prev_ghost1_y,
-					  		  .prev_ghost2_x, .prev_ghost2_y,
-					  		  .rdaddr_x, .rdaddr_y, .data, .ready);
+	ghost_RAM_ctrl ghost_ram (.CLOCK_50(CLOCK_50), .reset(reset), 
+					  		  .curr_pacman_x(curr_pacman_x), .curr_pacman_y(curr_pacman_y),
+					  		  .curr_ghost1_x(curr_ghost1_x), .curr_ghost1_y(curr_ghost1_y),
+					  		  .curr_ghost2_x(curr_ghost2_x), .curr_ghost2_y(curr_ghost2_y),
+					  		  .prev_ghost1_x(prev_ghost1_x), .prev_ghost1_y(prev_ghost1_y),
+					  		  .prev_ghost2_x(prev_ghost2_x), .prev_ghost2_y(prev_ghost2_y),
+					  		  .rdaddr_x(rdaddr_x), .rdaddr_y(rdaddr_y), .data(data), .ready(ready));
 
 	// get value from each possible steps and compare
 	logic [7:0] next_ghost1_val1, next_ghost1_val2, next_ghost1_val3, next_ghost1_val4, 
