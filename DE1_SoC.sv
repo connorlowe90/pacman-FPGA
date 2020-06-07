@@ -21,7 +21,13 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW,
 	logic [9:0] x;
 	logic [8:0] y;
 	logic [7:0] r, g, b;
-	assign reset = ~KEY[0];
+	assign HEX0 = '1;
+	assign HEX1 = '1;
+	assign HEX2 = '1;
+	assign HEX3 = '1;
+	assign HEX4 = '1;
+	assign HEX5 = '1;
+	// assign reset = SW[0];
 	assign LEDR[0] = reset;
 	
 	// addresses for selecting object within map
@@ -46,21 +52,21 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW,
 	VGA_Ctrl vga_c (.CLOCK_50(CLOCK_50), .reset(reset), .obj_x(loc_x), .obj_y(loc_y), .obj(map_grid), .r(r), .g(g), .b(b));
 	
 	video_driver #(.WIDTH(640), .HEIGHT(480))
-		v1 (.CLOCK_50(CLOCK_50), .reset(0), .x(x), .y(y), .r(r), .g(g), .b(b),
-			.VGA_R(VGA_R), .VGA_G(VGA_G), .VGA_B(VGA_B), .VGA_BLANK_N(VGA_BLANK_N),
-			.VGA_CLK(VGA_CLK), .VGA_HS(VGA_HS), .VGA_SYNC_N(VGA_SYNC_N), .VGA_VS(VGA_VS));
+				v1 (.CLOCK_50(CLOCK_50), .reset(0), .x(x), .y(y), .r(r), .g(g), .b(b),
+					.VGA_R(VGA_R), .VGA_G(VGA_G), .VGA_B(VGA_B), .VGA_BLANK_N(VGA_BLANK_N),
+					.VGA_CLK(VGA_CLK), .VGA_HS(VGA_HS), .VGA_SYNC_N(VGA_SYNC_N), .VGA_VS(VGA_VS));
 
 	logic makeBreak;
 	logic [7:0] scan_code;		
 	assign LEDR[1] = makeBreak;
 	assign LEDR[3] = PS2_DAT;
 	// PS2 keyboard control system
-	keyboard_press_driver keyboard_driver (.CLOCK_50(CLOCK_50), .valid(), 
-										   .makeBreak(makeBreak), .outCode(scan_code), 
-										   .PS2_DAT(PS2_DAT),  .PS2_CLK(PS2_CLK), .reset(reset));
-	keyboard_process keyboard_ctrl (.CLOCK_50(CLOCK_50), .reset(reset), 
-								    .makeBreak(makeBreak), .scan_code(scan_code), 
-								    .up(up), .down(down), .left(left), .right(right));
+	// keyboard_press_driver keyboard_driver (.CLOCK_50(CLOCK_50), .valid(), 
+	// 									   .makeBreak(makeBreak), .outCode(scan_code), 
+	// 									   .PS2_DAT(PS2_DAT),  .PS2_CLK(PS2_CLK), .reset(reset));
+	// keyboard_process keyboard_ctrl (.CLOCK_50(CLOCK_50), .reset(reset), 
+	// 							    .makeBreak(makeBreak), .scan_code(scan_code), 
+	// 							    .up(up), .down(down), .left(left), .right(right));
 
 
 	
@@ -68,70 +74,78 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW,
 	logic [5:0] curr_pacman_x, next_pacman_x;
 	logic [4:0] curr_pacman_y, next_pacman_y;
 	logic [159:0] redata, wrdata;
-	logic wren, start;
+	logic wren;
 	logic [4:0] wraddr;
 	logic [3:0] collision_type;
 	logic [32:0] pill_count;
 	logic [5:0] next_ghost1_x, next_ghost2_x, curr_ghost1_x, curr_ghost2_x;
 	logic [4:0] next_ghost1_y, next_ghost2_y, curr_ghost1_y, curr_ghost2_y;	
-	logic [5:0] temp_next_pacman_x;
-	logic [4:0] temp_next_pacman_y;
-	assign start = ~KEY[1]; // currently being unused
-	// assign up = KEY[3];
-	// assign down = KEY[2];
-	// assign left = KEY[1];
-	// assign right = KEY[0];
-	collision_detect collisions (.CLOCK_50(CLOCK_50), .reset(reset), .next_pacman_x(temp_next_pacman_x),
-								 .next_pacman_y(temp_next_pacman_y), 
-								 .collision_type(collision_type), .pill_count(pill_count));
+
+	filter_input up_input (.CLOCK_50(CLOCK_50), .reset(reset), .in(~KEY[3]), .out(up));
+	filter_input down_input (.CLOCK_50(CLOCK_50), .reset(reset), .in(~KEY[2]), .out(down));
+	filter_input left_input (.CLOCK_50(CLOCK_50), .reset(reset), .in(~KEY[1]), .out(left));
+	filter_input right_input (.CLOCK_50(CLOCK_50), .reset(reset), .in(~KEY[0]), .out(right));
+	
 	
 	// map that controls pacman
+	// logic pac_reset;
 	pacman_loc_ctrl pac_loc (.CLOCK_50(CLOCK_50), .reset(reset), .done(pac_done), 
-							 .up(up), .down(down), .left(left), .right(right),
-							 .collision_type(collision_type), .pill_count(pill_count),
+							 .up(up), .down(down), .left(left), .right(right), .pill_count(pill_count),
 							 .curr_pacman_x(curr_pacman_x), .curr_pacman_y(curr_pacman_y), 
-							 .next_pacman_x(next_pacman_x), .next_pacman_y(next_pacman_y),
-							 .temp_next_pacman_x(temp_next_pacman_x), .temp_next_pacman_y(temp_next_pacman_y));
+							 .next_pacman_x(next_pacman_x), .next_pacman_y(next_pacman_y));
 
 	
 	// module that controls ghost's location (ghost AI)
-	 ghosts_loc_ctrl ghost_loc (.CLOCK_50(CLOCK_50), .reset(start), // disabled for testing
-	 					       .curr_pacman_x(curr_pacman_x), .curr_pacman_y(curr_pacman_y), 
-	 						   .collision_type(collision_type), .pill_counter(pill_counter), .wrdone(ghost_done), 
-	 						   .curr_ghost1_x(curr_ghost1_x), .curr_ghost1_y(curr_ghost1_y), 
-	 						   .curr_ghost2_x(curr_ghost2_x), .curr_ghost2_y(curr_ghost2_y),
-	 						   .next_ghost1_x(next_ghost1_x), .next_ghost1_y(next_ghost1_y), 
-	 						   .next_ghost2_x(next_ghost2_x), .next_ghost2_y(next_ghost2_y));
+	logic ghost_reset;
+	logic ghost_enable;
+	assign ghost_enable = SW[1];
+	ghosts_loc_ctrl ghost_loc (.CLOCK_50(CLOCK_50), .reset(reset), .enable(ghost_enable),
+						       .curr_pacman_x(curr_pacman_x), .curr_pacman_y(curr_pacman_y), 
+							   .collision_type(collision_type), .pill_count(pill_count), .wrdone(ghost_done), 
+							   .curr_ghost1_x(curr_ghost1_x), .curr_ghost1_y(curr_ghost1_y), 
+							   .curr_ghost2_x(curr_ghost2_x), .curr_ghost2_y(curr_ghost2_y),
+							   .next_ghost1_x(next_ghost1_x), .next_ghost1_y(next_ghost1_y), 
+							   .next_ghost2_x(next_ghost2_x), .next_ghost2_y(next_ghost2_y));
 
-//	assign curr_ghost1_x = 6'd16;
-//	assign curr_ghost1_y = 5'd13;
-//	assign next_ghost2_x = 6'd23;
-//	assign next_ghost2_y = 5'd13;
-//	assign curr_ghost2_x = 6'd23;
-//	assign curr_ghost2_y = 5'd13;
-//	assign next_ghost1_x = 6'd16;
-//	assign next_ghost1_y = 5'd13;
+	logic map_wr_reset; 
+	map_RAM_writer map_ram_wr (.CLOCK_50(CLOCK_50), .reset(map_wr_reset),
+							  	   .curr_pacman_x(curr_pacman_x), .curr_pacman_y(curr_pacman_y), 
+							  	   .next_pacman_x(next_pacman_x), .next_pacman_y(next_pacman_y), 
+							  	   .curr_ghost1_x(curr_ghost1_x), .curr_ghost1_y(curr_ghost1_y), 
+							  	   .next_ghost1_x(next_ghost1_x), .next_ghost1_y(next_ghost1_y), 
+                     		  	   .curr_ghost2_x(curr_ghost2_x), .curr_ghost2_y(curr_ghost2_y),
+							  	   .next_ghost2_x(next_ghost2_x), .next_ghost2_y(next_ghost2_y),
+							  	   .redata(redata), .wren(wren), .pac_done(pac_done), .ghost_done(ghost_done),
+							  	   .wraddr(wraddr), .wrdata(wrdata));
 
-	// assign curr_pacman_x = 6'd20;
-	// assign curr_pacman_y = 5'd20;
-	// assign next_pacman_x = 6'd20;
-	// assign next_pacman_y = 5'd20;
 	
-	map_RAM_writerTest map_ram_wr (.CLOCK_50(CLOCK_50), .reset(reset), .start(start),
-							  .curr_pacman_x(curr_pacman_x), .curr_pacman_y(curr_pacman_y), 
-							  .next_pacman_x(next_pacman_x), .next_pacman_y(next_pacman_y), 
-							  .curr_ghost1_x(curr_ghost1_x), .curr_ghost1_y(curr_ghost1_y), 
-							  .next_ghost1_x(next_ghost1_x), .next_ghost1_y(next_ghost1_y), 
-                      		  .curr_ghost2_x(curr_ghost2_x), .curr_ghost2_y(curr_ghost2_y),
-							  .next_ghost2_x(next_ghost2_x), .next_ghost2_y(next_ghost2_y),
-							  .redata(redata), .wren(wren), .pac_done(pac_done), .ghost_done(ghost_done),
-							  .wraddr(wraddr), .wrdata(wrdata));
-	assign LEDR[2] = ghost_done;
-	assign HEX0 = '1;
-	assign HEX1 = '1;
-	assign HEX2 = '1;
-	assign HEX3 = '1;
-	assign HEX4 = '1;
-	assign HEX5 = '1;
+	logic start;
+	assign start = SW[9];
+	enum {init, game} ps, ns;
+	
+	always_comb begin
+		case(ps)
+			init: begin
+				reset <= 1;
+				map_wr_reset <= 1;
+				if (start) ns = game;
+				else ns = init;
+			end
+			game: begin
+				reset <= 0;
+				map_wr_reset <= 0;
+				ns = game;
+			end
+		endcase
+	end
+	logic game_reset;
+	assign game_reset = SW[0];
+	always_ff @(posedge CLOCK_50) begin
+		if (game_reset) begin
+			ps <= init;
+		end
+		else ps <= ns;
+	end
+
 	
 endmodule
