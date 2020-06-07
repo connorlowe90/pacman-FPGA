@@ -21,7 +21,13 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW,
 	logic [9:0] x;
 	logic [8:0] y;
 	logic [7:0] r, g, b;
-	assign reset = SW[0];
+	assign HEX0 = '1;
+	assign HEX1 = '1;
+	assign HEX2 = '1;
+	assign HEX3 = '1;
+	assign HEX4 = '1;
+	assign HEX5 = '1;
+	// assign reset = SW[0];
 	assign LEDR[0] = reset;
 	
 	// addresses for selecting object within map
@@ -68,13 +74,12 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW,
 	logic [5:0] curr_pacman_x, next_pacman_x;
 	logic [4:0] curr_pacman_y, next_pacman_y;
 	logic [159:0] redata, wrdata;
-	logic wren, start;
+	logic wren;
 	logic [4:0] wraddr;
 	logic [3:0] collision_type;
 	logic [32:0] pill_count;
 	logic [5:0] next_ghost1_x, next_ghost2_x, curr_ghost1_x, curr_ghost2_x;
 	logic [4:0] next_ghost1_y, next_ghost2_y, curr_ghost1_y, curr_ghost2_y;	
-	// assign start = ~KEY[1]; // currently being unused
 
 	filter_input up_input (.CLOCK_50(CLOCK_50), .reset(reset), .in(~KEY[3]), .out(up));
 	filter_input down_input (.CLOCK_50(CLOCK_50), .reset(reset), .in(~KEY[2]), .out(down));
@@ -83,6 +88,7 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW,
 	
 	
 	// map that controls pacman
+	// logic pac_reset;
 	pacman_loc_ctrl pac_loc (.CLOCK_50(CLOCK_50), .reset(reset), .done(pac_done), 
 							 .up(up), .down(down), .left(left), .right(right), .pill_count(pill_count),
 							 .curr_pacman_x(curr_pacman_x), .curr_pacman_y(curr_pacman_y), 
@@ -90,30 +96,56 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW,
 
 	
 	// module that controls ghost's location (ghost AI)
-	ghosts_loc_ctrl ghost_loc (.CLOCK_50(CLOCK_50), .reset(reset),
+	logic ghost_reset;
+	logic ghost_enable;
+	assign ghost_enable = SW[1];
+	ghosts_loc_ctrl ghost_loc (.CLOCK_50(CLOCK_50), .reset(reset), .enable(ghost_enable),
 						       .curr_pacman_x(curr_pacman_x), .curr_pacman_y(curr_pacman_y), 
-							   .collision_type(collision_type), .pill_counter(pill_counter), .wrdone(ghost_done), 
+							   .collision_type(collision_type), .pill_count(pill_count), .wrdone(ghost_done), 
 							   .curr_ghost1_x(curr_ghost1_x), .curr_ghost1_y(curr_ghost1_y), 
 							   .curr_ghost2_x(curr_ghost2_x), .curr_ghost2_y(curr_ghost2_y),
 							   .next_ghost1_x(next_ghost1_x), .next_ghost1_y(next_ghost1_y), 
 							   .next_ghost2_x(next_ghost2_x), .next_ghost2_y(next_ghost2_y));
-	
-	map_RAM_writerTest map_ram_wr (.CLOCK_50(CLOCK_50), .reset(reset), .start(start),
-							  .curr_pacman_x(curr_pacman_x), .curr_pacman_y(curr_pacman_y), 
-							  .next_pacman_x(next_pacman_x), .next_pacman_y(next_pacman_y), 
-							  .curr_ghost1_x(curr_ghost1_x), .curr_ghost1_y(curr_ghost1_y), 
-							  .next_ghost1_x(next_ghost1_x), .next_ghost1_y(next_ghost1_y), 
-                       .curr_ghost2_x(curr_ghost2_x), .curr_ghost2_y(curr_ghost2_y),
-							  .next_ghost2_x(next_ghost2_x), .next_ghost2_y(next_ghost2_y),
-							  .redata(redata), .wren(wren), .pac_done(pac_done), .ghost_done(ghost_done),
-							  .wraddr(wraddr), .wrdata(wrdata));
 
-	assign LEDR[2] = ghost_done;
-	assign HEX0 = '1;
-	assign HEX1 = '1;
-	assign HEX2 = '1;
-	assign HEX3 = '1;
-	assign HEX4 = '1;
-	assign HEX5 = '1;
+	logic map_wr_reset; 
+	map_RAM_writer map_ram_wr (.CLOCK_50(CLOCK_50), .reset(map_wr_reset),
+							  	   .curr_pacman_x(curr_pacman_x), .curr_pacman_y(curr_pacman_y), 
+							  	   .next_pacman_x(next_pacman_x), .next_pacman_y(next_pacman_y), 
+							  	   .curr_ghost1_x(curr_ghost1_x), .curr_ghost1_y(curr_ghost1_y), 
+							  	   .next_ghost1_x(next_ghost1_x), .next_ghost1_y(next_ghost1_y), 
+                     		  	   .curr_ghost2_x(curr_ghost2_x), .curr_ghost2_y(curr_ghost2_y),
+							  	   .next_ghost2_x(next_ghost2_x), .next_ghost2_y(next_ghost2_y),
+							  	   .redata(redata), .wren(wren), .pac_done(pac_done), .ghost_done(ghost_done),
+							  	   .wraddr(wraddr), .wrdata(wrdata));
+
+	
+	logic start;
+	assign start = SW[9];
+	enum {init, game} ps, ns;
+	
+	always_comb begin
+		case(ps)
+			init: begin
+				reset <= 1;
+				map_wr_reset <= 1;
+				if (start) ns = game;
+				else ns = init;
+			end
+			game: begin
+				reset <= 0;
+				map_wr_reset <= 0;
+				ns = game;
+			end
+		endcase
+	end
+	logic game_reset;
+	assign game_reset = SW[0];
+	always_ff @(posedge CLOCK_50) begin
+		if (game_reset) begin
+			ps <= init;
+		end
+		else ps <= ns;
+	end
+
 	
 endmodule
