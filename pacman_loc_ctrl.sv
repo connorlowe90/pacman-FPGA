@@ -1,16 +1,21 @@
 // pacman location control module 
 // keep track of pacman's current and next location on the game map
-module pacman_loc_ctrl(CLOCK_50, reset, done, up, down, left, right, 
-                       collision_type, pill_count,
-                       curr_pacman_x, curr_pacman_y, next_pacman_x, 
-                       next_pacman_y, temp_next_pacman_x, temp_next_pacman_y);
+module pacman_loc_ctrl(CLOCK_50, reset, done, up, down, left, right, pill_count,
+                       curr_pacman_x, curr_pacman_y, next_pacman_x, next_pacman_y);
     input logic CLOCK_50, reset, done; // done: from RAM write module that indicates curr position has been removed and next position has been write
     input logic up, down, left, right;
-	input logic [3:0] collision_type;
-	input logic [32:0] pill_count;
-    output logic [5:0] curr_pacman_x, next_pacman_x, temp_next_pacman_x;
-    output logic [4:0] curr_pacman_y, next_pacman_y, temp_next_pacman_y;
+	output logic [32:0] pill_count;
+    output logic [5:0] curr_pacman_x, next_pacman_x;
+    output logic [4:0] curr_pacman_y, next_pacman_y;
     enum {still, hold, move} ps, ns;
+
+
+    logic [3:0] collision_type;
+    logic [5:0] temp_next_pacman_x;
+    logic [4:0] temp_next_pacman_y;
+    collision_detect collide
+			(.CLOCK_50, .reset, .next_pacman_x(temp_next_pacman_x), .next_pacman_y(temp_next_pacman_y), 
+			 .collision_type, .pill_count);
 
     logic [3:0] direction;
     assign direction = {up, down, left, right}; // should only be one hot
@@ -24,6 +29,8 @@ module pacman_loc_ctrl(CLOCK_50, reset, done, up, down, left, right,
                     ns = still;
                     next_pacman_x = curr_pacman_x;
                     next_pacman_y = curr_pacman_y;
+                    temp_next_pacman_x = curr_pacman_x;
+                    temp_next_pacman_y = curr_pacman_y;
                 end
                 else begin 
                     if (up) begin
@@ -40,6 +47,10 @@ module pacman_loc_ctrl(CLOCK_50, reset, done, up, down, left, right,
                     end
                     else if (right) begin
                         temp_next_pacman_x = curr_pacman_x + 1;
+                        temp_next_pacman_y = curr_pacman_y;
+                    end
+                    else begin
+                        temp_next_pacman_x = curr_pacman_x;
                         temp_next_pacman_y = curr_pacman_y;
                     end
                 end
@@ -90,20 +101,14 @@ endmodule
 module pacman_loc_ctrl_testbench();
     logic CLOCK_50, reset, done; // done: from RAM write module that indicates curr position has been removed and next position has been write
     logic up, down, left, right;
-	 logic [3:0] collision_type;
 	 logic [32:0] pill_count;
-    logic [5:0] curr_pacman_x, next_pacman_x, temp_next_pacman_x;
-    logic [4:0] curr_pacman_y, next_pacman_y, temp_next_pacman_y;
+    logic [5:0] curr_pacman_x, next_pacman_x;
+    logic [4:0] curr_pacman_y, next_pacman_y;
     logic [3:0] direction;
 	parameter CLOCK_PERIOD = 100;
 
     assign {up, down, left, right} = direction;
     
-    collision_detect collisions (.CLOCK_50(CLOCK_50), .reset(reset), 
-                                 .next_pacman_x(temp_next_pacman_x), .next_pacman_y(temp_next_pacman_y),
-                                 .next_ghost1_x(next_ghost1_x), .next_ghost1_y(next_ghost1_y),
-                                 .next_ghost2_x(next_ghost2_x), .next_ghost2_y(next_ghost2_y),
-                                 .collision_type(collision_type), .pill_count(pill_count));
     pacman_loc_ctrl dut (.*);
 
     initial begin
