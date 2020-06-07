@@ -1,12 +1,12 @@
 // This module takes in sprits' new current and new location and then 
 // generate control signals that writes the new location information
 // into the map ram 
-module map_RAM_writer(CLOCK_50, reset, start, ready,
+module map_RAM_writer(CLOCK_50, reset, start,
                       curr_pacman_x, curr_pacman_y, next_pacman_x, next_pacman_y, 
                       curr_ghost1_x, curr_ghost1_y, next_ghost1_x, next_ghost1_y, 
                       curr_ghost2_x, curr_ghost2_y, next_ghost2_x, next_ghost2_y,
                       redata, wren, pac_done, ghost_done, wraddr, wrdata);
-    input logic CLOCK_50, reset, start, ready;
+    input logic CLOCK_50, reset, start;
     input logic [5:0] curr_pacman_x, next_pacman_x, curr_ghost1_x, curr_ghost2_x, 
 							 next_ghost1_x, next_ghost2_x;// Has to keep the same for at least 3 clk cycle
     input logic [4:0] curr_pacman_y, next_pacman_y, curr_ghost1_y, curr_ghost2_y,
@@ -32,19 +32,13 @@ module map_RAM_writer(CLOCK_50, reset, start, ready,
         wrgrid = 4'bX;
         case(ps)
             init: begin // wait state 
-                if (start) begin // manual input that decide if game start
-                    if ((curr_pacman_x == next_pacman_x) & (curr_pacman_y == next_pacman_y)) begin // if curr_pacman location and next pacman location are the same 
-                        if ((curr_ghost1_x != next_ghost1_x) | (curr_ghost1_y != next_ghost1_y) |
-                        (curr_ghost2_x != next_ghost2_x) | (curr_ghost2_y != next_ghost2_y)) begin // if ghost1/2 location has changed
-                            ns = wait_ghost1_remove;
-                        end
-                        else  ns = init;
-                    end
-                    else begin 
-                        if (ready) ns = remove_pac; // pacman_loc_ctrl ready signal that indicates if next pacman location is valid
-                        else ns = init;
-                    end
+                if ((curr_pacman_x != next_pacman_x) | (curr_pacman_y != next_pacman_y)) begin // signal ready and changed
+                    ns = remove_pac;
                 end
+                else if ((curr_ghost1_x != next_ghost1_x) | (curr_ghost1_y != next_ghost1_y) |
+                         (curr_ghost2_x != next_ghost2_x) | (curr_ghost2_y != next_ghost2_y)) begin
+                             ns = wait_ghost1_remove;                            
+                         end
                 else ns = init;
                 wraddr = curr_pacman_y;
             end
@@ -173,9 +167,9 @@ endmodule
 module map_RAM_writer_testbench();
     logic CLOCK_50, reset, start;
     logic [5:0] curr_pacman_x, next_pacman_x, curr_ghost1_x, curr_ghost2_x, 
-					 next_ghost1_x, next_ghost2_x; // Has to keep the same for at least 3 clk cycle
+				next_ghost1_x, next_ghost2_x, temp_next_pacman_x; // Has to keep the same for at least 3 clk cycle
     logic [4:0] curr_pacman_y, next_pacman_y, curr_ghost1_y, curr_ghost2_y,
-					 next_ghost1_y, next_ghost2_y; // Has to keep the same for at least 3 clk cycle
+				next_ghost1_y, next_ghost2_y, temp_next_pacman_y; // Has to keep the same for at least 3 clk cycle
     logic [159:0] redata; // data read from map RAM at the wraddr
     logic wren, pac_done, ghost_done;
     logic [4:0] wraddr;
@@ -184,19 +178,21 @@ module map_RAM_writer_testbench();
     logic [3:0] direction;
     logic [3:0] collision_type;
     logic [32:0] pill_count;
-    logic ready;
     assign {up, down, left, right} = direction;
 
-//    map_RAM m (.address_a(), .address_b(wraddr), .clock(CLOCK_50), .data_a(), .data_b(wrdata), .wren_a(), .wren_b(wren), .q_a(), .q_b(redata));
-//    collision_detect collisions (.CLOCK_50(CLOCK_50), .reset(reset), .next_pacman_x(next_pacman_x),
-//											.next_pacman_y(next_pacman_y), .next_ghost1_x(next_ghost1_x),
-//											.next_ghost1_y(next_ghost1_y), .next_ghost2_x(next_ghost2_x), .next_ghost2_y(next_ghost2_y),
-//											.collision_type(collision_type), .pill_count(pill_count));
-//    pacman_loc_ctrl pac_loc (.CLOCK_50, .reset, .done(pac_done), .up, .down, .left, .right, .curr_pacman_x, .curr_pacman_y, .next_pacman_x, .next_pacman_y, .ready);
-//    ghosts_loc_ctrl ghost_loc
-//		 (.CLOCK_50, .reset, .curr_pacman_x, .curr_pacman_y, .collision_type(), .pill_counter(),
-//		  .wrdone(ghost_done), .curr_ghost1_x, .curr_ghost1_y, .curr_ghost2_x, .curr_ghost2_y,
-//		  .next_ghost1_x, .next_ghost1_y, .next_ghost2_x, .next_ghost2_y);
+    map_RAM m (.address_a(), .address_b(wraddr), .clock(CLOCK_50), .data_a(), .data_b(wrdata), .wren_a(), .wren_b(wren), .q_a(), .q_b(redata));
+    collision_detect collisions (.CLOCK_50(CLOCK_50), .reset(reset), .next_pacman_x(temp_next_pacman_x),
+								.next_pacman_y(temp_next_pacman_y), .next_ghost1_x(next_ghost1_x),
+								.next_ghost1_y(next_ghost1_y), .next_ghost2_x(next_ghost2_x), .next_ghost2_y(next_ghost2_y),
+								.collision_type(collision_type), .pill_count(pill_count));
+    pacman_loc_ctrl pac_loc (.CLOCK_50, .reset(reset), .done(pac_done), .up(up), .down(down), .left(left), .right(right), 
+                            .collision_type(collision_type), .pill_count(pill_count),
+                            .curr_pacman_x(curr_pacman_x), .curr_pacman_y(curr_pacman_y), .next_pacman_x(next_pacman_x), 
+                            .next_pacman_y(next_pacman_y), .temp_next_pacman_x(temp_next_pacman_x), .temp_next_pacman_y(temp_next_pacman_y));
+    ghosts_loc_ctrl ghost_loc
+		 (.CLOCK_50, .reset, .curr_pacman_x, .curr_pacman_y, .collision_type(), .pill_counter(),
+		  .wrdone(ghost_done), .curr_ghost1_x, .curr_ghost1_y, .curr_ghost2_x, .curr_ghost2_y,
+		  .next_ghost1_x, .next_ghost1_y, .next_ghost2_x, .next_ghost2_y);
     map_RAM_writer dut (.*);
 
     parameter CLOCK_PERIOD = 100;
@@ -209,7 +205,7 @@ module map_RAM_writer_testbench();
         
         start <= 0; reset <= 1; @(posedge CLOCK_50);
         start <= 1; reset <= 0; direction <= 4'b0000; @(posedge CLOCK_50);
-        
+        /*
         reset <= 0; @(posedge CLOCK_50);
 		for (int i = 0; i < 240000; i ++) begin
 			@(posedge CLOCK_50);
@@ -218,37 +214,38 @@ module map_RAM_writer_testbench();
 			@(posedge CLOCK_50);
         end
         
-        /*
+        */
         direction <= 4'b1000; @(posedge CLOCK_50);
+                              @(posedge CLOCK_50);
         direction <= 4'b0000; @(posedge CLOCK_50);
                               @(posedge CLOCK_50);
                               @(posedge CLOCK_50);
-                   @(posedge CLOCK_50);
+                              @(posedge CLOCK_50);
         direction <= 4'b0100; @(posedge CLOCK_50);
         direction <= 4'b0000; @(posedge CLOCK_50);
                               @(posedge CLOCK_50);
                               @(posedge CLOCK_50);
-                   @(posedge CLOCK_50);
+                              @(posedge CLOCK_50);
         direction <= 4'b0100; @(posedge CLOCK_50);
         direction <= 4'b0000; @(posedge CLOCK_50);
                               @(posedge CLOCK_50);
                               @(posedge CLOCK_50);
-                   @(posedge CLOCK_50);
+                              @(posedge CLOCK_50);
         direction <= 4'b0100; @(posedge CLOCK_50);
         direction <= 4'b0000; @(posedge CLOCK_50);
                               @(posedge CLOCK_50);
                               @(posedge CLOCK_50);
-                   @(posedge CLOCK_50);
+                              @(posedge CLOCK_50);
         direction <= 4'b0010; @(posedge CLOCK_50);
         direction <= 4'b0000; @(posedge CLOCK_50);
                               @(posedge CLOCK_50);
                               @(posedge CLOCK_50);
-                   @(posedge CLOCK_50);
+                              @(posedge CLOCK_50);
+                              @(posedge CLOCK_50);
         direction <= 4'b0001; @(posedge CLOCK_50);
         direction <= 4'b0000; @(posedge CLOCK_50);
                               @(posedge CLOCK_50);
                               @(posedge CLOCK_50);
-                   @(posedge CLOCK_50);
                               @(posedge CLOCK_50);
                               @(posedge CLOCK_50);
                               @(posedge CLOCK_50);
@@ -257,9 +254,27 @@ module map_RAM_writer_testbench();
         direction <= 4'b0000; @(posedge CLOCK_50);
                               @(posedge CLOCK_50);
                               @(posedge CLOCK_50);
-                   @(posedge CLOCK_50);
+                              @(posedge CLOCK_50);
+        direction <= 4'b0010; @(posedge CLOCK_50);
+        direction <= 4'b0000; @(posedge CLOCK_50);
+                              @(posedge CLOCK_50);
+                              @(posedge CLOCK_50);
+                              @(posedge CLOCK_50);
+                              @(posedge CLOCK_50);
+        direction <= 4'b0010; @(posedge CLOCK_50);
+        direction <= 4'b0000; @(posedge CLOCK_50);
+                              @(posedge CLOCK_50);
+                              @(posedge CLOCK_50);
+                              @(posedge CLOCK_50);
+                              @(posedge CLOCK_50);
+        direction <= 4'b0001; @(posedge CLOCK_50);
+        direction <= 4'b0000; @(posedge CLOCK_50);
+                              @(posedge CLOCK_50);
+                              @(posedge CLOCK_50);
+                              @(posedge CLOCK_50);
+                              @(posedge CLOCK_50);
 		
-		*/
+		
         $stop;                @(posedge CLOCK_50);
     end
 endmodule
