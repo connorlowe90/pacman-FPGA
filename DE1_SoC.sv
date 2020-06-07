@@ -75,10 +75,11 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW,
 	logic [5:0] next_ghost1_x, next_ghost2_x, curr_ghost1_x, curr_ghost2_x;
 	logic [4:0] next_ghost1_y, next_ghost2_y, curr_ghost1_y, curr_ghost2_y;	
 	// assign start = ~KEY[1]; // currently being unused
-	assign up = ~KEY[3];
-	assign down = ~KEY[2];
-	assign left = ~KEY[1];
-	assign right = ~KEY[0];
+
+	filter_input up_input (.CLOCK_50(CLOCK_50), .reset(reset), .in(~KEY[3]), .out(up));
+	filter_input down_input (.CLOCK_50(CLOCK_50), .reset(reset), .in(~KEY[2]), .out(down));
+	filter_input left_input (.CLOCK_50(CLOCK_50), .reset(reset), .in(~KEY[1]), .out(left));
+	filter_input right_input (.CLOCK_50(CLOCK_50), .reset(reset), .in(~KEY[0]), .out(right));
 	
 	
 	// map that controls pacman
@@ -89,7 +90,7 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW,
 
 	
 	// module that controls ghost's location (ghost AI)
-	ghosts_loc_ctrl ghost_loc (.CLOCK_50(CLOCK_50), .reset(1),
+	ghosts_loc_ctrl ghost_loc (.CLOCK_50(CLOCK_50), .reset(reset),
 						       .curr_pacman_x(curr_pacman_x), .curr_pacman_y(curr_pacman_y), 
 							   .collision_type(collision_type), .pill_counter(pill_counter), .wrdone(ghost_done), 
 							   .curr_ghost1_x(curr_ghost1_x), .curr_ghost1_y(curr_ghost1_y), 

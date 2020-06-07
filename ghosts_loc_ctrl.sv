@@ -288,12 +288,12 @@ module ghosts_loc_ctrl_testbench();
 		end
 		wrdone <= 1; @(posedge CLOCK_50);
 		wrdone <= 0; @(posedge CLOCK_50);
-		for (int i = 0; i < 10; i ++) begin
+		for (int i = 0; i < 2400; i ++) begin
 			@(posedge CLOCK_50);
 		end
 		wrdone <= 1; @(posedge CLOCK_50);
 		wrdone <= 0; @(posedge CLOCK_50);
-		for (int i = 0; i < 10; i ++) begin
+		for (int i = 0; i < 2400; i ++) begin
 			@(posedge CLOCK_50);
 		end
 		wrdone <= 1; @(posedge CLOCK_50);
