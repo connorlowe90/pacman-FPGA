@@ -46,9 +46,9 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW,
 	VGA_Ctrl vga_c (.CLOCK_50(CLOCK_50), .reset(reset), .obj_x(loc_x), .obj_y(loc_y), .obj(map_grid), .r(r), .g(g), .b(b));
 	
 	video_driver #(.WIDTH(640), .HEIGHT(480))
-		v1 (.CLOCK_50(CLOCK_50), .reset(0), .x(x), .y(y), .r(r), .g(g), .b(b),
-			.VGA_R(VGA_R), .VGA_G(VGA_G), .VGA_B(VGA_B), .VGA_BLANK_N(VGA_BLANK_N),
-			.VGA_CLK(VGA_CLK), .VGA_HS(VGA_HS), .VGA_SYNC_N(VGA_SYNC_N), .VGA_VS(VGA_VS));
+				v1 (.CLOCK_50(CLOCK_50), .reset(0), .x(x), .y(y), .r(r), .g(g), .b(b),
+					.VGA_R(VGA_R), .VGA_G(VGA_G), .VGA_B(VGA_B), .VGA_BLANK_N(VGA_BLANK_N),
+					.VGA_CLK(VGA_CLK), .VGA_HS(VGA_HS), .VGA_SYNC_N(VGA_SYNC_N), .VGA_VS(VGA_VS));
 
 	logic makeBreak;
 	logic [7:0] scan_code;		
@@ -103,10 +103,11 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW,
 							  .next_pacman_x(next_pacman_x), .next_pacman_y(next_pacman_y), 
 							  .curr_ghost1_x(curr_ghost1_x), .curr_ghost1_y(curr_ghost1_y), 
 							  .next_ghost1_x(next_ghost1_x), .next_ghost1_y(next_ghost1_y), 
-                       		  .curr_ghost2_x(curr_ghost2_x), .curr_ghost2_y(curr_ghost2_y),
+                       .curr_ghost2_x(curr_ghost2_x), .curr_ghost2_y(curr_ghost2_y),
 							  .next_ghost2_x(next_ghost2_x), .next_ghost2_y(next_ghost2_y),
 							  .redata(redata), .wren(wren), .pac_done(pac_done), .ghost_done(ghost_done),
 							  .wraddr(wraddr), .wrdata(wrdata));
+
 	assign LEDR[2] = ghost_done;
 	assign HEX0 = '1;
 	assign HEX1 = '1;
