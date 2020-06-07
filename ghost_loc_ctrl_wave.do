@@ -12,22 +12,31 @@ add wave -noupdate /ghosts_loc_ctrl_testbench/dut/ns
 add wave -noupdate -radix unsigned /ghosts_loc_ctrl_testbench/dut/rdaddr_y
 add wave -noupdate -radix unsigned /ghosts_loc_ctrl_testbench/dut/rdaddr_x
 add wave -noupdate -radix unsigned /ghosts_loc_ctrl_testbench/dut/data
-add wave -noupdate -radix unsigned /ghosts_loc_ctrl_testbench/next_ghost1_y
-add wave -noupdate -radix unsigned /ghosts_loc_ctrl_testbench/next_ghost1_x
-add wave -noupdate -radix unsigned /ghosts_loc_ctrl_testbench/dut/curr_ghost1_y
-add wave -noupdate -radix unsigned /ghosts_loc_ctrl_testbench/dut/curr_ghost1_x
 add wave -noupdate -radix unsigned /ghosts_loc_ctrl_testbench/next_ghost2_y
 add wave -noupdate -radix unsigned /ghosts_loc_ctrl_testbench/next_ghost2_x
+add wave -noupdate -radix unsigned /ghosts_loc_ctrl_testbench/next_ghost1_y
+add wave -noupdate -radix unsigned /ghosts_loc_ctrl_testbench/next_ghost1_x
+add wave -noupdate -radix unsigned /ghosts_loc_ctrl_testbench/curr_pacman_y
+add wave -noupdate -radix unsigned /ghosts_loc_ctrl_testbench/curr_pacman_x
+add wave -noupdate -radix unsigned /ghosts_loc_ctrl_testbench/dut/prev_ghost1_y
+add wave -noupdate -radix unsigned /ghosts_loc_ctrl_testbench/dut/prev_ghost1_x
+add wave -noupdate -radix unsigned /ghosts_loc_ctrl_testbench/dut/curr_ghost1_y
+add wave -noupdate -radix unsigned /ghosts_loc_ctrl_testbench/dut/curr_ghost1_x
+add wave -noupdate -radix unsigned /ghosts_loc_ctrl_testbench/dut/next_ghost1_y
+add wave -noupdate -radix unsigned /ghosts_loc_ctrl_testbench/dut/next_ghost1_x
+add wave -noupdate -radix unsigned /ghosts_loc_ctrl_testbench/dut/prev_ghost2_y
+add wave -noupdate -radix unsigned /ghosts_loc_ctrl_testbench/dut/prev_ghost2_x
 add wave -noupdate -radix unsigned /ghosts_loc_ctrl_testbench/dut/curr_ghost2_y
 add wave -noupdate -radix unsigned /ghosts_loc_ctrl_testbench/dut/curr_ghost2_x
+add wave -noupdate -radix unsigned /ghosts_loc_ctrl_testbench/dut/next_ghost2_y
+add wave -noupdate -radix unsigned /ghosts_loc_ctrl_testbench/dut/next_ghost2_x
 add wave -noupdate -radix unsigned /ghosts_loc_ctrl_testbench/dut/next_ghost1_min_y
 add wave -noupdate -radix unsigned /ghosts_loc_ctrl_testbench/dut/next_ghost1_min_x
-add wave -noupdate -radix unsigned /ghosts_loc_ctrl_testbench/dut/next_ghost1_min_val
 add wave -noupdate -radix unsigned /ghosts_loc_ctrl_testbench/dut/next_ghost2_min_y
 add wave -noupdate -radix unsigned /ghosts_loc_ctrl_testbench/dut/next_ghost2_min_x
-add wave -noupdate -radix unsigned /ghosts_loc_ctrl_testbench/dut/next_ghost2_min_val
+add wave -noupdate -radix unsigned /ghosts_loc_ctrl_testbench/dut/count
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {1206284 ps} 0}
+WaveRestoreCursors {{Cursor 1} {960004 ps} 0}
 quietly wave cursor active 1
 configure wave -namecolwidth 150
 configure wave -valuecolwidth 100
@@ -43,4 +52,4 @@ configure wave -griddelta 20
 configure wave -timeline 0
 configure wave -timelineunits ns
 update
-WaveRestoreZoom {1190922 ps} {1218548 ps}
+WaveRestoreZoom {0 ps} {1011308 ps}
