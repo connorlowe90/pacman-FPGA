@@ -16,9 +16,16 @@ module map_RAM_writer(CLOCK_50, reset,
     output logic [4:0] wraddr;
     output logic [159:0] wrdata; // data being written into map RAM at wraddr
 
+    logic [4:0] reset_addr;
+    logic [159:0] reset_word;
+    map_RAM reset_map 
+			(.address_a(reset_addr), .address_b(), .clock(CLOCK_50), 
+			 .data_a(), .data_b(), .wren_a(1'b0), .wren_b(1'b0), .q_a(reset_word), .q_b()); 
+
     logic [3:0] curr_pacman, curr_ghost, next_obj, wrgrid;
 
-    enum {init, remove_pac, wait_pac_put, put_pac, wait_ghost1_remove, remove_ghost1, wait_ghost1_put, put_ghost1, 
+    enum {reset_mem, reset_mem_hold, init, remove_pac, wait_pac_put, put_pac, 
+          wait_ghost1_remove, remove_ghost1, wait_ghost1_put, put_ghost1, 
 		  wait_ghost2_remove, remove_ghost2, wait_ghost2_put, put_ghost2} ps, ns;
 
     always_comb begin
@@ -31,6 +38,17 @@ module map_RAM_writer(CLOCK_50, reset,
 		next_obj = 4'bX;
         wrgrid = 4'bX;
         case(ps)
+            reset_mem: begin
+                ns = reset_mem_hold;
+                wraddr = reset_addr;
+                wrdata = reset_word;
+            end
+            reset_mem_hold: begin
+                if (reset_addr == 5'd29) ns = init;
+                else ns = reset_mem;
+                wraddr = reset_addr;
+                wrdata = reset_word;
+            end
             init: begin // wait state 
                 if ((curr_pacman_x != next_pacman_x) | (curr_pacman_y != next_pacman_y)) begin // signal ready and changed
                     ns = remove_pac;
@@ -48,7 +66,7 @@ module map_RAM_writer(CLOCK_50, reset,
                 wrdata = redata;
                 // testing
                 curr_pacman = redata[159-(4*curr_pacman_x+3)+:4];
-                assert (curr_pacman == 4'd4);
+                // assert (curr_pacman == 4'd4);
                 wrgrid = 4'd0;
                 wrdata[159-(4*curr_pacman_x+3)+:4] = wrgrid;
             end
@@ -78,7 +96,7 @@ module map_RAM_writer(CLOCK_50, reset,
                 wraddr = curr_ghost1_y;
                 wrdata = redata;
                 curr_ghost = redata[159-(4*curr_ghost1_x+3)+:4]; 
-                assert (curr_ghost >= 5);
+                // assert (curr_ghost >= 5);
                 if (curr_ghost == 4'd5) begin // if ghost does not overlay with anything
                     wrgrid = 4'd0; 
                 end
@@ -116,7 +134,7 @@ module map_RAM_writer(CLOCK_50, reset,
                 wraddr = curr_ghost2_y;
                 wrdata = redata;
                 curr_ghost = redata[159-(4*curr_ghost2_x+3)+:4]; 
-                assert (curr_ghost >= 5);
+                // assert (curr_ghost >= 5);
                 if (curr_ghost == 4'd5) begin // if ghost does not overlay with anything
                     wrgrid = 4'd0;
                 end
@@ -149,14 +167,17 @@ module map_RAM_writer(CLOCK_50, reset,
 		endcase
     end
     assign wren = ((ps == remove_pac) | (ps == put_pac) | (ps == remove_ghost1) | (ps == put_ghost1) |
-                   (ps == remove_ghost2) | (ps == put_ghost2)); // enable map_ram write
+                   (ps == remove_ghost2) | (ps == put_ghost2) | (ps == reset_mem_hold)); // enable map_ram write
 
 
     always_ff @(posedge CLOCK_50) begin
         if (reset) begin
-            ps <= init;
+            ps <= reset_mem;
+            reset_addr <= 5'd0;
         end
         else begin
+            if (ps == reset_mem_hold) reset_addr <= reset_addr + 1;
+            else reset_addr = reset_addr;
             ps <= ns;
         end
     end
@@ -186,7 +207,7 @@ module map_RAM_writer_testbench();
 
     parameter DELAY = 2413;
     ghosts_loc_ctrl #(DELAY) ghost_loc
-                    (.CLOCK_50, .reset, .enable, .curr_pacman_x, .curr_pacman_y, .collision_type(), .pill_count(),
+                    (.CLOCK_50, .reset, .enable, .curr_pacman_x, .curr_pacman_y,
                      .wrdone(ghost_done), .curr_ghost1_x, .curr_ghost1_y, .curr_ghost2_x, .curr_ghost2_y,
                      .next_ghost1_x, .next_ghost1_y, .next_ghost2_x, .next_ghost2_y);
     map_RAM_writer dut (.*);
@@ -200,9 +221,12 @@ module map_RAM_writer_testbench();
     initial begin
         
         enable <= 1; reset <= 1; @(posedge CLOCK_50);
-        reset <= 0; direction <= 4'b0010; @(posedge CLOCK_50);
+        // eset <= 0; direction <= 4'b0010; @(posedge CLOCK_50);
         direction <= 4'b0000; @(posedge CLOCK_50);
         reset <= 0; @(posedge CLOCK_50);
+		  for (int i = 0; i < 61; i ++ ) begin
+				@(posedge CLOCK_50);
+		  end
 		for (int i = 0; i < 240000; i ++) begin
 			@(posedge CLOCK_50);
 		end
