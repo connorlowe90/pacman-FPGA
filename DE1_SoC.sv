@@ -80,13 +80,11 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW,
 	// assign left = KEY[1];
 	// assign right = KEY[0];
 	collision_detect collisions (.CLOCK_50(CLOCK_50), .reset(reset), .next_pacman_x(next_pacman_x),
-								 .next_pacman_y(next_pacman_y), .next_ghost1_x(next_ghost1_x),
-								 .next_ghost1_y(next_ghost1_y), .next_ghost2_x(next_ghost2_x), 
-								 .next_ghost2_y(next_ghost2_y),
+								 .next_pacman_y(next_pacman_y), 
 								 .collision_type(collision_type), .pill_count(pill_count));
 	
 	// map that controls pacman
-	pacman_loc_ctrl pac_loc (.CLOCK_50(CLOCK_50), .reset(reset), .done(done), 
+	pacman_loc_ctrl pac_loc (.CLOCK_50(CLOCK_50), .reset(reset), .done(pac_done), 
 							 .up(up), .down(down), .left(left), .right(right),
 							 .collision_type(collision_type), .pill_count(pill_count),
 							 .curr_pacman_x(curr_pacman_x), .curr_pacman_y(curr_pacman_y), 
@@ -117,7 +115,7 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW,
 	// assign next_pacman_x = 6'd20;
 	// assign next_pacman_y = 5'd20;
 	
-	map_RAM_writer map_ram_wr (.CLOCK_50(CLOCK_50), .reset(reset), .start(start),
+	map_RAM_writerTest map_ram_wr (.CLOCK_50(CLOCK_50), .reset(reset), .start(start),
 							  .curr_pacman_x(curr_pacman_x), .curr_pacman_y(curr_pacman_y), 
 							  .next_pacman_x(next_pacman_x), .next_pacman_y(next_pacman_y), 
 							  .curr_ghost1_x(curr_ghost1_x), .curr_ghost1_y(curr_ghost1_y), 
