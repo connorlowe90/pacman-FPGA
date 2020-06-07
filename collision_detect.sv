@@ -4,21 +4,14 @@
 // dot or pill from the look up map
 module collision_detect
 			(CLOCK_50, reset, next_pacman_x, next_pacman_y, 
-			 next_ghost1_x, next_ghost1_y, next_ghost2_x, next_ghost2_y,
 			 collision_type, pill_count);
 	input logic CLOCK_50, reset;
-	input logic [5:0] next_pacman_x, next_ghost1_x, next_ghost2_x;
-	input logic [4:0] next_pacman_y, next_ghost1_y, next_ghost2_y;
+	input logic [5:0] next_pacman_x;
+	input logic [4:0] next_pacman_y;
 	output logic [3:0] collision_type;  // 0000: no collision; 
 										// 0001: collision with wall; 
 										// 0010: collision with dots; 
 										// 0011: collision with pill; 
-										// 0100: collision with ghost one without pill; 
-										// 0101: collision with ghost two without pill;
-										// 0110: collision with ghost one with pill; 
-										// 0111: collision with ghost two with pill;
-										// 1000: collision with ghost one with dots; 
-										// 1001: collision with ghost two with dots;
 	output logic [32:0] pill_count;
 	
 	logic [3:0] obj;       // width of the block 
@@ -53,7 +46,7 @@ module collision_detect
 							collision_type = 4'b0000;
 						  	wren = 0;
 						end
-						if (obj == 4'h1) begin // collision with wall
+						else if (obj == 4'h1) begin // collision with wall
 							 collision_type = 4'b0001;
 							 wren = 0;
 						end
@@ -68,43 +61,6 @@ module collision_detect
 							wren = 1;
 							map_word2[159-(4*next_pacman_x+3)+:4] = 0;
 						end
-						else if (obj == 4'h5) begin // collision with ghosts
-							if ((next_pacman_x == next_ghost1_x) & (next_pacman_y == next_ghost1_y)) begin
-								collision_type = 4'b0100;
-							end
-							else if ((next_pacman_x == next_ghost2_x) & (next_pacman_y == next_ghost2_y)) begin
-								collision_type = 4'b0101;
-							end
-						end
-						else if(obj == 4'h7) begin // collision with ghosts and pill (pill is eaten before ghost arrives)
-							if ((next_pacman_x == next_ghost1_x) & (next_pacman_y == next_ghost1_y)) begin
-								collision_type = 4'b0110;
-								next_pill_count = pill_count + 1500000000; // Each pill adds 30 seconds of effective time
-								wren = 1;
-								map_word2[159-(4*next_pacman_x+3)+:4] = 0;
-							end
-							else if ((next_pacman_x == next_ghost2_x) & (next_pacman_y == next_ghost2_y)) begin
-								collision_type = 4'b0111;
-								next_pill_count = pill_count + 1500000000; // Each pill adds 30 seconds of effective time
-								wren = 1;
-								map_word2[159-(4*next_pacman_x+3)+:4] = 0;
-							end
-						end
-						else if(obj == 4'h6) begin // collision with ghosts and dots (dots eaten before ghost arrives)
-							if ((next_pacman_x == next_ghost1_x) & (next_pacman_y == next_ghost1_y)) begin
-								collision_type = 4'b0100;
-								wren = 1;
-								map_word2[159-(4*next_pacman_x+3)+:4] = 0;
-							end
-							else if ((next_pacman_x == next_ghost2_x) & (next_pacman_y == next_ghost2_y)) begin
-								collision_type = 4'b0101;
-								wren = 1;
-								map_word2[159-(4*next_pacman_x+3)+:4] = 0;
-							end
-						end
-						else begin
-							ns = hold;
-						end 
 				  end
 				  ns = hold;
 				end
