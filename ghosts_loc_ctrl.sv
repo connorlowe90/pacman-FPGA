@@ -198,20 +198,20 @@ module ghosts_loc_ctrl
 		if (reset) begin
 			ps <= init;
 			prev_ghost1_x <= 6'd16;
-			prev_ghost1_y <= 6'd13;
+			prev_ghost1_y <= 5'd13;
 			prev_ghost2_x <= 6'd23;
-			prev_ghost2_y <= 6'd13;
+			prev_ghost2_y <= 5'd13;
 
 			curr_ghost1_x <= 6'd16;
-			curr_ghost1_y <= 6'd13;
+			curr_ghost1_y <= 5'd13;
 			curr_ghost2_x <= 6'd23;
-			curr_ghost2_y <= 6'd13;
+			curr_ghost2_y <= 5'd13;
 
 
 			next_ghost1_x <= 6'd16;
-			next_ghost1_y <= 6'd13;
+			next_ghost1_y <= 5'd13;
 			next_ghost2_x <= 6'd23;
-			next_ghost2_y <= 6'd13;
+			next_ghost2_y <= 5'd13;
 		end
 		else begin
 			ps <= ns;
