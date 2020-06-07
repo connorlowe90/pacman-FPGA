@@ -24,7 +24,7 @@ module pacman_loc_ctrl(CLOCK_50, reset, done, up, down, left, right, pill_count,
     always_latch begin
         case (ps) 
             still: begin
-                ns = hold;
+                ns = move;
                 if (direction == 4'b0000) begin
                     ns = still;
                     next_pacman_x = curr_pacman_x;
