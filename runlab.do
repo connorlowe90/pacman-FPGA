@@ -23,6 +23,10 @@ vlog "./ghosts_loc_ctrl.sv"
 vlog "./collision_detect.sv"
 vlog "./map_simp_RAM.v"
 vlog "./filter_input.sv"
+vlog "./testRomIns.sv"
+vlog "./testRom.v"
+
+
 
 # Call vsim to invoke simulator
 #     Make sure the last item on the line is the name of the
