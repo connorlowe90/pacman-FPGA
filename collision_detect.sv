@@ -34,10 +34,9 @@ module collision_detect
 	
 	assign obj = map_word[159-(4*next_pacman_x+3)+:4]; // flip the left and right 
 	
-	always_comb begin
+	always_latch begin
 		// defaults
 		wren = 0; 
-	   collision_type = 3'b000;
 		next_pill_count = 0; map_word2 = map_word;
 		case(ps)
 			hold: begin
@@ -50,6 +49,10 @@ module collision_detect
 						wren = 0;
 				  end 
 				  else begin
+					  	if (obj == 4'h0) begin
+							collision_type = 4'b0000;
+						  	wren = 0;
+						end
 						if (obj == 4'h1) begin // collision with wall
 							 collision_type = 4'b0001;
 							 wren = 0;

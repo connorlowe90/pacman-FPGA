@@ -1,16 +1,15 @@
 // pacman location control module 
 // keep track of pacman's current and next location on the game map
 module pacman_loc_ctrl(CLOCK_50, reset, done, up, down, left, right, 
-							  collision_type, pill_count,
-							  curr_pacman_x, curr_pacman_y, next_pacman_x, 
-							  next_pacman_y, ready);
+                       collision_type, pill_count,
+                       curr_pacman_x, curr_pacman_y, next_pacman_x, 
+                       next_pacman_y, temp_next_pacman_x, temp_next_pacman_y);
     input logic CLOCK_50, reset, done; // done: from RAM write module that indicates curr position has been removed and next position has been write
     input logic up, down, left, right;
-	 input logic [3:0] collision_type;
-	 input logic [32:0] pill_count;
-    output logic [5:0] curr_pacman_x, next_pacman_x;
-    output logic [4:0] curr_pacman_y, next_pacman_y;
-    output logic ready;
+	input logic [3:0] collision_type;
+	input logic [32:0] pill_count;
+    output logic [5:0] curr_pacman_x, next_pacman_x, temp_next_pacman_x;
+    output logic [4:0] curr_pacman_y, next_pacman_y, temp_next_pacman_y;
     enum {still, hold, move} ps, ns;
 
     logic [3:0] direction;
@@ -20,33 +19,28 @@ module pacman_loc_ctrl(CLOCK_50, reset, done, up, down, left, right,
     always_latch begin
         case (ps) 
             still: begin
-                ready = 0;
+                ns = hold;
                 if (direction == 4'b0000) begin
                     ns = still;
                     next_pacman_x = curr_pacman_x;
                     next_pacman_y = curr_pacman_y;
                 end
                 else begin 
-                    ns = hold;
                     if (up) begin
-                        next_pacman_x = curr_pacman_x;
-                        next_pacman_y = curr_pacman_y - 1;
+                        temp_next_pacman_x = curr_pacman_x;
+                        temp_next_pacman_y = curr_pacman_y - 1;
                     end 
                     else if (down) begin
-                        next_pacman_x = curr_pacman_x;
-                        next_pacman_y = curr_pacman_y + 1;
+                        temp_next_pacman_x = curr_pacman_x;
+                        temp_next_pacman_y = curr_pacman_y + 1;
                     end
                     else if (left) begin
-                        next_pacman_x = curr_pacman_x - 1;
-                        next_pacman_y = curr_pacman_y;
+                        temp_next_pacman_x = curr_pacman_x - 1;
+                        temp_next_pacman_y = curr_pacman_y;
                     end
                     else if (right) begin
-                        next_pacman_x = curr_pacman_x + 1;
-                        next_pacman_y = curr_pacman_y;
-                    end
-                    else begin
-                        next_pacman_x = 6'dx;
-                        next_pacman_y = 5'dx;
+                        temp_next_pacman_x = curr_pacman_x + 1;
+                        temp_next_pacman_y = curr_pacman_y;
                     end
                 end
             end
@@ -54,18 +48,18 @@ module pacman_loc_ctrl(CLOCK_50, reset, done, up, down, left, right,
                 ns = move;
             end
             move: begin
-               if (done) ns = still;
-               else ns = move;
-                ready = 1;
                 // block determining next pacman location based on if it is a valid move
                 if (collision_type == 4'b0001) begin // collide with wall
                     next_pacman_x = curr_pacman_x;
                     next_pacman_y = curr_pacman_y;
-                    end
+                    ns = still;
+                end
                 else begin
-                    next_pacman_x = next_pacman_x;
-                    next_pacman_y = next_pacman_y;
-                    end
+                    next_pacman_x = temp_next_pacman_x;
+                    next_pacman_y = temp_next_pacman_y;
+                    if (done) ns = still;
+                    else ns = move;
+                end
             end
         endcase
     end
@@ -92,19 +86,24 @@ endmodule
 
 
 // testbench for pacman_loc_ctrl module
+`timescale 1 ps / 1 ps
 module pacman_loc_ctrl_testbench();
     logic CLOCK_50, reset, done; // done: from RAM write module that indicates curr position has been removed and next position has been write
-    logic up, down, left, right, ready;
+    logic up, down, left, right;
 	 logic [3:0] collision_type;
 	 logic [32:0] pill_count;
-    logic [5:0] curr_pacman_x, next_pacman_x;
-    logic [4:0] curr_pacman_y, next_pacman_y;
+    logic [5:0] curr_pacman_x, next_pacman_x, temp_next_pacman_x;
+    logic [4:0] curr_pacman_y, next_pacman_y, temp_next_pacman_y;
     logic [3:0] direction;
-	 logic ready;
 	parameter CLOCK_PERIOD = 100;
 
     assign {up, down, left, right} = direction;
     
+    collision_detect collisions (.CLOCK_50(CLOCK_50), .reset(reset), 
+                                 .next_pacman_x(temp_next_pacman_x), .next_pacman_y(temp_next_pacman_y),
+                                 .next_ghost1_x(next_ghost1_x), .next_ghost1_y(next_ghost1_y),
+                                 .next_ghost2_x(next_ghost2_x), .next_ghost2_y(next_ghost2_y),
+                                 .collision_type(collision_type), .pill_count(pill_count));
     pacman_loc_ctrl dut (.*);
 
     initial begin
@@ -150,6 +149,21 @@ module pacman_loc_ctrl_testbench();
                               @(posedge CLOCK_50);
                               @(posedge CLOCK_50);
         done <= 0; direction <= 4'b0100; @(posedge CLOCK_50);
+        direction <= 4'b0000; @(posedge CLOCK_50);
+                              @(posedge CLOCK_50);
+                              @(posedge CLOCK_50);
+        done <= 1;            @(posedge CLOCK_50);
+        done <= 0; direction <= 4'b0010; @(posedge CLOCK_50);
+        direction <= 4'b0000; @(posedge CLOCK_50);
+                              @(posedge CLOCK_50);
+                              @(posedge CLOCK_50);
+        done <= 1;            @(posedge CLOCK_50);
+        done <= 0; direction <= 4'b0010; @(posedge CLOCK_50);
+        direction <= 4'b0000; @(posedge CLOCK_50);
+                              @(posedge CLOCK_50);
+                              @(posedge CLOCK_50);
+        done <= 1;            @(posedge CLOCK_50);
+        done <= 0; direction <= 4'b0001; @(posedge CLOCK_50);
         direction <= 4'b0000; @(posedge CLOCK_50);
                               @(posedge CLOCK_50);
                               @(posedge CLOCK_50);
