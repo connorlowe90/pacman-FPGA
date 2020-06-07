@@ -48,7 +48,7 @@ module ghosts_loc_ctrl
 	enum {init, check1_1, check1_2, check1_3, check1_4,
 		  check2_1, check2_2, check2_3, check2_4, done, wait_init} ps, ns;
 	// counter system
-	parameter MAX = 2413;//0000000; // 50M reduce the ghost speed to 1Hz 
+	parameter MAX = 10000000;//0000000; // 50M reduce the ghost speed to 1Hz 
 	parameter size = $clog2(MAX);
 	logic [size-1:0] count;
 	logic clk_reset;

@@ -18,7 +18,7 @@ module map_RAM_writerTest(CLOCK_50, reset, start,
 
     logic [3:0] curr_pacman, curr_ghost, next_obj, wrgrid;
 
-    enum {init, remove_pac, wait_pac_put, put_pac, wait_ghost1_remove, remove_ghost1, wait_ghost1_put, put_ghost1, 
+    enum {init, init2, remove_pac, wait_pac_put, wait_pac_put2, put_pac, wait_ghost1_remove, remove_ghost1, wait_ghost1_put, put_ghost1, 
 		  wait_ghost2_remove, remove_ghost2, wait_ghost2_put, put_ghost2} ps, ns;
 
     always_latch begin
@@ -26,19 +26,17 @@ module map_RAM_writerTest(CLOCK_50, reset, start,
         ghost_done = 0;
         case(ps)
             init: begin // wait state 
-                if ((curr_pacman_x != next_pacman_x) | (curr_pacman_y != next_pacman_y)) begin // signal ready and changed
-                    ns = remove_pac;
-                end
-                else if ((curr_ghost1_x != next_ghost1_x) | (curr_ghost1_y != next_ghost1_y) |
+					if ((curr_pacman_x != next_pacman_x) | (curr_pacman_y != next_pacman_y)) ns = remove_pac;
+               else if ((curr_ghost1_x != next_ghost1_x) | (curr_ghost1_y != next_ghost1_y) |
                          (curr_ghost2_x != next_ghost2_x) | (curr_ghost2_y != next_ghost2_y)) begin
                              ns = wait_ghost1_remove;                            
                          end
-                else ns = init;
-                wraddr = curr_pacman_y;
+					else ns = init;
+					wraddr = curr_pacman_y;
             end
             remove_pac: begin // state that remove previous pacman from map RAM
                 ns = wait_pac_put;
-                wraddr = next_pacman_y;
+                wraddr = curr_pacman_y;
                 wrdata = redata;
                 wrgrid = 4'd0;
                 wrdata[159-(4*curr_pacman_x+3)+:4] = wrgrid;
@@ -48,95 +46,90 @@ module map_RAM_writerTest(CLOCK_50, reset, start,
                 wraddr = next_pacman_y;
             end
             put_pac: begin// state that write next pacman into map RAM
-                if ((curr_ghost1_x != next_ghost1_x) | (curr_ghost1_y != next_ghost1_y) |
-                    (curr_ghost2_x != next_ghost2_x) | (curr_ghost2_y != next_ghost2_y)) begin
-                           ns = wait_ghost1_remove;
-                       end
-                else ns = init;
-                wraddr = curr_pacman_y;
+                ns = init;
+					 wraddr = next_pacman_y;
                 next_obj = redata[159-(4*next_pacman_y+3)+:4];
                 wrdata = redata;
-                wrgrid = 4'd4;
-                wrdata[159-(4*next_pacman_x+3)+:4] = wrgrid;
+                wrdata[159-(4*next_pacman_x+3)+:4] = 4'd4;
                 pac_done = 1;
             end
-//            wait_ghost1_remove: begin 
-//                ns = remove_ghost1;
-//                wraddr = curr_ghost1_y;
-//            end
-//            remove_ghost1: begin // state that remove previous ghost1 ghost from map RAM
-//                ns = wait_ghost1_put;
-//                wraddr = curr_ghost1_y;
-//                wrdata = redata;
-//                curr_ghost = redata[159-(4*curr_ghost1_x+3)+:4]; 
-//                assert (curr_ghost >= 5);
-//                if (curr_ghost == 4'd5) begin // if ghost does not overlay with anything
-//                    wrgrid = 4'd0; 
-//                end
-//                else begin // if ghost overlay with dot or pill
-//                    wrgrid = curr_ghost - 4;
-//                end
-//                wrdata[159-(4*curr_ghost1_x+3)+:4]  = wrgrid;
-//            end
-//            wait_ghost1_put: begin 
-//                ns = put_ghost1;
-//                wraddr = next_ghost1_y;
-//            end
-//            put_ghost1: begin // state that write next ghost1 into map RAM
-//                ns = wait_ghost2_remove;
-//                wraddr = next_ghost1_y;
-//                wrdata = redata;
-//                next_obj = redata[159-(4*next_ghost1_x+3)+:4]; 
-//                if (next_obj == 4'd0 | next_obj == 4'd4) begin
-//                    wrgrid = 4'd5;
-//                end
-//                else if (next_obj >=  4'd5) begin
-//                    wrgrid = next_obj;
-//                end
-//                else begin
-//                    wrgrid = next_obj + 4;
-//                end
-//                wrdata[159-(4*next_ghost1_x+3)+:4] = wrgrid;
-//            end
-//            wait_ghost2_remove: begin
-//                ns = remove_ghost2;
-//                wraddr = curr_ghost2_y;
-//            end
-//            remove_ghost2: begin // state that remove previous ghost2 from map RAM
-//                ns = wait_ghost2_put;
-//                wraddr = curr_ghost2_y;
-//                wrdata = redata;
-//                curr_ghost = redata[159-(4*curr_ghost2_x+3)+:4]; 
-//                assert (curr_ghost >= 5);
-//                if (curr_ghost == 4'd5) begin // if ghost does not overlay with anything
-//                    wrgrid = 4'd0;
-//                end
-//                else begin // if ghost overlay with dot or pill
-//                    wrgrid = curr_ghost - 4;
-//                end
-//                wrdata[159-(4*curr_ghost2_x+3)+:4] = wrgrid;
-//            end
-//            wait_ghost2_put: begin 
-//                ns = put_ghost2;
-//                wraddr = next_ghost2_y;
-//            end
-//            put_ghost2: begin // state that put next ghost 2 into map RAM
-//                ns = init;
-//                wraddr = next_ghost2_y;
-//                wrdata = redata;
-//                next_obj = redata[159-(4*next_ghost2_x+3)+:4]; 
-//                if (next_obj == 4'd0 | next_obj == 4'd4) begin
-//                    wrgrid = 4'd5;
-//                end
-//                else if (next_obj >=  4'd5) begin
-//                    wrgrid = next_obj;
-//                end
-//                else begin
-//                    wrgrid = next_obj + 4;
-//                end
-//                wrdata[159-(4*next_ghost2_x+3)+:4] = wrgrid;
-//                ghost_done = 1;
-//            end
+            wait_ghost1_remove: begin 
+                ns = remove_ghost1;
+                wraddr = curr_ghost1_y;
+            end
+            remove_ghost1: begin // state that remove previous ghost1 ghost from map RAM
+                ns = wait_ghost1_put;
+                wraddr = curr_ghost1_y;
+                wrdata = redata;
+                curr_ghost = redata[159-(4*curr_ghost1_x+3)+:4]; 
+                assert (curr_ghost >= 5);
+                if (curr_ghost == 4'd5) begin // if ghost does not overlay with anything
+                    wrgrid = 4'd0; 
+                end
+                else begin // if ghost overlay with dot or pill
+                    wrgrid = curr_ghost - 4;
+                end
+                wrdata[159-(4*curr_ghost1_x+3)+:4]  = wrgrid;
+            end
+            wait_ghost1_put: begin 
+                ns = put_ghost1;
+                wraddr = next_ghost1_y;
+            end
+            put_ghost1: begin // state that write next ghost1 into map RAM
+                ns = wait_ghost2_remove;
+                wraddr = next_ghost1_y;
+                wrdata = redata;
+                next_obj = redata[159-(4*next_ghost1_x+3)+:4]; 
+                if (next_obj == 4'd0 | next_obj == 4'd4) begin
+                    wrgrid = 4'd5;
+                end
+                else if (next_obj >=  4'd5) begin
+                    wrgrid = next_obj;
+                end
+                else begin
+                    wrgrid = next_obj + 4;
+                end
+                wrdata[159-(4*next_ghost1_x+3)+:4] = wrgrid;
+            end
+            wait_ghost2_remove: begin
+                ns = remove_ghost2;
+                wraddr = curr_ghost2_y;
+            end
+            remove_ghost2: begin // state that remove previous ghost2 from map RAM
+                ns = wait_ghost2_put;
+                wraddr = curr_ghost2_y;
+                wrdata = redata;
+                curr_ghost = redata[159-(4*curr_ghost2_x+3)+:4]; 
+                assert (curr_ghost >= 5);
+                if (curr_ghost == 4'd5) begin // if ghost does not overlay with anything
+                    wrgrid = 4'd0;
+                end
+                else begin // if ghost overlay with dot or pill
+                    wrgrid = curr_ghost - 4;
+                end
+                wrdata[159-(4*curr_ghost2_x+3)+:4] = wrgrid;
+            end
+            wait_ghost2_put: begin 
+                ns = put_ghost2;
+                wraddr = next_ghost2_y;
+            end
+            put_ghost2: begin // state that put next ghost 2 into map RAM
+                ns = init;
+                wraddr = next_ghost2_y;
+                wrdata = redata;
+                next_obj = redata[159-(4*next_ghost2_x+3)+:4]; 
+                if (next_obj == 4'd0 | next_obj == 4'd4) begin
+                    wrgrid = 4'd5;
+                end
+                else if (next_obj >=  4'd5) begin
+                    wrgrid = next_obj;
+                end
+                else begin
+                    wrgrid = next_obj + 4;
+                end
+                wrdata[159-(4*next_ghost2_x+3)+:4] = wrgrid;
+                ghost_done = 1;
+            end
 		endcase
     end
     assign wren = ((ps == remove_pac) | (ps == put_pac) | (ps == remove_ghost1) | (ps == put_ghost1) |

@@ -101,8 +101,6 @@ module pacman_loc_ctrl_testbench();
     
     collision_detect collisions (.CLOCK_50(CLOCK_50), .reset(reset), 
                                  .next_pacman_x(temp_next_pacman_x), .next_pacman_y(temp_next_pacman_y),
-                                 .next_ghost1_x(next_ghost1_x), .next_ghost1_y(next_ghost1_y),
-                                 .next_ghost2_x(next_ghost2_x), .next_ghost2_y(next_ghost2_y),
                                  .collision_type(collision_type), .pill_count(pill_count));
     pacman_loc_ctrl dut (.*);
 
