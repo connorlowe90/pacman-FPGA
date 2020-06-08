@@ -387,7 +387,7 @@ module ghosts_ai #(parameter DELAY= 50000000)
 					next_ghost2_x <= next_ghost2_min_x;
 					next_ghost2_y <= next_ghost2_min_y;
 					end
-				end
+			end
 			if (wrdone) begin 
 				curr_ghost1_x <= next_ghost1_x;
 				curr_ghost1_y <= next_ghost1_y;
