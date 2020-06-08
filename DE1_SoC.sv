@@ -17,14 +17,11 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW,
 	input PS2_DAT; 
 	input PS2_CLK;
 
-	logic reset, resetTemp; // reset vga_ctrl/keyboard control/pill counter
+	logic reset; // reset vga_ctrl/keyboard control/pill counter
 	logic [9:0] x;
 	logic [8:0] y;
 	logic [7:0] r, g, b;
 	// assign reset = SW[0];
-	
-   filter_input up_input (.CLOCK_50(CLOCK_50), .reset(), .in(SW[0]), .out(reset));
-
 	assign LEDR[0] = reset; 
 	
 	// addresses for selecting object within map
