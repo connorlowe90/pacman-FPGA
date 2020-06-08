@@ -4194,3 +4194,2980 @@ run -all
 add wave -position 12  sim:/playAudio_testbench/start
 add wave -position insertpoint  \
 sim:/playAudio_testbench/start
+vsim -voptargs=\"+acc\" -t 1ps -lib work -Lf altera_mf_ver -L altera_mf_ver work.testRomIns_testbench
+# End time: 10:39:54 on Jun 08,2020, Elapsed time: 7:00:42
+# Errors: 0, Warnings: 113
+# vsim -voptargs=""+acc"" -t 1ps -lib work -Lf altera_mf_ver -L altera_mf_ver work.testRomIns_testbench 
+# Start time: 10:39:54 on Jun 08,2020
+# Loading sv_std.std
+# Loading work.testRomIns_testbench
+# Loading work.testRomIns
+# Loading work.musicRom
+# Loading altera_mf_ver.altsyncram
+# Loading altera_mf_ver.altsyncram_body
+# Loading altera_mf_ver.ALTERA_DEVICE_FAMILIES
+# Loading altera_mf_ver.ALTERA_MF_MEMORY_INITIALIZATION
+add wave -position end  sim:/testRomIns_testbench/CLOCK_PERIOD
+add wave -position end  sim:/testRomIns_testbench/address
+add wave -position end  sim:/testRomIns_testbench/clock
+add wave -position end  sim:/testRomIns_testbench/q
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: Winston  Hostname: WINSTONCHEN9507  ProcessID: 7644
+#           Attempting to use alternate WLF file "./wlftsjv8f7".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlftsjv8f7
+run -all
+# ** Note: $stop    : C:/Users/condo/Documents/GitHub/pacman/testRomIns.sv(38)
+#    Time: 950 ps  Iteration: 1  Instance: /testRomIns_testbench
+# Break in Module testRomIns_testbench at C:/Users/condo/Documents/GitHub/pacman/testRomIns.sv line 38
+vlog -reportprogress 300 -work work C:/Users/condo/Documents/GitHub/pacman/Altera_UP_Audio_Bit_Counter.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:41:18 on Jun 08,2020
+# vlog -reportprogress 300 -work work C:/Users/condo/Documents/GitHub/pacman/Altera_UP_Audio_Bit_Counter.v 
+# -- Compiling module Altera_UP_Audio_Bit_Counter
+# 
+# Top level modules:
+# 	Altera_UP_Audio_Bit_Counter
+# End time: 10:41:18 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 300 -work work C:/Users/condo/Documents/GitHub/pacman/Altera_UP_Audio_In_Deserializer.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:41:18 on Jun 08,2020
+# vlog -reportprogress 300 -work work C:/Users/condo/Documents/GitHub/pacman/Altera_UP_Audio_In_Deserializer.v 
+# -- Compiling module Altera_UP_Audio_In_Deserializer
+# 
+# Top level modules:
+# 	Altera_UP_Audio_In_Deserializer
+# End time: 10:41:18 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 300 -work work C:/Users/condo/Documents/GitHub/pacman/Altera_UP_Audio_Out_Serializer.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:41:18 on Jun 08,2020
+# vlog -reportprogress 300 -work work C:/Users/condo/Documents/GitHub/pacman/Altera_UP_Audio_Out_Serializer.v 
+# -- Compiling module Altera_UP_Audio_Out_Serializer
+# 
+# Top level modules:
+# 	Altera_UP_Audio_Out_Serializer
+# End time: 10:41:18 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 300 -work work C:/Users/condo/Documents/GitHub/pacman/altera_up_avalon_video_vga_timing.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:41:18 on Jun 08,2020
+# vlog -reportprogress 300 -work work C:/Users/condo/Documents/GitHub/pacman/altera_up_avalon_video_vga_timing.v 
+# -- Compiling module altera_up_avalon_video_vga_timing
+# 
+# Top level modules:
+# 	altera_up_avalon_video_vga_timing
+# End time: 10:41:18 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/Altera_UP_Clock_Edge.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:41:18 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/Altera_UP_Clock_Edge.v 
+# -- Compiling module Altera_UP_Clock_Edge
+# 
+# Top level modules:
+# 	Altera_UP_Clock_Edge
+# End time: 10:41:18 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/Altera_UP_I2C.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:41:18 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/Altera_UP_I2C.v 
+# -- Compiling module Altera_UP_I2C
+# 
+# Top level modules:
+# 	Altera_UP_I2C
+# End time: 10:41:18 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/Altera_UP_I2C_AV_Auto_Initialize.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:41:18 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/Altera_UP_I2C_AV_Auto_Initialize.v 
+# -- Compiling module Altera_UP_I2C_AV_Auto_Initialize
+# 
+# Top level modules:
+# 	Altera_UP_I2C_AV_Auto_Initialize
+# End time: 10:41:18 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/Altera_UP_I2C_DC_Auto_Initialize.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:41:18 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/Altera_UP_I2C_DC_Auto_Initialize.v 
+# -- Compiling module Altera_UP_I2C_DC_Auto_Initialize
+# 
+# Top level modules:
+# 	Altera_UP_I2C_DC_Auto_Initialize
+# End time: 10:41:18 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/Altera_UP_I2C_LCM_Auto_Initialize.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:41:18 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/Altera_UP_I2C_LCM_Auto_Initialize.v 
+# -- Compiling module Altera_UP_I2C_LCM_Auto_Initialize
+# 
+# Top level modules:
+# 	Altera_UP_I2C_LCM_Auto_Initialize
+# End time: 10:41:18 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/Altera_UP_Slow_Clock_Generator.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:41:18 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/Altera_UP_Slow_Clock_Generator.v 
+# -- Compiling module Altera_UP_Slow_Clock_Generator
+# 
+# Top level modules:
+# 	Altera_UP_Slow_Clock_Generator
+# End time: 10:41:18 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:41:19 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v 
+# -- Compiling module Altera_UP_SYNC_FIFO
+# 
+# Top level modules:
+# 	Altera_UP_SYNC_FIFO
+# End time: 10:41:19 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/audio_and_video_config.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:41:19 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/audio_and_video_config.v 
+# -- Compiling module audio_and_video_config
+# 
+# Top level modules:
+# 	audio_and_video_config
+# End time: 10:41:19 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/audio_codec.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:41:19 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/audio_codec.v 
+# -- Compiling module audio_codec
+# 
+# Top level modules:
+# 	audio_codec
+# End time: 10:41:19 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/bcd_3b.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:41:19 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/bcd_3b.v 
+# -- Compiling module bcd_3b
+# 
+# Top level modules:
+# 	bcd_3b
+# End time: 10:41:19 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/bcd_3b_testbench.sv
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:41:19 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/bcd_3b_testbench.sv 
+# -- Compiling module bcd_3b_testbench
+# 
+# Top level modules:
+# 	bcd_3b_testbench
+# End time: 10:41:19 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/clock_divider.sv
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:41:19 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/clock_divider.sv 
+# -- Compiling module clock_divider
+# 
+# Top level modules:
+# 	clock_divider
+# End time: 10:41:19 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/clock_generator.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:41:19 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/clock_generator.v 
+# -- Compiling module clock_generator
+# 
+# Top level modules:
+# 	clock_generator
+# End time: 10:41:19 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/CLOCK25_PLL.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:41:19 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/CLOCK25_PLL.v 
+# -- Compiling module CLOCK25_PLL
+# 
+# Top level modules:
+# 	CLOCK25_PLL
+# End time: 10:41:19 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/CLOCK25_PLL_0002.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:41:19 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/CLOCK25_PLL_0002.v 
+# -- Compiling module CLOCK25_PLL_0002
+# 
+# Top level modules:
+# 	CLOCK25_PLL_0002
+# End time: 10:41:19 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/collision_detect.sv
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:41:19 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/collision_detect.sv 
+# -- Compiling module collision_detect
+# 
+# Top level modules:
+# 	collision_detect
+# End time: 10:41:19 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/counter.sv
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:41:19 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/counter.sv 
+# -- Compiling module counter
+# -- Compiling module counter_testbench
+# 
+# Top level modules:
+# 	counter_testbench
+# End time: 10:41:19 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/counter2.sv
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:41:19 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/counter2.sv 
+# -- Compiling module counter2
+# -- Compiling module counter2_testbench
+# 
+# Top level modules:
+# 	counter2_testbench
+# End time: 10:41:20 on Jun 08,2020, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/counter3.sv
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:41:20 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/counter3.sv 
+# -- Compiling module counter3
+# -- Compiling module counter3_testbench
+# 
+# Top level modules:
+# 	counter3_testbench
+# End time: 10:41:20 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/DE1_SoC.sv
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:41:20 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/DE1_SoC.sv 
+# -- Compiling module DE1_SoC
+# ** Error (suppressible): C:/Users/condo/Documents/GitHub/pacman/DE1_SoC.sv(83): (vlog-2388) 'up' already declared in this scope (DE1_SoC).
+# ** Error (suppressible): C:/Users/condo/Documents/GitHub/pacman/DE1_SoC.sv(83): (vlog-2388) 'down' already declared in this scope (DE1_SoC).
+# ** Error (suppressible): C:/Users/condo/Documents/GitHub/pacman/DE1_SoC.sv(83): (vlog-2388) 'left' already declared in this scope (DE1_SoC).
+# ** Error (suppressible): C:/Users/condo/Documents/GitHub/pacman/DE1_SoC.sv(83): (vlog-2388) 'right' already declared in this scope (DE1_SoC).
+# ** Error (suppressible): C:/Users/condo/Documents/GitHub/pacman/DE1_SoC.sv(86): (vlog-2388) 'redata' already declared in this scope (DE1_SoC).
+# ** Error (suppressible): C:/Users/condo/Documents/GitHub/pacman/DE1_SoC.sv(86): (vlog-2388) 'wrdata' already declared in this scope (DE1_SoC).
+# ** Error (suppressible): C:/Users/condo/Documents/GitHub/pacman/DE1_SoC.sv(87): (vlog-2388) 'wren' already declared in this scope (DE1_SoC).
+# ** Error (suppressible): C:/Users/condo/Documents/GitHub/pacman/DE1_SoC.sv(88): (vlog-2388) 'wraddr' already declared in this scope (DE1_SoC).
+# ** Error: C:/Users/condo/Documents/GitHub/pacman/DE1_SoC.sv(159): (vlog-2730) Undefined variable: 'pg_collision'.
+# ** Error (suppressible): C:/Users/condo/Documents/GitHub/pacman/DE1_SoC.sv(195): (vlog-2388) 'pg1_collision' already declared in this scope (DE1_SoC).
+# ** Error (suppressible): C:/Users/condo/Documents/GitHub/pacman/DE1_SoC.sv(195): (vlog-2388) 'pg2_collision' already declared in this scope (DE1_SoC).
+# End time: 10:41:20 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 11, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/dot_ROM.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:41:20 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/dot_ROM.v 
+# -- Compiling module dot_ROM
+# 
+# Top level modules:
+# 	dot_ROM
+# End time: 10:41:20 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/dot_ROM_bb.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:41:20 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/dot_ROM_bb.v 
+# -- Compiling module dot_ROM
+# 
+# Top level modules:
+# 	dot_ROM
+# End time: 10:41:20 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/filter_input.sv
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:41:20 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/filter_input.sv 
+# -- Compiling module filter_input
+# -- Compiling module filter_input_testbench
+# 
+# Top level modules:
+# 	filter_input_testbench
+# End time: 10:41:20 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/ghost_B_ROM.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:41:20 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/ghost_B_ROM.v 
+# -- Compiling module ghost_B_ROM
+# 
+# Top level modules:
+# 	ghost_B_ROM
+# End time: 10:41:20 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/ghost_B_ROM_bb.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:41:20 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/ghost_B_ROM_bb.v 
+# -- Compiling module ghost_B_ROM
+# 
+# Top level modules:
+# 	ghost_B_ROM
+# End time: 10:41:20 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/ghost_G_ROM.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:41:20 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/ghost_G_ROM.v 
+# -- Compiling module ghost_G_ROM
+# 
+# Top level modules:
+# 	ghost_G_ROM
+# End time: 10:41:20 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/ghost_G_ROM_bb.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:41:20 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/ghost_G_ROM_bb.v 
+# -- Compiling module ghost_G_ROM
+# 
+# Top level modules:
+# 	ghost_G_ROM
+# End time: 10:41:20 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/ghost_map_RAM.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:41:20 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/ghost_map_RAM.v 
+# -- Compiling module ghost_map_RAM
+# 
+# Top level modules:
+# 	ghost_map_RAM
+# End time: 10:41:20 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/ghost_map_RAM_bb.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:41:20 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/ghost_map_RAM_bb.v 
+# -- Compiling module ghost_map_RAM
+# 
+# Top level modules:
+# 	ghost_map_RAM
+# End time: 10:41:21 on Jun 08,2020, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/ghost_R_ROM.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:41:21 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/ghost_R_ROM.v 
+# -- Compiling module ghost_R_ROM
+# 
+# Top level modules:
+# 	ghost_R_ROM
+# End time: 10:41:21 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/ghost_R_ROM_bb.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:41:21 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/ghost_R_ROM_bb.v 
+# -- Compiling module ghost_R_ROM
+# 
+# Top level modules:
+# 	ghost_R_ROM
+# End time: 10:41:21 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/ghost_RAM_ctrl.sv
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:41:21 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/ghost_RAM_ctrl.sv 
+# -- Compiling module ghost_RAM_ctrl
+# -- Compiling module ghost_RAM_ctrl_testbench
+# 
+# Top level modules:
+# 	ghost_RAM_ctrl_testbench
+# End time: 10:41:21 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/ghosts_ai.sv
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:41:21 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/ghosts_ai.sv 
+# -- Compiling module ghosts_ai
+# -- Compiling module ghosts_ai_testbench
+# 
+# Top level modules:
+# 	ghosts_ai_testbench
+# End time: 10:41:21 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/ghosts_loc_ctrl.sv
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:41:21 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/ghosts_loc_ctrl.sv 
+# -- Compiling module ghosts_loc_ctrl
+# -- Compiling module ghosts_loc_ctrl_testbench
+# 
+# Top level modules:
+# 	ghosts_loc_ctrl_testbench
+# End time: 10:41:21 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/hexto7segment.sv
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:41:21 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/hexto7segment.sv 
+# -- Compiling module hexto7segment
+# -- Compiling module hexto7segment_testbench
+# 
+# Top level modules:
+# 	hexto7segment_testbench
+# End time: 10:41:21 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/keyboard_inner_driver.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:41:21 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/keyboard_inner_driver.v 
+# -- Compiling module keyboard_inner_driver
+# 
+# Top level modules:
+# 	keyboard_inner_driver
+# End time: 10:41:21 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/keyboard_press_driver.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:41:21 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/keyboard_press_driver.v 
+# -- Compiling module keyboard_press_driver
+# 
+# Top level modules:
+# 	keyboard_press_driver
+# End time: 10:41:21 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/keyboard_process.sv
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:41:21 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/keyboard_process.sv 
+# -- Compiling module keyboard_process
+# 
+# Top level modules:
+# 	keyboard_process
+# End time: 10:41:21 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/keyboard_scancoderaw_driver.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:41:21 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/keyboard_scancoderaw_driver.v 
+# -- Compiling module keyboard_scancoderaw_driver
+# 
+# Top level modules:
+# 	keyboard_scancoderaw_driver
+# End time: 10:41:21 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/map.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:41:21 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/map.v 
+# -- Compiling module map
+# 
+# Top level modules:
+# 	map
+# End time: 10:41:22 on Jun 08,2020, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/map_bb.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:41:22 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/map_bb.v 
+# -- Compiling module map
+# 
+# Top level modules:
+# 	map
+# End time: 10:41:22 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/map_RAM.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:41:22 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/map_RAM.v 
+# -- Compiling module map_RAM
+# 
+# Top level modules:
+# 	map_RAM
+# End time: 10:41:22 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/map_RAM_bb.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:41:22 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/map_RAM_bb.v 
+# -- Compiling module map_RAM
+# 
+# Top level modules:
+# 	map_RAM
+# End time: 10:41:22 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/map_RAM_testbench.sv
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:41:22 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/map_RAM_testbench.sv 
+# -- Compiling module map_RAM_testbench
+# 
+# Top level modules:
+# 	map_RAM_testbench
+# End time: 10:41:22 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/map_RAM_writer.sv
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:41:22 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/map_RAM_writer.sv 
+# -- Compiling module map_RAM_writer
+# -- Compiling module map_RAM_writer_testbench
+# 
+# Top level modules:
+# 	map_RAM_writer_testbench
+# End time: 10:41:22 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/map_RAM_writerTest.sv
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:41:22 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/map_RAM_writerTest.sv 
+# -- Compiling module map_RAM_writerTest
+# -- Compiling module map_RAM_writerTest_testbench
+# 
+# Top level modules:
+# 	map_RAM_writerTest_testbench
+# End time: 10:41:22 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/map_simp_RAM.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:41:22 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/map_simp_RAM.v 
+# -- Compiling module map_simp_RAM
+# 
+# Top level modules:
+# 	map_simp_RAM
+# End time: 10:41:22 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/map_simp_RAM_bb.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:41:22 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/map_simp_RAM_bb.v 
+# -- Compiling module map_simp_RAM
+# 
+# Top level modules:
+# 	map_simp_RAM
+# End time: 10:41:22 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/musicRom.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:41:22 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/musicRom.v 
+# -- Compiling module musicRom
+# 
+# Top level modules:
+# 	musicRom
+# End time: 10:41:22 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/musicRom_bb.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:41:22 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/musicRom_bb.v 
+# -- Compiling module musicRom
+# 
+# Top level modules:
+# 	musicRom
+# End time: 10:41:22 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/pacman_loc_ctrl.sv
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:41:22 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/pacman_loc_ctrl.sv 
+# -- Compiling module pacman_loc_ctrl
+# -- Compiling module pacman_loc_ctrl_testbench
+# 
+# Top level modules:
+# 	pacman_loc_ctrl_testbench
+# End time: 10:41:23 on Jun 08,2020, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/pacman_ROM.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:41:23 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/pacman_ROM.v 
+# -- Compiling module pacman_ROM
+# 
+# Top level modules:
+# 	pacman_ROM
+# End time: 10:41:23 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/pacman_ROM_bb.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:41:23 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/pacman_ROM_bb.v 
+# -- Compiling module pacman_ROM
+# 
+# Top level modules:
+# 	pacman_ROM
+# End time: 10:41:23 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/pill_counter.sv
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:41:23 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/pill_counter.sv 
+# -- Compiling module pill_counter
+# -- Compiling module pill_counter_testbench
+# 
+# Top level modules:
+# 	pill_counter_testbench
+# End time: 10:41:23 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/pill_ROM.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:41:23 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/pill_ROM.v 
+# -- Compiling module pill_ROM
+# 
+# Top level modules:
+# 	pill_ROM
+# End time: 10:41:23 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/pill_ROM_bb.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:41:23 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/pill_ROM_bb.v 
+# -- Compiling module pill_ROM
+# 
+# Top level modules:
+# 	pill_ROM
+# End time: 10:41:23 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/playAudio.sv
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:41:23 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/playAudio.sv 
+# -- Compiling module playAudio
+# -- Compiling module playAudio_testbench
+# 
+# Top level modules:
+# 	playAudio_testbench
+# End time: 10:41:23 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/testRom.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:41:23 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/testRom.v 
+# -- Compiling module testRom
+# 
+# Top level modules:
+# 	testRom
+# End time: 10:41:23 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/testRom_bb.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:41:23 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/testRom_bb.v 
+# -- Compiling module testRom
+# 
+# Top level modules:
+# 	testRom
+# End time: 10:41:23 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/testRomIns.sv
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:41:23 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/testRomIns.sv 
+# -- Compiling module testRomIns
+# -- Compiling module testRomIns_testbench
+# 
+# Top level modules:
+# 	testRomIns_testbench
+# End time: 10:41:23 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/VGA_Ctrl.sv
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:41:23 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/VGA_Ctrl.sv 
+# -- Compiling module VGA_Ctrl
+# -- Compiling module VGA_Ctrl_testbench
+# 
+# Top level modules:
+# 	VGA_Ctrl_testbench
+# End time: 10:41:23 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/video_driver.sv
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:41:23 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/video_driver.sv 
+# -- Compiling module video_driver
+# 
+# Top level modules:
+# 	video_driver
+# End time: 10:41:24 on Jun 08,2020, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/wall_ROM.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:41:24 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/wall_ROM.v 
+# -- Compiling module wall_ROM
+# 
+# Top level modules:
+# 	wall_ROM
+# End time: 10:41:24 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/wall_ROM_bb.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:41:24 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/wall_ROM_bb.v 
+# -- Compiling module wall_ROM
+# 
+# Top level modules:
+# 	wall_ROM
+# End time: 10:41:24 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vsim -voptargs=\"+acc\" -t 1ps -lib work -Lf altera_mf_ver -L altera_mf_ver work.playAudio_testbench
+# End time: 10:41:38 on Jun 08,2020, Elapsed time: 0:01:44
+# Errors: 1, Warnings: 2
+# vsim -voptargs=""+acc"" -t 1ps -lib work -Lf altera_mf_ver -L altera_mf_ver work.playAudio_testbench 
+# Start time: 10:41:38 on Jun 08,2020
+# Loading sv_std.std
+# Loading work.playAudio_testbench
+# Loading work.playAudio
+# Loading work.musicRom
+# Loading work.counter3
+# Loading work.counter
+# Loading work.clock_generator
+# Loading altera_mf_ver.altpll
+# Loading altera_mf_ver.ALTERA_DEVICE_FAMILIES
+# Loading altera_mf_ver.pll_iobuf
+# Loading work.audio_and_video_config
+# Loading work.Altera_UP_Slow_Clock_Generator
+# Loading work.Altera_UP_I2C_AV_Auto_Initialize
+# Loading work.Altera_UP_I2C
+# Loading work.audio_codec
+# Loading work.Altera_UP_Clock_Edge
+# Loading work.Altera_UP_Audio_In_Deserializer
+# Loading work.Altera_UP_Audio_Bit_Counter
+# Loading work.Altera_UP_SYNC_FIFO
+# Loading altera_mf_ver.scfifo
+# Loading work.Altera_UP_Audio_Out_Serializer
+# Loading altera_mf_ver.MF_stratixii_pll
+# Loading altera_mf_ver.MF_pll_reg
+# Loading altera_mf_ver.arm_m_cntr
+# Loading altera_mf_ver.arm_n_cntr
+# Loading altera_mf_ver.arm_scale_cntr
+# ** Warning: (vsim-3017) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Too few port connections. Expected 37, found 25.
+#    Time: 0 ps  Iteration: 0  Instance: /playAudio_testbench/dut/my_clock_gen/DE_Clock_Generator_Audio File: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v
+# ** Warning: (vsim-3015) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [PCDPC] - Port size (6) does not match connection size (1) for port 'clk'. The port definition is at: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v(21851).
+#    Time: 0 ps  Iteration: 0  Instance: /playAudio_testbench/dut/my_clock_gen/DE_Clock_Generator_Audio File: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'scanclkena'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'phasecounterselect'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'phaseupdown'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'phasestep'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'configupdate'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'fbmimicbidir'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'phasedone'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'vcooverrange'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'vcounderrange'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'fbout'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'fref'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'icdrclk'.
+# ** Warning: (vsim-3017) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Too few port connections. Expected 13, found 12.
+#    Time: 0 ps  Iteration: 0  Instance: /playAudio_testbench/dut/codec/Audio_In_Deserializer/Audio_In_Left_Channel_FIFO/Sync_FIFO File: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Missing connection for port 'eccstatus'.
+# ** Warning: (vsim-3017) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Too few port connections. Expected 13, found 12.
+#    Time: 0 ps  Iteration: 0  Instance: /playAudio_testbench/dut/codec/Audio_In_Deserializer/Audio_In_Right_Channel_FIFO/Sync_FIFO File: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Missing connection for port 'eccstatus'.
+# ** Warning: (vsim-3017) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Too few port connections. Expected 13, found 12.
+#    Time: 0 ps  Iteration: 0  Instance: /playAudio_testbench/dut/codec/Audio_Out_Serializer/Audio_Out_Left_Channel_FIFO/Sync_FIFO File: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Missing connection for port 'eccstatus'.
+# ** Warning: (vsim-3017) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Too few port connections. Expected 13, found 12.
+#    Time: 0 ps  Iteration: 0  Instance: /playAudio_testbench/dut/codec/Audio_Out_Serializer/Audio_Out_Right_Channel_FIFO/Sync_FIFO File: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Missing connection for port 'eccstatus'.
+add wave -position end  sim:/playAudio_testbench/dut/dut/address
+add wave -position end  sim:/playAudio_testbench/dut/dut/clock
+add wave -position end  sim:/playAudio_testbench/dut/dut/q
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: Winston  Hostname: WINSTONCHEN9507  ProcessID: 7644
+#           Attempting to use alternate WLF file "./wlftzivnqf".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlftzivnqf
+run -all
+#  Note : Cyclone II PLL is enabled
+# Time: 0  Instance: playAudio_testbench.dut.my_clock_gen.DE_Clock_Generator_Audio.stratixii_pll.pll1
+# Warning : Invalid transition to 'X' detected on StratixII PLL input clk. This edge will be ignored.
+# Time: 0  Instance: playAudio_testbench.dut.my_clock_gen.DE_Clock_Generator_Audio.stratixii_pll.pll1.n1
+# ** Note: $stop    : C:/Users/condo/Documents/GitHub/pacman/playAudio.sv(166)
+#    Time: 10000350 ps  Iteration: 1  Instance: /playAudio_testbench
+# Break in Module playAudio_testbench at C:/Users/condo/Documents/GitHub/pacman/playAudio.sv line 166
+add wave -position 0  sim:/playAudio_testbench/CLOCK_50
+restart -f
+# ** Warning: (vsim-3017) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Too few port connections. Expected 37, found 25.
+#    Time: 0 ps  Iteration: 0  Instance: /playAudio_testbench/dut/my_clock_gen/DE_Clock_Generator_Audio File: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v
+# ** Warning: (vsim-3015) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [PCDPC] - Port size (6) does not match connection size (1) for port 'clk'. The port definition is at: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v(21851).
+#    Time: 0 ps  Iteration: 0  Instance: /playAudio_testbench/dut/my_clock_gen/DE_Clock_Generator_Audio File: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'scanclkena'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'phasecounterselect'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'phaseupdown'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'phasestep'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'configupdate'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'fbmimicbidir'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'phasedone'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'vcooverrange'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'vcounderrange'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'fbout'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'fref'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'icdrclk'.
+# ** Warning: (vsim-3017) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Too few port connections. Expected 13, found 12.
+#    Time: 0 ps  Iteration: 0  Instance: /playAudio_testbench/dut/codec/Audio_In_Deserializer/Audio_In_Left_Channel_FIFO/Sync_FIFO File: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Missing connection for port 'eccstatus'.
+# ** Warning: (vsim-3017) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Too few port connections. Expected 13, found 12.
+#    Time: 0 ps  Iteration: 0  Instance: /playAudio_testbench/dut/codec/Audio_In_Deserializer/Audio_In_Right_Channel_FIFO/Sync_FIFO File: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Missing connection for port 'eccstatus'.
+# ** Warning: (vsim-3017) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Too few port connections. Expected 13, found 12.
+#    Time: 0 ps  Iteration: 0  Instance: /playAudio_testbench/dut/codec/Audio_Out_Serializer/Audio_Out_Left_Channel_FIFO/Sync_FIFO File: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Missing connection for port 'eccstatus'.
+# ** Warning: (vsim-3017) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Too few port connections. Expected 13, found 12.
+#    Time: 0 ps  Iteration: 0  Instance: /playAudio_testbench/dut/codec/Audio_Out_Serializer/Audio_Out_Right_Channel_FIFO/Sync_FIFO File: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Missing connection for port 'eccstatus'.
+run -all
+#  Note : Cyclone II PLL is enabled
+# Time: 0  Instance: playAudio_testbench.dut.my_clock_gen.DE_Clock_Generator_Audio.stratixii_pll.pll1
+# Warning : Invalid transition to 'X' detected on StratixII PLL input clk. This edge will be ignored.
+# Time: 0  Instance: playAudio_testbench.dut.my_clock_gen.DE_Clock_Generator_Audio.stratixii_pll.pll1.n1
+# ** Note: $stop    : C:/Users/condo/Documents/GitHub/pacman/playAudio.sv(166)
+#    Time: 10000350 ps  Iteration: 1  Instance: /playAudio_testbench
+# Break in Module playAudio_testbench at C:/Users/condo/Documents/GitHub/pacman/playAudio.sv line 166
+add wave -position end  sim:/playAudio_testbench/dut/cWait/count
+restart -f
+# ** Warning: (vsim-3017) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Too few port connections. Expected 37, found 25.
+#    Time: 0 ps  Iteration: 0  Instance: /playAudio_testbench/dut/my_clock_gen/DE_Clock_Generator_Audio File: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v
+# ** Warning: (vsim-3015) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [PCDPC] - Port size (6) does not match connection size (1) for port 'clk'. The port definition is at: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v(21851).
+#    Time: 0 ps  Iteration: 0  Instance: /playAudio_testbench/dut/my_clock_gen/DE_Clock_Generator_Audio File: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'scanclkena'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'phasecounterselect'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'phaseupdown'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'phasestep'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'configupdate'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'fbmimicbidir'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'phasedone'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'vcooverrange'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'vcounderrange'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'fbout'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'fref'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'icdrclk'.
+# ** Warning: (vsim-3017) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Too few port connections. Expected 13, found 12.
+#    Time: 0 ps  Iteration: 0  Instance: /playAudio_testbench/dut/codec/Audio_In_Deserializer/Audio_In_Left_Channel_FIFO/Sync_FIFO File: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Missing connection for port 'eccstatus'.
+# ** Warning: (vsim-3017) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Too few port connections. Expected 13, found 12.
+#    Time: 0 ps  Iteration: 0  Instance: /playAudio_testbench/dut/codec/Audio_In_Deserializer/Audio_In_Right_Channel_FIFO/Sync_FIFO File: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Missing connection for port 'eccstatus'.
+# ** Warning: (vsim-3017) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Too few port connections. Expected 13, found 12.
+#    Time: 0 ps  Iteration: 0  Instance: /playAudio_testbench/dut/codec/Audio_Out_Serializer/Audio_Out_Left_Channel_FIFO/Sync_FIFO File: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Missing connection for port 'eccstatus'.
+# ** Warning: (vsim-3017) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Too few port connections. Expected 13, found 12.
+#    Time: 0 ps  Iteration: 0  Instance: /playAudio_testbench/dut/codec/Audio_Out_Serializer/Audio_Out_Right_Channel_FIFO/Sync_FIFO File: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Missing connection for port 'eccstatus'.
+run -all
+#  Note : Cyclone II PLL is enabled
+# Time: 0  Instance: playAudio_testbench.dut.my_clock_gen.DE_Clock_Generator_Audio.stratixii_pll.pll1
+# Warning : Invalid transition to 'X' detected on StratixII PLL input clk. This edge will be ignored.
+# Time: 0  Instance: playAudio_testbench.dut.my_clock_gen.DE_Clock_Generator_Audio.stratixii_pll.pll1.n1
+# ** Note: $stop    : C:/Users/condo/Documents/GitHub/pacman/playAudio.sv(166)
+#    Time: 10000350 ps  Iteration: 1  Instance: /playAudio_testbench
+# Break in Module playAudio_testbench at C:/Users/condo/Documents/GitHub/pacman/playAudio.sv line 166
+vlog -reportprogress 300 -work work C:/Users/condo/Documents/GitHub/pacman/playAudio.sv
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:45:50 on Jun 08,2020
+# vlog -reportprogress 300 -work work C:/Users/condo/Documents/GitHub/pacman/playAudio.sv 
+# -- Compiling module playAudio
+# -- Compiling module playAudio_testbench
+# 
+# Top level modules:
+# 	playAudio_testbench
+# End time: 10:45:50 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vsim -voptargs=\"+acc\" -t 1ps -lib work -Lf altera_mf_ver -L altera_mf_ver work.playAudio_testbench
+# End time: 10:46:05 on Jun 08,2020, Elapsed time: 0:04:27
+# Errors: 0, Warnings: 68
+# vsim -voptargs=""+acc"" -t 1ps -lib work -Lf altera_mf_ver -L altera_mf_ver work.playAudio_testbench 
+# Start time: 10:46:05 on Jun 08,2020
+# Loading sv_std.std
+# Loading work.playAudio_testbench
+# Loading work.playAudio
+# Loading work.musicRom
+# Loading work.counter3
+# Loading work.counter
+# Loading work.clock_generator
+# Loading altera_mf_ver.altpll
+# Loading altera_mf_ver.ALTERA_DEVICE_FAMILIES
+# Loading altera_mf_ver.pll_iobuf
+# Loading work.audio_and_video_config
+# Loading work.Altera_UP_Slow_Clock_Generator
+# Loading work.Altera_UP_I2C_AV_Auto_Initialize
+# Loading work.Altera_UP_I2C
+# Loading work.audio_codec
+# Loading work.Altera_UP_Clock_Edge
+# Loading work.Altera_UP_Audio_In_Deserializer
+# Loading work.Altera_UP_Audio_Bit_Counter
+# Loading work.Altera_UP_SYNC_FIFO
+# Loading altera_mf_ver.scfifo
+# Loading work.Altera_UP_Audio_Out_Serializer
+# Loading altera_mf_ver.MF_stratixii_pll
+# Loading altera_mf_ver.MF_pll_reg
+# Loading altera_mf_ver.arm_m_cntr
+# Loading altera_mf_ver.arm_n_cntr
+# Loading altera_mf_ver.arm_scale_cntr
+# ** Warning: (vsim-3017) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Too few port connections. Expected 37, found 25.
+#    Time: 0 ps  Iteration: 0  Instance: /playAudio_testbench/dut/my_clock_gen/DE_Clock_Generator_Audio File: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v
+# ** Warning: (vsim-3015) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [PCDPC] - Port size (6) does not match connection size (1) for port 'clk'. The port definition is at: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v(21851).
+#    Time: 0 ps  Iteration: 0  Instance: /playAudio_testbench/dut/my_clock_gen/DE_Clock_Generator_Audio File: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'scanclkena'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'phasecounterselect'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'phaseupdown'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'phasestep'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'configupdate'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'fbmimicbidir'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'phasedone'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'vcooverrange'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'vcounderrange'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'fbout'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'fref'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'icdrclk'.
+# ** Warning: (vsim-3017) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Too few port connections. Expected 13, found 12.
+#    Time: 0 ps  Iteration: 0  Instance: /playAudio_testbench/dut/codec/Audio_In_Deserializer/Audio_In_Left_Channel_FIFO/Sync_FIFO File: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Missing connection for port 'eccstatus'.
+# ** Warning: (vsim-3017) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Too few port connections. Expected 13, found 12.
+#    Time: 0 ps  Iteration: 0  Instance: /playAudio_testbench/dut/codec/Audio_In_Deserializer/Audio_In_Right_Channel_FIFO/Sync_FIFO File: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Missing connection for port 'eccstatus'.
+# ** Warning: (vsim-3017) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Too few port connections. Expected 13, found 12.
+#    Time: 0 ps  Iteration: 0  Instance: /playAudio_testbench/dut/codec/Audio_Out_Serializer/Audio_Out_Left_Channel_FIFO/Sync_FIFO File: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Missing connection for port 'eccstatus'.
+# ** Warning: (vsim-3017) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Too few port connections. Expected 13, found 12.
+#    Time: 0 ps  Iteration: 0  Instance: /playAudio_testbench/dut/codec/Audio_Out_Serializer/Audio_Out_Right_Channel_FIFO/Sync_FIFO File: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Missing connection for port 'eccstatus'.
+add wave -position end  sim:/playAudio_testbench/dut/cWait/count
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: Winston  Hostname: WINSTONCHEN9507  ProcessID: 7644
+#           Attempting to use alternate WLF file "./wlftn782m6".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlftn782m6
+add wave -position end  sim:/playAudio_testbench/dut/c/count
+add wave -position end  sim:/playAudio_testbench/dut/dut/q
+run -continue
+#  Note : Cyclone II PLL is enabled
+# Time: 0  Instance: playAudio_testbench.dut.my_clock_gen.DE_Clock_Generator_Audio.stratixii_pll.pll1
+# Warning : Invalid transition to 'X' detected on StratixII PLL input clk. This edge will be ignored.
+# Time: 0  Instance: playAudio_testbench.dut.my_clock_gen.DE_Clock_Generator_Audio.stratixii_pll.pll1.n1
+run -all
+# ** Note: $stop    : C:/Users/condo/Documents/GitHub/pacman/playAudio.sv(166)
+#    Time: 10000350 ps  Iteration: 1  Instance: /playAudio_testbench
+# Break in Module playAudio_testbench at C:/Users/condo/Documents/GitHub/pacman/playAudio.sv line 166
+add wave -position end  sim:/playAudio_testbench/dut/dut/address
+restart -f
+# ** Warning: (vsim-3017) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Too few port connections. Expected 37, found 25.
+#    Time: 0 ps  Iteration: 0  Instance: /playAudio_testbench/dut/my_clock_gen/DE_Clock_Generator_Audio File: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v
+# ** Warning: (vsim-3015) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [PCDPC] - Port size (6) does not match connection size (1) for port 'clk'. The port definition is at: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v(21851).
+#    Time: 0 ps  Iteration: 0  Instance: /playAudio_testbench/dut/my_clock_gen/DE_Clock_Generator_Audio File: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'scanclkena'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'phasecounterselect'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'phaseupdown'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'phasestep'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'configupdate'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'fbmimicbidir'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'phasedone'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'vcooverrange'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'vcounderrange'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'fbout'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'fref'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'icdrclk'.
+# ** Warning: (vsim-3017) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Too few port connections. Expected 13, found 12.
+#    Time: 0 ps  Iteration: 0  Instance: /playAudio_testbench/dut/codec/Audio_In_Deserializer/Audio_In_Left_Channel_FIFO/Sync_FIFO File: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Missing connection for port 'eccstatus'.
+# ** Warning: (vsim-3017) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Too few port connections. Expected 13, found 12.
+#    Time: 0 ps  Iteration: 0  Instance: /playAudio_testbench/dut/codec/Audio_In_Deserializer/Audio_In_Right_Channel_FIFO/Sync_FIFO File: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Missing connection for port 'eccstatus'.
+# ** Warning: (vsim-3017) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Too few port connections. Expected 13, found 12.
+#    Time: 0 ps  Iteration: 0  Instance: /playAudio_testbench/dut/codec/Audio_Out_Serializer/Audio_Out_Left_Channel_FIFO/Sync_FIFO File: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Missing connection for port 'eccstatus'.
+# ** Warning: (vsim-3017) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Too few port connections. Expected 13, found 12.
+#    Time: 0 ps  Iteration: 0  Instance: /playAudio_testbench/dut/codec/Audio_Out_Serializer/Audio_Out_Right_Channel_FIFO/Sync_FIFO File: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Missing connection for port 'eccstatus'.
+run -all
+#  Note : Cyclone II PLL is enabled
+# Time: 0  Instance: playAudio_testbench.dut.my_clock_gen.DE_Clock_Generator_Audio.stratixii_pll.pll1
+# Warning : Invalid transition to 'X' detected on StratixII PLL input clk. This edge will be ignored.
+# Time: 0  Instance: playAudio_testbench.dut.my_clock_gen.DE_Clock_Generator_Audio.stratixii_pll.pll1.n1
+# ** Note: $stop    : C:/Users/condo/Documents/GitHub/pacman/playAudio.sv(166)
+#    Time: 10000350 ps  Iteration: 1  Instance: /playAudio_testbench
+# Break in Module playAudio_testbench at C:/Users/condo/Documents/GitHub/pacman/playAudio.sv line 166
+add wave -position end  sim:/playAudio_testbench/dut/writedata_left
+add wave -position end  sim:/playAudio_testbench/dut/writedata_right
+restart -f
+# ** Warning: (vsim-3017) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Too few port connections. Expected 37, found 25.
+#    Time: 0 ps  Iteration: 0  Instance: /playAudio_testbench/dut/my_clock_gen/DE_Clock_Generator_Audio File: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v
+# ** Warning: (vsim-3015) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [PCDPC] - Port size (6) does not match connection size (1) for port 'clk'. The port definition is at: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v(21851).
+#    Time: 0 ps  Iteration: 0  Instance: /playAudio_testbench/dut/my_clock_gen/DE_Clock_Generator_Audio File: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'scanclkena'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'phasecounterselect'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'phaseupdown'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'phasestep'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'configupdate'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'fbmimicbidir'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'phasedone'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'vcooverrange'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'vcounderrange'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'fbout'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'fref'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'icdrclk'.
+# ** Warning: (vsim-3017) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Too few port connections. Expected 13, found 12.
+#    Time: 0 ps  Iteration: 0  Instance: /playAudio_testbench/dut/codec/Audio_In_Deserializer/Audio_In_Left_Channel_FIFO/Sync_FIFO File: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Missing connection for port 'eccstatus'.
+# ** Warning: (vsim-3017) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Too few port connections. Expected 13, found 12.
+#    Time: 0 ps  Iteration: 0  Instance: /playAudio_testbench/dut/codec/Audio_In_Deserializer/Audio_In_Right_Channel_FIFO/Sync_FIFO File: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Missing connection for port 'eccstatus'.
+# ** Warning: (vsim-3017) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Too few port connections. Expected 13, found 12.
+#    Time: 0 ps  Iteration: 0  Instance: /playAudio_testbench/dut/codec/Audio_Out_Serializer/Audio_Out_Left_Channel_FIFO/Sync_FIFO File: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Missing connection for port 'eccstatus'.
+# ** Warning: (vsim-3017) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Too few port connections. Expected 13, found 12.
+#    Time: 0 ps  Iteration: 0  Instance: /playAudio_testbench/dut/codec/Audio_Out_Serializer/Audio_Out_Right_Channel_FIFO/Sync_FIFO File: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Missing connection for port 'eccstatus'.
+run -all
+#  Note : Cyclone II PLL is enabled
+# Time: 0  Instance: playAudio_testbench.dut.my_clock_gen.DE_Clock_Generator_Audio.stratixii_pll.pll1
+# Warning : Invalid transition to 'X' detected on StratixII PLL input clk. This edge will be ignored.
+# Time: 0  Instance: playAudio_testbench.dut.my_clock_gen.DE_Clock_Generator_Audio.stratixii_pll.pll1.n1
+# ** Note: $stop    : C:/Users/condo/Documents/GitHub/pacman/playAudio.sv(166)
+#    Time: 10000350 ps  Iteration: 1  Instance: /playAudio_testbench
+# Break in Module playAudio_testbench at C:/Users/condo/Documents/GitHub/pacman/playAudio.sv line 166
+vlog -reportprogress 300 -work work C:/Users/condo/Documents/GitHub/pacman/playAudio.sv
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:56:30 on Jun 08,2020
+# vlog -reportprogress 300 -work work C:/Users/condo/Documents/GitHub/pacman/playAudio.sv 
+# -- Compiling module playAudio
+# -- Compiling module playAudio_testbench
+# 
+# Top level modules:
+# 	playAudio_testbench
+# End time: 10:56:30 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+restart -f
+# Loading work.playAudio_testbench
+# Loading work.playAudio
+# ** Warning: (vsim-3017) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Too few port connections. Expected 37, found 25.
+#    Time: 0 ps  Iteration: 0  Instance: /playAudio_testbench/dut/my_clock_gen/DE_Clock_Generator_Audio File: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v
+# ** Warning: (vsim-3015) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [PCDPC] - Port size (6) does not match connection size (1) for port 'clk'. The port definition is at: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v(21851).
+#    Time: 0 ps  Iteration: 0  Instance: /playAudio_testbench/dut/my_clock_gen/DE_Clock_Generator_Audio File: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'scanclkena'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'phasecounterselect'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'phaseupdown'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'phasestep'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'configupdate'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'fbmimicbidir'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'phasedone'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'vcooverrange'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'vcounderrange'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'fbout'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'fref'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'icdrclk'.
+# ** Warning: (vsim-3017) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Too few port connections. Expected 13, found 12.
+#    Time: 0 ps  Iteration: 0  Instance: /playAudio_testbench/dut/codec/Audio_In_Deserializer/Audio_In_Left_Channel_FIFO/Sync_FIFO File: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Missing connection for port 'eccstatus'.
+# ** Warning: (vsim-3017) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Too few port connections. Expected 13, found 12.
+#    Time: 0 ps  Iteration: 0  Instance: /playAudio_testbench/dut/codec/Audio_In_Deserializer/Audio_In_Right_Channel_FIFO/Sync_FIFO File: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Missing connection for port 'eccstatus'.
+# ** Warning: (vsim-3017) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Too few port connections. Expected 13, found 12.
+#    Time: 0 ps  Iteration: 0  Instance: /playAudio_testbench/dut/codec/Audio_Out_Serializer/Audio_Out_Left_Channel_FIFO/Sync_FIFO File: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Missing connection for port 'eccstatus'.
+# ** Warning: (vsim-3017) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Too few port connections. Expected 13, found 12.
+#    Time: 0 ps  Iteration: 0  Instance: /playAudio_testbench/dut/codec/Audio_Out_Serializer/Audio_Out_Right_Channel_FIFO/Sync_FIFO File: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Missing connection for port 'eccstatus'.
+run -all
+#  Note : Cyclone II PLL is enabled
+# Time: 0  Instance: playAudio_testbench.dut.my_clock_gen.DE_Clock_Generator_Audio.stratixii_pll.pll1
+# Warning : Invalid transition to 'X' detected on StratixII PLL input clk. This edge will be ignored.
+# Time: 0  Instance: playAudio_testbench.dut.my_clock_gen.DE_Clock_Generator_Audio.stratixii_pll.pll1.n1
+# ** Note: $stop    : C:/Users/condo/Documents/GitHub/pacman/playAudio.sv(166)
+#    Time: 10000350 ps  Iteration: 1  Instance: /playAudio_testbench
+# Break in Module playAudio_testbench at C:/Users/condo/Documents/GitHub/pacman/playAudio.sv line 166
+# WARNING: No extended dataflow license exists
+add wave -position end  sim:/playAudio_testbench/dut/incr
+restart -f
+# ** Warning: (vsim-3017) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Too few port connections. Expected 37, found 25.
+#    Time: 0 ps  Iteration: 0  Instance: /playAudio_testbench/dut/my_clock_gen/DE_Clock_Generator_Audio File: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v
+# ** Warning: (vsim-3015) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [PCDPC] - Port size (6) does not match connection size (1) for port 'clk'. The port definition is at: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v(21851).
+#    Time: 0 ps  Iteration: 0  Instance: /playAudio_testbench/dut/my_clock_gen/DE_Clock_Generator_Audio File: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'scanclkena'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'phasecounterselect'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'phaseupdown'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'phasestep'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'configupdate'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'fbmimicbidir'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'phasedone'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'vcooverrange'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'vcounderrange'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'fbout'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'fref'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'icdrclk'.
+# ** Warning: (vsim-3017) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Too few port connections. Expected 13, found 12.
+#    Time: 0 ps  Iteration: 0  Instance: /playAudio_testbench/dut/codec/Audio_In_Deserializer/Audio_In_Left_Channel_FIFO/Sync_FIFO File: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Missing connection for port 'eccstatus'.
+# ** Warning: (vsim-3017) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Too few port connections. Expected 13, found 12.
+#    Time: 0 ps  Iteration: 0  Instance: /playAudio_testbench/dut/codec/Audio_In_Deserializer/Audio_In_Right_Channel_FIFO/Sync_FIFO File: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Missing connection for port 'eccstatus'.
+# ** Warning: (vsim-3017) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Too few port connections. Expected 13, found 12.
+#    Time: 0 ps  Iteration: 0  Instance: /playAudio_testbench/dut/codec/Audio_Out_Serializer/Audio_Out_Left_Channel_FIFO/Sync_FIFO File: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Missing connection for port 'eccstatus'.
+# ** Warning: (vsim-3017) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Too few port connections. Expected 13, found 12.
+#    Time: 0 ps  Iteration: 0  Instance: /playAudio_testbench/dut/codec/Audio_Out_Serializer/Audio_Out_Right_Channel_FIFO/Sync_FIFO File: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Missing connection for port 'eccstatus'.
+run -all
+#  Note : Cyclone II PLL is enabled
+# Time: 0  Instance: playAudio_testbench.dut.my_clock_gen.DE_Clock_Generator_Audio.stratixii_pll.pll1
+# Warning : Invalid transition to 'X' detected on StratixII PLL input clk. This edge will be ignored.
+# Time: 0  Instance: playAudio_testbench.dut.my_clock_gen.DE_Clock_Generator_Audio.stratixii_pll.pll1.n1
+# ** Note: $stop    : C:/Users/condo/Documents/GitHub/pacman/playAudio.sv(166)
+#    Time: 10000350 ps  Iteration: 1  Instance: /playAudio_testbench
+# Break in Module playAudio_testbench at C:/Users/condo/Documents/GitHub/pacman/playAudio.sv line 166
+vlog -reportprogress 300 -work work C:/Users/condo/Documents/GitHub/pacman/playAudio.sv
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:58:35 on Jun 08,2020
+# vlog -reportprogress 300 -work work C:/Users/condo/Documents/GitHub/pacman/playAudio.sv 
+# -- Compiling module playAudio
+# -- Compiling module playAudio_testbench
+# 
+# Top level modules:
+# 	playAudio_testbench
+# End time: 10:58:35 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vsim -voptargs=\"+acc\" -t 1ps -lib work -Lf altera_mf_ver -L altera_mf_ver work.playAudio_testbench
+# End time: 10:58:52 on Jun 08,2020, Elapsed time: 0:12:47
+# Errors: 0, Warnings: 113
+# vsim -voptargs=""+acc"" -t 1ps -lib work -Lf altera_mf_ver -L altera_mf_ver work.playAudio_testbench 
+# Start time: 10:58:52 on Jun 08,2020
+# Loading sv_std.std
+# Loading work.playAudio_testbench
+# Loading work.playAudio
+# Loading work.musicRom
+# Loading work.counter3
+# Loading work.counter
+# Loading work.clock_generator
+# Loading altera_mf_ver.altpll
+# Loading altera_mf_ver.ALTERA_DEVICE_FAMILIES
+# Loading altera_mf_ver.pll_iobuf
+# Loading work.audio_and_video_config
+# Loading work.Altera_UP_Slow_Clock_Generator
+# Loading work.Altera_UP_I2C_AV_Auto_Initialize
+# Loading work.Altera_UP_I2C
+# Loading work.audio_codec
+# Loading work.Altera_UP_Clock_Edge
+# Loading work.Altera_UP_Audio_In_Deserializer
+# Loading work.Altera_UP_Audio_Bit_Counter
+# Loading work.Altera_UP_SYNC_FIFO
+# Loading altera_mf_ver.scfifo
+# Loading work.Altera_UP_Audio_Out_Serializer
+# Loading altera_mf_ver.MF_stratixii_pll
+# Loading altera_mf_ver.MF_pll_reg
+# Loading altera_mf_ver.arm_m_cntr
+# Loading altera_mf_ver.arm_n_cntr
+# Loading altera_mf_ver.arm_scale_cntr
+# ** Warning: (vsim-3017) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Too few port connections. Expected 37, found 25.
+#    Time: 0 ps  Iteration: 0  Instance: /playAudio_testbench/dut/my_clock_gen/DE_Clock_Generator_Audio File: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v
+# ** Warning: (vsim-3015) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [PCDPC] - Port size (6) does not match connection size (1) for port 'clk'. The port definition is at: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v(21851).
+#    Time: 0 ps  Iteration: 0  Instance: /playAudio_testbench/dut/my_clock_gen/DE_Clock_Generator_Audio File: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'scanclkena'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'phasecounterselect'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'phaseupdown'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'phasestep'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'configupdate'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'fbmimicbidir'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'phasedone'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'vcooverrange'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'vcounderrange'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'fbout'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'fref'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'icdrclk'.
+# ** Warning: (vsim-3017) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Too few port connections. Expected 13, found 12.
+#    Time: 0 ps  Iteration: 0  Instance: /playAudio_testbench/dut/codec/Audio_In_Deserializer/Audio_In_Left_Channel_FIFO/Sync_FIFO File: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Missing connection for port 'eccstatus'.
+# ** Warning: (vsim-3017) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Too few port connections. Expected 13, found 12.
+#    Time: 0 ps  Iteration: 0  Instance: /playAudio_testbench/dut/codec/Audio_In_Deserializer/Audio_In_Right_Channel_FIFO/Sync_FIFO File: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Missing connection for port 'eccstatus'.
+# ** Warning: (vsim-3017) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Too few port connections. Expected 13, found 12.
+#    Time: 0 ps  Iteration: 0  Instance: /playAudio_testbench/dut/codec/Audio_Out_Serializer/Audio_Out_Left_Channel_FIFO/Sync_FIFO File: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Missing connection for port 'eccstatus'.
+# ** Warning: (vsim-3017) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Too few port connections. Expected 13, found 12.
+#    Time: 0 ps  Iteration: 0  Instance: /playAudio_testbench/dut/codec/Audio_Out_Serializer/Audio_Out_Right_Channel_FIFO/Sync_FIFO File: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Missing connection for port 'eccstatus'.
+vsim -voptargs=\"+acc\" -t 1ps -lib work -Lf altera_mf_ver -L altera_mf_ver work.playAudio_testbench
+# End time: 11:04:29 on Jun 08,2020, Elapsed time: 0:05:37
+# Errors: 0, Warnings: 22
+# vsim -voptargs=""+acc"" -t 1ps -lib work -Lf altera_mf_ver -L altera_mf_ver work.playAudio_testbench 
+# Start time: 11:04:29 on Jun 08,2020
+# Loading sv_std.std
+# Loading work.playAudio_testbench
+# Loading work.playAudio
+# Loading work.musicRom
+# Loading work.counter3
+# Loading work.counter
+# Loading work.clock_generator
+# Loading altera_mf_ver.altpll
+# Loading altera_mf_ver.ALTERA_DEVICE_FAMILIES
+# Loading altera_mf_ver.pll_iobuf
+# Loading work.audio_and_video_config
+# Loading work.Altera_UP_Slow_Clock_Generator
+# Loading work.Altera_UP_I2C_AV_Auto_Initialize
+# Loading work.Altera_UP_I2C
+# Loading work.audio_codec
+# Loading work.Altera_UP_Clock_Edge
+# Loading work.Altera_UP_Audio_In_Deserializer
+# Loading work.Altera_UP_Audio_Bit_Counter
+# Loading work.Altera_UP_SYNC_FIFO
+# Loading altera_mf_ver.scfifo
+# Loading work.Altera_UP_Audio_Out_Serializer
+# Loading altera_mf_ver.MF_stratixii_pll
+# Loading altera_mf_ver.MF_pll_reg
+# Loading altera_mf_ver.arm_m_cntr
+# Loading altera_mf_ver.arm_n_cntr
+# Loading altera_mf_ver.arm_scale_cntr
+# ** Warning: (vsim-3017) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Too few port connections. Expected 37, found 25.
+#    Time: 0 ps  Iteration: 0  Instance: /playAudio_testbench/dut/my_clock_gen/DE_Clock_Generator_Audio File: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v
+# ** Warning: (vsim-3015) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [PCDPC] - Port size (6) does not match connection size (1) for port 'clk'. The port definition is at: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v(21851).
+#    Time: 0 ps  Iteration: 0  Instance: /playAudio_testbench/dut/my_clock_gen/DE_Clock_Generator_Audio File: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'scanclkena'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'phasecounterselect'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'phaseupdown'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'phasestep'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'configupdate'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'fbmimicbidir'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'phasedone'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'vcooverrange'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'vcounderrange'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'fbout'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'fref'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'icdrclk'.
+# ** Warning: (vsim-3017) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Too few port connections. Expected 13, found 12.
+#    Time: 0 ps  Iteration: 0  Instance: /playAudio_testbench/dut/codec/Audio_In_Deserializer/Audio_In_Left_Channel_FIFO/Sync_FIFO File: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Missing connection for port 'eccstatus'.
+# ** Warning: (vsim-3017) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Too few port connections. Expected 13, found 12.
+#    Time: 0 ps  Iteration: 0  Instance: /playAudio_testbench/dut/codec/Audio_In_Deserializer/Audio_In_Right_Channel_FIFO/Sync_FIFO File: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Missing connection for port 'eccstatus'.
+# ** Warning: (vsim-3017) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Too few port connections. Expected 13, found 12.
+#    Time: 0 ps  Iteration: 0  Instance: /playAudio_testbench/dut/codec/Audio_Out_Serializer/Audio_Out_Left_Channel_FIFO/Sync_FIFO File: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Missing connection for port 'eccstatus'.
+# ** Warning: (vsim-3017) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Too few port connections. Expected 13, found 12.
+#    Time: 0 ps  Iteration: 0  Instance: /playAudio_testbench/dut/codec/Audio_Out_Serializer/Audio_Out_Right_Channel_FIFO/Sync_FIFO File: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Missing connection for port 'eccstatus'.
+vlog -reportprogress 300 -work work C:/Users/condo/Documents/GitHub/pacman/Altera_UP_Audio_Bit_Counter.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:04:56 on Jun 08,2020
+# vlog -reportprogress 300 -work work C:/Users/condo/Documents/GitHub/pacman/Altera_UP_Audio_Bit_Counter.v 
+# -- Compiling module Altera_UP_Audio_Bit_Counter
+# 
+# Top level modules:
+# 	Altera_UP_Audio_Bit_Counter
+# End time: 11:04:56 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 300 -work work C:/Users/condo/Documents/GitHub/pacman/Altera_UP_Audio_In_Deserializer.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:04:56 on Jun 08,2020
+# vlog -reportprogress 300 -work work C:/Users/condo/Documents/GitHub/pacman/Altera_UP_Audio_In_Deserializer.v 
+# -- Compiling module Altera_UP_Audio_In_Deserializer
+# 
+# Top level modules:
+# 	Altera_UP_Audio_In_Deserializer
+# End time: 11:04:56 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 300 -work work C:/Users/condo/Documents/GitHub/pacman/Altera_UP_Audio_Out_Serializer.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:04:56 on Jun 08,2020
+# vlog -reportprogress 300 -work work C:/Users/condo/Documents/GitHub/pacman/Altera_UP_Audio_Out_Serializer.v 
+# -- Compiling module Altera_UP_Audio_Out_Serializer
+# 
+# Top level modules:
+# 	Altera_UP_Audio_Out_Serializer
+# End time: 11:04:56 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 300 -work work C:/Users/condo/Documents/GitHub/pacman/altera_up_avalon_video_vga_timing.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:04:56 on Jun 08,2020
+# vlog -reportprogress 300 -work work C:/Users/condo/Documents/GitHub/pacman/altera_up_avalon_video_vga_timing.v 
+# -- Compiling module altera_up_avalon_video_vga_timing
+# 
+# Top level modules:
+# 	altera_up_avalon_video_vga_timing
+# End time: 11:04:56 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/Altera_UP_Clock_Edge.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:04:56 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/Altera_UP_Clock_Edge.v 
+# -- Compiling module Altera_UP_Clock_Edge
+# 
+# Top level modules:
+# 	Altera_UP_Clock_Edge
+# End time: 11:04:56 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/Altera_UP_I2C.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:04:56 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/Altera_UP_I2C.v 
+# -- Compiling module Altera_UP_I2C
+# 
+# Top level modules:
+# 	Altera_UP_I2C
+# End time: 11:04:57 on Jun 08,2020, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/Altera_UP_I2C_AV_Auto_Initialize.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:04:57 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/Altera_UP_I2C_AV_Auto_Initialize.v 
+# -- Compiling module Altera_UP_I2C_AV_Auto_Initialize
+# 
+# Top level modules:
+# 	Altera_UP_I2C_AV_Auto_Initialize
+# End time: 11:04:57 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/Altera_UP_I2C_DC_Auto_Initialize.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:04:57 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/Altera_UP_I2C_DC_Auto_Initialize.v 
+# -- Compiling module Altera_UP_I2C_DC_Auto_Initialize
+# 
+# Top level modules:
+# 	Altera_UP_I2C_DC_Auto_Initialize
+# End time: 11:04:57 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/Altera_UP_I2C_LCM_Auto_Initialize.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:04:57 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/Altera_UP_I2C_LCM_Auto_Initialize.v 
+# -- Compiling module Altera_UP_I2C_LCM_Auto_Initialize
+# 
+# Top level modules:
+# 	Altera_UP_I2C_LCM_Auto_Initialize
+# End time: 11:04:57 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/Altera_UP_Slow_Clock_Generator.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:04:57 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/Altera_UP_Slow_Clock_Generator.v 
+# -- Compiling module Altera_UP_Slow_Clock_Generator
+# 
+# Top level modules:
+# 	Altera_UP_Slow_Clock_Generator
+# End time: 11:04:57 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:04:57 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v 
+# -- Compiling module Altera_UP_SYNC_FIFO
+# 
+# Top level modules:
+# 	Altera_UP_SYNC_FIFO
+# End time: 11:04:57 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/audio_and_video_config.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:04:57 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/audio_and_video_config.v 
+# -- Compiling module audio_and_video_config
+# 
+# Top level modules:
+# 	audio_and_video_config
+# End time: 11:04:57 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/audio_codec.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:04:57 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/audio_codec.v 
+# -- Compiling module audio_codec
+# 
+# Top level modules:
+# 	audio_codec
+# End time: 11:04:57 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/bcd_3b.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:04:57 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/bcd_3b.v 
+# -- Compiling module bcd_3b
+# 
+# Top level modules:
+# 	bcd_3b
+# End time: 11:04:57 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/bcd_3b_testbench.sv
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:04:57 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/bcd_3b_testbench.sv 
+# -- Compiling module bcd_3b_testbench
+# 
+# Top level modules:
+# 	bcd_3b_testbench
+# End time: 11:04:57 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/clock_divider.sv
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:04:57 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/clock_divider.sv 
+# -- Compiling module clock_divider
+# 
+# Top level modules:
+# 	clock_divider
+# End time: 11:04:57 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/clock_generator.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:04:57 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/clock_generator.v 
+# -- Compiling module clock_generator
+# 
+# Top level modules:
+# 	clock_generator
+# End time: 11:04:58 on Jun 08,2020, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/CLOCK25_PLL.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:04:58 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/CLOCK25_PLL.v 
+# -- Compiling module CLOCK25_PLL
+# 
+# Top level modules:
+# 	CLOCK25_PLL
+# End time: 11:04:58 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/CLOCK25_PLL_0002.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:04:58 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/CLOCK25_PLL_0002.v 
+# -- Compiling module CLOCK25_PLL_0002
+# 
+# Top level modules:
+# 	CLOCK25_PLL_0002
+# End time: 11:04:58 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/collision_detect.sv
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:04:58 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/collision_detect.sv 
+# -- Compiling module collision_detect
+# 
+# Top level modules:
+# 	collision_detect
+# End time: 11:04:58 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/counter.sv
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:04:58 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/counter.sv 
+# -- Compiling module counter
+# -- Compiling module counter_testbench
+# 
+# Top level modules:
+# 	counter_testbench
+# End time: 11:04:58 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/counter2.sv
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:04:58 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/counter2.sv 
+# -- Compiling module counter2
+# -- Compiling module counter2_testbench
+# 
+# Top level modules:
+# 	counter2_testbench
+# End time: 11:04:58 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/counter3.sv
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:04:58 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/counter3.sv 
+# -- Compiling module counter3
+# -- Compiling module counter3_testbench
+# 
+# Top level modules:
+# 	counter3_testbench
+# End time: 11:04:58 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/DE1_SoC.sv
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:04:58 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/DE1_SoC.sv 
+# -- Compiling module DE1_SoC
+# ** Error (suppressible): C:/Users/condo/Documents/GitHub/pacman/DE1_SoC.sv(83): (vlog-2388) 'up' already declared in this scope (DE1_SoC).
+# ** Error (suppressible): C:/Users/condo/Documents/GitHub/pacman/DE1_SoC.sv(83): (vlog-2388) 'down' already declared in this scope (DE1_SoC).
+# ** Error (suppressible): C:/Users/condo/Documents/GitHub/pacman/DE1_SoC.sv(83): (vlog-2388) 'left' already declared in this scope (DE1_SoC).
+# ** Error (suppressible): C:/Users/condo/Documents/GitHub/pacman/DE1_SoC.sv(83): (vlog-2388) 'right' already declared in this scope (DE1_SoC).
+# ** Error (suppressible): C:/Users/condo/Documents/GitHub/pacman/DE1_SoC.sv(86): (vlog-2388) 'redata' already declared in this scope (DE1_SoC).
+# ** Error (suppressible): C:/Users/condo/Documents/GitHub/pacman/DE1_SoC.sv(86): (vlog-2388) 'wrdata' already declared in this scope (DE1_SoC).
+# ** Error (suppressible): C:/Users/condo/Documents/GitHub/pacman/DE1_SoC.sv(87): (vlog-2388) 'wren' already declared in this scope (DE1_SoC).
+# ** Error (suppressible): C:/Users/condo/Documents/GitHub/pacman/DE1_SoC.sv(88): (vlog-2388) 'wraddr' already declared in this scope (DE1_SoC).
+# ** Error: C:/Users/condo/Documents/GitHub/pacman/DE1_SoC.sv(159): (vlog-2730) Undefined variable: 'pg_collision'.
+# ** Error (suppressible): C:/Users/condo/Documents/GitHub/pacman/DE1_SoC.sv(195): (vlog-2388) 'pg1_collision' already declared in this scope (DE1_SoC).
+# ** Error (suppressible): C:/Users/condo/Documents/GitHub/pacman/DE1_SoC.sv(195): (vlog-2388) 'pg2_collision' already declared in this scope (DE1_SoC).
+# End time: 11:04:58 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 11, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/dot_ROM.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:04:58 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/dot_ROM.v 
+# -- Compiling module dot_ROM
+# 
+# Top level modules:
+# 	dot_ROM
+# End time: 11:04:58 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/dot_ROM_bb.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:04:58 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/dot_ROM_bb.v 
+# -- Compiling module dot_ROM
+# 
+# Top level modules:
+# 	dot_ROM
+# End time: 11:04:58 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/filter_input.sv
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:04:58 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/filter_input.sv 
+# -- Compiling module filter_input
+# -- Compiling module filter_input_testbench
+# 
+# Top level modules:
+# 	filter_input_testbench
+# End time: 11:04:58 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/ghost_B_ROM.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:04:58 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/ghost_B_ROM.v 
+# -- Compiling module ghost_B_ROM
+# 
+# Top level modules:
+# 	ghost_B_ROM
+# End time: 11:04:58 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/ghost_B_ROM_bb.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:04:59 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/ghost_B_ROM_bb.v 
+# -- Compiling module ghost_B_ROM
+# 
+# Top level modules:
+# 	ghost_B_ROM
+# End time: 11:04:59 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/ghost_G_ROM.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:04:59 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/ghost_G_ROM.v 
+# -- Compiling module ghost_G_ROM
+# 
+# Top level modules:
+# 	ghost_G_ROM
+# End time: 11:04:59 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/ghost_G_ROM_bb.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:04:59 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/ghost_G_ROM_bb.v 
+# -- Compiling module ghost_G_ROM
+# 
+# Top level modules:
+# 	ghost_G_ROM
+# End time: 11:04:59 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/ghost_map_RAM.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:04:59 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/ghost_map_RAM.v 
+# -- Compiling module ghost_map_RAM
+# 
+# Top level modules:
+# 	ghost_map_RAM
+# End time: 11:04:59 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/ghost_map_RAM_bb.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:04:59 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/ghost_map_RAM_bb.v 
+# -- Compiling module ghost_map_RAM
+# 
+# Top level modules:
+# 	ghost_map_RAM
+# End time: 11:04:59 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/ghost_R_ROM.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:04:59 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/ghost_R_ROM.v 
+# -- Compiling module ghost_R_ROM
+# 
+# Top level modules:
+# 	ghost_R_ROM
+# End time: 11:04:59 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/ghost_R_ROM_bb.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:04:59 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/ghost_R_ROM_bb.v 
+# -- Compiling module ghost_R_ROM
+# 
+# Top level modules:
+# 	ghost_R_ROM
+# End time: 11:04:59 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/ghost_RAM_ctrl.sv
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:04:59 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/ghost_RAM_ctrl.sv 
+# -- Compiling module ghost_RAM_ctrl
+# -- Compiling module ghost_RAM_ctrl_testbench
+# 
+# Top level modules:
+# 	ghost_RAM_ctrl_testbench
+# End time: 11:04:59 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/ghosts_ai.sv
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:04:59 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/ghosts_ai.sv 
+# -- Compiling module ghosts_ai
+# -- Compiling module ghosts_ai_testbench
+# 
+# Top level modules:
+# 	ghosts_ai_testbench
+# End time: 11:04:59 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/ghosts_loc_ctrl.sv
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:04:59 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/ghosts_loc_ctrl.sv 
+# -- Compiling module ghosts_loc_ctrl
+# -- Compiling module ghosts_loc_ctrl_testbench
+# 
+# Top level modules:
+# 	ghosts_loc_ctrl_testbench
+# End time: 11:04:59 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/hexto7segment.sv
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:04:59 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/hexto7segment.sv 
+# -- Compiling module hexto7segment
+# -- Compiling module hexto7segment_testbench
+# 
+# Top level modules:
+# 	hexto7segment_testbench
+# End time: 11:04:59 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/keyboard_inner_driver.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:04:59 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/keyboard_inner_driver.v 
+# -- Compiling module keyboard_inner_driver
+# 
+# Top level modules:
+# 	keyboard_inner_driver
+# End time: 11:05:00 on Jun 08,2020, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/keyboard_press_driver.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:05:00 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/keyboard_press_driver.v 
+# -- Compiling module keyboard_press_driver
+# 
+# Top level modules:
+# 	keyboard_press_driver
+# End time: 11:05:00 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/keyboard_process.sv
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:05:00 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/keyboard_process.sv 
+# -- Compiling module keyboard_process
+# 
+# Top level modules:
+# 	keyboard_process
+# End time: 11:05:00 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/keyboard_scancoderaw_driver.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:05:00 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/keyboard_scancoderaw_driver.v 
+# -- Compiling module keyboard_scancoderaw_driver
+# 
+# Top level modules:
+# 	keyboard_scancoderaw_driver
+# End time: 11:05:00 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/map.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:05:00 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/map.v 
+# -- Compiling module map
+# 
+# Top level modules:
+# 	map
+# End time: 11:05:00 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/map_bb.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:05:00 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/map_bb.v 
+# -- Compiling module map
+# 
+# Top level modules:
+# 	map
+# End time: 11:05:00 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/map_RAM.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:05:00 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/map_RAM.v 
+# -- Compiling module map_RAM
+# 
+# Top level modules:
+# 	map_RAM
+# End time: 11:05:00 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/map_RAM_bb.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:05:00 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/map_RAM_bb.v 
+# -- Compiling module map_RAM
+# 
+# Top level modules:
+# 	map_RAM
+# End time: 11:05:00 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/map_RAM_testbench.sv
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:05:00 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/map_RAM_testbench.sv 
+# -- Compiling module map_RAM_testbench
+# 
+# Top level modules:
+# 	map_RAM_testbench
+# End time: 11:05:00 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/map_RAM_writer.sv
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:05:00 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/map_RAM_writer.sv 
+# -- Compiling module map_RAM_writer
+# -- Compiling module map_RAM_writer_testbench
+# 
+# Top level modules:
+# 	map_RAM_writer_testbench
+# End time: 11:05:00 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/map_RAM_writerTest.sv
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:05:00 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/map_RAM_writerTest.sv 
+# -- Compiling module map_RAM_writerTest
+# -- Compiling module map_RAM_writerTest_testbench
+# 
+# Top level modules:
+# 	map_RAM_writerTest_testbench
+# End time: 11:05:00 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/map_simp_RAM.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:05:00 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/map_simp_RAM.v 
+# -- Compiling module map_simp_RAM
+# 
+# Top level modules:
+# 	map_simp_RAM
+# End time: 11:05:01 on Jun 08,2020, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/map_simp_RAM_bb.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:05:01 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/map_simp_RAM_bb.v 
+# -- Compiling module map_simp_RAM
+# 
+# Top level modules:
+# 	map_simp_RAM
+# End time: 11:05:01 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/musicRom.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:05:01 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/musicRom.v 
+# -- Compiling module musicRom
+# 
+# Top level modules:
+# 	musicRom
+# End time: 11:05:01 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/musicRom_bb.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:05:01 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/musicRom_bb.v 
+# -- Compiling module musicRom
+# 
+# Top level modules:
+# 	musicRom
+# End time: 11:05:01 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/pacman_loc_ctrl.sv
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:05:01 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/pacman_loc_ctrl.sv 
+# -- Compiling module pacman_loc_ctrl
+# -- Compiling module pacman_loc_ctrl_testbench
+# 
+# Top level modules:
+# 	pacman_loc_ctrl_testbench
+# End time: 11:05:01 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/pacman_ROM.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:05:01 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/pacman_ROM.v 
+# -- Compiling module pacman_ROM
+# 
+# Top level modules:
+# 	pacman_ROM
+# End time: 11:05:01 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/pacman_ROM_bb.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:05:01 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/pacman_ROM_bb.v 
+# -- Compiling module pacman_ROM
+# 
+# Top level modules:
+# 	pacman_ROM
+# End time: 11:05:01 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/pill_counter.sv
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:05:01 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/pill_counter.sv 
+# -- Compiling module pill_counter
+# -- Compiling module pill_counter_testbench
+# 
+# Top level modules:
+# 	pill_counter_testbench
+# End time: 11:05:01 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/pill_ROM.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:05:01 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/pill_ROM.v 
+# -- Compiling module pill_ROM
+# 
+# Top level modules:
+# 	pill_ROM
+# End time: 11:05:01 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/pill_ROM_bb.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:05:01 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/pill_ROM_bb.v 
+# -- Compiling module pill_ROM
+# 
+# Top level modules:
+# 	pill_ROM
+# End time: 11:05:01 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/playAudio.sv
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:05:01 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/playAudio.sv 
+# -- Compiling module playAudio
+# -- Compiling module playAudio_testbench
+# 
+# Top level modules:
+# 	playAudio_testbench
+# End time: 11:05:02 on Jun 08,2020, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/testRom.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:05:02 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/testRom.v 
+# -- Compiling module testRom
+# 
+# Top level modules:
+# 	testRom
+# End time: 11:05:02 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/testRom_bb.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:05:02 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/testRom_bb.v 
+# -- Compiling module testRom
+# 
+# Top level modules:
+# 	testRom
+# End time: 11:05:02 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/testRomIns.sv
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:05:02 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/testRomIns.sv 
+# -- Compiling module testRomIns
+# -- Compiling module testRomIns_testbench
+# 
+# Top level modules:
+# 	testRomIns_testbench
+# End time: 11:05:02 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/VGA_Ctrl.sv
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:05:02 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/VGA_Ctrl.sv 
+# -- Compiling module VGA_Ctrl
+# -- Compiling module VGA_Ctrl_testbench
+# 
+# Top level modules:
+# 	VGA_Ctrl_testbench
+# End time: 11:05:02 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/video_driver.sv
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:05:02 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/video_driver.sv 
+# -- Compiling module video_driver
+# 
+# Top level modules:
+# 	video_driver
+# End time: 11:05:02 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/wall_ROM.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:05:02 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/wall_ROM.v 
+# -- Compiling module wall_ROM
+# 
+# Top level modules:
+# 	wall_ROM
+# End time: 11:05:02 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/wall_ROM_bb.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:05:02 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/wall_ROM_bb.v 
+# -- Compiling module wall_ROM
+# 
+# Top level modules:
+# 	wall_ROM
+# End time: 11:05:02 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vsim -voptargs=\"+acc\" -t 1ps -lib work -Lf altera_mf_ver -L altera_mf_ver work.playAudio_testbench
+# End time: 11:05:52 on Jun 08,2020, Elapsed time: 0:01:23
+# Errors: 1, Warnings: 22
+# vsim -voptargs=""+acc"" -t 1ps -lib work -Lf altera_mf_ver -L altera_mf_ver work.playAudio_testbench 
+# Start time: 11:05:52 on Jun 08,2020
+# Loading sv_std.std
+# Loading work.playAudio_testbench
+# Loading work.playAudio
+# Loading work.musicRom
+# Loading work.counter3
+# Loading work.counter
+# Loading work.clock_generator
+# Loading altera_mf_ver.altpll
+# Loading altera_mf_ver.ALTERA_DEVICE_FAMILIES
+# Loading altera_mf_ver.pll_iobuf
+# Loading work.audio_and_video_config
+# Loading work.Altera_UP_Slow_Clock_Generator
+# Loading work.Altera_UP_I2C_AV_Auto_Initialize
+# Loading work.Altera_UP_I2C
+# Loading work.audio_codec
+# Loading work.Altera_UP_Clock_Edge
+# Loading work.Altera_UP_Audio_In_Deserializer
+# Loading work.Altera_UP_Audio_Bit_Counter
+# Loading work.Altera_UP_SYNC_FIFO
+# Loading altera_mf_ver.scfifo
+# Loading work.Altera_UP_Audio_Out_Serializer
+# Loading altera_mf_ver.MF_stratixii_pll
+# Loading altera_mf_ver.MF_pll_reg
+# Loading altera_mf_ver.arm_m_cntr
+# Loading altera_mf_ver.arm_n_cntr
+# Loading altera_mf_ver.arm_scale_cntr
+# ** Warning: (vsim-3017) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Too few port connections. Expected 37, found 25.
+#    Time: 0 ps  Iteration: 0  Instance: /playAudio_testbench/dut/my_clock_gen/DE_Clock_Generator_Audio File: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v
+# ** Warning: (vsim-3015) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [PCDPC] - Port size (6) does not match connection size (1) for port 'clk'. The port definition is at: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v(21851).
+#    Time: 0 ps  Iteration: 0  Instance: /playAudio_testbench/dut/my_clock_gen/DE_Clock_Generator_Audio File: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'scanclkena'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'phasecounterselect'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'phaseupdown'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'phasestep'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'configupdate'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'fbmimicbidir'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'phasedone'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'vcooverrange'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'vcounderrange'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'fbout'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'fref'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'icdrclk'.
+# ** Warning: (vsim-3017) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Too few port connections. Expected 13, found 12.
+#    Time: 0 ps  Iteration: 0  Instance: /playAudio_testbench/dut/codec/Audio_In_Deserializer/Audio_In_Left_Channel_FIFO/Sync_FIFO File: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Missing connection for port 'eccstatus'.
+# ** Warning: (vsim-3017) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Too few port connections. Expected 13, found 12.
+#    Time: 0 ps  Iteration: 0  Instance: /playAudio_testbench/dut/codec/Audio_In_Deserializer/Audio_In_Right_Channel_FIFO/Sync_FIFO File: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Missing connection for port 'eccstatus'.
+# ** Warning: (vsim-3017) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Too few port connections. Expected 13, found 12.
+#    Time: 0 ps  Iteration: 0  Instance: /playAudio_testbench/dut/codec/Audio_Out_Serializer/Audio_Out_Left_Channel_FIFO/Sync_FIFO File: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Missing connection for port 'eccstatus'.
+# ** Warning: (vsim-3017) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Too few port connections. Expected 13, found 12.
+#    Time: 0 ps  Iteration: 0  Instance: /playAudio_testbench/dut/codec/Audio_Out_Serializer/Audio_Out_Right_Channel_FIFO/Sync_FIFO File: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Missing connection for port 'eccstatus'.
+add wave -position end  sim:/playAudio_testbench/dut/dut/address
+add wave -position end  sim:/playAudio_testbench/dut/dut/clock
+add wave -position end  sim:/playAudio_testbench/dut/dut/q
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: Winston  Hostname: WINSTONCHEN9507  ProcessID: 7644
+#           Attempting to use alternate WLF file "./wlft2kden9".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlft2kden9
+run -all
+#  Note : Cyclone II PLL is enabled
+# Time: 0  Instance: playAudio_testbench.dut.my_clock_gen.DE_Clock_Generator_Audio.stratixii_pll.pll1
+# Warning : Invalid transition to 'X' detected on StratixII PLL input clk. This edge will be ignored.
+# Time: 0  Instance: playAudio_testbench.dut.my_clock_gen.DE_Clock_Generator_Audio.stratixii_pll.pll1.n1
+# ** Note: $stop    : C:/Users/condo/Documents/GitHub/pacman/playAudio.sv(167)
+#    Time: 10000350 ps  Iteration: 1  Instance: /playAudio_testbench
+# Break in Module playAudio_testbench at C:/Users/condo/Documents/GitHub/pacman/playAudio.sv line 167
+vsim -voptargs=\"+acc\" -t 1ps -lib work -Lf altera_mf_ver -L altera_mf_ver work.playAudio_testbench
+# End time: 11:16:49 on Jun 08,2020, Elapsed time: 0:10:57
+# Errors: 0, Warnings: 24
+# vsim -voptargs=""+acc"" -t 1ps -lib work -Lf altera_mf_ver -L altera_mf_ver work.playAudio_testbench 
+# Start time: 11:16:49 on Jun 08,2020
+# Loading sv_std.std
+# Loading work.playAudio_testbench
+# Loading work.playAudio
+# Loading work.musicRom
+# Loading work.counter3
+# Loading work.counter
+# Loading work.clock_generator
+# Loading altera_mf_ver.altpll
+# Loading altera_mf_ver.ALTERA_DEVICE_FAMILIES
+# Loading altera_mf_ver.pll_iobuf
+# Loading work.audio_and_video_config
+# Loading work.Altera_UP_Slow_Clock_Generator
+# Loading work.Altera_UP_I2C_AV_Auto_Initialize
+# Loading work.Altera_UP_I2C
+# Loading work.audio_codec
+# Loading work.Altera_UP_Clock_Edge
+# Loading work.Altera_UP_Audio_In_Deserializer
+# Loading work.Altera_UP_Audio_Bit_Counter
+# Loading work.Altera_UP_SYNC_FIFO
+# Loading altera_mf_ver.scfifo
+# Loading work.Altera_UP_Audio_Out_Serializer
+# Loading altera_mf_ver.MF_stratixii_pll
+# Loading altera_mf_ver.MF_pll_reg
+# Loading altera_mf_ver.arm_m_cntr
+# Loading altera_mf_ver.arm_n_cntr
+# Loading altera_mf_ver.arm_scale_cntr
+# ** Warning: (vsim-3017) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Too few port connections. Expected 37, found 25.
+#    Time: 0 ps  Iteration: 0  Instance: /playAudio_testbench/dut/my_clock_gen/DE_Clock_Generator_Audio File: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v
+# ** Warning: (vsim-3015) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [PCDPC] - Port size (6) does not match connection size (1) for port 'clk'. The port definition is at: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v(21851).
+#    Time: 0 ps  Iteration: 0  Instance: /playAudio_testbench/dut/my_clock_gen/DE_Clock_Generator_Audio File: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'scanclkena'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'phasecounterselect'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'phaseupdown'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'phasestep'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'configupdate'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'fbmimicbidir'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'phasedone'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'vcooverrange'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'vcounderrange'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'fbout'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'fref'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'icdrclk'.
+# ** Warning: (vsim-3017) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Too few port connections. Expected 13, found 12.
+#    Time: 0 ps  Iteration: 0  Instance: /playAudio_testbench/dut/codec/Audio_In_Deserializer/Audio_In_Left_Channel_FIFO/Sync_FIFO File: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Missing connection for port 'eccstatus'.
+# ** Warning: (vsim-3017) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Too few port connections. Expected 13, found 12.
+#    Time: 0 ps  Iteration: 0  Instance: /playAudio_testbench/dut/codec/Audio_In_Deserializer/Audio_In_Right_Channel_FIFO/Sync_FIFO File: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Missing connection for port 'eccstatus'.
+# ** Warning: (vsim-3017) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Too few port connections. Expected 13, found 12.
+#    Time: 0 ps  Iteration: 0  Instance: /playAudio_testbench/dut/codec/Audio_Out_Serializer/Audio_Out_Left_Channel_FIFO/Sync_FIFO File: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Missing connection for port 'eccstatus'.
+# ** Warning: (vsim-3017) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Too few port connections. Expected 13, found 12.
+#    Time: 0 ps  Iteration: 0  Instance: /playAudio_testbench/dut/codec/Audio_Out_Serializer/Audio_Out_Right_Channel_FIFO/Sync_FIFO File: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Missing connection for port 'eccstatus'.
+vsim -voptargs=\"+acc\" -t 1ps -lib work -Lf altera_mf_ver -L altera_mf_ver work.testRomIns_testbench
+# End time: 11:18:31 on Jun 08,2020, Elapsed time: 0:01:42
+# Errors: 0, Warnings: 22
+# vsim -voptargs=""+acc"" -t 1ps -lib work -Lf altera_mf_ver -L altera_mf_ver work.testRomIns_testbench 
+# Start time: 11:18:31 on Jun 08,2020
+# Loading sv_std.std
+# Loading work.testRomIns_testbench
+# Loading work.testRomIns
+# Loading work.musicRom
+vsim -voptargs=\"+acc\" -t 1ps -lib work -Lf altera_mf_ver -L altera_mf_ver work.playAudio_testbench
+# End time: 11:19:43 on Jun 08,2020, Elapsed time: 0:01:12
+# Errors: 0, Warnings: 0
+# vsim -voptargs=""+acc"" -t 1ps -lib work -Lf altera_mf_ver -L altera_mf_ver work.playAudio_testbench 
+# Start time: 11:19:43 on Jun 08,2020
+# Loading sv_std.std
+# Loading work.playAudio_testbench
+# Loading work.playAudio
+# Loading work.musicRom
+# Loading work.counter3
+# Loading work.counter
+# Loading work.clock_generator
+# Loading altera_mf_ver.altpll
+# Loading altera_mf_ver.ALTERA_DEVICE_FAMILIES
+# Loading altera_mf_ver.pll_iobuf
+# Loading work.audio_and_video_config
+# Loading work.Altera_UP_Slow_Clock_Generator
+# Loading work.Altera_UP_I2C_AV_Auto_Initialize
+# Loading work.Altera_UP_I2C
+# Loading work.audio_codec
+# Loading work.Altera_UP_Clock_Edge
+# Loading work.Altera_UP_Audio_In_Deserializer
+# Loading work.Altera_UP_Audio_Bit_Counter
+# Loading work.Altera_UP_SYNC_FIFO
+# Loading altera_mf_ver.scfifo
+# Loading work.Altera_UP_Audio_Out_Serializer
+# Loading altera_mf_ver.MF_stratixii_pll
+# Loading altera_mf_ver.MF_pll_reg
+# Loading altera_mf_ver.arm_m_cntr
+# Loading altera_mf_ver.arm_n_cntr
+# Loading altera_mf_ver.arm_scale_cntr
+# ** Warning: (vsim-3017) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Too few port connections. Expected 37, found 25.
+#    Time: 0 ps  Iteration: 0  Instance: /playAudio_testbench/dut/my_clock_gen/DE_Clock_Generator_Audio File: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v
+# ** Warning: (vsim-3015) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [PCDPC] - Port size (6) does not match connection size (1) for port 'clk'. The port definition is at: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v(21851).
+#    Time: 0 ps  Iteration: 0  Instance: /playAudio_testbench/dut/my_clock_gen/DE_Clock_Generator_Audio File: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'scanclkena'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'phasecounterselect'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'phaseupdown'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'phasestep'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'configupdate'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'fbmimicbidir'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'phasedone'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'vcooverrange'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'vcounderrange'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'fbout'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'fref'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'icdrclk'.
+# ** Warning: (vsim-3017) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Too few port connections. Expected 13, found 12.
+#    Time: 0 ps  Iteration: 0  Instance: /playAudio_testbench/dut/codec/Audio_In_Deserializer/Audio_In_Left_Channel_FIFO/Sync_FIFO File: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Missing connection for port 'eccstatus'.
+# ** Warning: (vsim-3017) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Too few port connections. Expected 13, found 12.
+#    Time: 0 ps  Iteration: 0  Instance: /playAudio_testbench/dut/codec/Audio_In_Deserializer/Audio_In_Right_Channel_FIFO/Sync_FIFO File: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Missing connection for port 'eccstatus'.
+# ** Warning: (vsim-3017) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Too few port connections. Expected 13, found 12.
+#    Time: 0 ps  Iteration: 0  Instance: /playAudio_testbench/dut/codec/Audio_Out_Serializer/Audio_Out_Left_Channel_FIFO/Sync_FIFO File: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Missing connection for port 'eccstatus'.
+# ** Warning: (vsim-3017) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Too few port connections. Expected 13, found 12.
+#    Time: 0 ps  Iteration: 0  Instance: /playAudio_testbench/dut/codec/Audio_Out_Serializer/Audio_Out_Right_Channel_FIFO/Sync_FIFO File: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Missing connection for port 'eccstatus'.
+add wave -position end  sim:/playAudio_testbench/dut/dut/address
+add wave -position end  sim:/playAudio_testbench/dut/dut/clock
+add wave -position end  sim:/playAudio_testbench/dut/dut/q
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: Winston  Hostname: WINSTONCHEN9507  ProcessID: 7644
+#           Attempting to use alternate WLF file "./wlft8xtxv8".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlft8xtxv8
+run -all
+#  Note : Cyclone II PLL is enabled
+# Time: 0  Instance: playAudio_testbench.dut.my_clock_gen.DE_Clock_Generator_Audio.stratixii_pll.pll1
+# Warning : Invalid transition to 'X' detected on StratixII PLL input clk. This edge will be ignored.
+# Time: 0  Instance: playAudio_testbench.dut.my_clock_gen.DE_Clock_Generator_Audio.stratixii_pll.pll1.n1
+# ** Note: $stop    : C:/Users/condo/Documents/GitHub/pacman/playAudio.sv(167)
+#    Time: 10000350 ps  Iteration: 1  Instance: /playAudio_testbench
+# Break in Module playAudio_testbench at C:/Users/condo/Documents/GitHub/pacman/playAudio.sv line 167
+vlog -reportprogress 300 -work work C:/Users/condo/Documents/GitHub/pacman/Altera_UP_Audio_Bit_Counter.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:22:45 on Jun 08,2020
+# vlog -reportprogress 300 -work work C:/Users/condo/Documents/GitHub/pacman/Altera_UP_Audio_Bit_Counter.v 
+# -- Compiling module Altera_UP_Audio_Bit_Counter
+# 
+# Top level modules:
+# 	Altera_UP_Audio_Bit_Counter
+# End time: 11:22:45 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 300 -work work C:/Users/condo/Documents/GitHub/pacman/Altera_UP_Audio_In_Deserializer.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:22:45 on Jun 08,2020
+# vlog -reportprogress 300 -work work C:/Users/condo/Documents/GitHub/pacman/Altera_UP_Audio_In_Deserializer.v 
+# -- Compiling module Altera_UP_Audio_In_Deserializer
+# 
+# Top level modules:
+# 	Altera_UP_Audio_In_Deserializer
+# End time: 11:22:45 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 300 -work work C:/Users/condo/Documents/GitHub/pacman/Altera_UP_Audio_Out_Serializer.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:22:45 on Jun 08,2020
+# vlog -reportprogress 300 -work work C:/Users/condo/Documents/GitHub/pacman/Altera_UP_Audio_Out_Serializer.v 
+# -- Compiling module Altera_UP_Audio_Out_Serializer
+# 
+# Top level modules:
+# 	Altera_UP_Audio_Out_Serializer
+# End time: 11:22:45 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 300 -work work C:/Users/condo/Documents/GitHub/pacman/altera_up_avalon_video_vga_timing.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:22:45 on Jun 08,2020
+# vlog -reportprogress 300 -work work C:/Users/condo/Documents/GitHub/pacman/altera_up_avalon_video_vga_timing.v 
+# -- Compiling module altera_up_avalon_video_vga_timing
+# 
+# Top level modules:
+# 	altera_up_avalon_video_vga_timing
+# End time: 11:22:45 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/Altera_UP_Clock_Edge.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:22:45 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/Altera_UP_Clock_Edge.v 
+# -- Compiling module Altera_UP_Clock_Edge
+# 
+# Top level modules:
+# 	Altera_UP_Clock_Edge
+# End time: 11:22:45 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/Altera_UP_I2C.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:22:45 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/Altera_UP_I2C.v 
+# -- Compiling module Altera_UP_I2C
+# 
+# Top level modules:
+# 	Altera_UP_I2C
+# End time: 11:22:45 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/Altera_UP_I2C_AV_Auto_Initialize.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:22:45 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/Altera_UP_I2C_AV_Auto_Initialize.v 
+# -- Compiling module Altera_UP_I2C_AV_Auto_Initialize
+# 
+# Top level modules:
+# 	Altera_UP_I2C_AV_Auto_Initialize
+# End time: 11:22:45 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/Altera_UP_I2C_DC_Auto_Initialize.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:22:45 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/Altera_UP_I2C_DC_Auto_Initialize.v 
+# -- Compiling module Altera_UP_I2C_DC_Auto_Initialize
+# 
+# Top level modules:
+# 	Altera_UP_I2C_DC_Auto_Initialize
+# End time: 11:22:45 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/Altera_UP_I2C_LCM_Auto_Initialize.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:22:45 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/Altera_UP_I2C_LCM_Auto_Initialize.v 
+# -- Compiling module Altera_UP_I2C_LCM_Auto_Initialize
+# 
+# Top level modules:
+# 	Altera_UP_I2C_LCM_Auto_Initialize
+# End time: 11:22:45 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/Altera_UP_Slow_Clock_Generator.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:22:46 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/Altera_UP_Slow_Clock_Generator.v 
+# -- Compiling module Altera_UP_Slow_Clock_Generator
+# 
+# Top level modules:
+# 	Altera_UP_Slow_Clock_Generator
+# End time: 11:22:46 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:22:46 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v 
+# -- Compiling module Altera_UP_SYNC_FIFO
+# 
+# Top level modules:
+# 	Altera_UP_SYNC_FIFO
+# End time: 11:22:46 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/audio_and_video_config.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:22:46 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/audio_and_video_config.v 
+# -- Compiling module audio_and_video_config
+# 
+# Top level modules:
+# 	audio_and_video_config
+# End time: 11:22:46 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/audio_codec.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:22:46 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/audio_codec.v 
+# -- Compiling module audio_codec
+# 
+# Top level modules:
+# 	audio_codec
+# End time: 11:22:46 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/bcd_3b.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:22:46 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/bcd_3b.v 
+# -- Compiling module bcd_3b
+# 
+# Top level modules:
+# 	bcd_3b
+# End time: 11:22:46 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/bcd_3b_testbench.sv
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:22:46 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/bcd_3b_testbench.sv 
+# -- Compiling module bcd_3b_testbench
+# 
+# Top level modules:
+# 	bcd_3b_testbench
+# End time: 11:22:46 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/clock_divider.sv
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:22:46 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/clock_divider.sv 
+# -- Compiling module clock_divider
+# 
+# Top level modules:
+# 	clock_divider
+# End time: 11:22:46 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/clock_generator.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:22:46 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/clock_generator.v 
+# -- Compiling module clock_generator
+# 
+# Top level modules:
+# 	clock_generator
+# End time: 11:22:46 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/CLOCK25_PLL.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:22:46 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/CLOCK25_PLL.v 
+# -- Compiling module CLOCK25_PLL
+# 
+# Top level modules:
+# 	CLOCK25_PLL
+# End time: 11:22:46 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/CLOCK25_PLL_0002.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:22:46 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/CLOCK25_PLL_0002.v 
+# -- Compiling module CLOCK25_PLL_0002
+# 
+# Top level modules:
+# 	CLOCK25_PLL_0002
+# End time: 11:22:46 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/collision_detect.sv
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:22:46 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/collision_detect.sv 
+# -- Compiling module collision_detect
+# 
+# Top level modules:
+# 	collision_detect
+# End time: 11:22:46 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/counter.sv
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:22:47 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/counter.sv 
+# -- Compiling module counter
+# -- Compiling module counter_testbench
+# 
+# Top level modules:
+# 	counter_testbench
+# End time: 11:22:47 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/counter2.sv
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:22:47 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/counter2.sv 
+# -- Compiling module counter2
+# -- Compiling module counter2_testbench
+# 
+# Top level modules:
+# 	counter2_testbench
+# End time: 11:22:47 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/counter3.sv
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:22:47 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/counter3.sv 
+# -- Compiling module counter3
+# -- Compiling module counter3_testbench
+# 
+# Top level modules:
+# 	counter3_testbench
+# End time: 11:22:47 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/DE1_SoC.sv
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:22:47 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/DE1_SoC.sv 
+# -- Compiling module DE1_SoC
+# ** Error (suppressible): C:/Users/condo/Documents/GitHub/pacman/DE1_SoC.sv(83): (vlog-2388) 'up' already declared in this scope (DE1_SoC).
+# ** Error (suppressible): C:/Users/condo/Documents/GitHub/pacman/DE1_SoC.sv(83): (vlog-2388) 'down' already declared in this scope (DE1_SoC).
+# ** Error (suppressible): C:/Users/condo/Documents/GitHub/pacman/DE1_SoC.sv(83): (vlog-2388) 'left' already declared in this scope (DE1_SoC).
+# ** Error (suppressible): C:/Users/condo/Documents/GitHub/pacman/DE1_SoC.sv(83): (vlog-2388) 'right' already declared in this scope (DE1_SoC).
+# ** Error (suppressible): C:/Users/condo/Documents/GitHub/pacman/DE1_SoC.sv(86): (vlog-2388) 'redata' already declared in this scope (DE1_SoC).
+# ** Error (suppressible): C:/Users/condo/Documents/GitHub/pacman/DE1_SoC.sv(86): (vlog-2388) 'wrdata' already declared in this scope (DE1_SoC).
+# ** Error (suppressible): C:/Users/condo/Documents/GitHub/pacman/DE1_SoC.sv(87): (vlog-2388) 'wren' already declared in this scope (DE1_SoC).
+# ** Error (suppressible): C:/Users/condo/Documents/GitHub/pacman/DE1_SoC.sv(88): (vlog-2388) 'wraddr' already declared in this scope (DE1_SoC).
+# ** Error: C:/Users/condo/Documents/GitHub/pacman/DE1_SoC.sv(159): (vlog-2730) Undefined variable: 'pg_collision'.
+# ** Error (suppressible): C:/Users/condo/Documents/GitHub/pacman/DE1_SoC.sv(195): (vlog-2388) 'pg1_collision' already declared in this scope (DE1_SoC).
+# ** Error (suppressible): C:/Users/condo/Documents/GitHub/pacman/DE1_SoC.sv(195): (vlog-2388) 'pg2_collision' already declared in this scope (DE1_SoC).
+# End time: 11:22:47 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 11, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/dot_ROM.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:22:47 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/dot_ROM.v 
+# -- Compiling module dot_ROM
+# 
+# Top level modules:
+# 	dot_ROM
+# End time: 11:22:47 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/dot_ROM_bb.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:22:47 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/dot_ROM_bb.v 
+# -- Compiling module dot_ROM
+# 
+# Top level modules:
+# 	dot_ROM
+# End time: 11:22:47 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/filter_input.sv
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:22:47 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/filter_input.sv 
+# -- Compiling module filter_input
+# -- Compiling module filter_input_testbench
+# 
+# Top level modules:
+# 	filter_input_testbench
+# End time: 11:22:47 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/ghost_B_ROM.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:22:47 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/ghost_B_ROM.v 
+# -- Compiling module ghost_B_ROM
+# 
+# Top level modules:
+# 	ghost_B_ROM
+# End time: 11:22:47 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/ghost_B_ROM_bb.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:22:47 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/ghost_B_ROM_bb.v 
+# -- Compiling module ghost_B_ROM
+# 
+# Top level modules:
+# 	ghost_B_ROM
+# End time: 11:22:47 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/ghost_G_ROM.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:22:47 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/ghost_G_ROM.v 
+# -- Compiling module ghost_G_ROM
+# 
+# Top level modules:
+# 	ghost_G_ROM
+# End time: 11:22:47 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/ghost_G_ROM_bb.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:22:47 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/ghost_G_ROM_bb.v 
+# -- Compiling module ghost_G_ROM
+# 
+# Top level modules:
+# 	ghost_G_ROM
+# End time: 11:22:47 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/ghost_map_RAM.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:22:48 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/ghost_map_RAM.v 
+# -- Compiling module ghost_map_RAM
+# 
+# Top level modules:
+# 	ghost_map_RAM
+# End time: 11:22:48 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/ghost_map_RAM_bb.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:22:48 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/ghost_map_RAM_bb.v 
+# -- Compiling module ghost_map_RAM
+# 
+# Top level modules:
+# 	ghost_map_RAM
+# End time: 11:22:48 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/ghost_R_ROM.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:22:48 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/ghost_R_ROM.v 
+# -- Compiling module ghost_R_ROM
+# 
+# Top level modules:
+# 	ghost_R_ROM
+# End time: 11:22:48 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/ghost_R_ROM_bb.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:22:48 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/ghost_R_ROM_bb.v 
+# -- Compiling module ghost_R_ROM
+# 
+# Top level modules:
+# 	ghost_R_ROM
+# End time: 11:22:48 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/ghost_RAM_ctrl.sv
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:22:48 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/ghost_RAM_ctrl.sv 
+# -- Compiling module ghost_RAM_ctrl
+# -- Compiling module ghost_RAM_ctrl_testbench
+# 
+# Top level modules:
+# 	ghost_RAM_ctrl_testbench
+# End time: 11:22:48 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/ghosts_ai.sv
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:22:48 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/ghosts_ai.sv 
+# -- Compiling module ghosts_ai
+# -- Compiling module ghosts_ai_testbench
+# 
+# Top level modules:
+# 	ghosts_ai_testbench
+# End time: 11:22:48 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/ghosts_loc_ctrl.sv
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:22:48 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/ghosts_loc_ctrl.sv 
+# -- Compiling module ghosts_loc_ctrl
+# -- Compiling module ghosts_loc_ctrl_testbench
+# 
+# Top level modules:
+# 	ghosts_loc_ctrl_testbench
+# End time: 11:22:48 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/hexto7segment.sv
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:22:48 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/hexto7segment.sv 
+# -- Compiling module hexto7segment
+# -- Compiling module hexto7segment_testbench
+# 
+# Top level modules:
+# 	hexto7segment_testbench
+# End time: 11:22:48 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/keyboard_inner_driver.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:22:48 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/keyboard_inner_driver.v 
+# -- Compiling module keyboard_inner_driver
+# 
+# Top level modules:
+# 	keyboard_inner_driver
+# End time: 11:22:48 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/keyboard_press_driver.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:22:48 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/keyboard_press_driver.v 
+# -- Compiling module keyboard_press_driver
+# 
+# Top level modules:
+# 	keyboard_press_driver
+# End time: 11:22:48 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/keyboard_process.sv
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:22:48 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/keyboard_process.sv 
+# -- Compiling module keyboard_process
+# 
+# Top level modules:
+# 	keyboard_process
+# End time: 11:22:48 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/keyboard_scancoderaw_driver.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:22:48 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/keyboard_scancoderaw_driver.v 
+# -- Compiling module keyboard_scancoderaw_driver
+# 
+# Top level modules:
+# 	keyboard_scancoderaw_driver
+# End time: 11:22:49 on Jun 08,2020, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/map.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:22:49 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/map.v 
+# -- Compiling module map
+# 
+# Top level modules:
+# 	map
+# End time: 11:22:49 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/map_bb.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:22:49 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/map_bb.v 
+# -- Compiling module map
+# 
+# Top level modules:
+# 	map
+# End time: 11:22:49 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/map_RAM.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:22:49 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/map_RAM.v 
+# -- Compiling module map_RAM
+# 
+# Top level modules:
+# 	map_RAM
+# End time: 11:22:49 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/map_RAM_bb.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:22:49 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/map_RAM_bb.v 
+# -- Compiling module map_RAM
+# 
+# Top level modules:
+# 	map_RAM
+# End time: 11:22:49 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/map_RAM_testbench.sv
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:22:49 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/map_RAM_testbench.sv 
+# -- Compiling module map_RAM_testbench
+# 
+# Top level modules:
+# 	map_RAM_testbench
+# End time: 11:22:49 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/map_RAM_writer.sv
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:22:49 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/map_RAM_writer.sv 
+# -- Compiling module map_RAM_writer
+# -- Compiling module map_RAM_writer_testbench
+# 
+# Top level modules:
+# 	map_RAM_writer_testbench
+# End time: 11:22:49 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/map_RAM_writerTest.sv
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:22:49 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/map_RAM_writerTest.sv 
+# -- Compiling module map_RAM_writerTest
+# -- Compiling module map_RAM_writerTest_testbench
+# 
+# Top level modules:
+# 	map_RAM_writerTest_testbench
+# End time: 11:22:49 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/map_simp_RAM.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:22:49 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/map_simp_RAM.v 
+# -- Compiling module map_simp_RAM
+# 
+# Top level modules:
+# 	map_simp_RAM
+# End time: 11:22:49 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/map_simp_RAM_bb.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:22:49 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/map_simp_RAM_bb.v 
+# -- Compiling module map_simp_RAM
+# 
+# Top level modules:
+# 	map_simp_RAM
+# End time: 11:22:49 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/musicRom.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:22:49 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/musicRom.v 
+# -- Compiling module musicRom
+# 
+# Top level modules:
+# 	musicRom
+# End time: 11:22:49 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/musicRom_bb.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:22:49 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/musicRom_bb.v 
+# -- Compiling module musicRom
+# 
+# Top level modules:
+# 	musicRom
+# End time: 11:22:50 on Jun 08,2020, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/pacman_loc_ctrl.sv
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:22:50 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/pacman_loc_ctrl.sv 
+# -- Compiling module pacman_loc_ctrl
+# -- Compiling module pacman_loc_ctrl_testbench
+# 
+# Top level modules:
+# 	pacman_loc_ctrl_testbench
+# End time: 11:22:50 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/pacman_ROM.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:22:50 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/pacman_ROM.v 
+# -- Compiling module pacman_ROM
+# 
+# Top level modules:
+# 	pacman_ROM
+# End time: 11:22:50 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/pacman_ROM_bb.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:22:50 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/pacman_ROM_bb.v 
+# -- Compiling module pacman_ROM
+# 
+# Top level modules:
+# 	pacman_ROM
+# End time: 11:22:50 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/pill_counter.sv
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:22:50 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/pill_counter.sv 
+# -- Compiling module pill_counter
+# -- Compiling module pill_counter_testbench
+# 
+# Top level modules:
+# 	pill_counter_testbench
+# End time: 11:22:50 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/pill_ROM.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:22:50 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/pill_ROM.v 
+# -- Compiling module pill_ROM
+# 
+# Top level modules:
+# 	pill_ROM
+# End time: 11:22:50 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/pill_ROM_bb.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:22:50 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/pill_ROM_bb.v 
+# -- Compiling module pill_ROM
+# 
+# Top level modules:
+# 	pill_ROM
+# End time: 11:22:50 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/playAudio.sv
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:22:50 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/playAudio.sv 
+# -- Compiling module playAudio
+# -- Compiling module playAudio_testbench
+# 
+# Top level modules:
+# 	playAudio_testbench
+# End time: 11:22:50 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/testRom.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:22:50 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/testRom.v 
+# -- Compiling module testRom
+# 
+# Top level modules:
+# 	testRom
+# End time: 11:22:50 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/testRom_bb.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:22:50 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/testRom_bb.v 
+# -- Compiling module testRom
+# 
+# Top level modules:
+# 	testRom
+# End time: 11:22:50 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/testRomIns.sv
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:22:50 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/testRomIns.sv 
+# -- Compiling module testRomIns
+# -- Compiling module testRomIns_testbench
+# 
+# Top level modules:
+# 	testRomIns_testbench
+# End time: 11:22:50 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/VGA_Ctrl.sv
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:22:50 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/VGA_Ctrl.sv 
+# -- Compiling module VGA_Ctrl
+# -- Compiling module VGA_Ctrl_testbench
+# 
+# Top level modules:
+# 	VGA_Ctrl_testbench
+# End time: 11:22:50 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/video_driver.sv
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:22:50 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/video_driver.sv 
+# -- Compiling module video_driver
+# 
+# Top level modules:
+# 	video_driver
+# End time: 11:22:51 on Jun 08,2020, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/wall_ROM.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:22:51 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/wall_ROM.v 
+# -- Compiling module wall_ROM
+# 
+# Top level modules:
+# 	wall_ROM
+# End time: 11:22:51 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/wall_ROM_bb.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:22:51 on Jun 08,2020
+# vlog -reportprogress 30 -work work C:/Users/condo/Documents/GitHub/pacman/wall_ROM_bb.v 
+# -- Compiling module wall_ROM
+# 
+# Top level modules:
+# 	wall_ROM
+# End time: 11:22:51 on Jun 08,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+restart -f
+# Loading work.playAudio_testbench
+# Loading work.playAudio
+# Loading work.musicRom
+# Loading work.counter3
+# Loading work.counter
+# Loading work.clock_generator
+# Loading work.audio_and_video_config
+# Loading work.Altera_UP_Slow_Clock_Generator
+# Loading work.Altera_UP_I2C_AV_Auto_Initialize
+# Loading work.Altera_UP_I2C
+# Loading work.audio_codec
+# Loading work.Altera_UP_Clock_Edge
+# Loading work.Altera_UP_Audio_In_Deserializer
+# Loading work.Altera_UP_Audio_Bit_Counter
+# Loading work.Altera_UP_SYNC_FIFO
+# Loading work.Altera_UP_Audio_Out_Serializer
+# ** Warning: (vsim-3017) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Too few port connections. Expected 37, found 25.
+#    Time: 0 ps  Iteration: 0  Instance: /playAudio_testbench/dut/my_clock_gen/DE_Clock_Generator_Audio File: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v
+# ** Warning: (vsim-3015) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [PCDPC] - Port size (6) does not match connection size (1) for port 'clk'. The port definition is at: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v(21851).
+#    Time: 0 ps  Iteration: 0  Instance: /playAudio_testbench/dut/my_clock_gen/DE_Clock_Generator_Audio File: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'scanclkena'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'phasecounterselect'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'phaseupdown'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'phasestep'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'configupdate'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'fbmimicbidir'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'phasedone'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'vcooverrange'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'vcounderrange'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'fbout'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'fref'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'icdrclk'.
+# ** Warning: (vsim-3017) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Too few port connections. Expected 13, found 12.
+#    Time: 0 ps  Iteration: 0  Instance: /playAudio_testbench/dut/codec/Audio_In_Deserializer/Audio_In_Left_Channel_FIFO/Sync_FIFO File: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Missing connection for port 'eccstatus'.
+# ** Warning: (vsim-3017) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Too few port connections. Expected 13, found 12.
+#    Time: 0 ps  Iteration: 0  Instance: /playAudio_testbench/dut/codec/Audio_In_Deserializer/Audio_In_Right_Channel_FIFO/Sync_FIFO File: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Missing connection for port 'eccstatus'.
+# ** Warning: (vsim-3017) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Too few port connections. Expected 13, found 12.
+#    Time: 0 ps  Iteration: 0  Instance: /playAudio_testbench/dut/codec/Audio_Out_Serializer/Audio_Out_Left_Channel_FIFO/Sync_FIFO File: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Missing connection for port 'eccstatus'.
+# ** Warning: (vsim-3017) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Too few port connections. Expected 13, found 12.
+#    Time: 0 ps  Iteration: 0  Instance: /playAudio_testbench/dut/codec/Audio_Out_Serializer/Audio_Out_Right_Channel_FIFO/Sync_FIFO File: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Missing connection for port 'eccstatus'.
+run -all
+#  Note : Cyclone II PLL is enabled
+# Time: 0  Instance: playAudio_testbench.dut.my_clock_gen.DE_Clock_Generator_Audio.stratixii_pll.pll1
+# Warning : Invalid transition to 'X' detected on StratixII PLL input clk. This edge will be ignored.
+# Time: 0  Instance: playAudio_testbench.dut.my_clock_gen.DE_Clock_Generator_Audio.stratixii_pll.pll1.n1
+# ** Note: $stop    : C:/Users/condo/Documents/GitHub/pacman/playAudio.sv(167)
+#    Time: 10000350 ps  Iteration: 1  Instance: /playAudio_testbench
+# Break in Module playAudio_testbench at C:/Users/condo/Documents/GitHub/pacman/playAudio.sv line 167
+add wave -position end  sim:/playAudio_testbench/dut/data
+restart -f
+# ** Warning: (vsim-3017) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Too few port connections. Expected 37, found 25.
+#    Time: 0 ps  Iteration: 0  Instance: /playAudio_testbench/dut/my_clock_gen/DE_Clock_Generator_Audio File: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v
+# ** Warning: (vsim-3015) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [PCDPC] - Port size (6) does not match connection size (1) for port 'clk'. The port definition is at: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v(21851).
+#    Time: 0 ps  Iteration: 0  Instance: /playAudio_testbench/dut/my_clock_gen/DE_Clock_Generator_Audio File: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'scanclkena'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'phasecounterselect'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'phaseupdown'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'phasestep'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'configupdate'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'fbmimicbidir'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'phasedone'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'vcooverrange'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'vcounderrange'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'fbout'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'fref'.
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/clock_generator.v(29): [TFMPC] - Missing connection for port 'icdrclk'.
+# ** Warning: (vsim-3017) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Too few port connections. Expected 13, found 12.
+#    Time: 0 ps  Iteration: 0  Instance: /playAudio_testbench/dut/codec/Audio_In_Deserializer/Audio_In_Left_Channel_FIFO/Sync_FIFO File: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Missing connection for port 'eccstatus'.
+# ** Warning: (vsim-3017) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Too few port connections. Expected 13, found 12.
+#    Time: 0 ps  Iteration: 0  Instance: /playAudio_testbench/dut/codec/Audio_In_Deserializer/Audio_In_Right_Channel_FIFO/Sync_FIFO File: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Missing connection for port 'eccstatus'.
+# ** Warning: (vsim-3017) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Too few port connections. Expected 13, found 12.
+#    Time: 0 ps  Iteration: 0  Instance: /playAudio_testbench/dut/codec/Audio_Out_Serializer/Audio_Out_Left_Channel_FIFO/Sync_FIFO File: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Missing connection for port 'eccstatus'.
+# ** Warning: (vsim-3017) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Too few port connections. Expected 13, found 12.
+#    Time: 0 ps  Iteration: 0  Instance: /playAudio_testbench/dut/codec/Audio_Out_Serializer/Audio_Out_Right_Channel_FIFO/Sync_FIFO File: /build/swbuild/SJ/nightly/17.0std/595/l64/work/modelsim/eda/sim_lib/altera_mf.v
+# ** Warning: (vsim-3722) C:/Users/condo/Documents/GitHub/pacman/Altera_UP_SYNC_FIFO.v(42): [TFMPC] - Missing connection for port 'eccstatus'.
+run -all
+#  Note : Cyclone II PLL is enabled
+# Time: 0  Instance: playAudio_testbench.dut.my_clock_gen.DE_Clock_Generator_Audio.stratixii_pll.pll1
+# Warning : Invalid transition to 'X' detected on StratixII PLL input clk. This edge will be ignored.
+# Time: 0  Instance: playAudio_testbench.dut.my_clock_gen.DE_Clock_Generator_Audio.stratixii_pll.pll1.n1
+# ** Note: $stop    : C:/Users/condo/Documents/GitHub/pacman/playAudio.sv(167)
+#    Time: 10000350 ps  Iteration: 1  Instance: /playAudio_testbench
+# Break in Module playAudio_testbench at C:/Users/condo/Documents/GitHub/pacman/playAudio.sv line 167
