@@ -26,6 +26,7 @@ module playAudio(start, chomp, eatghost, death, reset,
 	logic [23:0] readdata_left, readdata_right;
 	logic [23:0] writedata_left, writedata_right;
 	assign writedata_right = writedata_left;
+	assign writedata_left = data;
 	
 	logic [23:0]readdata_leftout;
 	logic [23:0]readdata_rightout;
@@ -44,6 +45,10 @@ module playAudio(start, chomp, eatghost, death, reset,
 	// utilizing verilog's implicit port connections
 	musicRom dut (.address(address), .clock(CLOCK_50), .q(data));
 	
+	/* Your code goes here */
+//	assign writedata_left = (write_ready)? readdata_left: 0;
+//	assign writedata_right = (write_ready)? readdata_right: 0;
+	
 	parameter MAX = 50000; // 50M reduce the ghost speed to 1Hz 
 	parameter size = $clog2(MAX);
 	logic [size-1:0] count;
@@ -51,13 +56,13 @@ module playAudio(start, chomp, eatghost, death, reset,
 	logic incr;
 	counter3 #(MAX) c (.CLOCK_50(CLOCK_50), .reset(clk_reset), .incr(incr), .count(count));
 	
-	parameter MAX2 = 48000; // 50M reduce the ghost speed to 1Hz 
+	parameter MAX2 = 5; // 50M reduce the ghost speed to 1Hz 
 	parameter size2 = $clog2(MAX2);
 	logic [size2-1:0] count2;
 	counter #(MAX2) cWait (.CLOCK_50(CLOCK_50), .reset(reset), .count(count2));
 	
 	assign address = count;
-	assign writedata_left = data;
+
 	
 	always_latch begin
 		clk_reset = 0;
@@ -79,6 +84,7 @@ module playAudio(start, chomp, eatghost, death, reset,
 					ns = play_start;
 					end
 				if (count2 == 0) incr = 1;
+				else incr = 0;
 				end
 			play_chomp: begin
 				
