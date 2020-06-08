@@ -1,7 +1,7 @@
 // This module helps ghosts find their smartest path to reach pacman given 
 // pacman's current location and ghost's current location
 module ghosts_loc_ctrl #(parameter DELAY= 30000000)
-		 (CLOCK_50, reset, enable, curr_pacman_x, curr_pacman_y,,
+		 (CLOCK_50, reset, enable, curr_pacman_x, curr_pacman_y,
 		  wrdone, curr_ghost1_x, curr_ghost1_y, curr_ghost2_x, curr_ghost2_y,
 		  next_ghost1_x, next_ghost1_y, next_ghost2_x, next_ghost2_y);
 

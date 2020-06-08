@@ -4,7 +4,7 @@ module testRomIns (address, clock, q);
 	output logic [7:0]  q;
 	
 	// utilizing verilog's implicit port connections
-	testRom dut (.address(address), .clock(clock), .q(q));
+	musicRom dut (.address(address), .clock(clock), .q(q));
 endmodule 
 
 `timescale 1 ps / 1 ps

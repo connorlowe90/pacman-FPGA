@@ -28,16 +28,17 @@ vlog "./bcd_3b.v"
 vlog "./bcd_3b_testbench.sv"
 vlog "./hexto7segment.sv" 	
 vlog "./pill_counter.sv"
+vlog "./playAudio.sv"
 
 # Call vsim to invoke simulator
 #     Make sure the last item on the line is the name of the
 #     testbench module you want to execute.
-vsim -voptargs="+acc" -t 1ps -lib work pacman_loc_ctrl_testbench -Lf altera_mf_ver
+vsim -voptargs="+acc" -t 1ps -lib work playAudio_testbench -Lf altera_mf_ver
 
 # Source the wave do file
 #     This should be the file that sets up the signal window for
 #     the module you are testing.
-do pacman_loc_ctrl_wave.do
+do playAudio_wave.do
 
 # Set the window types
 view wave
