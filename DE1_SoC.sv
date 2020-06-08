@@ -37,7 +37,6 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW,
 	logic [9:0] x;
 	logic [8:0] y;
 	logic [7:0] r, g, b;
-	// assign reset = SW[0];
 	assign LEDR[0] = reset; 
 	
 	// addresses for selecting object within map
