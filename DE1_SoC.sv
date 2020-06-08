@@ -176,8 +176,8 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW,
 	
 	logic game_reset;
 	logic pg_collision;
-	assign pg1_collision = (next_ghost1_x == next_pacman_x) & (next_ghost1_y == next_pacman_y);
-	assign pg2_collision = (next_ghost2_x == next_pacman_x) & (next_ghost2_y == next_pacman_y);
+	assign pg1_collision = (next_ghost1_x == next_pacman_x) & (next_ghost1_y == next_pacman_y) & pill_count > 0;
+	assign pg2_collision = (next_ghost2_x == next_pacman_x) & (next_ghost2_y == next_pacman_y) & pill_count > 0;
 	assign game_reset = SW[0];
 	
 	always_ff @(posedge CLOCK_50) begin
