@@ -24,16 +24,20 @@ vlog "./collision_detect.sv"
 vlog "./map_simp_RAM.v"
 vlog "./filter_input.sv"
 vlog "./ghosts_ai.sv"
+vlog "./bcd_3b.v"
+vlog "./bcd_3b_testbench.sv"
+vlog "./hexto7segment.sv" 	
+vlog "./pill_counter.sv"
 
 # Call vsim to invoke simulator
 #     Make sure the last item on the line is the name of the
 #     testbench module you want to execute.
-vsim -voptargs="+acc" -t 1ps -lib work ghosts_loc_ctrl_testbench -Lf altera_mf_ver
+vsim -voptargs="+acc" -t 1ps -lib work pacman_loc_ctrl_testbench -Lf altera_mf_ver
 
 # Source the wave do file
 #     This should be the file that sets up the signal window for
 #     the module you are testing.
-do ghosts_loc_ctrl_wave.do
+do pacman_loc_ctrl_wave.do
 
 # Set the window types
 view wave
