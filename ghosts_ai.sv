@@ -60,7 +60,6 @@ module ghosts_ai #(parameter DELAY= 50000000)
 	parameter MAX2 = 100000000; // 50M reduce the ghost speed to 1Hz 
 	parameter size2 = $clog2(MAX2);
 	logic [size2-1:0] count2;
-	logic [size2-1:0] count3;
 	logic clk2_reset;
 	
 	counter2 #(MAX2) c3 (.CLOCK_50(CLOCK_50), .reset(ghostCollision2), .count(count3));
