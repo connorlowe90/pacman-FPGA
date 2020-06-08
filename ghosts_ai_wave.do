@@ -19,8 +19,14 @@ add wave -noupdate /ghosts_ai_testbench/dut/ns
 add wave -noupdate /ghosts_ai_testbench/dut/next_ghost2_min_y
 add wave -noupdate /ghosts_ai_testbench/dut/next_ghost2_min_x
 add wave -noupdate /ghosts_ai_testbench/dut/next_ghost2_min_val
+add wave -noupdate /ghosts_ai_testbench/dut/main_map_reg1
+add wave -noupdate /ghosts_ai_testbench/dut/main_map_reg2
+add wave -noupdate -radix unsigned /ghosts_ai_testbench/dut/main_map_grid
+add wave -noupdate /ghosts_ai_testbench/dut/main_map_out
+add wave -noupdate /ghosts_ai_testbench/dut/rdaddr_y
+add wave -noupdate /ghosts_ai_testbench/dut/rdaddr_x
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {27890 ps} 0}
+WaveRestoreCursors {{Cursor 1} {6509 ps} 0}
 quietly wave cursor active 1
 configure wave -namecolwidth 150
 configure wave -valuecolwidth 100
@@ -36,4 +42,4 @@ configure wave -griddelta 20
 configure wave -timeline 0
 configure wave -timelineunits ns
 update
-WaveRestoreZoom {25741 ps} {28453 ps}
+WaveRestoreZoom {5524 ps} {12426 ps}

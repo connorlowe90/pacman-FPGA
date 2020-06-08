@@ -110,7 +110,7 @@ module ghosts_ai #(parameter DELAY= 50000000)
 				y_diff = (next_ghost1_y1 > curr_pacman_y) ? (next_ghost1_y1 - curr_pacman_y) : (curr_pacman_y - next_ghost1_y1);
 				rdaddr_x = next_ghost1_x1;
 				rdaddr_y = next_ghost1_y2;
-				if (main_map_grid != 1) begin // 1 next does not overlap with wall
+				if (main_map_grid != 4'd1) begin // 1 next does not overlap with wall
                     if ((next_ghost1_x1 != curr_ghost2_x) | (next_ghost1_y1 != curr_ghost2_y)) begin // 1 next doesn't overlap with 2 curr
                         if ((next_ghost1_x1 != prev_ghost1_x) | (next_ghost1_y1 != prev_ghost1_y)) begin // 1 next doesn't overlap with 1 prev
                            if ((x_diff + y_diff) < next_ghost1_min_val) begin
@@ -136,7 +136,7 @@ module ghosts_ai #(parameter DELAY= 50000000)
 				ns = check1_3_hold1;
 				x_diff = (next_ghost1_x2 > curr_pacman_x) ? (next_ghost1_x2 - curr_pacman_x) : (curr_pacman_x - next_ghost1_x2);
 				y_diff = (next_ghost1_y2 > curr_pacman_y) ? (next_ghost1_y2 - curr_pacman_y) : (curr_pacman_y - next_ghost1_y2);
-                $display("main_map_grid = %d, %t", main_map_grid, $time());
+                // $display("main_map_grid = %d, %t", main_map_grid, $time());
 				rdaddr_x = next_ghost1_x2;
 				rdaddr_y = next_ghost1_y3;
 				if (main_map_grid != 4'd1) begin // 1 next does not overlap with wall

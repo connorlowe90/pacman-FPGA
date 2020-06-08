@@ -21,14 +21,8 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW,
 	logic [9:0] x;
 	logic [8:0] y;
 	logic [7:0] r, g, b;
-	assign HEX1 = '1;
-	assign HEX2 = '1;
-	//assign reset = SW[0];
+	// assign reset = SW[0];
 	assign LEDR[0] = reset;
-	
-	// module outputs pill count to hex displays 5-3
-	pill_counter dot_count_displays (.reset(reset), .collision_type(collision_type),
-													.hex1(HEX5), .hex2(HEX4), .hex3(HEX3));
 	
 	// addresses for selecting object within map
 	logic [5:0] glob_x; // (0 ~ 39)
@@ -61,12 +55,12 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW,
 	// assign LEDR[1] = makeBreak;
 	// assign LEDR[3] = PS2_DAT;
 	// PS2 keyboard control system
-	 keyboard_press_driver keyboard_driver (.CLOCK_50(CLOCK_50), .valid(), 
-	 									   .makeBreak(makeBreak), .outCode(scan_code), 
-	 									   .PS2_DAT(PS2_DAT),  .PS2_CLK(PS2_CLK), .reset(reset));
-	 keyboard_process keyboard_ctrl (.CLOCK_50(CLOCK_50), .reset(reset), 
-	 							    .makeBreak(makeBreak), .scan_code(scan_code), 
-	 							    .up(up), .down(down), .left(left), .right(right));
+	//  keyboard_press_driver keyboard_driver (.CLOCK_50(CLOCK_50), .valid(), 
+	//  									   .makeBreak(makeBreak), .outCode(scan_code), 
+	//  									   .PS2_DAT(PS2_DAT),  .PS2_CLK(PS2_CLK), .reset(reset));
+	//  keyboard_process keyboard_ctrl (.CLOCK_50(CLOCK_50), .reset(reset), 
+	//  							    .makeBreak(makeBreak), .scan_code(scan_code), 
+	//  							    .up(up), .down(down), .left(left), .right(right));
 
 
 	
@@ -80,25 +74,22 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW,
 	logic [5:0] next_ghost1_x, next_ghost2_x, curr_ghost1_x, curr_ghost2_x;
 	logic [4:0] next_ghost1_y, next_ghost2_y, curr_ghost1_y, curr_ghost2_y;	
 
-//	filter_input up_input (.CLOCK_50(CLOCK_50), .reset(reset), .in(~KEY[3]), .out(up));
-//	filter_input down_input (.CLOCK_50(CLOCK_50), .reset(reset), .in(~KEY[2]), .out(down));
-//	filter_input left_input (.CLOCK_50(CLOCK_50), .reset(reset), .in(~KEY[1]), .out(left));
-//	filter_input right_input (.CLOCK_50(CLOCK_50), .reset(reset), .in(~KEY[0]), .out(right));
+	filter_input up_input (.CLOCK_50(CLOCK_50), .reset(reset), .in(~KEY[3]), .out(up));
+	filter_input down_input (.CLOCK_50(CLOCK_50), .reset(reset), .in(~KEY[2]), .out(down));
+	filter_input left_input (.CLOCK_50(CLOCK_50), .reset(reset), .in(~KEY[1]), .out(left));
+	filter_input right_input (.CLOCK_50(CLOCK_50), .reset(reset), .in(~KEY[0]), .out(right));
 	
 	
 	// map that controls pacman
-	// logic pac_reset;
-	pacman_loc_ctrl pac_loc (.CLOCK_50(CLOCK_50), .reset(reset), .done(pac_done), .collision_type(collision_type),
+	logic sprit_reset;
+	pacman_loc_ctrl pac_loc (.CLOCK_50(CLOCK_50), .reset(sprit_reset), .done(pac_done),
 							 .up(up), .down(down), .left(left), .right(right), .pill_count(pill_count),
 							 .curr_pacman_x(curr_pacman_x), .curr_pacman_y(curr_pacman_y), 
 							 .next_pacman_x(next_pacman_x), .next_pacman_y(next_pacman_y));
-
 	
 	// module that controls ghost's location (ghost AI)
-	logic ghost_reset;
 	logic ghost_enable;
-	assign ghost_enable = SW[1];
-	ghosts_ai ghost_loc (.CLOCK_50(CLOCK_50), .reset(reset), .enable(ghost_enable),
+	ghosts_ai ghost_loc (.CLOCK_50(CLOCK_50), .reset(sprit_reset), .enable(ghost_enable),
 						       .curr_pacman_x(curr_pacman_x), .curr_pacman_y(curr_pacman_y), .wrdone(ghost_done), 
 							   .curr_ghost1_x(curr_ghost1_x), .curr_ghost1_y(curr_ghost1_y), 
 							   .curr_ghost2_x(curr_ghost2_x), .curr_ghost2_y(curr_ghost2_y),
@@ -112,37 +103,49 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW,
 							  	   .next_pacman_x(next_pacman_x), .next_pacman_y(next_pacman_y), 
 							  	   .curr_ghost1_x(curr_ghost1_x), .curr_ghost1_y(curr_ghost1_y), 
 							  	   .next_ghost1_x(next_ghost1_x), .next_ghost1_y(next_ghost1_y), 
-                     	   .curr_ghost2_x(curr_ghost2_x), .curr_ghost2_y(curr_ghost2_y),
+                     	   		   .curr_ghost2_x(curr_ghost2_x), .curr_ghost2_y(curr_ghost2_y),
 							  	   .next_ghost2_x(next_ghost2_x), .next_ghost2_y(next_ghost2_y),
 							  	   .redata(redata), .wren(wren), .pac_done(pac_done), .ghost_done(ghost_done),
 							  	   .wraddr(wraddr), .wrdata(wrdata));
 
-
-	
 	logic start;
 	logic [2:0] lives;
 	assign start = SW[9];
-	enum {init, game} ps, ns;
+	enum {init, game, over} ps, ns;
 	
 	always_comb begin
 		case(ps)
 			init: begin
+				sprit_reset = 1;
 				reset = 1;
 				map_wr_reset = 1;
+				ghost_enable = 0;
 				if (start) ns = game;
 				else ns = init;
 			end
 			game: begin
+				sprit_reset = 0;
 				reset = 0;
 				map_wr_reset = 0;
-				ns = game;
-				//if (lives == 0) ns = init;
-				//else
-				ns = game;
+				ghost_enable = 1;
+				if (lives == 0) ns = over;
+				else ns = game;
+			end
+			over: begin
+				sprit_reset = 0;
+				ghost_enable = 0;
+				reset = 0;
+				map_wr_reset = 0;
+				ns = over;
 			end
 		endcase
 	end
 	
+	// display of number of dots eaten
+	pill_counter pc (.reset(reset), .collision_type(collision_type), .hex1(HEX5), .hex2(HEX4), .hex3(hex3));
+	assign HEX1 = '1;
+	assign HEX2 = '1;
+
 	// instantiate lives hex display
 	hexto7segment livesDisplay  (.in(lives), .enable(1'b1), .out(HEX0));
 	
@@ -153,12 +156,19 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW,
 		if (game_reset) begin
 			//lives <= 3'd100;
 			ps <= init;
+			lives <= 3'd3;
 		end
-		else ps <= ns;
-//				if (((curr_ghost1_x == curr_pacman_x) & (curr_ghost1_y == curr_pacman_y) |
-//				(curr_ghost2_x == curr_pacman_x) & (curr_ghost2_y == curr_pacman_y)) &
-//			   	(pill_count == 0)) lives <= lives - 1;
-//				else lives <= lives;
+		else begin
+			ps <= ns;
+			if (ps == game) begin
+				if (((next_ghost1_x == next_pacman_x) & (next_ghost1_y == next_pacman_y) |
+					(next_ghost2_x == next_pacman_x) & (next_ghost2_y == next_pacman_y)) &
+			   		(pill_count == 0)) begin
+						lives <= lives - 1;	   
+					end	
+			end
+			else lives <= lives;
+		end
 	end
 
 	
