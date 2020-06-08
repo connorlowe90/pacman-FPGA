@@ -42,7 +42,7 @@ module playAudio(start, chomp, eatghost, death, reset,
 	logic [7:0]  data;
 	
 	// utilizing verilog's implicit port connections
-	musicRom dut (.address(address), .clock(clock_50), .q(data));
+	musicRom dut (.address(address), .clock(CLOCK_50), .q(data));
 	
 	parameter MAX = 50000; // 50M reduce the ghost speed to 1Hz 
 	parameter size = $clog2(MAX);
@@ -51,7 +51,7 @@ module playAudio(start, chomp, eatghost, death, reset,
 	logic incr;
 	counter3 #(MAX) c (.CLOCK_50(CLOCK_50), .reset(clk_reset), .incr(incr), .count(count));
 	
-	parameter MAX2 = 48000; // 50M reduce the ghost speed to 1Hz 
+	parameter MAX2 = 4; // 50M reduce the ghost speed to 1Hz 
 	parameter size2 = $clog2(MAX2);
 	logic [size2-1:0] count2;
 	counter #(MAX2) cWait (.CLOCK_50(CLOCK_50), .reset(reset), .count(count2));
@@ -79,6 +79,7 @@ module playAudio(start, chomp, eatghost, death, reset,
 					ns = play_start;
 					end
 				if (count2 == 0) incr = 1;
+				else incr = 0;
 				end
 			play_chomp: begin
 				
