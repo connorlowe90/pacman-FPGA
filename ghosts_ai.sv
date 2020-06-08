@@ -3,10 +3,10 @@
 module ghosts_ai #(parameter DELAY= 50000000)
 		 (CLOCK_50, reset, enable, curr_pacman_x, curr_pacman_y,
 		  wrdone, curr_ghost1_x, curr_ghost1_y, curr_ghost2_x, curr_ghost2_y,
-		  next_ghost1_x, next_ghost1_y, next_ghost2_x, next_ghost2_y);
+		  next_ghost1_x, next_ghost1_y, next_ghost2_x, next_ghost2_y, ghostCollision);
 
 	input logic CLOCK_50, reset, enable; // enable signal use to activate/deactivate the movement of ghost
-	input logic wrdone;
+	input logic wrdone, ghostCollision;
 	input logic [5:0] curr_pacman_x;
 	input logic [4:0] curr_pacman_y;
 	output logic [5:0] next_ghost1_x, next_ghost2_x;
@@ -46,7 +46,7 @@ module ghosts_ai #(parameter DELAY= 50000000)
 	enum {init, check1_1_hold1, check1_1_hold2, check1_1, check1_2_hold1, check1_2_hold2, check1_2,
           check1_3_hold1, check1_3_hold2, check1_3, check1_4_hold1, check1_4_hold2, check1_4,
           check2_1_hold1, check2_1_hold2, check2_1, check2_2_hold1, check2_2_hold2, check2_2, 
-          check2_3_hold1, check2_3_hold2, check2_3, check2_4_hold1, check2_4_hold2, check2_4, done} ps, ns;
+          check2_3_hold1, check2_3_hold2, check2_3, check2_4_hold1, check2_4_hold2, check2_4, done, collision} ps, ns;
 
 	// counter system
 	parameter MAX = DELAY; // 50M reduce the ghost speed to 1Hz 
@@ -55,6 +55,13 @@ module ghosts_ai #(parameter DELAY= 50000000)
 	logic clk_reset;
 	counter #(MAX) c (.CLOCK_50(CLOCK_50), .reset(clk_reset), .count(count));
 	assign clk_reset = (ps == init);
+	
+	counter #(MAX2) c2 (.CLOCK_50(CLOCK_50), .reset(clk2_reset), .count(count2));
+	parameter MAX2 = 100000000; // 50M reduce the ghost speed to 1Hz 
+	parameter size2 = $clog2(MAX2);
+	logic [size2-1:0] count2;
+	logic clk2_reset;
+	assign clk2_reset = (ps == collision);
 
 	// global x/y that acquires basic map info from main map
 	logic [5:0] rdaddr_x;
@@ -240,12 +247,12 @@ module ghosts_ai #(parameter DELAY= 50000000)
             check2_2_hold1: begin
                 ns = check2_2_hold2;
                 rdaddr_x = next_ghost2_x2;
-				rdaddr_y = next_ghost2_y2;
+				    rdaddr_y = next_ghost2_y2;
             end
             check2_2_hold2: begin
                 ns = check2_2;
                 rdaddr_x = next_ghost2_x2;
-				rdaddr_y = next_ghost2_y2;
+				    rdaddr_y = next_ghost2_y2;
             end
 			check2_2: begin // check down (change y from previous state)
 				ns = check2_3_hold1; 
@@ -270,12 +277,12 @@ module ghosts_ai #(parameter DELAY= 50000000)
             check2_3_hold1: begin
                 ns = check2_3_hold2;
                 rdaddr_x = next_ghost2_x3;
-				rdaddr_y = next_ghost2_y3;
+				    rdaddr_y = next_ghost2_y3;
             end
             check2_3_hold2: begin
                 ns = check2_3;
                 rdaddr_x = next_ghost2_x3;
-				rdaddr_y = next_ghost2_y3;
+				    rdaddr_y = next_ghost2_y3;
             end
 			check2_3: begin // check left (change y from previous state)
 				ns = check2_4_hold1; 
@@ -331,6 +338,10 @@ module ghosts_ai #(parameter DELAY= 50000000)
 				if (count == 0) ns = init;
 				else ns = done;
 			end
+			collision: begin
+				if (count2 == 0) ns = init;
+				else ns = collision;
+			end 
 		endcase
 	end
 
@@ -354,11 +365,18 @@ module ghosts_ai #(parameter DELAY= 50000000)
 			next_ghost1_y <= 5'd13;
 			next_ghost2_x <= 6'd23;
 			next_ghost2_y <= 5'd13;
-            main_map_reg1 <= 0;
-            main_map_reg2 <= 0;
-		end
+         main_map_reg1 <= 0;
+         main_map_reg2 <= 0;
+			end
+		else if (ghostCollision) begin
+			ps <= collision;
+			next_ghost1_x <= 6'd16;
+			next_ghost1_y <= 5'd13;
+			next_ghost2_x <= 6'd23;
+			next_ghost2_y <= 5'd13;
+				end
 		else begin
-			ps <= ns;
+			   ps <= ns;
             main_map_reg1 <= main_map_out;
             main_map_reg2 <= main_map_reg1;
 			if (ps == done) begin
@@ -398,7 +416,7 @@ endmodule
 `timescale 1 ps / 1 ps
 module ghosts_ai_testbench();
 	logic CLOCK_50, reset;
-	logic wrdone, enable;
+	logic wrdone, enable, ghostCollision;
 	logic [5:0] curr_pacman_x;
 	logic [4:0] curr_pacman_y;
 	logic [5:0] next_ghost1_x, next_ghost2_x;

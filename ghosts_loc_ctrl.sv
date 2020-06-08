@@ -44,14 +44,23 @@ module ghosts_loc_ctrl #(parameter DELAY= 30000000)
 	assign next_ghost2_y4 = curr_ghost2_y;
 
 	enum {init, check1_1_hold, check1_1, check1_2_hold, check1_2, check1_3_hold, check1_3, check1_4_hold, check1_4,
-		  check2_1_hold, check2_1, check2_2_hold, check2_2, check2_3_hold, check2_3, check2_4_hold, check2_4, done} ps, ns;
+		  check2_1_hold, check2_1, check2_2_hold, check2_2, check2_3_hold, check2_3, check2_4_hold, check2_4, done,
+		  collision} ps, ns;
 	// counter system
 	parameter MAX = DELAY; // 50M reduce the ghost speed to 1Hz 
 	parameter size = $clog2(MAX);
 	logic [size-1:0] count;
 	logic clk_reset;
-	counter #(MAX) c (.CLOCK_50(CLOCK_50), .reset(clk_reset), .count(count));
 	assign clk_reset = (ps == init);
+	counter #(MAX) c (.CLOCK_50(CLOCK_50), .reset(clk_reset), .count(count));
+	
+	counter #(MAX) c2 (.CLOCK_50(CLOCK_50), .reset(clk2_reset), .count(count2));
+	parameter MAX2 = 10000000; // 50M reduce the ghost speed to 1Hz 
+	parameter size2 = $clog2(MAX2);
+	logic [size2-1:0] count2;
+	logic clk2_reset;
+	assign clk2_reset = (ps == collision);
+	
 
 	// ghost map ram that keep track of each grid's proximity from pacman
 	logic [5:0] rdaddr_x;
@@ -218,10 +227,15 @@ module ghosts_loc_ctrl #(parameter DELAY= 30000000)
 					next_ghost2_min_val = data;
 				end
 			end
-			 done: begin
+			done: begin
 				if (count == 0) ns = init;
 				else ns = done;
 			end
+			collision: begin
+				if (count2 == 0) ns = init;
+				else ns = collision;
+				
+			end 
 		endcase
 	end
 
@@ -253,7 +267,7 @@ module ghosts_loc_ctrl #(parameter DELAY= 30000000)
 				next_ghost1_y <= next_ghost1_min_y;
 				next_ghost2_x <= next_ghost2_min_x;
 				next_ghost2_y <= next_ghost2_min_y;
-			end
+				end
 			if (wrdone) begin 
 				curr_ghost1_x <= next_ghost1_x;
 				curr_ghost1_y <= next_ghost1_y;

@@ -29,7 +29,7 @@ module collision_detect
 	always_latch begin
 		// defaults
 		wren = 0; 
-		next_pill_count = 0; map_word2 = map_word;
+		map_word2 = map_word;
 		case(ps)
 			hold: begin
 				 ns = compute_collision;
