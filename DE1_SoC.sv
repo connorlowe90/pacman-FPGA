@@ -17,12 +17,12 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW,
 	input PS2_DAT; 
 	input PS2_CLK;
 
-	logic reset;
+	logic reset; // reset vga_ctrl/keyboard control/pill counter
 	logic [9:0] x;
 	logic [8:0] y;
 	logic [7:0] r, g, b;
 	// assign reset = SW[0];
-	assign LEDR[0] = reset;
+	assign LEDR[0] = reset; 
 	
 	// addresses for selecting object within map
 	logic [5:0] glob_x; // (0 ~ 39)
@@ -82,10 +82,12 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW,
 	
 	// map that controls pacman
 	logic sprit_reset;
+	logic [3:0] collision_type;
 	pacman_loc_ctrl pac_loc (.CLOCK_50(CLOCK_50), .reset(sprit_reset), .done(pac_done),
-							 .up(up), .down(down), .left(left), .right(right), .pill_count(pill_count),
+							 .up(up), .down(down), .left(left), .right(right), .pill_count(pill_count), .collision_type(collision_type),
 							 .curr_pacman_x(curr_pacman_x), .curr_pacman_y(curr_pacman_y), 
 							 .next_pacman_x(next_pacman_x), .next_pacman_y(next_pacman_y));
+	
 	
 	// module that controls ghost's location (ghost AI)
 	logic ghost_enable;
@@ -112,9 +114,15 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW,
 	logic start;
 	logic [2:0] lives;
 	assign start = SW[9];
-	enum {init, game, over} ps, ns;
+	enum {init, game, resume ,over} ps, ns;
+	parameter resume_delay = 250000000; // 5 second 
+	parameter resume_size = $clog2(resume_delay);
+	logic resume_reset;
+	logic [resume_size-1:0] resume_count;
+	counter #(resume_delay) resume_counter (.CLOCK_50(CLOCK_50), .reset(resume_size), .count(resume_count));
 	
 	always_comb begin
+		resume_reset = 0;
 		case(ps)
 			init: begin
 				sprit_reset = 1;
@@ -129,8 +137,21 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW,
 				reset = 0;
 				map_wr_reset = 0;
 				ghost_enable = 1;
-				if (lives == 0) ns = over;
+				if (pg_collision & (lives > 1) & (pill_count == 0)) begin
+					ns = resume;
+					resume_reset = 1;
+					map_wr_reset = 1;
+				end
+				else if (pg_collision & (lives == 1) &(pill_count == 0)) ns = over;
 				else ns = game;
+			end
+			resume: begin
+				reset <= 0;
+				sprit_reset = 1;
+				map_wr_reset = 0;
+				ghost_enable = 0;
+				if (resume_count == 0) ns = game;
+				else ns = resume;
 			end
 			over: begin
 				sprit_reset = 0;
@@ -142,19 +163,21 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW,
 		endcase
 	end
 	
+	logic colli_type_out;
+	filter_input clli_filter (.CLOCK_50(CLOCK_50), .reset(reset), .in(collision_type), .out(colli_type_out));
+	
 	// display of number of dots eaten
-	pill_counter pc (.reset(reset), .collision_type(collision_type), .hex1(HEX5), .hex2(HEX4), .hex3(hex3));
+	pill_counter dot_counter (.reset(reset), .collision_type(colli_type_out), .hex1(HEX5), .hex2(HEX4), .hex3(hex3));
 	assign HEX1 = '1;
 	assign HEX2 = '1;
 
 	// instantiate lives hex display
 	hexto7segment livesDisplay  (.in(lives), .enable(1'b1), .out(HEX0));
 	
-	logic ghostCollision;
-	assign ghostCollision = ((next_ghost1_x == next_pacman_x) & (next_ghost1_y == next_pacman_y) |
-										(next_ghost2_x == next_pacman_x) & (next_ghost2_y == next_pacman_y));
-	
 	logic game_reset;
+	logic pg_collision;
+	assign pg_collision = ((next_ghost1_x == next_pacman_x) & (next_ghost1_y == next_pacman_y) |
+								  (next_ghost2_x == next_pacman_x) & (next_ghost2_y == next_pacman_y));
 	assign game_reset = SW[0];
 	
 	always_ff @(posedge CLOCK_50) begin
@@ -165,7 +188,7 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW,
 		else begin
 			ps <= ns;
 			if (ps == game) begin
-				if (ghostCollision & (pill_count == 0)) begin
+				if (pg_collision & (pill_count == 0)) begin
 						lives <= lives - 1;	   
 					end	
 			end
