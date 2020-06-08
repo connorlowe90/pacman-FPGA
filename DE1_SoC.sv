@@ -66,17 +66,17 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW,
 					.VGA_R(VGA_R), .VGA_G(VGA_G), .VGA_B(VGA_B), .VGA_BLANK_N(VGA_BLANK_N),
 					.VGA_CLK(VGA_CLK), .VGA_HS(VGA_HS), .VGA_SYNC_N(VGA_SYNC_N), .VGA_VS(VGA_VS));
 
-	   logic makeBreak;
-	   logic [7:0] scan_code;		
-	   assign LEDR[1] = makeBreak;
-      assign LEDR[3] = PS2_DAT;
-	 // PS2 keyboard control system
-	   keyboard_press_driver keyboard_driver (.CLOCK_50(CLOCK_50), .valid(), 
-	   									   .makeBreak(makeBreak), .outCode(scan_code), 
-	   									   .PS2_DAT(PS2_DAT),  .PS2_CLK(PS2_CLK), .reset(reset));
-	   keyboard_process keyboard_ctrl (.CLOCK_50(CLOCK_50), .reset(reset), 
-	   							    .makeBreak(makeBreak), .scan_code(scan_code), 
-	   							    .up(up), .down(down), .left(left), .right(right));
+	//    logic makeBreak;
+	//    logic [7:0] scan_code;		
+	//    assign LEDR[1] = makeBreak;
+    //   assign LEDR[3] = PS2_DAT;
+	//  // PS2 keyboard control system
+	//    keyboard_press_driver keyboard_driver (.CLOCK_50(CLOCK_50), .valid(), 
+	//    									   .makeBreak(makeBreak), .outCode(scan_code), 
+	//    									   .PS2_DAT(PS2_DAT),  .PS2_CLK(PS2_CLK), .reset(reset));
+	//    keyboard_process keyboard_ctrl (.CLOCK_50(CLOCK_50), .reset(reset), 
+	//    							    .makeBreak(makeBreak), .scan_code(scan_code), 
+	//    							    .up(up), .down(down), .left(left), .right(right));
 
 
 	
@@ -90,10 +90,10 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW,
 	logic [5:0] next_ghost1_x, next_ghost2_x, curr_ghost1_x, curr_ghost2_x;
 	logic [4:0] next_ghost1_y, next_ghost2_y, curr_ghost1_y, curr_ghost2_y;	
 
-//	filter_input up_input (.CLOCK_50(CLOCK_50), .reset(reset), .in(~KEY[3]), .out(up));
-//	filter_input down_input (.CLOCK_50(CLOCK_50), .reset(reset), .in(~KEY[2]), .out(down));
-//	filter_input left_input (.CLOCK_50(CLOCK_50), .reset(reset), .in(~KEY[1]), .out(left));
-//	filter_input right_input (.CLOCK_50(CLOCK_50), .reset(reset), .in(~KEY[0]), .out(right));
+	filter_input up_input (.CLOCK_50(CLOCK_50), .reset(reset), .in(~KEY[3]), .out(up));
+	filter_input down_input (.CLOCK_50(CLOCK_50), .reset(reset), .in(~KEY[2]), .out(down));
+	filter_input left_input (.CLOCK_50(CLOCK_50), .reset(reset), .in(~KEY[1]), .out(left));
+	filter_input right_input (.CLOCK_50(CLOCK_50), .reset(reset), .in(~KEY[0]), .out(right));
 	
 	
 	// map that controls pacman
@@ -104,29 +104,29 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW,
 							 .up(up), .down(down), .left(left), .right(right), .pill_count(pill_count), .collision_type(collision_type),
 							 .curr_pacman_x(curr_pacman_x), .curr_pacman_y(curr_pacman_y), 
 							 .next_pacman_x(next_pacman_x), .next_pacman_y(next_pacman_y));
-	
+
 	
 	// module that controls ghost's location (ghost AI)
 	logic ghost_enable;
 	ghosts_ai ghost_loc (.CLOCK_50(CLOCK_50), .reset(sprit_reset), .enable(ghost_enable),
-						       .curr_pacman_x(curr_pacman_x), .curr_pacman_y(curr_pacman_y), .wrdone(ghost_done), 
-							   .curr_ghost1_x(curr_ghost1_x), .curr_ghost1_y(curr_ghost1_y), 
-							   .curr_ghost2_x(curr_ghost2_x), .curr_ghost2_y(curr_ghost2_y),
-							   .next_ghost1_x(next_ghost1_x), .next_ghost1_y(next_ghost1_y), 
-							   .next_ghost2_x(next_ghost2_x), .next_ghost2_y(next_ghost2_y), 
-								.ghostCollision1(pg1_collision & pill_count > 0), .ghostCollision2(pg2_collision & pill_count > 0));
+						 .curr_pacman_x(curr_pacman_x), .curr_pacman_y(curr_pacman_y), .wrdone(ghost_done), 
+						 .curr_ghost1_x(curr_ghost1_x), .curr_ghost1_y(curr_ghost1_y), 
+						 .curr_ghost2_x(curr_ghost2_x), .curr_ghost2_y(curr_ghost2_y),
+						 .next_ghost1_x(next_ghost1_x), .next_ghost1_y(next_ghost1_y), 
+						 .next_ghost2_x(next_ghost2_x), .next_ghost2_y(next_ghost2_y), 
+						 .ghostCollision1(pg1_collision & pill_count > 0), .ghostCollision2(pg2_collision & pill_count > 0));
 
 
 	logic map_wr_reset; 
 	map_RAM_writer map_ram_wr (.CLOCK_50(CLOCK_50), .reset(map_wr_reset),
-							  	   .curr_pacman_x(curr_pacman_x), .curr_pacman_y(curr_pacman_y), 
-							  	   .next_pacman_x(next_pacman_x), .next_pacman_y(next_pacman_y), 
-							  	   .curr_ghost1_x(curr_ghost1_x), .curr_ghost1_y(curr_ghost1_y), 
-							  	   .next_ghost1_x(next_ghost1_x), .next_ghost1_y(next_ghost1_y), 
-                     	    .curr_ghost2_x(curr_ghost2_x), .curr_ghost2_y(curr_ghost2_y),
-							  	   .next_ghost2_x(next_ghost2_x), .next_ghost2_y(next_ghost2_y),
-							  	   .redata(redata), .wren(wren), .pac_done(pac_done), .ghost_done(ghost_done),
-							  	   .wraddr(wraddr), .wrdata(wrdata));
+							   .curr_pacman_x(curr_pacman_x), .curr_pacman_y(curr_pacman_y), 
+							   .next_pacman_x(next_pacman_x), .next_pacman_y(next_pacman_y), 
+							   .curr_ghost1_x(curr_ghost1_x), .curr_ghost1_y(curr_ghost1_y), 
+							   .next_ghost1_x(next_ghost1_x), .next_ghost1_y(next_ghost1_y), 
+							   .curr_ghost2_x(curr_ghost2_x), .curr_ghost2_y(curr_ghost2_y),
+							   .next_ghost2_x(next_ghost2_x), .next_ghost2_y(next_ghost2_y),
+							   .redata(redata), .wren(wren), .pac_done(pac_done), .ghost_done(ghost_done),
+							   .wraddr(wraddr), .wrdata(wrdata));
 
 	logic start;
 	logic [2:0] lives;
@@ -138,7 +138,7 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW,
 	parameter resume_size = $clog2(resume_delay);
 	logic resume_reset;
 	logic [resume_size-1:0] resume_count;
-	counter #(resume_delay) resume_counter (.CLOCK_50(CLOCK_50), .reset(resume_size), .count(resume_count));
+	counter #(resume_delay) resume_counter (.CLOCK_50(CLOCK_50), .reset(resume_reset), .count(resume_count));
 	
 	always_comb begin
 		resume_reset = 0;
@@ -156,12 +156,12 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW,
 				reset = 0;
 				map_wr_reset = 0;
 				ghost_enable = 1;
-				if ((pg1_collision | pg2_collision) & (lives > 1) & (pill_count == 0)) begin
+				if ((pg_collision) & (lives > 1) & (pill_count == 0)) begin
 					ns = resume;
 					resume_reset = 1;
-					map_wr_reset = 0;
+					map_wr_reset = 1;
 				end
-				else if ((pg1_collision | pg2_collision) & (lives == 1) & (pill_count == 0)) ns = over;
+				else if ((pg_collision) & (lives == 1) & (pill_count == 0)) ns = over;
 				else ns = game;
 			end
 			resume: begin
@@ -182,8 +182,6 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW,
 		endcase
 	end
 	
-	// logic [3:0] colli_type_out;
-	// filter_input clli_filter (.CLOCK_50(CLOCK_50), .reset(reset), .in(collision_type), .out(colli_type_out));
 	
 	// display of number of dots eaten
 	pill_counter dot_counter (.CLOCK_50(CLOCK_50), .reset(reset), .collision_type(collision_type), .hex1(HEX5), .hex2(HEX4), .hex3(HEX3));
@@ -194,10 +192,9 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW,
 	hexto7segment livesDisplay  (.in(lives), .enable(1'b1), .out(HEX0));
 	
 	logic game_reset;
-	logic pg_collision;
+	logic pg_collisionm, pg1_collision, pg2_collision;
 
 	assign pg_collision = (pg1_collision | pg2_collision);
-	logic pg1_collision, pg2_collision;
 	assign pg1_collision = (next_ghost1_x == next_pacman_x) & (next_ghost1_y == next_pacman_y);
 	assign pg2_collision = (next_ghost2_x == next_pacman_x) & (next_ghost2_y == next_pacman_y);
 	assign game_reset = SW[0];

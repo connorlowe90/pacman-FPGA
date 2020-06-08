@@ -3,9 +3,9 @@
 // for collsion between dot & pill that happened, module will remove
 // dot or pill from the look up map
 module collision_detect
-			(CLOCK_50, reset, next_pacman_x, next_pacman_y, 
+			(CLOCK_50, reset, colli_clr, next_pacman_x, next_pacman_y, 
 			 collision_type, pill_count);
-	input logic CLOCK_50, reset;
+	input logic CLOCK_50, reset, colli_clr;
 	input logic [5:0] next_pacman_x;
 	input logic [4:0] next_pacman_y;
 	output logic [3:0] collision_type;  // 0000: no collision; 
@@ -17,29 +17,41 @@ module collision_detect
 	logic [3:0] obj;       // width of the block 
 	logic wren;
 	logic [159:0] map_word2, map_word;
-	logic [32:0] next_pill_count;
+	logic [4:0] reset_addr;
+	logic [159:0] reset_word;
+	logic reset_wren;
+	logic pill_incr;
+	enum {reset_mem, reset_hold, hold, compute_collision} ps, ns;
+	assign reset_wren = (ps == reset_hold);
 	// instantiate Map simulation
-	map_simp_RAM temp (.address_a(next_pacman_y), .address_b(), .clock(CLOCK_50), .data_a(map_word2), 
-					.data_b(), .wren_a(wren), .wren_b(), .q_a(map_word), .q_b()); 	
+	map_simp_RAM temp (.address_a(next_pacman_y), .address_b(reset_addr), .clock(CLOCK_50), .data_a(map_word2), 
+					.data_b(reset_word), .wren_a(wren), .wren_b(reset_wren), .q_a(map_word), .q_b()); 	
+
+	map_simp_RAM reset_ram (.address_a(reset_addr), .address_b(), .clock(CLOCK_50), .data_a(), 
+					   .data_b(), .wren_a(0), .wren_b(0), .q_a(reset_word), .q_b()); 	
 	
-	enum {hold, compute_collision} ps, ns;
 	
 	assign obj = map_word[159-(4*next_pacman_x+3)+:4]; // flip the left and right 
 	
-	logic pill_incr;
 	always_latch begin
 		// defaults
 		wren = 0; 
 		map_word2 = map_word;
 		pill_incr = 0;
 		case(ps)
+			reset_mem: begin
+				ns = reset_hold;
+			end
+			reset_hold: begin
+				if (reset_addr == 5'd29) ns = hold;
+				else ns = reset_mem;
+			end
 			hold: begin
 				 ns = compute_collision;
 			end
 			compute_collision: begin
-				if (reset) begin
+				if (reset | colli_clr) begin
 						collision_type = 3'b000;
-						next_pill_count = 0;
 						wren = 0;
 				  end 
 				  else begin
@@ -58,7 +70,7 @@ module collision_detect
 						end
 						else if (obj == 4'h3) begin // collision with pill
 							collision_type = 4'b0011;
-							next_pill_count = pill_count + 1500000000; // Each pill adds 30 seconds of effective time
+							pill_incr = 1;
 							wren = 1;
 							map_word2[159-(4*next_pacman_x+3)+:4] = 0;
 						end
@@ -71,11 +83,15 @@ module collision_detect
 	always_ff @(posedge CLOCK_50) begin
 		if (reset) begin
 			pill_count <= 0;
-			ps <= hold;
+			ps <= reset_mem;
+			reset_addr <= 5'd0;
 		end
 		else begin
-		   if (pill_count != 0) pill_count <= next_pill_count - 1;
 			ps <= ns;
+			if (ps == reset_hold) reset_addr <= reset_addr + 1;
+		    if (pill_incr) pill_count <= pill_count + 1500000000;
+			else if (pill_count > 0) pill_count <= pill_count - 1;
+			else pill_count <= pill_count;
 		end
 	end
 	
