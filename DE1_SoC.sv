@@ -50,17 +50,17 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW,
 					.VGA_R(VGA_R), .VGA_G(VGA_G), .VGA_B(VGA_B), .VGA_BLANK_N(VGA_BLANK_N),
 					.VGA_CLK(VGA_CLK), .VGA_HS(VGA_HS), .VGA_SYNC_N(VGA_SYNC_N), .VGA_VS(VGA_VS));
 
-	  logic makeBreak;
-	  logic [7:0] scan_code;		
-	  assign LEDR[1] = makeBreak;
-     assign LEDR[3] = PS2_DAT;
-	// PS2 keyboard control system
-	  keyboard_press_driver keyboard_driver (.CLOCK_50(CLOCK_50), .valid(), 
-	  									   .makeBreak(makeBreak), .outCode(scan_code), 
-	  									   .PS2_DAT(PS2_DAT),  .PS2_CLK(PS2_CLK), .reset(reset));
-	  keyboard_process keyboard_ctrl (.CLOCK_50(CLOCK_50), .reset(reset), 
-	  							    .makeBreak(makeBreak), .scan_code(scan_code), 
-	  							    .up(up), .down(down), .left(left), .right(right));
+	//   logic makeBreak;
+	//   logic [7:0] scan_code;		
+	//   assign LEDR[1] = makeBreak;
+    //  assign LEDR[3] = PS2_DAT;
+	// // PS2 keyboard control system
+	//   keyboard_press_driver keyboard_driver (.CLOCK_50(CLOCK_50), .valid(), 
+	//   									   .makeBreak(makeBreak), .outCode(scan_code), 
+	//   									   .PS2_DAT(PS2_DAT),  .PS2_CLK(PS2_CLK), .reset(reset));
+	//   keyboard_process keyboard_ctrl (.CLOCK_50(CLOCK_50), .reset(reset), 
+	//   							    .makeBreak(makeBreak), .scan_code(scan_code), 
+	//   							    .up(up), .down(down), .left(left), .right(right));
 
 
 	
@@ -74,15 +74,16 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW,
 	logic [5:0] next_ghost1_x, next_ghost2_x, curr_ghost1_x, curr_ghost2_x;
 	logic [4:0] next_ghost1_y, next_ghost2_y, curr_ghost1_y, curr_ghost2_y;	
 
-//	filter_input up_input (.CLOCK_50(CLOCK_50), .reset(reset), .in(~KEY[3]), .out(up));
-//	filter_input down_input (.CLOCK_50(CLOCK_50), .reset(reset), .in(~KEY[2]), .out(down));
-//	filter_input left_input (.CLOCK_50(CLOCK_50), .reset(reset), .in(~KEY[1]), .out(left));
-//	filter_input right_input (.CLOCK_50(CLOCK_50), .reset(reset), .in(~KEY[0]), .out(right));
+	filter_input up_input (.CLOCK_50(CLOCK_50), .reset(reset), .in(~KEY[3]), .out(up));
+	filter_input down_input (.CLOCK_50(CLOCK_50), .reset(reset), .in(~KEY[2]), .out(down));
+	filter_input left_input (.CLOCK_50(CLOCK_50), .reset(reset), .in(~KEY[1]), .out(left));
+	filter_input right_input (.CLOCK_50(CLOCK_50), .reset(reset), .in(~KEY[0]), .out(right));
 	
 	
 	// map that controls pacman
 	logic sprit_reset;
 	logic [3:0] collision_type;
+	assign LEDR[7] = (pill_count > 0);
 	pacman_loc_ctrl pac_loc (.CLOCK_50(CLOCK_50), .reset(sprit_reset), .done(pac_done),
 							 .up(up), .down(down), .left(left), .right(right), .pill_count(pill_count), .collision_type(collision_type),
 							 .curr_pacman_x(curr_pacman_x), .curr_pacman_y(curr_pacman_y), 
@@ -97,7 +98,7 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW,
 							   .curr_ghost2_x(curr_ghost2_x), .curr_ghost2_y(curr_ghost2_y),
 							   .next_ghost1_x(next_ghost1_x), .next_ghost1_y(next_ghost1_y), 
 							   .next_ghost2_x(next_ghost2_x), .next_ghost2_y(next_ghost2_y), 
-								.ghostCollision(ghostCollision));
+								.ghostCollision(pg_collision));
 
 
 	logic map_wr_reset; 
@@ -115,6 +116,8 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW,
 	logic [2:0] lives;
 	assign start = SW[9];
 	enum {init, game, resume ,over} ps, ns;
+
+	// counter that counts time before resume to game state
 	parameter resume_delay = 250000000; // 5 second 
 	parameter resume_size = $clog2(resume_delay);
 	logic resume_reset;
@@ -163,11 +166,11 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW,
 		endcase
 	end
 	
-	logic colli_type_out;
-	filter_input clli_filter (.CLOCK_50(CLOCK_50), .reset(reset), .in(collision_type), .out(colli_type_out));
+	// logic [3:0] colli_type_out;
+	// filter_input clli_filter (.CLOCK_50(CLOCK_50), .reset(reset), .in(collision_type), .out(colli_type_out));
 	
 	// display of number of dots eaten
-	pill_counter dot_counter (.reset(reset), .collision_type(colli_type_out), .hex1(HEX5), .hex2(HEX4), .hex3(hex3));
+	pill_counter dot_counter (.CLOCK_50(CLOCK_50), .reset(reset), .collision_type(collision_type), .hex1(HEX5), .hex2(HEX4), .hex3(hex3));
 	assign HEX1 = '1;
 	assign HEX2 = '1;
 
