@@ -83,8 +83,9 @@ module playAudio(start, chomp, eatghost, death, reset,
 				else begin
 					ns = play_start;
 					end
-				if (count2 == 0) incr = 1;
-				else incr = 0;
+				incr = 1;
+//				if (count2 == 0) incr = 1;
+//				else incr = 0;
 				end
 			play_chomp: begin
 				
