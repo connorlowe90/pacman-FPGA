@@ -1,11 +1,21 @@
 module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW,
-					 CLOCK_50, VGA_R, VGA_G, VGA_B, VGA_BLANK_N, VGA_CLK, VGA_HS, VGA_SYNC_N, VGA_VS, PS2_DAT, PS2_CLK);
+					 CLOCK_50, VGA_R, VGA_G, VGA_B, VGA_BLANK_N, VGA_CLK,
+					 VGA_HS, VGA_SYNC_N, VGA_VS, PS2_DAT, PS2_CLK,
+					 CLOCK2_50, 
+						FPGA_I2C_SCLK, 
+						FPGA_I2C_SDAT, 
+						AUD_XCK, 
+						AUD_DACLRCK, 
+						AUD_ADCLRCK, 
+						AUD_BCLK, 
+						AUD_ADCDAT, 
+						AUD_DACDAT);
 	output logic [6:0] HEX0, HEX1, HEX2, HEX3, HEX4, HEX5;
 	output logic [9:0] LEDR;
 	input logic [3:0] KEY;
 	input logic [9:0] SW;
 
-	input CLOCK_50;
+	input CLOCK_50, CLOCK2_50;
 	output [7:0] VGA_R;
 	output [7:0] VGA_G;
 	output [7:0] VGA_B;
@@ -16,6 +26,12 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW,
 	output VGA_VS;
 	input PS2_DAT; 
 	input PS2_CLK;
+	output FPGA_I2C_SCLK;
+	inout FPGA_I2C_SDAT;
+	output AUD_XCK;
+	input AUD_DACLRCK, AUD_ADCLRCK, AUD_BCLK;
+	input AUD_ADCDAT;
+	output AUD_DACDAT;
 
 	logic reset; // reset vga_ctrl/keyboard control/pill counter
 	logic [9:0] x;
