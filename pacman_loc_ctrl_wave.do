@@ -15,14 +15,14 @@ add wave -noupdate -radix unsigned /pacman_loc_ctrl_testbench/next_pacman_y
 add wave -noupdate /pacman_loc_ctrl_testbench/dut/collision_type
 add wave -noupdate /pacman_loc_ctrl_testbench/dut/ps
 add wave -noupdate /pacman_loc_ctrl_testbench/dut/ns
-add wave -noupdate -radix unsigned /pacman_loc_ctrl_testbench/pill_count
+add wave -noupdate /pacman_loc_ctrl_testbench/pill_count
 add wave -noupdate -radix unsigned /pacman_loc_ctrl_testbench/dut/temp_next_pacman_y
 add wave -noupdate -radix unsigned /pacman_loc_ctrl_testbench/dut/temp_next_pacman_x
 add wave -noupdate /pacman_loc_ctrl_testbench/dut/collisions/ps
 add wave -noupdate /pacman_loc_ctrl_testbench/dut/collisions/ns
-add wave -noupdate /pacman_loc_ctrl_testbench/dut/collisions/reset
+add wave -noupdate /pacman_loc_ctrl_testbench/dut/collisions/next_pill_count
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {19992 ps} 0}
+WaveRestoreCursors {{Cursor 1} {20126 ps} 0}
 quietly wave cursor active 1
 configure wave -namecolwidth 150
 configure wave -valuecolwidth 100
