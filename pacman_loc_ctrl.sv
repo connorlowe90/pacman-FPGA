@@ -115,67 +115,50 @@ module pacman_loc_ctrl_testbench();
     initial begin
         reset <= 1; @(posedge CLOCK_50);
         reset <= 0; done <= 0; direction <= 4'b0000; @(posedge CLOCK_50);
-        direction <= 4'b1000; @(posedge CLOCK_50);
-        direction <= 4'b0000; @(posedge CLOCK_50);
-                              @(posedge CLOCK_50);
-                              @(posedge CLOCK_50);
-                              @(posedge CLOCK_50);
-                              @(posedge CLOCK_50);
-                              @(posedge CLOCK_50);
-                              @(posedge CLOCK_50);
-        done <= 1;            @(posedge CLOCK_50);
-        done <= 0; direction <= 4'b0100; @(posedge CLOCK_50);
-        direction <= 4'b0000; @(posedge CLOCK_50);
-                              @(posedge CLOCK_50);
-                              @(posedge CLOCK_50);
-                              @(posedge CLOCK_50);
-                              @(posedge CLOCK_50);
-
-        done <= 1;            @(posedge CLOCK_50);
-        done <= 0; direction <= 4'b0100; @(posedge CLOCK_50);
-        direction <= 4'b0000; @(posedge CLOCK_50);
-                              @(posedge CLOCK_50);
-                              @(posedge CLOCK_50);
-        done <= 1;            @(posedge CLOCK_50);
-        done <= 0; direction <= 4'b0100; @(posedge CLOCK_50);
-        direction <= 4'b0000; @(posedge CLOCK_50);
-                              @(posedge CLOCK_50);
-                              @(posedge CLOCK_50);
-        done <= 1;            @(posedge CLOCK_50);
-        done <= 0; direction <= 4'b0010; @(posedge CLOCK_50);
-        direction <= 4'b0000; @(posedge CLOCK_50);
-                              @(posedge CLOCK_50);
-                              @(posedge CLOCK_50);
-        done <= 1;            @(posedge CLOCK_50);
-        done <= 0; direction <= 4'b0001; @(posedge CLOCK_50);
-        direction <= 4'b0000; @(posedge CLOCK_50);
-                              @(posedge CLOCK_50);
-                              @(posedge CLOCK_50);
-        done <= 1;            @(posedge CLOCK_50);
-                              @(posedge CLOCK_50);
-                              @(posedge CLOCK_50);
-                              @(posedge CLOCK_50);
-                              @(posedge CLOCK_50);
-        done <= 0; direction <= 4'b0100; @(posedge CLOCK_50);
-        direction <= 4'b0000; @(posedge CLOCK_50);
-                              @(posedge CLOCK_50);
-                              @(posedge CLOCK_50);
-        done <= 1;            @(posedge CLOCK_50);
-        done <= 0; direction <= 4'b0010; @(posedge CLOCK_50);
-        direction <= 4'b0000; @(posedge CLOCK_50);
-                              @(posedge CLOCK_50);
-                              @(posedge CLOCK_50);
-        done <= 1;            @(posedge CLOCK_50);
-        done <= 0; direction <= 4'b0010; @(posedge CLOCK_50);
-        direction <= 4'b0000; @(posedge CLOCK_50);
-                              @(posedge CLOCK_50);
-                              @(posedge CLOCK_50);
-        done <= 1;            @(posedge CLOCK_50);
-        done <= 0; direction <= 4'b0001; @(posedge CLOCK_50);
-        direction <= 4'b0000; @(posedge CLOCK_50);
-                              @(posedge CLOCK_50);
-                              @(posedge CLOCK_50);
-        done <= 1;            @(posedge CLOCK_50);
+        for (int i = 0; i < 8; i ++) begin
+            direction <= 4'b0010; @(posedge CLOCK_50);
+            direction <= 4'b0000; @(posedge CLOCK_50);
+                                  @(posedge CLOCK_50);
+                                  @(posedge CLOCK_50);
+                                  @(posedge CLOCK_50);
+                                  @(posedge CLOCK_50);
+                                  @(posedge CLOCK_50);
+            done <= 1;            @(posedge CLOCK_50);
+            done <= 0;  @(posedge CLOCK_50);
+        end
+        for (int i = 0; i < 3; i ++) begin
+            direction <= 4'b0100; @(posedge CLOCK_50);
+            direction <= 4'b0000; @(posedge CLOCK_50);
+                                  @(posedge CLOCK_50);
+                                  @(posedge CLOCK_50);
+                                  @(posedge CLOCK_50);
+                                  @(posedge CLOCK_50);
+                                  @(posedge CLOCK_50);
+            done <= 1;            @(posedge CLOCK_50);
+            done <= 0;  @(posedge CLOCK_50);
+        end
+        for (int i = 0; i < 6; i ++) begin
+            direction <= 4'b0010; @(posedge CLOCK_50);
+            direction <= 4'b0000; @(posedge CLOCK_50);
+                                  @(posedge CLOCK_50);
+                                  @(posedge CLOCK_50);
+                                  @(posedge CLOCK_50);
+                                  @(posedge CLOCK_50);
+                                  @(posedge CLOCK_50);
+            done <= 1;            @(posedge CLOCK_50);
+            done <= 0;  @(posedge CLOCK_50);
+        end
+        for (int i = 0; i < 7; i ++) begin
+            direction <= 4'b0100; @(posedge CLOCK_50);
+            direction <= 4'b0000; @(posedge CLOCK_50);
+                                  @(posedge CLOCK_50);
+                                  @(posedge CLOCK_50);
+                                  @(posedge CLOCK_50);
+                                  @(posedge CLOCK_50);
+                                  @(posedge CLOCK_50);
+            done <= 1;            @(posedge CLOCK_50);
+            done <= 0;  @(posedge CLOCK_50);
+        end
         $stop;
     end
 endmodule

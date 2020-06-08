@@ -26,10 +26,12 @@ module collision_detect
 	
 	assign obj = map_word[159-(4*next_pacman_x+3)+:4]; // flip the left and right 
 	
+	logic pill_incr;
 	always_latch begin
 		// defaults
 		wren = 0; 
 		map_word2 = map_word;
+		pill_incr = 0;
 		case(ps)
 			hold: begin
 				 ns = compute_collision;
