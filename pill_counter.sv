@@ -1,9 +1,9 @@
-module pill_counter (CLOCK_50, reset, collision_type, hex1, hex2, hex3);
+module pill_counter (CLOCK_50, reset, collision_type, pill_count, hex1, hex2, hex3);
 	 input logic CLOCK_50, reset;
 	 input logic [3:0] collision_type;
+	 output logic [9:0] pill_count;
 	 output logic [6:0] hex1, hex2, hex3;
 	 
-	 logic [9:0] pill_count;
 	 logic [3:0] pc_ones, pc_tens, pc_hundreds;
 	 
 	 bcd_3b bcd (.binary(pill_count), .hundreds(pc_hundreds), .tens(pc_tens), .ones(pc_ones));
@@ -49,6 +49,7 @@ endmodule
 module pill_counter_testbench();
 	logic CLOCK_50, reset;
 	logic [3:0] collision_type;
+	logic [9:0] pill_count;
 	logic [6:0] hex1, hex2, hex3;
 	
 	// utilizing verilog's implicit port connection
