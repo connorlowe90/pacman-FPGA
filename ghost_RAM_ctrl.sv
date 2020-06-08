@@ -30,9 +30,9 @@ module ghost_RAM_ctrl(CLOCK_50, reset,
 
 	// write setup map info into the ghost_map
 	logic [319:0] wr_ghost_word;
-	logic [319:0] rd_ghost_word;
+	logic [319:0] rd_ghost_word, rd_ghost_reg;
 	logic wren;
-	assign data = rd_ghost_word[319-(8*rdaddr_x+7)+:8];
+	assign data = rd_ghost_reg[319-(8*rdaddr_x+7)+:8];
 
 	ghost_map_RAM ghost_map 
 				  (.address_a(glob_y), .address_b(rdaddr_y), .clock(CLOCK_50),
@@ -89,9 +89,11 @@ module ghost_RAM_ctrl(CLOCK_50, reset,
 			ps <= comp1;
 			glob_x <= 0; glob_y <= 0;
 			ready <= 0;
+			rd_ghost_reg <= 0;
 		end
 		else begin
 			ps <= ns;
+			rd_ghost_reg <= rd_ghost_word;
 			ready <= ready;
 			if (ps == comp2) begin
 				if (glob_x == 39) begin

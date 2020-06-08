@@ -1,13 +1,11 @@
 // This module helps ghosts find their smartest path to reach pacman given 
 // pacman's current location and ghost's current location
 module ghosts_loc_ctrl #(parameter DELAY= 50000000)
-		 (CLOCK_50, reset, enable, curr_pacman_x, curr_pacman_y, collision_type, pill_count,
+		 (CLOCK_50, reset, enable, curr_pacman_x, curr_pacman_y,
 		  wrdone, curr_ghost1_x, curr_ghost1_y, curr_ghost2_x, curr_ghost2_y,
 		  next_ghost1_x, next_ghost1_y, next_ghost2_x, next_ghost2_y);
 
 	input logic CLOCK_50, reset, enable; // enable signal use to activate/deactivate the movement of ghost
-	input logic [1:0] collision_type; 
-	input logic [32:0] pill_count; // current energy pill left
 	input logic wrdone;
 	input logic [5:0] curr_pacman_x;
 	input logic [4:0] curr_pacman_y;
@@ -21,9 +19,9 @@ module ghosts_loc_ctrl #(parameter DELAY= 50000000)
 
 	// possible next step options
 	logic [5:0] next_ghost1_x1, next_ghost1_x2, next_ghost1_x3, next_ghost1_x4,
-				next_ghost2_x1, next_ghost2_x2, next_ghost2_x3, next_ghost2_x4;
+				   next_ghost2_x1, next_ghost2_x2, next_ghost2_x3, next_ghost2_x4;
 	logic [4:0] next_ghost1_y1, next_ghost1_y2, next_ghost1_y3, next_ghost1_y4,
-				next_ghost2_y1, next_ghost2_y2, next_ghost2_y3, next_ghost2_y4;
+				   next_ghost2_y1, next_ghost2_y2, next_ghost2_y3, next_ghost2_y4;
 	// up one step
 	assign next_ghost1_x1 = curr_ghost1_x;
 	assign next_ghost1_y1 = curr_ghost1_y - 1;
@@ -45,8 +43,8 @@ module ghosts_loc_ctrl #(parameter DELAY= 50000000)
 	assign next_ghost2_x4 = curr_ghost2_x + 1;
 	assign next_ghost2_y4 = curr_ghost2_y;
 
-	enum {init, check1_1, check1_2, check1_3, check1_4,
-		  check2_1, check2_2, check2_3, check2_4, done, wait_init} ps, ns;
+	enum {init, check1_1_hold, check1_1, check1_2_hold, check1_2, check1_3_hold, check1_3, check1_4_hold, check1_4,
+		  check2_1_hold, check2_1, check2_2_hold, check2_2, check2_3_hold, check2_3, check2_4_hold, check2_4, done} ps, ns;
 	// counter system
 	parameter MAX = DELAY; // 50M reduce the ghost speed to 1Hz 
 	parameter size = $clog2(MAX);
@@ -78,7 +76,7 @@ module ghosts_loc_ctrl #(parameter DELAY= 50000000)
 		case(ps) 
 			init: begin
 				if (ready & enable) begin
-					ns = check1_1;
+					ns = check1_1_hold;
 				end
 				else ns = init;
 				// rdaddr_x = next_ghost1_x1;
@@ -91,8 +89,13 @@ module ghosts_loc_ctrl #(parameter DELAY= 50000000)
 				next_ghost2_min_y = curr_ghost2_y;
 				next_ghost2_min_val = 254;
 			end
+			check1_1_hold: begin
+				ns = check1_1;
+				rdaddr_x = next_ghost1_x1;
+				rdaddr_y = next_ghost1_y1;
+			end
 			check1_1: begin // check up 
-				ns = check1_2;
+				ns = check1_2_hold;
 				// next_ghost1_val1 = data;
 				rdaddr_x = next_ghost1_x1;
 				rdaddr_y = next_ghost1_y2;
@@ -102,8 +105,13 @@ module ghosts_loc_ctrl #(parameter DELAY= 50000000)
 					next_ghost1_min_val = data;
 				end
 			end
+			check1_2_hold: begin
+				ns = check1_2;
+				rdaddr_x = next_ghost1_x2;
+				rdaddr_y = next_ghost1_y2;
+			end
 			check1_2: begin // check down (change y from previous state)
-				ns = check1_3;
+				ns = check1_3_hold;
 				// next_ghost1_val2 = data;
 				rdaddr_x = next_ghost1_x2;
 				rdaddr_y = next_ghost1_y3;
@@ -113,8 +121,13 @@ module ghosts_loc_ctrl #(parameter DELAY= 50000000)
 					next_ghost1_min_val = data;
 				end
 			end
+			check1_3_hold: begin
+				ns = check1_3;
+				rdaddr_x = next_ghost1_x3;
+				rdaddr_y = next_ghost1_y3;
+			end
 			check1_3: begin // check left (change y from previous state)
-				ns = check1_4;
+				ns = check1_4_hold;
 				// next_ghost1_val3 = data;
 				rdaddr_x = next_ghost1_x3;
 				rdaddr_y = next_ghost1_y4;
@@ -124,8 +137,13 @@ module ghosts_loc_ctrl #(parameter DELAY= 50000000)
 					next_ghost1_min_val = data;
 				end
 			end
+			check1_4_hold:begin
+				ns = check1_4;
+				rdaddr_x = next_ghost1_x4;
+				rdaddr_y = next_ghost1_y4;
+			end
 			check1_4: begin // check right (does not change y from previous state)
-				ns = check2_1; 
+				ns = check2_1_hold; 
 				// next_ghost1_val4 = data;
 				rdaddr_x = next_ghost1_x4;
 				rdaddr_y = next_ghost2_y1;
@@ -135,8 +153,13 @@ module ghosts_loc_ctrl #(parameter DELAY= 50000000)
 					next_ghost1_min_val = data;
 				end
 			end
+			check2_1_hold: begin
+				ns = check2_1;
+				rdaddr_x = next_ghost2_x1;
+				rdaddr_y = next_ghost2_y1;
+			end
 			check2_1: begin // check up (change y from previous state)
-				ns = check2_2;
+				ns = check2_2_hold;
 				// next_ghost2_val1 = data;
 				rdaddr_x = next_ghost2_x1;
 				rdaddr_y = next_ghost2_y2;
@@ -146,8 +169,13 @@ module ghosts_loc_ctrl #(parameter DELAY= 50000000)
 					next_ghost2_min_val = data;
 				end
 			end
+			check2_2_hold: begin
+				ns = check2_2;
+				rdaddr_x = next_ghost2_x2;
+				rdaddr_y = next_ghost2_y2;
+			end
 			check2_2: begin // check down (change y from previous state)
-				ns = check2_3; 
+				ns = check2_3_hold; 
 				// next_ghost2_val2 = data;
 				rdaddr_x = next_ghost2_x2;
 				rdaddr_y = next_ghost2_y3;
@@ -157,16 +185,27 @@ module ghosts_loc_ctrl #(parameter DELAY= 50000000)
 					next_ghost2_min_val = data;
 				end
 			end
+			check2_3_hold: begin
+				ns = check2_3;
+				rdaddr_x = next_ghost2_x3;
+				rdaddr_y = next_ghost2_y3;
+			end
 			check2_3: begin // check left (change y from previous state)
-				ns = check2_4; 
+				ns = check2_4_hold; 
 				// next_ghost2_val3 = data;
 				rdaddr_x = next_ghost2_x3;
 				rdaddr_y = next_ghost2_y4;
 				if (data < next_ghost2_min_val) begin
+					$display("data = %d, %t", data, $time());
 					next_ghost2_min_x = next_ghost2_x3;
 					next_ghost2_min_y = next_ghost2_y3;
 					next_ghost2_min_val = data;
 				end
+			end
+			check2_4_hold: begin
+				ns = check2_4;
+				rdaddr_x = next_ghost2_x4;
+				rdaddr_y = next_ghost2_y4;
 			end
 			check2_4: begin // check right (doesn't change y from previous state)
 				ns = done;
@@ -179,59 +218,6 @@ module ghosts_loc_ctrl #(parameter DELAY= 50000000)
 					next_ghost2_min_val = data;
 				end
 			end
-			// done: begin
-			// 	ns = wait_init;
-			// 	// logic that decides ghost1's next step
-			// 	if ((next_ghost1_val1 < next_ghost1_val2) & 
-			// 		(next_ghost1_val1 < next_ghost1_val3) & 
-			// 		(next_ghost1_val1 < next_ghost1_val4)) begin
-			// 			next_ghost1_min_x = next_ghost1_x1;
-			// 			next_ghost1_min_y = next_ghost1_y1;
-			// 		end
-			// 	else if ((next_ghost1_val2 < next_ghost1_val1) & 
-			// 			 (next_ghost1_val2 < next_ghost1_val3) & 
-			// 			 (next_ghost1_val2 < next_ghost1_val4)) begin
-			// 				next_ghost1_min_x = next_ghost1_x2;
-			// 				next_ghost1_min_y = next_ghost1_y2;
-			// 			end
-			// 	else if ((next_ghost1_val3 < next_ghost1_val1) & 
-			// 			 (next_ghost1_val3 < next_ghost1_val2) & 
-			// 			 (next_ghost1_val3 < next_ghost1_val4)) begin
-			// 				next_ghost1_min_x = next_ghost1_x3;
-			// 				next_ghost1_min_y = next_ghost1_y3;
-			// 			end
-			// 	else if ((next_ghost1_val4 < next_ghost1_val1) & 
-			// 			 (next_ghost1_val4 < next_ghost1_val2) & 
-			// 			 (next_ghost1_val4 < next_ghost1_val3)) begin
-			// 				next_ghost1_min_x = next_ghost1_x4;
-			// 				next_ghost1_min_y = next_ghost1_y4;
-			// 			end
-			// 	// logic that decides ghost2's next step
-			// 	if ((next_ghost2_val1 < next_ghost2_val2) & 
-			// 		 (next_ghost2_val1 < next_ghost2_val3) & 
-			// 	    (next_ghost2_val1 < next_ghost2_val4)) begin
-			// 			next_ghost2_min_x = next_ghost2_x1;
-			// 			next_ghost2_min_y = next_ghost2_y1;
-			// 		end
-			// 	else if ((next_ghost2_val2 < next_ghost2_val1) & 
-			// 			   (next_ghost2_val2 < next_ghost2_val3) & 
-			// 			   (next_ghost2_val2 < next_ghost2_val4)) begin
-			// 			 	next_ghost2_min_x = next_ghost2_x2;
-			// 				next_ghost2_min_y = next_ghost2_y2;
-			// 			end
-			// 	else if ((next_ghost2_val3 < next_ghost2_val1) & 
-			// 			 (next_ghost2_val3 < next_ghost2_val2) & 
-			// 			 (next_ghost2_val3 < next_ghost2_val4)) begin
-			// 				next_ghost2_min_x = next_ghost2_x3;
-			// 				next_ghost2_min_y = next_ghost2_y3;
-			// 			end
-			// 	else if ((next_ghost2_val4 < next_ghost2_val1) & 
-			// 			 (next_ghost2_val4 < next_ghost2_val2) & 
-			// 			 (next_ghost2_val4 < next_ghost2_val3)) begin
-			// 				next_ghost2_min_x = next_ghost2_x4;
-			// 				next_ghost2_min_y = next_ghost2_y4;
-			// 			end
-			// end
 			 done: begin
 				if (count == 0) ns = init;
 				else ns = done;
@@ -309,7 +295,7 @@ module ghosts_loc_ctrl_testbench();
 	logic [5:0] curr_ghost1_x, curr_ghost2_x;
 	logic [4:0] curr_ghost1_y, curr_ghost2_y;
 
-	parameter DELAY = 2413;
+	parameter DELAY = 2400;
 	ghosts_loc_ctrl #(DELAY) dut (.*);
 	parameter CLOCK_PERIOD = 100;
 	initial begin
@@ -320,47 +306,16 @@ module ghosts_loc_ctrl_testbench();
 	initial begin
 		reset <= 1; enable <= 1; @(posedge CLOCK_50);
 		curr_pacman_x <= 20; curr_pacman_y <= 20; reset <= 0; @(posedge CLOCK_50);
-		for (int i = 0; i < 2400; i ++) begin
+		for (int tot = 0; tot < 25; tot ++) begin
+			for (int i = 0; i < 2400; i ++) begin
 			@(posedge CLOCK_50);
+			end
+			for (int i = 0; i < 11; i ++) begin
+				@(posedge CLOCK_50);
+			end
+			wrdone <= 1; @(posedge CLOCK_50);
+			wrdone <= 0; @(posedge CLOCK_50);
 		end
-		for (int i = 0; i < 11; i ++) begin
-			@(posedge CLOCK_50);
-		end
-		wrdone <= 1; @(posedge CLOCK_50);
-		wrdone <= 0; @(posedge CLOCK_50);
-		for (int i = 0; i < 2400; i ++) begin
-			@(posedge CLOCK_50);
-		end
-		for (int i = 0; i < 11; i ++) begin
-			@(posedge CLOCK_50);
-		end
-		wrdone <= 1; @(posedge CLOCK_50);
-		wrdone <= 0; @(posedge CLOCK_50);
-		for (int i = 0; i < 2400; i ++) begin
-			@(posedge CLOCK_50);
-		end
-		wrdone <= 1; @(posedge CLOCK_50);
-		wrdone <= 0; @(posedge CLOCK_50);
-		for (int i = 0; i < 2400; i ++) begin
-			@(posedge CLOCK_50);
-		end
-		wrdone <= 1; @(posedge CLOCK_50);
-		wrdone <= 0; @(posedge CLOCK_50);
-		for (int i = 0; i < 2400; i ++) begin
-			@(posedge CLOCK_50);
-		end
-		wrdone <= 1; @(posedge CLOCK_50);
-		wrdone <= 0; @(posedge CLOCK_50);
-		for (int i = 0; i < 2400; i ++) begin
-			@(posedge CLOCK_50);
-		end
-		wrdone <= 1; @(posedge CLOCK_50);
-		wrdone <= 0; @(posedge CLOCK_50);
-		for (int i = 0; i < 2400; i ++) begin
-			@(posedge CLOCK_50);
-		end
-		wrdone <= 1; @(posedge CLOCK_50);
-		wrdone <= 0; @(posedge CLOCK_50);
 		$stop;
 	end
 endmodule
