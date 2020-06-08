@@ -1,4 +1,4 @@
-module playAudio(start, chomp, eatghost, death, reset,
+module playAudio(chomp, eatghost, reset,
 						CLOCK_50, 
 						CLOCK2_50, 
 						FPGA_I2C_SCLK, 
@@ -9,11 +9,9 @@ module playAudio(start, chomp, eatghost, death, reset,
 						AUD_BCLK, 
 						AUD_ADCDAT, 
 						AUD_DACDAT);
-	input logic start;
 	input logic reset;
 	input logic chomp;
 	input logic eatghost;
-	input logic death;
 	input logic CLOCK_50, CLOCK2_50;
 	input logic AUD_DACLRCK, AUD_ADCLRCK, AUD_BCLK;
 	input logic AUD_ADCDAT;
@@ -22,89 +20,134 @@ module playAudio(start, chomp, eatghost, death, reset,
 	output logic AUD_DACDAT;
 	output logic AUD_XCK;
 	
+	logic signed [23:0]  data, dataChomp;
 	logic read_ready, read, write, write_ready;
 	logic [23:0] readdata_left, readdata_right;
 	logic [23:0] writedata_left, writedata_right;
 	assign writedata_right = writedata_left;
-	assign writedata_left = data;
 	
 	logic [23:0]readdata_leftout;
 	logic [23:0]readdata_rightout;
 	
-	enum {hold, play_start, play_chomp, 
-			play_eatghost, play_death} ps, ns;
-	
-	//assign writedata_left = (q)? readdata_leftout: 0;
-	//assign writedata_right = (q)? readdata_rightout: 0;
 	assign read = read_ready;			
 	assign write = write_ready;
 	
 	logic [15:0]  address;
-	logic [7:0]  data;
 	
-	// utilizing verilog's implicit port connections
-	musicRom dut (.address(address), .clock(CLOCK_50), .q(data));
 	
-	/* Your code goes here */
-//	assign writedata_left = (write_ready)? readdata_left: 0;
-//	assign writedata_right = (write_ready)? readdata_right: 0;
 	
-	parameter MAX = 50000; // 50M reduce the ghost speed to 1Hz 
-	parameter size = $clog2(MAX);
-	logic [size-1:0] count;
+//	parameter MAX = 50000; // 50M reduce the ghost speed to 1Hz 
+//	parameter size = $clog2(MAX);
+//	logic [size-1:0] count;
+//	logic clk_reset;
+//	logic incr;
+//	counter3 #(MAX) c (.CLOCK_50(CLOCK_50), .reset(clk_reset), .incr(incr), .count(count));
+	
 	logic clk_reset;
-	logic incr;
-	counter3 #(MAX) c (.CLOCK_50(CLOCK_50), .reset(clk_reset), .incr(incr), .count(count));
+	parameter MAX = 12500000; // 50M reduce the ghost speed to 1Hz 
+	parameter size = $clog2(MAX);
+	logic [size-1:0] count2;
+	counter2 #(MAX) cWait (.CLOCK_50(CLOCK_50), .reset(chomp), .count(count));
 	
-	parameter MAX2 = 5; // 50M reduce the ghost speed to 1Hz 
-	parameter size2 = $clog2(MAX2);
-	logic [size2-1:0] count2;
-	counter #(MAX2) cWait (.CLOCK_50(CLOCK_50), .reset(reset), .count(count2));
+	parameter HALF_PERIOD = 454545;
+	parameter size_c = $clog2(HALF_PERIOD);
+	logic [size_c-1:0] cch_count;
+	counter #(HALF_PERIOD) cchomp (.CLOCK_50(CLOCK_50), .reset(reset), .count(cch_count)); 
 	
-	assign address = count;
+//	logic clk2_reset;
+//	parameter MAX2 = 454545; // 50M reduce the ghost speed to 1Hz 
+//	parameter size2 = $clog2(MAX2);
+//	logic [size2-1:0] count2;
+//	counter #(MAX2) cWait (.CLOCK_50(CLOCK_50), .reset(clk2_reset), .count(count2));
+//	
+//   dataChomp <= 4000000;
+//	
+//   forever #(454545) dataChomp <= -dataChomp;
 
+	 
+	assign writedata_left = (count > 0) ? dataChomp : 0;  
 	
-	always_latch begin
-		clk_reset = 0;
-		incr = 0;
-		case (ps) 
-			hold: begin
-				if (start) begin
-					ns = play_start;
-					clk_reset = 1;
-					end
-				else if (chomp) ns = play_chomp;
-				else if (eatghost) ns = play_eatghost;
-				else if (death) ns = play_death;
-				else ns = hold;
-				end
-			play_start: begin
-				if (count == MAX) ns = hold;
-				else begin
-					ns = play_start;
-					end
-				incr = 1;
-//				if (count2 == 0) incr = 1;
-//				else incr = 0;
-				end
-			play_chomp: begin
-				
-				
-				end
-			play_eatghost: begin
-				
-				
-				end
-			play_death: begin
-			
-				
-				end
+	enum {pos, neg} ps, ns;
+	always_comb begin
+		case(ps)
+			pos: begin
+				if (cch_count == 0) ns = neg;
+				else ns = pos;
+				dataChomp = 4000000;
+			end
+			neg: begin
+				if (cch_count == 0) ns = pos;
+				else ns = neg;
+				dataChomp = -4000000;
+			end
 		endcase
-		
 	end
 	
+	//assign address = count;
+
+//	enum {hold, wait_play_start, wait_play_start2, play_start, play_start2, play_chomp, 
+//			play_eatghost, play_death} ps, ns;
+//	
+//	always_latch begin
+//		clk_reset = 0;
+//		incr = 0;
+//		case (ps) 
+//			hold: begin
+//				if (chomp) begin
+//					ns = wait_play_start;
+//					clk2_reset = 1;
+//					end
+//				else if (eatghost) ns = play_eatghost;
+//				else ns = hold;
+//				end
+//			wait_play_start: begin
+//				ns = play_start;
+//			end
+//			play_start: begin
+//				if (count2 == 0) begin
+//					ns = wait_play_start2;
+//					clk2_reset = 1;
+//					end
+//				else begin
+//					ns = play_start;
+//					end
+//				dataChomp = 4000000;
+//				end
+//			wait_play_start2: begin
+//				ns = play_start2;
+//			end
+//			play_start2: begin
+//				if (count2 == 0) begin
+//					ns = wait_play_start;
+//					clk2_reset = 1;
+//					end
+//				else begin
+//					ns = play_start2;
+//					end
+//				dataChomp = -4000000;
+//				end
+//			play_chomp: begin
+//				
+//				
+//				end
+//			play_eatghost: begin
+//				
+//				
+//				end
+//			play_death: begin
+//			
+//				
+//				end
+//		endcase
+//		if (chomp) begin
+//			writedata_left = dataChomp;
+//			clk_reset = 1;
+//			end
+//		else  writedata_left = 0;
+//	end
+	
 	always_ff @(posedge CLOCK_50) begin
-	 if (reset) ps <= hold;
+	 if (reset) ps <= pos;
 	 else ps <= ns;
 	end
 	
@@ -169,7 +212,7 @@ module playAudio_testbench();
 		reset = 0; 					 @(posedge CLOCK_50);
 		start = 1;					 @(posedge CLOCK_50);
 		start = 0; 					 @(posedge CLOCK_50);
-		for(int i = 0; i < 100000; i++) @(posedge CLOCK_50);
+		for(int i = 0; i < 1000000; i++) @(posedge CLOCK_50);
 		$stop;
 	end
 endmodule 
