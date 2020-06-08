@@ -24,6 +24,7 @@ vlog "./collision_detect.sv"
 vlog "./map_simp_RAM.v"
 vlog "./filter_input.sv"
 vlog "./ghosts_ai.sv"
+vlog "./ghosts_ai2.sv"
 vlog "./bcd_3b.v"
 vlog "./bcd_3b_testbench.sv"
 vlog "./hexto7segment.sv" 	
@@ -36,16 +37,17 @@ vlog "./audio_codec.v"
 vlog "./Altera_UP*"
 vlog "./musicROM.v"
 vlog "./counter3.sv"
+vlog "./counter2.sv"
 
 # Call vsim to invoke simulator
 #     Make sure the last item on the line is the name of the
 #     testbench module you want to execute.
-vsim -voptargs="+acc" -t 1ps -lib work playAudio_testbench -Lf altera_mf_ver
+vsim -voptargs="+acc" -t 1ps -lib work bcd_3b_testbench -Lf altera_mf_ver
 
 # Source the wave do file
 #     This should be the file that sets up the signal window for
 #     the module you are testing.
-do playAudio_wave.do
+do bcd_3b_wave.do
 
 # Set the window types
 view wave
