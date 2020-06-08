@@ -130,7 +130,7 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW,
 	logic start;
 	logic [2:0] lives;
 	assign start = SW[9];
-	enum {init, game, resume ,over} ps, ns;
+	enum {init, game, game_resume ,game_over, game_win} ps, ns;
 
 	// counter that counts time before resume to game state
 	parameter resume_delay = 250000000; // 5 second 
@@ -138,12 +138,16 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW,
 	logic resume_reset;
 	logic [resume_size-1:0] resume_count;
 	counter #(resume_delay) resume_counter (.CLOCK_50(CLOCK_50), .reset(resume_reset), .count(resume_count));
-	
+	logic [9:0] dot_count; // current number of dots
+	logic win;
+	assign win = (dot_count == 10'd309);
 	always_comb begin
 		resume_reset = 0;
+		dot_counter_reset = 0;
 		case(ps)
 			init: begin
 				sprit_reset = 1;
+				dot_counter_reset = 1;
 				reset = 1;
 				map_wr_reset = 1;
 				ghost_enable = 0;
@@ -156,34 +160,45 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW,
 				map_wr_reset = 0;
 				ghost_enable = 1;
 				if ((pg_collision) & (lives > 1) & (pill_count == 0)) begin
-					ns = resume;
+					ns = game_resume;
 					resume_reset = 1;
 					map_wr_reset = 1;
 				end
-				else if ((pg_collision) & (lives == 1) & (pill_count == 0)) ns = over;
+				else if ((pg_collision) & (lives == 1) & (pill_count == 0)) ns = game_over;
+				else if (win) ns = game_win;
 				else ns = game;
 			end
-			resume: begin
+			game_resume: begin
 				reset <= 0;
+				dot_counter_reset = 1;
 				sprit_reset = 1;
 				map_wr_reset = 0;
 				ghost_enable = 0;
 				if (resume_count == 0) ns = game;
-				else ns = resume;
+				else ns = game_resume;
 			end
-			over: begin
+			game_over: begin
 				sprit_reset = 0;
 				ghost_enable = 0;
 				reset = 0;
 				map_wr_reset = 1;
-				ns = over;
+				ns = game_over;
+			end
+			game_win: begin
+				reset = 0;
+				sprit_reset = 0;
+				ghost_enable = 0;
+				map_wr_reset = 0;
+				ns = game_win;
 			end
 		endcase
 	end
 	
 	
+	
 	// display of number of dots eaten
-	pill_counter dot_counter (.CLOCK_50(CLOCK_50), .reset(reset), .collision_type(collision_type), .hex1(HEX5), .hex2(HEX4), .hex3(HEX3));
+	logic dot_counter_reset;
+	pill_counter dot_counter (.CLOCK_50(CLOCK_50), .reset(dot_counter_reset), .collision_type(collision_type), .pill_count(dot_count), .hex1(HEX5), .hex2(HEX4), .hex3(HEX3));
 	assign HEX1 = '1;
 	assign HEX2 = '1;
 
