@@ -19,9 +19,9 @@ module ghosts_ai #(parameter DELAY= 50000000)
 
 	// possible next step options
 	logic [5:0] next_ghost1_x1, next_ghost1_x2, next_ghost1_x3, next_ghost1_x4,
-				   next_ghost2_x1, next_ghost2_x2, next_ghost2_x3, next_ghost2_x4;
+				next_ghost2_x1, next_ghost2_x2, next_ghost2_x3, next_ghost2_x4;
 	logic [4:0] next_ghost1_y1, next_ghost1_y2, next_ghost1_y3, next_ghost1_y4,
-				   next_ghost2_y1, next_ghost2_y2, next_ghost2_y3, next_ghost2_y4;
+				next_ghost2_y1, next_ghost2_y2, next_ghost2_y3, next_ghost2_y4;
 	// up one step
 	assign next_ghost1_x1 = curr_ghost1_x;
 	assign next_ghost1_y1 = curr_ghost1_y - 1;
@@ -44,9 +44,9 @@ module ghosts_ai #(parameter DELAY= 50000000)
 	assign next_ghost2_y4 = curr_ghost2_y;
 
 	enum {init, check1_1_hold1, check1_1_hold2, check1_1, check1_2_hold1, check1_2_hold2, check1_2,
-          check1_3_hold1, check1_3_hold2, check1_3, check1_4_hold1, check1_4_hold2, check1_4,
-          check2_1_hold1, check2_1_hold2, check2_1, check2_2_hold1, check2_2_hold2, check2_2, 
-          check2_3_hold1, check2_3_hold2, check2_3, check2_4_hold1, check2_4_hold2, check2_4, done} ps, ns;
+				check1_3_hold1, check1_3_hold2, check1_3, check1_4_hold1, check1_4_hold2, check1_4,
+				check2_1_hold1, check2_1_hold2, check2_1, check2_2_hold1, check2_2_hold2, check2_2, 
+				check2_3_hold1, check2_3_hold2, check2_3, check2_4_hold1, check2_4_hold2, check2_4, done} ps, ns;
 
 	// counter system
 	parameter MAX = DELAY; // 50M reduce the ghost speed to 1Hz 
@@ -91,13 +91,13 @@ module ghosts_ai #(parameter DELAY= 50000000)
 				else ns = init;
 				rdaddr_x = next_ghost1_x1;
 				rdaddr_y = next_ghost1_y1;
-                x_diff = (curr_ghost1_x > curr_pacman_x) ? (curr_ghost1_x - curr_pacman_x) : (curr_pacman_x - curr_ghost1_x);
-				y_diff = (curr_ghost1_y > curr_pacman_y) ? (curr_ghost1_y - curr_pacman_y) : (curr_pacman_y - curr_ghost1_y);
+                // x_diff = (curr_ghost1_x > curr_pacman_x) ? (curr_ghost1_x - curr_pacman_x) : (curr_pacman_x - curr_ghost1_x);
+				// y_diff = (curr_ghost1_y > curr_pacman_y) ? (curr_ghost1_y - curr_pacman_y) : (curr_pacman_y - curr_ghost1_y);
 				next_ghost1_min_val = 8'd255;
                 next_ghost1_min_x = curr_ghost1_x;
                 next_ghost1_min_y = curr_ghost1_y;
-                x_diff = (curr_ghost2_x > curr_pacman_x) ? (curr_ghost2_x - curr_pacman_x) : (curr_pacman_x - curr_ghost2_x);
-				y_diff = (curr_ghost2_y > curr_pacman_y) ? (curr_ghost2_y - curr_pacman_y) : (curr_pacman_y - curr_ghost2_y);
+                // x_diff = (curr_ghost2_x > curr_pacman_x) ? (curr_ghost2_x - curr_pacman_x) : (curr_pacman_x - curr_ghost2_x);
+				// y_diff = (curr_ghost2_y > curr_pacman_y) ? (curr_ghost2_y - curr_pacman_y) : (curr_pacman_y - curr_ghost2_y);
 				next_ghost2_min_val = 8'd255;
                 next_ghost2_min_x = curr_ghost2_x;
                 next_ghost2_min_y = curr_ghost2_y;
