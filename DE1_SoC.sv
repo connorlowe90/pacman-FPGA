@@ -56,10 +56,10 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW,
 					.VGA_R(VGA_R), .VGA_G(VGA_G), .VGA_B(VGA_B), .VGA_BLANK_N(VGA_BLANK_N),
 					.VGA_CLK(VGA_CLK), .VGA_HS(VGA_HS), .VGA_SYNC_N(VGA_SYNC_N), .VGA_VS(VGA_VS));
 
-	logic makeBreak;
-	logic [7:0] scan_code;		
-	assign LEDR[1] = makeBreak;
-	assign LEDR[3] = PS2_DAT;
+	// logic makeBreak;
+	// logic [7:0] scan_code;		
+	// assign LEDR[1] = makeBreak;
+	// assign LEDR[3] = PS2_DAT;
 	// PS2 keyboard control system
 	// keyboard_press_driver keyboard_driver (.CLOCK_50(CLOCK_50), .valid(), 
 	// 									   .makeBreak(makeBreak), .outCode(scan_code), 
@@ -76,7 +76,6 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW,
 	logic [159:0] redata, wrdata;
 	logic wren;
 	logic [4:0] wraddr;
-	logic [3:0] collision_type;
 	logic [32:0] pill_count;
 	logic [5:0] next_ghost1_x, next_ghost2_x, curr_ghost1_x, curr_ghost2_x;
 	logic [4:0] next_ghost1_y, next_ghost2_y, curr_ghost1_y, curr_ghost2_y;	
@@ -99,13 +98,13 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW,
 	logic ghost_reset;
 	logic ghost_enable;
 	assign ghost_enable = SW[1];
-	ghosts_loc_ctrl ghost_loc (.CLOCK_50(CLOCK_50), .reset(reset), .enable(ghost_enable),
-						       .curr_pacman_x(curr_pacman_x), .curr_pacman_y(curr_pacman_y), 
-							   .collision_type(collision_type), .pill_count(pill_count), .wrdone(ghost_done), 
+	ghosts_ai ghost_loc (.CLOCK_50(CLOCK_50), .reset(reset), .enable(ghost_enable),
+						       .curr_pacman_x(curr_pacman_x), .curr_pacman_y(curr_pacman_y), .wrdone(ghost_done), 
 							   .curr_ghost1_x(curr_ghost1_x), .curr_ghost1_y(curr_ghost1_y), 
 							   .curr_ghost2_x(curr_ghost2_x), .curr_ghost2_y(curr_ghost2_y),
 							   .next_ghost1_x(next_ghost1_x), .next_ghost1_y(next_ghost1_y), 
 							   .next_ghost2_x(next_ghost2_x), .next_ghost2_y(next_ghost2_y));
+
 
 	logic map_wr_reset; 
 	map_RAM_writer map_ram_wr (.CLOCK_50(CLOCK_50), .reset(map_wr_reset),
@@ -113,10 +112,11 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW,
 							  	   .next_pacman_x(next_pacman_x), .next_pacman_y(next_pacman_y), 
 							  	   .curr_ghost1_x(curr_ghost1_x), .curr_ghost1_y(curr_ghost1_y), 
 							  	   .next_ghost1_x(next_ghost1_x), .next_ghost1_y(next_ghost1_y), 
-                     		  	   .curr_ghost2_x(curr_ghost2_x), .curr_ghost2_y(curr_ghost2_y),
+                     	   .curr_ghost2_x(curr_ghost2_x), .curr_ghost2_y(curr_ghost2_y),
 							  	   .next_ghost2_x(next_ghost2_x), .next_ghost2_y(next_ghost2_y),
 							  	   .redata(redata), .wren(wren), .pac_done(pac_done), .ghost_done(ghost_done),
 							  	   .wraddr(wraddr), .wrdata(wrdata));
+
 
 	
 	logic start;

@@ -205,8 +205,8 @@ module map_RAM_writer_testbench();
     pacman_loc_ctrl pac_loc (.CLOCK_50, .reset(reset), .done(pac_done), .up(up), .down(down), .left(left), .right(right), .pill_count(pill_count),
                              .curr_pacman_x(curr_pacman_x), .curr_pacman_y(curr_pacman_y), .next_pacman_x(next_pacman_x), .next_pacman_y(next_pacman_y));
 
-    parameter DELAY = 2413;
-    ghosts_loc_ctrl #(DELAY) ghost_loc
+    parameter DELAY = 100;
+    ghosts_ai #(DELAY) ghost_loc
                     (.CLOCK_50, .reset, .enable, .curr_pacman_x, .curr_pacman_y,
                      .wrdone(ghost_done), .curr_ghost1_x, .curr_ghost1_y, .curr_ghost2_x, .curr_ghost2_y,
                      .next_ghost1_x, .next_ghost1_y, .next_ghost2_x, .next_ghost2_y);
@@ -220,20 +220,21 @@ module map_RAM_writer_testbench();
 
     initial begin
         
-        enable <= 1; reset <= 1; @(posedge CLOCK_50);
+        enable <= 0; reset <= 1; @(posedge CLOCK_50);
         // eset <= 0; direction <= 4'b0010; @(posedge CLOCK_50);
         direction <= 4'b0000; @(posedge CLOCK_50);
         reset <= 0; @(posedge CLOCK_50);
 		  for (int i = 0; i < 61; i ++ ) begin
 				@(posedge CLOCK_50);
 		  end
-		for (int i = 0; i < 240000; i ++) begin
-			@(posedge CLOCK_50);
-		end
-		for (int i = 0; i < 11; i ++) begin
-			@(posedge CLOCK_50);
+        enable <= 1; @(posedge CLOCK_50);
+        for (int j = 0; j < 25; j ++) begin
+            for (int i = 0; i < 100; i ++) begin
+                @(posedge CLOCK_50);
+            end
+            
+            
         end
-        
         
         direction <= 4'b0010; @(posedge CLOCK_50);
         direction <= 4'b0000; @(posedge CLOCK_50);
