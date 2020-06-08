@@ -56,13 +56,13 @@ module ghosts_ai #(parameter DELAY= 50000000)
 	counter #(MAX) c (.CLOCK_50(CLOCK_50), .reset(clk_reset), .count(count));
 	assign clk_reset = (ps == init);
 	
-	counter #(MAX2) c2 (.CLOCK_50(CLOCK_50), .reset(ghostCollision1), .count(count2));
+	counter2 #(MAX2) c2 (.CLOCK_50(CLOCK_50), .reset(ghostCollision1), .count(count2));
 	parameter MAX2 = 100000000; // 50M reduce the ghost speed to 1Hz 
 	parameter size2 = $clog2(MAX2);
 	logic [size2-1:0] count2;
 	logic clk2_reset;
 	
-	counter #(MAX2) c3 (.CLOCK_50(CLOCK_50), .reset(ghostCollision2), .count(count3));
+	counter2 #(MAX2) c3 (.CLOCK_50(CLOCK_50), .reset(ghostCollision2), .count(count3));
 	logic [size2-1:0] count3;
 
 	// global x/y that acquires basic map info from main map
