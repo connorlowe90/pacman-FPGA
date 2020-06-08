@@ -207,9 +207,11 @@ module map_RAM_writer_testbench();
 
     parameter DELAY = 100;
     ghosts_ai #(DELAY) ghost_loc
-                    (.CLOCK_50, .reset, .enable, .curr_pacman_x, .curr_pacman_y,
-                     .wrdone(ghost_done), .curr_ghost1_x, .curr_ghost1_y, .curr_ghost2_x, .curr_ghost2_y,
-                     .next_ghost1_x, .next_ghost1_y, .next_ghost2_x, .next_ghost2_y);
+                    (.CLOCK_50(CLOCK_50), .reset(reset), .enable(enable), .curr_pacman_x(curr_pacman_x), .curr_pacman_y(curr_pacman_y),
+                     .wrdone(ghost_done), .curr_ghost1_x(curr_ghost1_x), .curr_ghost1_y(curr_ghost1_y), 
+							.curr_ghost2_x(curr_ghost2_x), .curr_ghost2_y(curr_ghost2_y),
+                     .next_ghost1_x(next_ghost1_x), .next_ghost1_y(next_ghost1_y), 
+							.next_ghost2_x(next_ghost2_x), .next_ghost2_y(next_ghost2_y));
     map_RAM_writer dut (.*);
 
     parameter CLOCK_PERIOD = 100;

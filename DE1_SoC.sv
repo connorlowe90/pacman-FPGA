@@ -50,17 +50,17 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW,
 					.VGA_R(VGA_R), .VGA_G(VGA_G), .VGA_B(VGA_B), .VGA_BLANK_N(VGA_BLANK_N),
 					.VGA_CLK(VGA_CLK), .VGA_HS(VGA_HS), .VGA_SYNC_N(VGA_SYNC_N), .VGA_VS(VGA_VS));
 
-	// logic makeBreak;
-	// logic [7:0] scan_code;		
-	// assign LEDR[1] = makeBreak;
-	// assign LEDR[3] = PS2_DAT;
+	  logic makeBreak;
+	  logic [7:0] scan_code;		
+	  assign LEDR[1] = makeBreak;
+     assign LEDR[3] = PS2_DAT;
 	// PS2 keyboard control system
-	//  keyboard_press_driver keyboard_driver (.CLOCK_50(CLOCK_50), .valid(), 
-	//  									   .makeBreak(makeBreak), .outCode(scan_code), 
-	//  									   .PS2_DAT(PS2_DAT),  .PS2_CLK(PS2_CLK), .reset(reset));
-	//  keyboard_process keyboard_ctrl (.CLOCK_50(CLOCK_50), .reset(reset), 
-	//  							    .makeBreak(makeBreak), .scan_code(scan_code), 
-	//  							    .up(up), .down(down), .left(left), .right(right));
+	  keyboard_press_driver keyboard_driver (.CLOCK_50(CLOCK_50), .valid(), 
+	  									   .makeBreak(makeBreak), .outCode(scan_code), 
+	  									   .PS2_DAT(PS2_DAT),  .PS2_CLK(PS2_CLK), .reset(reset));
+	  keyboard_process keyboard_ctrl (.CLOCK_50(CLOCK_50), .reset(reset), 
+	  							    .makeBreak(makeBreak), .scan_code(scan_code), 
+	  							    .up(up), .down(down), .left(left), .right(right));
 
 
 	
@@ -74,10 +74,10 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW,
 	logic [5:0] next_ghost1_x, next_ghost2_x, curr_ghost1_x, curr_ghost2_x;
 	logic [4:0] next_ghost1_y, next_ghost2_y, curr_ghost1_y, curr_ghost2_y;	
 
-	filter_input up_input (.CLOCK_50(CLOCK_50), .reset(reset), .in(~KEY[3]), .out(up));
-	filter_input down_input (.CLOCK_50(CLOCK_50), .reset(reset), .in(~KEY[2]), .out(down));
-	filter_input left_input (.CLOCK_50(CLOCK_50), .reset(reset), .in(~KEY[1]), .out(left));
-	filter_input right_input (.CLOCK_50(CLOCK_50), .reset(reset), .in(~KEY[0]), .out(right));
+//	filter_input up_input (.CLOCK_50(CLOCK_50), .reset(reset), .in(~KEY[3]), .out(up));
+//	filter_input down_input (.CLOCK_50(CLOCK_50), .reset(reset), .in(~KEY[2]), .out(down));
+//	filter_input left_input (.CLOCK_50(CLOCK_50), .reset(reset), .in(~KEY[1]), .out(left));
+//	filter_input right_input (.CLOCK_50(CLOCK_50), .reset(reset), .in(~KEY[0]), .out(right));
 	
 	
 	// map that controls pacman
@@ -94,7 +94,8 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW,
 							   .curr_ghost1_x(curr_ghost1_x), .curr_ghost1_y(curr_ghost1_y), 
 							   .curr_ghost2_x(curr_ghost2_x), .curr_ghost2_y(curr_ghost2_y),
 							   .next_ghost1_x(next_ghost1_x), .next_ghost1_y(next_ghost1_y), 
-							   .next_ghost2_x(next_ghost2_x), .next_ghost2_y(next_ghost2_y));
+							   .next_ghost2_x(next_ghost2_x), .next_ghost2_y(next_ghost2_y), 
+								.ghostCollision(ghostCollision));
 
 
 	logic map_wr_reset; 
@@ -103,7 +104,7 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW,
 							  	   .next_pacman_x(next_pacman_x), .next_pacman_y(next_pacman_y), 
 							  	   .curr_ghost1_x(curr_ghost1_x), .curr_ghost1_y(curr_ghost1_y), 
 							  	   .next_ghost1_x(next_ghost1_x), .next_ghost1_y(next_ghost1_y), 
-                     	   		   .curr_ghost2_x(curr_ghost2_x), .curr_ghost2_y(curr_ghost2_y),
+                     	    .curr_ghost2_x(curr_ghost2_x), .curr_ghost2_y(curr_ghost2_y),
 							  	   .next_ghost2_x(next_ghost2_x), .next_ghost2_y(next_ghost2_y),
 							  	   .redata(redata), .wren(wren), .pac_done(pac_done), .ghost_done(ghost_done),
 							  	   .wraddr(wraddr), .wrdata(wrdata));
@@ -149,21 +150,22 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW,
 	// instantiate lives hex display
 	hexto7segment livesDisplay  (.in(lives), .enable(1'b1), .out(HEX0));
 	
+	logic ghostCollision;
+	assign ghostCollision = ((next_ghost1_x == next_pacman_x) & (next_ghost1_y == next_pacman_y) |
+										(next_ghost2_x == next_pacman_x) & (next_ghost2_y == next_pacman_y));
+	
 	logic game_reset;
 	assign game_reset = SW[0];
 	
 	always_ff @(posedge CLOCK_50) begin
 		if (game_reset) begin
-			//lives <= 3'd100;
 			ps <= init;
 			lives <= 3'd3;
 		end
 		else begin
 			ps <= ns;
 			if (ps == game) begin
-				if (((next_ghost1_x == next_pacman_x) & (next_ghost1_y == next_pacman_y) |
-					(next_ghost2_x == next_pacman_x) & (next_ghost2_y == next_pacman_y)) &
-			   		(pill_count == 0)) begin
+				if (ghostCollision & (pill_count == 0)) begin
 						lives <= lives - 1;	   
 					end	
 			end

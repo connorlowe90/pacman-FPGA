@@ -5,11 +5,13 @@ module pill_counter (reset, collision_type, hex1, hex2, hex3);
 	 
 	 logic [9:0] pill_count;
 	 logic [3:0] pc_ones, pc_tens, pc_hundreds;
+	 
 	 bcd_3b bcd (.binary(pill_count), .hundreds(pc_hundreds), .tens(pc_tens), .ones(pc_ones));
+	 
 	 // instantiate hex displays
 	 hexto7segment hundreds  (.in(pc_hundreds), .enable(1'b1), .out(hex1));
-	 hexto7segment tens  (.in(pc_tens), .enable(1'b1), .out(hex2));
-	 hexto7segment ones  (.in(pc_ones), .enable(1'b1), .out(hex3));
+	 hexto7segment tens      (.in(pc_tens), .enable(1'b1), .out(hex2));
+	 hexto7segment ones      (.in(pc_ones), .enable(1'b1), .out(hex3));
 	 
 	 // combinational logic block outputting for hex displays the three bit
 	 //  decimal number representing how many dots pacman has eaten.
