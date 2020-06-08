@@ -15,12 +15,12 @@ module playAudio(start, chomp, eatghost, death, reset,
 	input logic eatghost;
 	input logic death;
 	input logic CLOCK_50, CLOCK2_50;
-	output logic FPGA_I2C_SCLK;
-	inout logic FPGA_I2C_SDAT;
-	output logic AUD_XCK;
 	input logic AUD_DACLRCK, AUD_ADCLRCK, AUD_BCLK;
 	input logic AUD_ADCDAT;
+	inout logic FPGA_I2C_SDAT;
+	output logic FPGA_I2C_SCLK;
 	output logic AUD_DACDAT;
+	output logic AUD_XCK;
 	
 	logic read_ready, read, write, write_ready;
 	logic [23:0] readdata_left, readdata_right;
