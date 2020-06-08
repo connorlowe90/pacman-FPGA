@@ -30,6 +30,12 @@ vlog "./hexto7segment.sv"
 vlog "./pill_counter.sv"
 vlog "./testRomIns.sv"
 vlog "./playAudio.sv"
+vlog "./clock_generator.v"
+vlog "./audio_and_video_config.v"
+vlog "./audio_codec.v"
+vlog "./Altera_UP*"
+vlog "./musicROM.v"
+vlog "./counter3.sv"
 
 # Call vsim to invoke simulator
 #     Make sure the last item on the line is the name of the
