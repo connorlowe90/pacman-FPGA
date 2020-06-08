@@ -17,7 +17,7 @@ module pacman_loc_ctrl(CLOCK_50, reset, done, up, down, left, right, pill_count,
     logic colli_clr;
     assign direction = {up, down, left, right}; // should only be one hot
 	 
-	collision_detect collisions (.CLOCK_50(CLOCK_50), .reset(reset), .colli_clr(), .next_pacman_x(temp_next_pacman_x),
+	collision_detect collisions (.CLOCK_50(CLOCK_50), .reset(reset), .colli_clr(colli_clr), .next_pacman_x(temp_next_pacman_x),
 								 .next_pacman_y(temp_next_pacman_y), 
 								 .collision_type(collision_type), .pill_count(pill_count));
 
@@ -104,6 +104,12 @@ module pacman_loc_ctrl_testbench();
 	 logic [3:0] direction, collision_type;
 
     assign {up, down, left, right} = direction;
+
+    map_RAM_writer map_wr (.CLOCK_50, .reset,
+                      .curr_pacman_x, .curr_pacman_y, .next_pacman_x, .next_pacman_y, 
+                      .curr_ghost1_x(6'd16), .curr_ghost1_y(6'd13), .next_ghost1_x(6'd16), .next_ghost1_y(6'd13), 
+                      .curr_ghost2_x(6'd23), .curr_ghost2_y(6'd13), .next_ghost2_x(6'd23), .next_ghost2_y(6'd13),
+                      .redata(), .wren(), .pac_done(done), .ghost_done(), .wraddr(), .wrdata());
     pacman_loc_ctrl dut (.*);
 
 	parameter CLOCK_PERIOD = 100;
@@ -119,26 +125,26 @@ module pacman_loc_ctrl_testbench();
             @(posedge CLOCK_50);
         end
         for (int i = 0; i < 8; i ++) begin
-            direction <= 4'b1000; @(posedge CLOCK_50);
+            direction <= 4'b0010; @(posedge CLOCK_50);
             direction <= 4'b0000; @(posedge CLOCK_50);
                                   @(posedge CLOCK_50);
                                   @(posedge CLOCK_50);
                                   @(posedge CLOCK_50);
                                   @(posedge CLOCK_50);
                                   @(posedge CLOCK_50);
-            done <= 1;            @(posedge CLOCK_50);
-            done <= 0;  @(posedge CLOCK_50);
+            // done <= 1;            @(posedge CLOCK_50);
+            // done <= 0;  @(posedge CLOCK_50);
         end
         for (int i = 0; i < 3; i ++) begin
-            direction <= 4'b1000; @(posedge CLOCK_50);
+            direction <= 4'b0100; @(posedge CLOCK_50);
             direction <= 4'b0000; @(posedge CLOCK_50);
                                   @(posedge CLOCK_50);
                                   @(posedge CLOCK_50);
                                   @(posedge CLOCK_50);
                                   @(posedge CLOCK_50);
                                   @(posedge CLOCK_50);
-            done <= 1;            @(posedge CLOCK_50);
-            done <= 0;  @(posedge CLOCK_50);
+            // done <= 1;            @(posedge CLOCK_50);
+            // done <= 0;  @(posedge CLOCK_50);
         end
         for (int i = 0; i < 6; i ++) begin
             direction <= 4'b0010; @(posedge CLOCK_50);
@@ -148,8 +154,8 @@ module pacman_loc_ctrl_testbench();
                                   @(posedge CLOCK_50);
                                   @(posedge CLOCK_50);
                                   @(posedge CLOCK_50);
-            done <= 1;            @(posedge CLOCK_50);
-            done <= 0;  @(posedge CLOCK_50);
+            // done <= 1;            @(posedge CLOCK_50);
+            // done <= 0;  @(posedge CLOCK_50);
         end
         for (int i = 0; i < 7; i ++) begin
             direction <= 4'b0100; @(posedge CLOCK_50);
@@ -159,8 +165,8 @@ module pacman_loc_ctrl_testbench();
                                   @(posedge CLOCK_50);
                                   @(posedge CLOCK_50);
                                   @(posedge CLOCK_50);
-            done <= 1;            @(posedge CLOCK_50);
-            done <= 0;  @(posedge CLOCK_50);
+            // done <= 1;            @(posedge CLOCK_50);
+            // done <= 0;  @(posedge CLOCK_50);
         end
         
         $stop;
