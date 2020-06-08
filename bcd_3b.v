@@ -1,7 +1,7 @@
 // this is a binary to binary coded decimal module
 module bcd_3b (binary, hundreds, tens, ones);
 
-    input [7:0] binary;
+    input [8:0] binary;
     output reg [3:0] hundreds;
     output reg [3:0] tens;
     output reg [3:0] ones;
@@ -14,7 +14,7 @@ module bcd_3b (binary, hundreds, tens, ones);
         tens = 4'd0;
         ones = 4'd0;
 
-        for (i = 7; i >= 0; i = i-1)
+        for (i = 8; i >= 0; i = i-1)
         begin
             // add 3 to columns >= 5;
             if (hundreds >= 5)
