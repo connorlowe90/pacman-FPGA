@@ -98,7 +98,7 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW,
 							   .curr_ghost2_x(curr_ghost2_x), .curr_ghost2_y(curr_ghost2_y),
 							   .next_ghost1_x(next_ghost1_x), .next_ghost1_y(next_ghost1_y), 
 							   .next_ghost2_x(next_ghost2_x), .next_ghost2_y(next_ghost2_y), 
-							   .ghostCollision1(pg1_collision), .ghostCollision2(pg2_collision));
+								.ghostCollision1(pg1_collision & pill_count > 0), .ghostCollision2(pg2_collision & pill_count > 0));
 
 
 	logic map_wr_reset; 
@@ -183,8 +183,8 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW,
 	assign pg_collision = ((next_ghost1_x == next_pacman_x) & (next_ghost1_y == next_pacman_y) | 
 						   (next_ghost2_x == next_pacman_x) & (next_ghost2_y == next_pacman_y));
 	logic pg1_collision, pg2_collision;
-	assign pg1_collision = ((next_ghost1_x == next_pacman_x) & (next_ghost1_y == next_pacman_y) & (pill_count > 0));
-	assign pg2_collision = ((next_ghost2_x == next_pacman_x) & (next_ghost2_y == next_pacman_y) & (pill_count > 0));
+	assign pg1_collision = (curr_ghost1_x == curr_pacman_x) & (curr_ghost1_y == curr_pacman_y);
+	assign pg2_collision = (curr_ghost2_x == curr_pacman_x) & (curr_ghost2_y == curr_pacman_y);
 	assign game_reset = SW[0];
 	
 	always_ff @(posedge CLOCK_50) begin
