@@ -371,7 +371,7 @@ module ghosts_ai #(parameter DELAY= 50000000)
             main_map_reg1 <= main_map_out;
             main_map_reg2 <= main_map_reg1;
 			if (ps == done) begin
-				if (count2 > 0) begin
+				if (count2 != 0) begin
 					next_ghost1_x <= 6'd16;
 					next_ghost1_y <= 5'd13;
 					end
@@ -379,7 +379,7 @@ module ghosts_ai #(parameter DELAY= 50000000)
 					next_ghost1_x <= next_ghost1_min_x;
 					next_ghost1_y <= next_ghost1_min_y;
 					end
-				if (count3 > 0) begin
+				if (count3 != 0) begin
 					next_ghost2_x <= 6'd23;
 					next_ghost2_y <= 5'd13;
 					end
