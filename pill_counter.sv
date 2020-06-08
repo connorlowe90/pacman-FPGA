@@ -45,11 +45,13 @@ module pill_counter_testbench();
 	
 	// Set up the inputs to the design.  Each line is a clock cycle.
    initial begin     
-		reset = 1; 		@(posedge CLOCK_50);
+		reset = 1; collision_type = 4'b0000; @(posedge CLOCK_50);
 		reset = 0;   	@(posedge CLOCK_50); 
 		collision_type = 4'b0010;  @(posedge CLOCK_50); // test zero and on
 		collision_type = 4'b0110;  @(posedge CLOCK_50);
 		collision_type = 4'b0010;  @(posedge CLOCK_50); // test hex a and off
+		collision_type = 4'b0010;  @(posedge CLOCK_50);
+		collision_type = 4'b0010;  @(posedge CLOCK_50);
 																		
 		$stop; // End the simulation. 
 	end 		 // closes the block that sets inputs to the design

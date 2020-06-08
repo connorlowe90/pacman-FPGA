@@ -32,12 +32,12 @@ vlog "./pill_counter.sv"
 # Call vsim to invoke simulator
 #     Make sure the last item on the line is the name of the
 #     testbench module you want to execute.
-vsim -voptargs="+acc" -t 1ps -lib work pill_counter_testbench -Lf altera_mf_ver
+vsim -voptargs="+acc" -t 1ps -lib work pacman_loc_ctrl_testbench -Lf altera_mf_ver
 
 # Source the wave do file
 #     This should be the file that sets up the signal window for
 #     the module you are testing.
-do pill_counter_wave.do
+do pacman_loc_ctrl_wave.do
 
 # Set the window types
 view wave

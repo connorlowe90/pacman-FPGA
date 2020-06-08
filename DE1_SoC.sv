@@ -98,7 +98,7 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW,
 							   .curr_ghost2_x(curr_ghost2_x), .curr_ghost2_y(curr_ghost2_y),
 							   .next_ghost1_x(next_ghost1_x), .next_ghost1_y(next_ghost1_y), 
 							   .next_ghost2_x(next_ghost2_x), .next_ghost2_y(next_ghost2_y), 
-								.ghostCollision(pg_collision));
+							   .ghostCollision1(pg1_collision), .ghostCollision2(pg2_collision));
 
 
 	logic map_wr_reset; 
@@ -145,7 +145,7 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW,
 					resume_reset = 1;
 					map_wr_reset = 1;
 				end
-				else if (pg_collision & (lives == 1) &(pill_count == 0)) ns = over;
+				else if (pg_collision & (lives == 1) & (pill_count == 0)) ns = over;
 				else ns = game;
 			end
 			resume: begin
@@ -160,7 +160,7 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW,
 				sprit_reset = 0;
 				ghost_enable = 0;
 				reset = 0;
-				map_wr_reset = 0;
+				map_wr_reset = 1;
 				ns = over;
 			end
 		endcase
@@ -170,7 +170,7 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW,
 	// filter_input clli_filter (.CLOCK_50(CLOCK_50), .reset(reset), .in(collision_type), .out(colli_type_out));
 	
 	// display of number of dots eaten
-	pill_counter dot_counter (.CLOCK_50(CLOCK_50), .reset(reset), .collision_type(collision_type), .hex1(HEX5), .hex2(HEX4), .hex3(hex3));
+	pill_counter dot_counter (.CLOCK_50(CLOCK_50), .reset(reset), .collision_type(collision_type), .hex1(HEX5), .hex2(HEX4), .hex3(HEX3));
 	assign HEX1 = '1;
 	assign HEX2 = '1;
 
@@ -179,8 +179,8 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW,
 	
 	logic game_reset;
 	logic pg_collision;
-	assign pg_collision = ((next_ghost1_x == next_pacman_x) & (next_ghost1_y == next_pacman_y) |
-								  (next_ghost2_x == next_pacman_x) & (next_ghost2_y == next_pacman_y));
+	assign pg1_collision = (next_ghost1_x == next_pacman_x) & (next_ghost1_y == next_pacman_y);
+	assign pg2_collision = (next_ghost2_x == next_pacman_x) & (next_ghost2_y == next_pacman_y);
 	assign game_reset = SW[0];
 	
 	always_ff @(posedge CLOCK_50) begin

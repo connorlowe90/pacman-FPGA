@@ -54,11 +54,11 @@ module ghosts_loc_ctrl #(parameter DELAY= 30000000)
 	assign clk_reset = (ps == init);
 	counter #(MAX) c (.CLOCK_50(CLOCK_50), .reset(clk_reset), .count(count));
 	
-	counter #(MAX) c2 (.CLOCK_50(CLOCK_50), .reset(clk2_reset), .count(count2));
 	parameter MAX2 = 10000000; // 50M reduce the ghost speed to 1Hz 
 	parameter size2 = $clog2(MAX2);
 	logic [size2-1:0] count2;
 	logic clk2_reset;
+	counter #(MAX) c2 (.CLOCK_50(CLOCK_50), .reset(clk2_reset), .count(count2));
 	assign clk2_reset = (ps == collision);
 	
 

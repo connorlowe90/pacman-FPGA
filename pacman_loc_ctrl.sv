@@ -14,19 +14,22 @@ module pacman_loc_ctrl(CLOCK_50, reset, done, up, down, left, right, pill_count,
     logic [5:0] temp_next_pacman_x;   
     logic [4:0] temp_next_pacman_y;
     logic [3:0] direction;
+    logic colli_reset;
     assign direction = {up, down, left, right}; // should only be one hot
 	 
-	 collision_detect collisions (.CLOCK_50(CLOCK_50), .reset(reset), .next_pacman_x(temp_next_pacman_x),
+	 collision_detect collisions (.CLOCK_50(CLOCK_50), .reset(colli_reset), .next_pacman_x(temp_next_pacman_x),
 								 .next_pacman_y(temp_next_pacman_y), 
 								 .collision_type(collision_type), .pill_count(pill_count));
 
 
     always_latch begin
+        colli_reset = 0;
         case (ps) 
             still: begin
                 ns = hold;
                 if (direction == 4'b0000) begin
                     ns = still;
+                    colli_reset = 1;
                     next_pacman_x = curr_pacman_x;
                     next_pacman_y = curr_pacman_y;
                 end
@@ -98,12 +101,12 @@ module pacman_loc_ctrl_testbench();
     logic [32:0] pill_count;
     logic [5:0] curr_pacman_x, next_pacman_x; 
     logic [4:0] curr_pacman_y, next_pacman_y;
-	 parameter CLOCK_PERIOD = 100;
 	 logic [3:0] direction, collision_type;
 
     assign {up, down, left, right} = direction;
     pacman_loc_ctrl dut (.*);
 
+	parameter CLOCK_PERIOD = 100;
     initial begin
         CLOCK_50 <= 0;
         forever #(CLOCK_PERIOD/2) CLOCK_50 <= ~CLOCK_50;
@@ -116,11 +119,18 @@ module pacman_loc_ctrl_testbench();
         direction <= 4'b0000; @(posedge CLOCK_50);
                               @(posedge CLOCK_50);
                               @(posedge CLOCK_50);
+                              @(posedge CLOCK_50);
+                              @(posedge CLOCK_50);
+                              @(posedge CLOCK_50);
+                              @(posedge CLOCK_50);
         done <= 1;            @(posedge CLOCK_50);
         done <= 0; direction <= 4'b0100; @(posedge CLOCK_50);
         direction <= 4'b0000; @(posedge CLOCK_50);
                               @(posedge CLOCK_50);
                               @(posedge CLOCK_50);
+                              @(posedge CLOCK_50);
+                              @(posedge CLOCK_50);
+
         done <= 1;            @(posedge CLOCK_50);
         done <= 0; direction <= 4'b0100; @(posedge CLOCK_50);
         direction <= 4'b0000; @(posedge CLOCK_50);
