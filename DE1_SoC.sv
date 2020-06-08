@@ -107,7 +107,7 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW,
 	
 	// module that controls ghost's location (ghost AI)
 	logic ghost_enable;
-	ghosts_ai ghost_loc (.CLOCK_50(CLOCK_50), .reset(sprit_reset), .enable(ghost_enable),
+	ghosts_ai2 ghost_loc (.CLOCK_50(CLOCK_50), .reset(sprit_reset), .enable(ghost_enable),
 						 .curr_pacman_x(curr_pacman_x), .curr_pacman_y(curr_pacman_y), .wrdone(ghost_done), 
 						 .curr_ghost1_x(curr_ghost1_x), .curr_ghost1_y(curr_ghost1_y), 
 						 .curr_ghost2_x(curr_ghost2_x), .curr_ghost2_y(curr_ghost2_y),
