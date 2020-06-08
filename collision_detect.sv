@@ -3,9 +3,9 @@
 // for collsion between dot & pill that happened, module will remove
 // dot or pill from the look up map
 module collision_detect
-			(CLOCK_50, reset, next_pacman_x, next_pacman_y, 
+			(CLOCK_50, reset, colli_clr, next_pacman_x, next_pacman_y, 
 			 collision_type, pill_count);
-	input logic CLOCK_50, reset;
+	input logic CLOCK_50, reset, colli_clr;
 	input logic [5:0] next_pacman_x;
 	input logic [4:0] next_pacman_y;
 	output logic [3:0] collision_type;  // 0000: no collision; 
@@ -17,7 +17,7 @@ module collision_detect
 	logic [3:0] obj;       // width of the block 
 	logic wren;
 	logic [159:0] map_word2, map_word;
-	logic [32:0] next_pill_count;
+	// logic [32:0] next_pill_count;
 	// instantiate Map simulation
 	map_simp_RAM temp (.address_a(next_pacman_y), .address_b(), .clock(CLOCK_50), .data_a(map_word2), 
 					.data_b(), .wren_a(wren), .wren_b(), .q_a(map_word), .q_b()); 	
@@ -37,9 +37,8 @@ module collision_detect
 				 ns = compute_collision;
 			end
 			compute_collision: begin
-				if (reset) begin
+				if (reset | colli_clr) begin
 						collision_type = 3'b000;
-						next_pill_count = 0;
 						wren = 0;
 				  end 
 				  else begin
@@ -58,7 +57,8 @@ module collision_detect
 						end
 						else if (obj == 4'h3) begin // collision with pill
 							collision_type = 4'b0011;
-							next_pill_count = pill_count + 1500000000; // Each pill adds 30 seconds of effective time
+							pill_incr = 1;
+							// next_pill_count = pill_count + 1500000000; // Each pill adds 30 seconds of effective time
 							wren = 1;
 							map_word2[159-(4*next_pacman_x+3)+:4] = 0;
 						end
@@ -74,8 +74,10 @@ module collision_detect
 			ps <= hold;
 		end
 		else begin
-		   if (pill_count != 0) pill_count <= next_pill_count - 1;
-			ps <= ns;
+		   if (pill_incr) pill_count <= pill_count + 1500000000;
+		   else if (pill_count > 0) pill_count <= pill_count - 1;
+		   else pill_count <= pill_count;
+		   ps <= ns;
 		end
 	end
 	
