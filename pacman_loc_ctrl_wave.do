@@ -21,8 +21,14 @@ add wave -noupdate -radix unsigned /pacman_loc_ctrl_testbench/dut/temp_next_pacm
 add wave -noupdate /pacman_loc_ctrl_testbench/dut/collisions/ps
 add wave -noupdate /pacman_loc_ctrl_testbench/dut/collisions/ns
 add wave -noupdate /pacman_loc_ctrl_testbench/dut/collisions/next_pill_count
+add wave -noupdate -radix unsigned /pacman_loc_ctrl_testbench/dut/collisions/reset_addr
+add wave -noupdate /pacman_loc_ctrl_testbench/dut/collisions/reset_word
+add wave -noupdate /pacman_loc_ctrl_testbench/dut/collisions/reset_wren
+add wave -noupdate /pacman_loc_ctrl_testbench/dut/collisions/ps
+add wave -noupdate /pacman_loc_ctrl_testbench/dut/collisions/ns
+add wave -noupdate /pacman_loc_ctrl_testbench/dut/collisions/reset
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {20126 ps} 0}
+WaveRestoreCursors {{Cursor 1} {6950 ps} 0}
 quietly wave cursor active 1
 configure wave -namecolwidth 150
 configure wave -valuecolwidth 100
@@ -38,4 +44,4 @@ configure wave -griddelta 20
 configure wave -timeline 0
 configure wave -timelineunits ns
 update
-WaveRestoreZoom {16214 ps} {22042 ps}
+WaveRestoreZoom {0 ps} {25988 ps}
