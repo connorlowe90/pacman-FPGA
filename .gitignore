@@ -58,6 +58,7 @@ _*
 *.vstf
 *.txt
 simulation/modelsim/DE1_SoC_modelsim.xrf
-*.xrf
-wlfta35ynj
-wlftaw9i77
+*.do
+*.do
+map_RAM_writer_wave.do
+ghosts_loc_ctrl_wave.do
