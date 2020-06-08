@@ -21,14 +21,14 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW,
 	logic [9:0] x;
 	logic [8:0] y;
 	logic [7:0] r, g, b;
-	assign HEX0 = '1;
 	assign HEX1 = '1;
 	assign HEX2 = '1;
-	assign HEX3 = '1;
-	assign HEX4 = '1;
-	assign HEX5 = '1;
-	// assign reset = SW[0];
+	//assign reset = SW[0];
 	assign LEDR[0] = reset;
+	
+	// module outputs pill count to hex displays 5-3
+	pill_counter dot_count_displays (.reset(reset), .collision_type(collision_type),
+													.hex1(HEX5), .hex2(HEX4), .hex3(HEX3));
 	
 	// addresses for selecting object within map
 	logic [5:0] glob_x; // (0 ~ 39)
@@ -61,12 +61,12 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW,
 	assign LEDR[1] = makeBreak;
 	assign LEDR[3] = PS2_DAT;
 	// PS2 keyboard control system
-	// keyboard_press_driver keyboard_driver (.CLOCK_50(CLOCK_50), .valid(), 
-	// 									   .makeBreak(makeBreak), .outCode(scan_code), 
-	// 									   .PS2_DAT(PS2_DAT),  .PS2_CLK(PS2_CLK), .reset(reset));
-	// keyboard_process keyboard_ctrl (.CLOCK_50(CLOCK_50), .reset(reset), 
-	// 							    .makeBreak(makeBreak), .scan_code(scan_code), 
-	// 							    .up(up), .down(down), .left(left), .right(right));
+	 keyboard_press_driver keyboard_driver (.CLOCK_50(CLOCK_50), .valid(), 
+	 									   .makeBreak(makeBreak), .outCode(scan_code), 
+	 									   .PS2_DAT(PS2_DAT),  .PS2_CLK(PS2_CLK), .reset(reset));
+	 keyboard_process keyboard_ctrl (.CLOCK_50(CLOCK_50), .reset(reset), 
+	 							    .makeBreak(makeBreak), .scan_code(scan_code), 
+	 							    .up(up), .down(down), .left(left), .right(right));
 
 
 	
@@ -81,15 +81,15 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW,
 	logic [5:0] next_ghost1_x, next_ghost2_x, curr_ghost1_x, curr_ghost2_x;
 	logic [4:0] next_ghost1_y, next_ghost2_y, curr_ghost1_y, curr_ghost2_y;	
 
-	filter_input up_input (.CLOCK_50(CLOCK_50), .reset(reset), .in(~KEY[3]), .out(up));
-	filter_input down_input (.CLOCK_50(CLOCK_50), .reset(reset), .in(~KEY[2]), .out(down));
-	filter_input left_input (.CLOCK_50(CLOCK_50), .reset(reset), .in(~KEY[1]), .out(left));
-	filter_input right_input (.CLOCK_50(CLOCK_50), .reset(reset), .in(~KEY[0]), .out(right));
+//	filter_input up_input (.CLOCK_50(CLOCK_50), .reset(reset), .in(~KEY[3]), .out(up));
+//	filter_input down_input (.CLOCK_50(CLOCK_50), .reset(reset), .in(~KEY[2]), .out(down));
+//	filter_input left_input (.CLOCK_50(CLOCK_50), .reset(reset), .in(~KEY[1]), .out(left));
+//	filter_input right_input (.CLOCK_50(CLOCK_50), .reset(reset), .in(~KEY[0]), .out(right));
 	
 	
 	// map that controls pacman
 	// logic pac_reset;
-	pacman_loc_ctrl pac_loc (.CLOCK_50(CLOCK_50), .reset(reset), .done(pac_done), 
+	pacman_loc_ctrl pac_loc (.CLOCK_50(CLOCK_50), .reset(reset), .done(pac_done), .collision_type(collision_type),
 							 .up(up), .down(down), .left(left), .right(right), .pill_count(pill_count),
 							 .curr_pacman_x(curr_pacman_x), .curr_pacman_y(curr_pacman_y), 
 							 .next_pacman_x(next_pacman_x), .next_pacman_y(next_pacman_y));
@@ -120,31 +120,45 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW,
 
 	
 	logic start;
+	logic [2:0] lives;
 	assign start = SW[9];
 	enum {init, game} ps, ns;
 	
 	always_comb begin
 		case(ps)
 			init: begin
-				reset <= 1;
-				map_wr_reset <= 1;
+				reset = 1;
+				map_wr_reset = 1;
 				if (start) ns = game;
 				else ns = init;
 			end
 			game: begin
-				reset <= 0;
-				map_wr_reset <= 0;
+				reset = 0;
+				map_wr_reset = 0;
+				ns = game;
+				//if (lives == 0) ns = init;
+				//else
 				ns = game;
 			end
 		endcase
 	end
+	
+	// instantiate lives hex display
+	hexto7segment livesDisplay  (.in(lives), .enable(1'b1), .out(HEX0));
+	
 	logic game_reset;
 	assign game_reset = SW[0];
+	
 	always_ff @(posedge CLOCK_50) begin
 		if (game_reset) begin
+			//lives <= 3'd100;
 			ps <= init;
 		end
 		else ps <= ns;
+//				if (((curr_ghost1_x == curr_pacman_x) & (curr_ghost1_y == curr_pacman_y) |
+//				(curr_ghost2_x == curr_pacman_x) & (curr_ghost2_y == curr_pacman_y)) &
+//			   	(pill_count == 0)) lives <= lives - 1;
+//				else lives <= lives;
 	end
 
 	

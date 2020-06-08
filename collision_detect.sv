@@ -20,10 +20,7 @@ module collision_detect
 	logic [32:0] next_pill_count;
 	// instantiate Map simulation
 	map_simp_RAM temp (.address_a(next_pacman_y), .address_b(), .clock(CLOCK_50), .data_a(map_word2), 
-					.data_b(), .wren_a(wren), .wren_b(), .q_a(map_word), .q_b()); 
-
-
-	
+					.data_b(), .wren_a(wren), .wren_b(), .q_a(map_word), .q_b()); 	
 	
 	enum {hold, compute_collision} ps, ns;
 	
