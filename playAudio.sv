@@ -53,17 +53,6 @@ module playAudio(chomp, eatghost, reset,
 	parameter size_c = $clog2(HALF_PERIOD);
 	logic [size_c-1:0] cch_count;
 	counter #(HALF_PERIOD) cchomp (.CLOCK_50(CLOCK_50), .reset(reset), .count(cch_count)); 
-	
-//	logic clk2_reset;
-//	parameter MAX2 = 454545; // 50M reduce the ghost speed to 1Hz 
-//	parameter size2 = $clog2(MAX2);
-//	logic [size2-1:0] count2;
-//	counter #(MAX2) cWait (.CLOCK_50(CLOCK_50), .reset(clk2_reset), .count(count2));
-//	
-//   dataChomp <= 4000000;
-//	
-//   forever #(454545) dataChomp <= -dataChomp;
-
 	 
 	assign writedata_left = (count > 0) ? dataChomp : 0;  
 	
@@ -82,69 +71,6 @@ module playAudio(chomp, eatghost, reset,
 			end
 		endcase
 	end
-	
-	//assign address = count;
-
-//	enum {hold, wait_play_start, wait_play_start2, play_start, play_start2, play_chomp, 
-//			play_eatghost, play_death} ps, ns;
-//	
-//	always_latch begin
-//		clk_reset = 0;
-//		incr = 0;
-//		case (ps) 
-//			hold: begin
-//				if (chomp) begin
-//					ns = wait_play_start;
-//					clk2_reset = 1;
-//					end
-//				else if (eatghost) ns = play_eatghost;
-//				else ns = hold;
-//				end
-//			wait_play_start: begin
-//				ns = play_start;
-//			end
-//			play_start: begin
-//				if (count2 == 0) begin
-//					ns = wait_play_start2;
-//					clk2_reset = 1;
-//					end
-//				else begin
-//					ns = play_start;
-//					end
-//				dataChomp = 4000000;
-//				end
-//			wait_play_start2: begin
-//				ns = play_start2;
-//			end
-//			play_start2: begin
-//				if (count2 == 0) begin
-//					ns = wait_play_start;
-//					clk2_reset = 1;
-//					end
-//				else begin
-//					ns = play_start2;
-//					end
-//				dataChomp = -4000000;
-//				end
-//			play_chomp: begin
-//				
-//				
-//				end
-//			play_eatghost: begin
-//				
-//				
-//				end
-//			play_death: begin
-//			
-//				
-//				end
-//		endcase
-//		if (chomp) begin
-//			writedata_left = dataChomp;
-//			clk_reset = 1;
-//			end
-//		else  writedata_left = 0;
-//	end
 	
 	always_ff @(posedge CLOCK_50) begin
 	 if (reset) ps <= pos;

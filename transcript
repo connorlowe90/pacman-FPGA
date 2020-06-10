@@ -2915,3 +2915,5 @@ run -all
 # ** Note: $stop    : ./playAudio.sv(216)
 #    Time: 100000350 ps  Iteration: 1  Instance: /playAudio_testbench
 # Break in Module playAudio_testbench at ./playAudio.sv line 216
+# End time: 19:10:51 on Jun 08,2020, Elapsed time: 2:30:32
+# Errors: 3, Warnings: 71
