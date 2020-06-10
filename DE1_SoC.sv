@@ -231,11 +231,11 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW,
 	end
 	
 	// sound controller
-	logic sound_start, sound_chomp, sound_eatghost, sound_death;
-	assign sound_start = start;
+	logic  sound_chomp, sound_eatghost;
+	assign sound_chomp = (collision_type == 4'b0010 | collision_type == 4'b0011 | pg_collision);
 	
-	playAudio(.start(sound_start), .chomp(sound_chomp), .eatghost(sound_eatghost),
-					.death(sound_death), .reset(reset), .CLOCK_50(CLOCK_50), .CLOCK2_50(CLOCK2_50),	
+	playAudio(.chomp(sound_chomp), .eatghost(sound_eatghost),
+					.reset(reset), .CLOCK_50(CLOCK_50), .CLOCK2_50(CLOCK2_50),	
 						.FPGA_I2C_SCLK(FPGA_I2C_SCLK), .FPGA_I2C_SDAT(FPGA_I2C_SDAT), 
 						.AUD_XCK(AUD_XCK), .AUD_DACLRCK(AUD_DACLRCK), .AUD_ADCLRCK(AUD_ADCLRCK),
 						.AUD_BCLK(AUD_BCLK), .AUD_ADCDAT(AUD_ADCDAT), .AUD_DACDAT(AUD_DACDAT));
