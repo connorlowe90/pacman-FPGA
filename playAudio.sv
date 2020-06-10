@@ -49,7 +49,7 @@ module playAudio(chomp, eatghost, reset,
 	logic [size-1:0] count2;
 	counter2 #(MAX) cWait (.CLOCK_50(CLOCK_50), .reset(chomp), .count(count));
 	
-	parameter HALF_PERIOD = 454545;
+	parameter HALF_PERIOD = 7102;
 	parameter size_c = $clog2(HALF_PERIOD);
 	logic [size_c-1:0] cch_count;
 	counter #(HALF_PERIOD) cchomp (.CLOCK_50(CLOCK_50), .reset(reset), .count(cch_count)); 
@@ -62,12 +62,12 @@ module playAudio(chomp, eatghost, reset,
 			pos: begin
 				if (cch_count == 0) ns = neg;
 				else ns = pos;
-				dataChomp = 4000000;
+				dataChomp = 40000;
 			end
 			neg: begin
 				if (cch_count == 0) ns = pos;
 				else ns = neg;
-				dataChomp = -4000000;
+				dataChomp = -40000;
 			end
 		endcase
 	end
