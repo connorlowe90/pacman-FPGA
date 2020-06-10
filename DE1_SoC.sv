@@ -65,17 +65,17 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW,
 					.VGA_R(VGA_R), .VGA_G(VGA_G), .VGA_B(VGA_B), .VGA_BLANK_N(VGA_BLANK_N),
 					.VGA_CLK(VGA_CLK), .VGA_HS(VGA_HS), .VGA_SYNC_N(VGA_SYNC_N), .VGA_VS(VGA_VS));
 
-	    logic makeBreak;
-	    logic [7:0] scan_code;		
-	    assign LEDR[1] = makeBreak;
-       assign LEDR[3] = PS2_DAT;
-	  // PS2 keyboard control system
-	    keyboard_press_driver keyboard_driver (.CLOCK_50(CLOCK_50), .valid(), 
-	    									   .makeBreak(makeBreak), .outCode(scan_code), 
-	    									   .PS2_DAT(PS2_DAT),  .PS2_CLK(PS2_CLK), .reset(reset));
-	    keyboard_process keyboard_ctrl (.CLOCK_50(CLOCK_50), .reset(reset), 
-	    							    .makeBreak(makeBreak), .scan_code(scan_code), 
-	    							    .up(up), .down(down), .left(left), .right(right));
+	logic makeBreak;
+	logic [7:0] scan_code;		
+	assign LEDR[1] = makeBreak;
+	assign LEDR[3] = PS2_DAT;
+	// PS2 keyboard control system
+	keyboard_press_driver keyboard_driver (.CLOCK_50(CLOCK_50), .valid(), 
+											.makeBreak(makeBreak), .outCode(scan_code), 
+											.PS2_DAT(PS2_DAT),  .PS2_CLK(PS2_CLK), .reset(reset));
+	keyboard_process keyboard_ctrl (.CLOCK_50(CLOCK_50), .reset(reset), 
+									.makeBreak(makeBreak), .scan_code(scan_code), 
+									.up(up), .down(down), .left(left), .right(right));
 
 
 	
@@ -107,7 +107,8 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW,
 	
 	// module that controls ghost's location (ghost AI)
 	logic ghost_enable;
-	ghosts_ai2 ghost_loc (.CLOCK_50(CLOCK_50), .reset(sprit_reset), .enable(ghost_enable),
+	parameter DELAY = 25000000;
+	ghosts_ai2 #(DELAY) ghost_loc (.CLOCK_50(CLOCK_50), .reset(sprit_reset), .enable(ghost_enable),
 						 .curr_pacman_x(curr_pacman_x), .curr_pacman_y(curr_pacman_y), .wrdone(ghost_done), 
 						 .curr_ghost1_x(curr_ghost1_x), .curr_ghost1_y(curr_ghost1_y), 
 						 .curr_ghost2_x(curr_ghost2_x), .curr_ghost2_y(curr_ghost2_y),
@@ -133,7 +134,7 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW,
 	enum {init, game, game_resume ,game_over, game_win} ps, ns;
 
 	// counter that counts time before resume to game state
-	parameter resume_delay = 250000000; // 5 second 
+	parameter resume_delay = 350000000; // 5 second 
 	parameter resume_size = $clog2(resume_delay);
 	logic resume_reset;
 	logic [resume_size-1:0] resume_count;
