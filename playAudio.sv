@@ -151,8 +151,8 @@ module playAudio_testbench();
 	initial begin
 		reset = 1; 				    @(posedge CLOCK_50);
 		reset = 0; 					 @(posedge CLOCK_50);
-		start = 1;					 @(posedge CLOCK_50);
-		start = 0; 					 @(posedge CLOCK_50);
+		chomp = 1;					 @(posedge CLOCK_50);
+		chomp = 0; 					 @(posedge CLOCK_50);
 		for(int i = 0; i < 1000000; i++) @(posedge CLOCK_50);
 		$stop;
 	end

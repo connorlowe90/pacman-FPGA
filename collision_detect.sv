@@ -108,6 +108,9 @@ module collision_detect
 	
 endmodule // closes collision detection module
 
+// This module tests the collision_detect module with intent to utilize ModelSim.
+// Varies input to ensure the out signals is sent as expected.
+`timescale 1 ps / 1 ps
 module collision_detect_testbench();
 	logic CLOCK_50, reset, colli_clr;
 	logic [5:0] next_pacman_x;
@@ -131,7 +134,7 @@ module collision_detect_testbench();
 	 // block that sets inputs for design
     initial begin
         reset = 1;         	  @(posedge CLOCK_50);
-		  reset = 0;			 	  @(posedge CLOCK_50);
+		  reset = 0; colli_clr = 0; @(posedge CLOCK_50);
 		  next_pacman_x = 5'd20;
 	     next_pacman_y = 5'd21;  @(posedge CLOCK_50);
 		  next_pacman_x = 5'd21;

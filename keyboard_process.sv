@@ -73,7 +73,15 @@ module keyboard_process_testbench();
 		  reset = 0;			 @(posedge CLOCK_50);
 		  makeBreak = 1;      @(posedge CLOCK_50);
 		  scan_code = 8'h75;  @(posedge CLOCK_50);
+		  makeBreak = 0;      @(posedge CLOCK_50);
+		  makeBreak = 1;      @(posedge CLOCK_50);
+		  scan_code = 8'h74;  @(posedge CLOCK_50);
+		  makeBreak = 0;      @(posedge CLOCK_50);
+		  makeBreak = 1;      @(posedge CLOCK_50);
 		  scan_code = 8'h6B;  @(posedge CLOCK_50);
+		  makeBreak = 0;      @(posedge CLOCK_50);
+		  makeBreak = 1;      @(posedge CLOCK_50);
+		  scan_code = 8'h72;  @(posedge CLOCK_50);
 		$stop;
     end // closes block setting inputs to design
 endmodule // closes module testing pacman location control

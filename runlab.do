@@ -38,16 +38,20 @@ vlog "./Altera_UP*"
 vlog "./musicROM.v"
 vlog "./counter3.sv"
 vlog "./counter2.sv"
+vlog "./keyboard_process.sv"
+vlog "./keyboard_inner_driver.v"
+vlog "./keyboard_press_driver.v"
+vlog "./keyboard_scancoderaw_driver.v"
 
 # Call vsim to invoke simulator
 #     Make sure the last item on the line is the name of the
 #     testbench module you want to execute.
-vsim -voptargs="+acc" -t 1ps -lib work map_RAM_writer_testbench -Lf altera_mf_ver
+vsim -voptargs="+acc" -t 1ps -lib work collision_detect_testbench -Lf altera_mf_ver
 
 # Source the wave do file
 #     This should be the file that sets up the signal window for
 #     the module you are testing.
-do map_RAM_writer_wave.do
+do collision_detect_wave.do
 
 # Set the window types
 view wave
