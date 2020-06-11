@@ -87,6 +87,7 @@ module playAudio(chomp, eatghost, reset,
 	 else ps <= ns;
 	end // always_ff
 	
+	// given audio codec modules
 	clock_generator my_clock_gen(
 		CLOCK2_50,
 		reset,
