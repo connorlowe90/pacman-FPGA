@@ -1,3 +1,15 @@
+// Connor Lowe
+// Winston Chen
+// 1573616
+// 5/3/2020
+// EE 371
+// Lab 6
+//
+// This module outputs audio data given the audio codec modules
+//  from EE371 at University of Washington, Seattle. 
+// When the control signal chomp is asserted it plays an A7 tone for 
+//  a quarter second. 
+// This modules connects to various modules supplied by UW. 
 module playAudio(chomp, eatghost, reset,
 						CLOCK_50, 
 						CLOCK2_50, 
@@ -34,29 +46,26 @@ module playAudio(chomp, eatghost, reset,
 	
 	logic [15:0]  address;
 	
-	
-	
-//	parameter MAX = 50000; // 50M reduce the ghost speed to 1Hz 
-//	parameter size = $clog2(MAX);
-//	logic [size-1:0] count;
-//	logic clk_reset;
-//	logic incr;
-//	counter3 #(MAX) c (.CLOCK_50(CLOCK_50), .reset(clk_reset), .incr(incr), .count(count));
-	
+	// counter for length of tone
 	logic clk_reset;
 	parameter MAX = 12500000; // 50M reduce the ghost speed to 1Hz 
 	parameter size = $clog2(MAX);
 	logic [size-1:0] count2;
 	counter2 #(MAX) cWait (.CLOCK_50(CLOCK_50), .reset(chomp), .count(count));
 	
+	// counter to generate tone
 	parameter HALF_PERIOD = 7102;
 	parameter size_c = $clog2(HALF_PERIOD);
 	logic [size_c-1:0] cch_count;
 	counter #(HALF_PERIOD) cchomp (.CLOCK_50(CLOCK_50), .reset(reset), .count(cch_count)); 
 	 
+	// if colliding then plat a tone
 	assign writedata_left = (count > 0) ? dataChomp : 0;  
 	
+	// state variables
 	enum {pos, neg} ps, ns;
+	
+	// combinational logic block that simulates wave
 	always_comb begin
 		case(ps)
 			pos: begin
@@ -70,12 +79,13 @@ module playAudio(chomp, eatghost, reset,
 				dataChomp = -40000;
 			end
 		endcase
-	end
+	end // always_comb
 	
+	// sequential logic block for next state
 	always_ff @(posedge CLOCK_50) begin
 	 if (reset) ps <= pos;
 	 else ps <= ns;
-	end
+	end // always_ff
 	
 	clock_generator my_clock_gen(
 		CLOCK2_50,
@@ -106,8 +116,10 @@ module playAudio(chomp, eatghost, reset,
 		AUD_DACDAT
 	);
 	
-endmodule 
+endmodule // closes playAudio
 
+// This module tests the playAudio module with intent to utilize ModelSim.
+// Varies input to ensure the out signals is sent as expected.
 `timescale 1 ps / 1 ps
 module playAudio_testbench();
 	logic start;
@@ -123,16 +135,19 @@ module playAudio_testbench();
 	logic AUD_ADCDAT;
 	logic AUD_DACDAT;
 	
+	// utilizing verilog's implicit port connections
 	playAudio dut (.*);
 	
+	// sets up the clock
 	parameter CLOCK_PERIOD = 100;
 	initial begin
         CLOCK_50 <= 0;
 		  CLOCK2_50 <=0;
         forever #(CLOCK_PERIOD/2) CLOCK_50 <= ~CLOCK_50;
 		  forever #(CLOCK_PERIOD/2) CLOCK2_50 <= ~CLOCK2_50;
-    end
-
+    end // closes block setting up clock
+	
+	// block that sets inputs for the design
 	initial begin
 		reset = 1; 				    @(posedge CLOCK_50);
 		reset = 0; 					 @(posedge CLOCK_50);
@@ -141,4 +156,4 @@ module playAudio_testbench();
 		for(int i = 0; i < 1000000; i++) @(posedge CLOCK_50);
 		$stop;
 	end
-endmodule 
+endmodule // modules testing playAudio

@@ -1,9 +1,9 @@
 // Connor Lowe
 // Winston Chen
 // 1573616
-// 5/3/2020
+// 6/5/2020
 // EE 371
-// Lab 4
+// Lab 6
 //
 // This module encodes 7 segment displays. 
 // This module inputs a 4 bit binary number and then outputs its corrosponding

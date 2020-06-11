@@ -1,3 +1,12 @@
+// Winston Chen
+// Connor Lowe
+// 1573616
+// 5/3/2020
+// EE 371
+// Lab 6
+//
+// This module outputs the hundres, tens, and ones, place of a 
+//  4-bit binary input. (binary to binary coded decimal)
 // this is a binary to binary coded decimal module
 module bcd_3b (binary, hundreds, tens, ones);
 
