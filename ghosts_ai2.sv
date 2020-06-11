@@ -56,7 +56,7 @@ module ghosts_ai2 #(parameter DELAY= 30000000)
 	assign clk_reset = (ps == init);
 	counter #(MAX) c (.CLOCK_50(CLOCK_50), .reset(clk_reset), .count(count));
 	
-	parameter MAX2 = 100000000; // 50M reduce the ghost speed to 1Hz 
+	parameter MAX2 = 100000000; 
 	parameter size2 = $clog2(MAX2);
 	logic [size2-1:0] count2;
 	logic [size2-1:0] count3;
