@@ -54,6 +54,8 @@ module hexto7segment_testbench();
 		in = 4'b0000; enable = 1;	#10; // test zero and on
 											#10;
 		in = 4'b1010; enable = 0;	#10; // test hex a and off
+											#10;	
+		in = 4'b1010; enable = 1;	#10; // test hex a and on
 											#10;								
 		$stop; // End the simulation. 
 	end 		 // closes the block that sets inputs to the design

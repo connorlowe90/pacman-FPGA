@@ -1,3 +1,10 @@
+// Winston Chen
+// Connor Lowe
+// 1573616
+// 5/3/2020
+// EE 371
+// Lab 6
+//
 // This module takes in sprits' new current and new location and then 
 // generate control signals that writes the new location information
 // into the map ram 
@@ -181,9 +188,11 @@ module map_RAM_writer(CLOCK_50, reset,
             ps <= ns;
         end
     end
-endmodule
+endmodule // closes module
 
-// testbench for map_RAM_writer
+
+// This module tests the keyboard_process module with intent to utilize ModelSim.
+// Varies input to ensure the out signals is sent as expected.
 `timescale 1 ps / 1 ps
 module map_RAM_writer_testbench();
     logic CLOCK_50, reset, enable;
@@ -200,11 +209,14 @@ module map_RAM_writer_testbench();
     logic [32:0] pill_count;
     assign {up, down, left, right} = direction;
 
+	 // instantiate map RAM
     map_RAM m (.address_a(), .address_b(wraddr), .clock(CLOCK_50), .data_a(), .data_b(wrdata), .wren_a(), .wren_b(wren), .q_a(), .q_b(redata));
  
+    // instantiate pacman location control
     pacman_loc_ctrl pac_loc (.CLOCK_50, .reset(reset), .done(pac_done), .up(up), .down(down), .left(left), .right(right), .pill_count(pill_count),
                              .curr_pacman_x(curr_pacman_x), .curr_pacman_y(curr_pacman_y), .next_pacman_x(next_pacman_x), .next_pacman_y(next_pacman_y));
 
+	 // instantiate ghost ai
     parameter DELAY = 100;
     ghosts_ai #(DELAY) ghost_loc
                     (.CLOCK_50(CLOCK_50), .reset(reset), .enable(enable), .curr_pacman_x(curr_pacman_x), .curr_pacman_y(curr_pacman_y),
@@ -212,20 +224,24 @@ module map_RAM_writer_testbench();
 							.curr_ghost2_x(curr_ghost2_x), .curr_ghost2_y(curr_ghost2_y),
                      .next_ghost1_x(next_ghost1_x), .next_ghost1_y(next_ghost1_y), 
 							.next_ghost2_x(next_ghost2_x), .next_ghost2_y(next_ghost2_y));
+							
+	 // utilizing verilog's implicit port connections
     map_RAM_writer dut (.*);
 
+	 // block setting up the clock
     parameter CLOCK_PERIOD = 100;
     initial begin
         CLOCK_50 <= 0;
         forever #(CLOCK_PERIOD/2) CLOCK_50 <= ~CLOCK_50;
-    end
+    end // closes block setting up the clock
 
+	 // block setting inputs to the design
     initial begin
         
         enable <= 0; reset <= 1; @(posedge CLOCK_50);
-        // eset <= 0; direction <= 4'b0010; @(posedge CLOCK_50);
         direction <= 4'b0000; @(posedge CLOCK_50);
         reset <= 0; @(posedge CLOCK_50);
+		  
 		  for (int i = 0; i < 61; i ++ ) begin
 				@(posedge CLOCK_50);
 		  end
@@ -234,67 +250,17 @@ module map_RAM_writer_testbench();
             for (int i = 0; i < 100; i ++) begin
                 @(posedge CLOCK_50);
             end
-            
-            
         end
         
+        for (int j = 0; j < 9; j ++) begin
         direction <= 4'b0010; @(posedge CLOCK_50);
         direction <= 4'b0000; @(posedge CLOCK_50);
                               @(posedge CLOCK_50);
                               @(posedge CLOCK_50);
                               @(posedge CLOCK_50);
                               @(posedge CLOCK_50);
-        direction <= 4'b0010; @(posedge CLOCK_50);
-        direction <= 4'b0000; @(posedge CLOCK_50);
-                              @(posedge CLOCK_50);
-                              @(posedge CLOCK_50);
-                              @(posedge CLOCK_50);
-                              @(posedge CLOCK_50);
-        direction <= 4'b0010; @(posedge CLOCK_50);
-        direction <= 4'b0000; @(posedge CLOCK_50);
-                              @(posedge CLOCK_50);
-                              @(posedge CLOCK_50);
-                              @(posedge CLOCK_50);
-                              @(posedge CLOCK_50);
-        direction <= 4'b0010; @(posedge CLOCK_50);
-        direction <= 4'b0000; @(posedge CLOCK_50);
-                              @(posedge CLOCK_50);
-                              @(posedge CLOCK_50);
-                              @(posedge CLOCK_50);
-                              @(posedge CLOCK_50);
-        direction <= 4'b0010; @(posedge CLOCK_50);
-        direction <= 4'b0000; @(posedge CLOCK_50);
-                              @(posedge CLOCK_50);
-                              @(posedge CLOCK_50);
-                              @(posedge CLOCK_50);
-                              @(posedge CLOCK_50);
-                              @(posedge CLOCK_50);
-        direction <= 4'b0010; @(posedge CLOCK_50);
-        direction <= 4'b0000; @(posedge CLOCK_50);
-                              @(posedge CLOCK_50);
-                              @(posedge CLOCK_50);
-                              @(posedge CLOCK_50);
-                              @(posedge CLOCK_50);
-                              @(posedge CLOCK_50);
-        direction <= 4'b0010; @(posedge CLOCK_50);
-        direction <= 4'b0000; @(posedge CLOCK_50);
-                              @(posedge CLOCK_50);
-                              @(posedge CLOCK_50);
-                              @(posedge CLOCK_50);
-                              @(posedge CLOCK_50);
-                              @(posedge CLOCK_50);
-        direction <= 4'b0010; @(posedge CLOCK_50);
-        direction <= 4'b0000; @(posedge CLOCK_50);
-                              @(posedge CLOCK_50);
-                              @(posedge CLOCK_50);
-                              @(posedge CLOCK_50);
-                              @(posedge CLOCK_50);
-        direction <= 4'b0010; @(posedge CLOCK_50);
-        direction <= 4'b0000; @(posedge CLOCK_50);
-                              @(posedge CLOCK_50);
-                              @(posedge CLOCK_50);
-                              @(posedge CLOCK_50);
-                              @(posedge CLOCK_50);
+		  end 
+		  
         direction <= 4'b1000; @(posedge CLOCK_50);
         direction <= 4'b0000; @(posedge CLOCK_50);
                               @(posedge CLOCK_50);
@@ -314,5 +280,5 @@ module map_RAM_writer_testbench();
                               @(posedge CLOCK_50);
                               @(posedge CLOCK_50);
         $stop;                @(posedge CLOCK_50);
-    end
-endmodule
+    end // closes block setting inputs to the design
+endmodule // closes testbench

@@ -42,4 +42,4 @@ module bcd_3b (binary, hundreds, tens, ones);
             ones[0] = binary[i]; 
         end
     end
-endmodule
+endmodule // closes module
